@@ -1,0 +1,57 @@
+unit Useleccione_fecha;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ComCtrls,ufunciones;
+
+type
+  Tseleccione_fecha = class(TForm)
+    DateTimePicker1: TDateTimePicker;
+    BitBtn1: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  seleccione_fecha: Tseleccione_fecha;
+
+implementation
+
+uses Unitgestion_de_turnos;
+
+{$R *.dfm}
+
+procedure Tseleccione_fecha.BitBtn1Click(Sender: TObject);
+var tf:tfuncion;
+fecha:string;
+begin
+fecha:=datetostr(datetimepicker1.DateTime);
+UGLOBAL.VALOR_BUSQUEDA_GESTION:=fecha;
+tf:=tfuncion.Create;
+ if tf.busca_turnos_por_fecha_seleccionada(fecha)  then
+    begin
+    gestion_de_turnos.DBGrid1.Columns[0].Visible:=falsE;
+      gestion_de_turnos.porfecha.Caption:='Listado de Turnos del: '+trim(fecha);
+     gestion_de_turnos.porfecha.Visible:=true;
+     end else
+    begin
+     showmessage('No se encontraron turnos para la fecha '+trim(fecha));
+    end;
+tf.Free;
+close;
+
+end;
+
+procedure Tseleccione_fecha.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+if key=#27 then
+close;
+end;
+
+end.

@@ -1,0 +1,64 @@
+unit Unit3listadoparamailing;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls,Umodulo, StdCtrls, DBCtrls, DB, ADODB, Buttons,
+  scExcelExport;
+
+type
+  Tseleccionefechayplanta = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    selecMes: TComboBox;
+    scExcelExport1: TscExcelExport;
+    Edit1: TEdit;
+    Label2: TLabel;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    sale:boolean;
+  end;
+
+var
+  seleccionefechayplanta: Tseleccionefechayplanta;
+
+implementation
+
+
+
+{$R *.dfm}
+
+procedure Tseleccionefechayplanta.BitBtn2Click(Sender: TObject);
+begin
+sale:=true;
+close;
+end;
+
+procedure Tseleccionefechayplanta.BitBtn1Click(Sender: TObject);
+begin
+sale:=false;
+close;
+end;
+
+procedure Tseleccionefechayplanta.FormActivate(Sender: TObject);
+begin
+edit1.Text:=FormatDateTime('yyyy',Date);
+self.ADOQuery1.Connection:=modulo.conexion;
+self.ADOQuery1.Close;
+self.ADOQuery1.SQL.Clear;
+self.ADOQuery1.SQL.Add('select mensaje, nombre from centros order by nombre asc');
+self.ADOQuery1.ExecSQL;
+self.ADOQuery1.Open;
+end;
+
+end.

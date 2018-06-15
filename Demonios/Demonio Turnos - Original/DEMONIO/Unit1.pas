@@ -1,0 +1,583 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ComCtrls,inifiles, DB, ADODB, FMTBcd, SqlExpr, USuperRegistry,
+   DBXpress, Provider, dbclient, DBCtrls, ExtCtrls, RXShell, Menus;
+
+   Threadvar
+       MyBD : TSqlConnection;
+       MyBD_test:TSqlConnection;
+       BDAG: TSQLConnection;
+       TD: TTransactionDesc;
+       BDPADRON : TSqlConnection;
+
+        const
+
+        {$IFDEF INTEVE}
+        APPLICATION_NAME = 'SATELITE';
+        COMPANY_NAME = 'DHRMA';
+        {$ELSE}
+        APPLICATION_NAME = 'SAGCHILE';
+        COMPANY_NAME = 'PRTCHILE';
+        {$ENDIF}
+
+        SO_WINNT = '4.0';
+        SO_WIN2000 = '5.0';
+        SO_WINXP = '5.1';
+        SO_WIN2003 = '5.2';
+
+        VERSION_KEY = 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\';
+
+        APPLICATION_KEY = '\SOFTWARE\'+COMPANY_NAME+'\'+APPLICATION_NAME;
+        APPLICATION_KEY_turno = '\SOFTWARE\citas';
+        PRINTER_KEY = APPLICATION_KEY+'\PRINTER';
+        LICENCIA_KEY = APPLICATION_KEY+'\LICENCIA';
+        BD_KEY = APPLICATION_KEY+'\BD';
+        IO_KEY = APPLICATION_KEY+'\IO';
+        LOGS_ = APPLICATION_KEY+'\LOGS' ;
+
+       HORA_EEJCUTAR='20:30:00';
+type
+  TForm1 = class(TForm)
+    BitBtn1: TBitBtn;
+    Memo1: TMemo;
+    Button1: TButton;
+    Proc: TADOStoredProc;
+    ADOCommand1: TADOCommand;
+    Timer1: TTimer;
+    PopupMenu1: TPopupMenu;
+    Ocultar1: TMenuItem;
+    Mostrar1: TMenuItem;
+    RxTrayIcon1: TRxTrayIcon;
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Ocultar1Click(Sender: TObject);
+    procedure Mostrar1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    se_conector:BOOLEAN;
+    CITAS_CONECT:BOOLEAN;
+    NOMPALNTA:STRING;
+    ARCHIVO_LOG:STRING;
+procedure TestOfBD(Alias, UserName, Password: String; Ageva: boolean);    
+function conexion_virtual(base:string):boolean;
+FUNCTION ENVIAR_A_WEB_TURNOS(codrevisionhasta:longint;codplantapasa:string):BOOLEAN;
+FUNCTION NRO_MAQUINA(CODREVISION:LONGINT):LONGINT;
+FUNCTION GUARDA_LOG(MENSAJE:STRING):BOOLEAN;
+procedure EJECUTAR;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses Umodulo;
+
+{$R *.dfm}
+
+procedure TForm1.TestOfBD(Alias, UserName, Password: String; Ageva: boolean);
+    var
+        DBAlias, DBUserName, DBPassword, DBAlias2, DBUserName2, DBPassword2,
+        DBAlias3, DBUserName3, DBPassword3,
+        DBDriverName, DBLibraryName, DBVendorLib, DBGetDriverFunc: String;
+    const
+  coEnableBCD = TSQLConnectionOption(102); // boolean
+    begin
+    se_conector:=false;
+        with TSuperRegistry.Create do
+        try
+            RootKey := HKEY_LOCAL_MACHINE;
+
+                if not OpenKeyRead(BD_KEY)
+            then
+            BEGIN  Application.MessageBox( pchar('No se pudo conectar con la base de datos por: Error de REgistro'),
+         'Acceso denegado', MB_ICONSTOP )  ;
+          END  else begin
+                try
+
+
+                    If Alias=''
+                    then
+                        DBAlias := ReadString('Alias')
+                    Else
+                        DBAlias:=Alias;
+
+
+                    If UserName=''
+                    then
+                        DBUserName := ReadString('User')
+                    else
+                        DBUserName:=UserName;
+
+                    If Password=''
+                    then
+                        DBPassword := ReadString('Password')
+                    else
+                        DBPassword:=Password;
+
+                    DBDriverName := ReadString('DriverName');
+                    DBLibraryName := ReadString('LibraryName');
+                    DBVendorLib := ReadString('VendorLib');
+                    DBGetDriverFunc := ReadString('GetDriverFunc');
+
+                    DBAlias2:='';
+                    DBUserName2:='';
+                    DBPassword2:='';
+                    DBAlias3:='';
+                    DBUserName3:='';
+                    DBPassword3:='';
+                    try
+                      DBAlias2 := ReadString('Alias2');
+                      DBUserName2 := ReadString('User2');
+                      DBPassword2 := ReadString('Password2');
+                      DBAlias3 := ReadString('Alias3');
+                      DBUserName3 := ReadString('User3');
+                      DBPassword3 := ReadString('Password3');
+                    except
+
+                    end;
+
+                except
+
+                         // FORM1.memo1.Lines.Add('No se encontró en el registro algún parámetro necesario para la conexión a la base de datos');
+                       APPLICATION.ProcessMessages;
+
+                    //mensaje:='No se encontró en el registro algún parámetro necesario para la conexión a la base de datos';
+                    exit;
+                end;
+
+
+                MyBD := TSQLConnection.Create(nil);
+                with MyBD do
+                begin
+                   DriverName := DBDriverName;
+                   LibraryName := DBLibraryName;
+                   VendorLib := DBVendorLib;
+                   GetDriverFunc := DBGetDriverFunc;
+
+                   Params.Values['DataBase'] := DBAlias;
+                   Params.Values['EnableBCD'] := 'True';
+                   Params.Values['User_Name'] := DBUserName;
+                   Params.Values['Password'] := DBPassword;
+                   LoginPrompt := false;
+                   KeepConnection := true;
+                end;
+                try
+                    MyBD.Open;
+                    mybd.SQLConnection.SetOption(coEnableBCD, Integer(False));
+                   se_conector:=true;
+                except
+                      on E: Exception do
+                      BEGIN
+                        se_conector:=false;
+                         GUARDA_LOG(DATETOSTR(DATE)+'-'+TIMETOSTR(TIME)+'-No se pudo conectar con la base DE DATOS ORACLE '+ALIAS+'  por: ' + E.message)
+
+                      END;
+                end;
+           END;
+          
+        finally
+            Free;
+        end;
+
+    end;
+
+FUNCTION TForm1.GUARDA_LOG(MENSAJE:STRING):BOOLEAN;
+VAR LOG:TEXTFILE;LINK:STRING;
+BEGIN
+link:= ExtractFilePath( Application.ExeName )  + ARCHIVO_LOG;
+assignfile(LOG,link);
+
+if fileexists(link)=false then
+rewrite(LOG);
+ append(LOG);
+ WRITELN(LOG,MENSAJE);
+ CLOSEFILE(LOG);
+END;
+
+procedure TForm1.EJECUTAR;
+VAR
+BASE,Virtua,actual,alias,userbd,password,codplanta_cisa,linea:STRING;
+con,link:string;
+archivo,LOG:textfile;  FE:STRING;
+codrevison:longint;
+
+begin
+FE:=COPY(DATETOSTR(DATE),1,2)+COPY(DATETOSTR(DATE),4,2)+COPY(DATETOSTR(DATE),7,4);
+ARCHIVO_LOG:='LOG_'+FE+'.txt';
+link:= ExtractFilePath( Application.ExeName )  + ARCHIVO_LOG;
+assignfile(LOG,link);
+REWRITE(LOG);
+closefile(log);
+with TSuperRegistry.Create do
+  try
+  RootKey := HKEY_LOCAL_MACHINE;
+    if OpenKeyRead(APPLICATION_KEY) then
+      Begin
+      BASE:=ReadString('Base_Centro');
+      virtua:=ReadString('Virtual');
+      actual:=ReadString('Conex_actual');
+      end;
+  Finally
+    free;
+  end;
+
+conexion_virtual('cita');
+IF CITAS_CONECT=TRUE THEN
+BEGIN
+  link:= ExtractFilePath( Application.ExeName )  + 'plantas.txt';
+  assignfile(archivo,link);
+  reset(archivo) ;
+   while not eof(archivo) do
+   begin
+     MEMO1.Clear;
+     readln(archivo,alias);
+     NOMPALNTA:=ALIAS;
+     userbd:='PRTCH';
+     password:='henkel';
+     TestOfBD(alias,userbd,password,false);
+     if se_conector=true then
+      BEGIN
+        form1.Caption:='CONECTADO A '+ ALIAS;
+        memo1.Lines.Add('CONECTADO A: '+ALIAS);
+        FORM1.HiNT:='CONECTADO A '+ ALIAS;
+        RxTrayIcon1.HiNT:='CONECTADO A '+ ALIAS;
+        APPLICATION.ProcessMessages;
+        with tsqlQuery.Create(nil) do
+        try
+          SQLConnection:= MYBD;
+          SQL.Add('select codunicoplanta from planta');
+          Open;
+          codplanta_cisa:=fields[0].asstring;
+
+       finally
+         close;
+         free;
+       end;
+
+        modulo.QUERY_WEB.Close;
+        modulo.QUERY_WEB.SQL.Clear;
+        modulo.QUERY_WEB.SQL.Add('select max(CODREVISION) from  REVISIONVEHICULO  where  CODPLANTA='+#39+trim(codplanta_cisa)+#39);
+        modulo.QUERY_WEB.ExecSQL;
+        modulo.QUERY_WEB.open;
+        codrevison:=modulo.QUERY_WEB.Fields[0].AsInteger;
+
+          ENVIAR_A_WEB_TURNOS(codrevison,codplanta_cisa);
+        END  else
+        begin
+        end;
+
+   mybd.Close;
+   end;
+
+{PROCEDURE}
+TRY
+ memo1.Lines.Add('EJECUTANDO PROCEDURE ActualizarRevePendientes');
+ APPLICATION.ProcessMessages;
+Proc.Connection:=modulo.conexion;
+proc.ProcedureName := 'ActualizarRevePendientes';
+Proc.ExecProc;
+EXCEPT
+  on E: Exception do
+                      BEGIN
+                        MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'|ERROR AL  EJECUTAR PROCEDURE ActualizarRevePendientes.   POR :'+ E.message);
+                      END;
+END;
+
+modulo.conexion.Close;
+
+closefile(archivo);
+END;
+end;
+
+FUNCTION TFORM1.NRO_MAQUINA(CODREVISION:LONGINT):LONGINT;
+VAR sqloracle:STRING;
+NUMMAQUINA:LONGINT;
+ BEGIN
+ sqloracle:='SELECT COUNT (*) FROM PRTCH.FINREVESTACION  '+
+           '  WHERE codrevision = '+inttostr(CODREVISION)+' AND TRIM(resultado) = ''DG'' and estacion in(SELECT DISTINCT CODESTACION FROM FINREVISION WHERE codrevision ='+inttostr(CODREVISION)+
+           '  AND ( VALORREF IS NULL OR SUBSTR (VALORREF, 1, 1) IN  (''>'',''<'',''='','','',''1'', ''2'',''3'',''4'',''5'',''6'',''7'',''8'',''9'',''0'')))';
+
+  with tsqlQuery.Create(nil) do
+    try
+        SQLConnection:= MYBD;
+        SQL.Add(sqloracle);
+        Open;
+        NUMMAQUINA := Fields[0].ASINTEGER;
+
+  finally
+        Close;
+        Free;
+  end;
+
+  NRO_MAQUINA:=NUMMAQUINA;
+END;
+  FUNCTION TFORM1.ENVIAR_A_WEB_TURNOS(codrevisionhasta:longint;codplantapasa:string):BOOLEAN;
+var sqloracle,SQL_WEB:string;
+
+CODPLANTA:string;
+
+CODTIPOATENCION,CODREVISION  :longint;
+CODATENCION :longint;
+CODESTADOREVISION :longint;
+NUMREVISION:longint;
+PATENTE:string;
+CODTIPOVEHICULO  :longint;
+FECHALTA:string;
+CODCLASE:string;
+RESULTADO,PICKLISTDESC:string;
+CODFRECU_UNICO :longint;
+FECVENCI   :STRING;
+NUMMAQUINA ,CODVEHIC,acodclien :longint;
+aqolicklist:tsqlQuery;
+
+BEGIN
+
+ with tsqlQuery.Create(nil) do
+    try
+        SQLConnection:= MYBD;
+        SQL.Add('SELECT   '+
+                ' REV.CODREVISION as REVCODREVISION,   '+
+                ' REV.CODTIPOATENCION AS REVCODTIPOATENCION,  '+
+                ' REV.CODATENCION AS REVCODATENCION,   '+
+                ' REV.CODESTADOREVISION AS REVCODESTADOREVISION, '+
+                ' REV.NUMREVISION AS REVNUMREVISION ,  '+
+                ' VE.PATENTE AS VEPATENTE,   '+
+                ' VE.CODTIPOVEHICULO AS VECODTIPOVEHICULO, '+
+                ' REV.FECHALTA AS REVFECHALTA,   '+
+                ' REV.CODCLASE AS REVCODCLASE,  '+
+                ' REV.RESULTADO AS REVRESULTADO, '+
+                ' REV.CODFRECU_UNICO AS REVCODFRECU_UNICO,  '+
+                ' REV.FECVENCI  AS REVFECVENCI, a.codclien as acodclien  '+
+                ' FROM REVISION REV,  VEHICULO VE,atencion a  '+
+                ' WHERE REV.CODREVISION  > '+inttostr(codrevisionhasta)+
+                ' AND   REV.CODVEHIC = VE.CODVEHIC  '+
+                ' AND INSPFINA=''S''  AND REV.CODATENCION=A.CODATENCION '+
+                ' AND CODESTADOTRANSICION<>9 and REV.WASPRE  is null '+
+                ' ORDER BY REV.FECHALTA');
+        Open;
+
+        WHILE NOT EOF DO
+        BEGIN
+        acodclien:=FIELDBYNAME('acodclien').ASINTEGER;
+        PATENTE:=TRIM(FIELDBYNAME('VEPATENTE').ASSTRING);
+        CODREVISION :=FIELDBYNAME('REVCODREVISION').ASINTEGER;
+        RESULTADO:=TRIM(FIELDBYNAME('REVRESULTADO').ASSTRING);
+        CODFRECU_UNICO :=FIELDBYNAME('REVCODFRECU_UNICO').ASINTEGER;
+        FECVENCI :=TRIM(FIELDBYNAME('REVFECVENCI').ASSTRING);
+        CODTIPOATENCION  :=FIELDBYNAME('REVCODTIPOATENCION').ASINTEGER;
+        CODESTADOREVISION :=FIELDBYNAME('REVCODESTADOREVISION').ASINTEGER;
+        NUMREVISION:=FIELDBYNAME('REVNUMREVISION').ASINTEGER;
+        CODATENCION :=FIELDBYNAME('REVCODATENCION').ASINTEGER;
+        CODPLANTA:=codplantapasa;
+        CODTIPOVEHICULO :=FIELDBYNAME('VECODTIPOVEHICULO').ASINTEGER;
+        FECHALTA:=TRIM(FIELDBYNAME('REVFECHALTA').ASSTRING);
+        CODCLASE:=TRIM(FIELDBYNAME('REVCODCLASE').ASSTRING);
+        NUMMAQUINA:=NRO_MAQUINA(CODREVISION);
+
+         aqolicklist:=tsqlQuery.Create(nil);
+        aqolicklist.SQLConnection:= MYBD;
+        aqolicklist.SQL.Add('select PICKLISTDESC from TPICKLIST where CODCLIEN='+inttostr(acodclien));
+        aqolicklist.Open;
+        PICKLISTDESC:=TRIM(aqolicklist.FIELDBYNAME('PICKLISTDESC').ASSTRING);
+
+        aqolicklist.Close;
+        aqolicklist.free;
+
+         modulo.QUERY_WEB.Close;
+           modulo.QUERY_WEB.SQL.Clear;
+           modulo.QUERY_WEB.SQL.Add('select * from REVISIONVEHICULO where CODPLANTA='+#39+TRIM(CODPLANTA)+#39+' and CODREVISION='+inttostr(CODREVISION));
+           modulo.QUERY_WEB.ExecSQL;
+           modulo.QUERY_WEB.Open;
+
+           if modulo.QUERY_WEB.IsEmpty=true then
+           begin
+
+             if trim(FECVENCI)='' then
+                begin
+                   SQL_WEB:='INSERT INTO REVISIONVEHICULO (CODPLANTA,CODREVISION ,CODTIPOATENCION ,CODATENCION,CODESTADOREVISION ,NUMREVISION,  '+
+                                             ' PATENTE,CODTIPOVEHICULO ,FECHALTA,CODCLASE,RESULTADO,CODFRECU_UNICO , NUMMAQUINA,PICKLISTDESC) '+
+                                             ' VALUES ('+#39+TRIM(CODPLANTA)+#39+','+INTTOSTR(CODREVISION)+','+inttostr(CODTIPOATENCION)+','+INTTOSTR(CODATENCION)+','+INTTOSTR(CODESTADOREVISION)+
+                                             ','+INTTOSTR(NUMREVISION)+','+#39+TRIM(PATENTE)+#39+','+INTTOSTR(CODTIPOVEHICULO)+',CONVERT(DATETIME,'+#39+TRIM(FECHALTA)+#39+',103) '+
+                                             ','+#39+TRIM(CODCLASE)+#39+','+#39+TRIM(RESULTADO)+#39+','+INTTOSTR(CODFRECU_UNICO)+
+                                             ','+INTTOSTR(NUMMAQUINA)+','+#39+trim(PICKLISTDESC)+#39+')';
+
+               end else begin
+
+                 SQL_WEB:='INSERT INTO REVISIONVEHICULO ( CODPLANTA,CODREVISION ,CODTIPOATENCION ,CODATENCION,CODESTADOREVISION ,NUMREVISION,  '+
+                                             ' PATENTE,CODTIPOVEHICULO ,FECHALTA,CODCLASE,RESULTADO,CODFRECU_UNICO , NUMMAQUINA,FECVENCI,PICKLISTDESC) '+
+                                             ' VALUES ('+#39+TRIM(CODPLANTA)+#39+','+INTTOSTR(CODREVISION)+','+inttostr(CODTIPOATENCION)+','+INTTOSTR(CODATENCION)+','+INTTOSTR(CODESTADOREVISION)+
+                                             ','+INTTOSTR(NUMREVISION)+','+#39+TRIM(PATENTE)+#39+','+INTTOSTR(CODTIPOVEHICULO)+',CONVERT(DATETIME,'+#39+TRIM(FECHALTA)+#39+',103) '+
+                                             ','+#39+TRIM(CODCLASE)+#39+','+#39+TRIM(RESULTADO)+#39+','+INTTOSTR(CODFRECU_UNICO)+
+                                             ','+INTTOSTR(NUMMAQUINA)+',convert(datetime,'+#39+trim(FECVENCI)+#39+',103),'+#39+trim(PICKLISTDESC)+#39+')';
+                end;
+
+             modulo.CONEXION.BeginTrans;
+               TRY
+                MEMO1.Lines.Add('ACTUALIZANDO CODREVISION: '+INTTOSTR(CODREVISION));
+                 RxTrayIcon1.HiNT:='ACTUALIZANDO CODREVISION: '+INTTOSTR(CODREVISION);
+                APPLICATION.ProcessMessages;
+                 modulo.QUERY_WEB.Close;
+                 modulo.QUERY_WEB.SQL.Clear;
+                 modulo.QUERY_WEB.SQL.Add(SQL_WEB);
+                 modulo.QUERY_WEB.ExecSQL;
+                modulo.CONEXION.CommitTrans;
+                  MEMO1.Lines.Add('TRANSACCION: OK');
+                  APPLICATION.ProcessMessages;
+
+           EXCEPT
+             on E: Exception do
+                      BEGIN
+                        MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+                         modulo.CONEXION.RollbackTrans;
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+NOMPALNTA+' NO SE INSERTO CODREVISION '+INTTOSTR(CODREVISION)+'   POR :'+ E.message);
+                      END;
+          END;
+
+       end;
+
+        NEXT;
+        END;
+
+  finally
+        Close;
+        Free;
+  end;
+
+ //Application.MessageBox( 'PROCESO TERMINADO.', 'Atención',
+ // MB_ICONINFORMATION );
+end;
+
+function TForm1.conexion_virtual(base:string):boolean;
+var servidor,pass,user:string;
+begin
+CITAS_CONECT:=FALSe;
+modulo.conexion.Close;
+//servidor:=GetRegistryData(HKEY_LOCAL_MACHINE,'\Software\Citas\', 'Server');
+with TSuperRegistry.Create do
+  try
+  RootKey := HKEY_LOCAL_MACHINE;
+    if OpenKeyRead(APPLICATION_KEY_turno) then
+      Begin
+      servidor:=ReadString('Server');
+      pass:=ReadString('Password');
+      user:=ReadString('User');
+      //actual:=ReadString('Conex_actual');
+      end;
+  Finally
+    free;
+  end;
+
+  if trim(pass)<>'' then
+  begin
+  {
+  modulo.conexion.ConnectionString:='Provider=MSDASQL.1;Password='+trim(pass)+';Persist Security Info=False;'+
+                                  'User ID='+trim(user)+';Data Source=cita;'+
+                                  'Extended Properties="DSN=cita;Description=conexion a reservas de turnos;'+
+                                  'UID=sa;APP=Enterprise;WSID='+trim(servidor)+';DATABASE='+trim(base)+';Network=DBMSSOCN";Initial Catalog='+trim(base);
+  }
+
+   modulo.conexion.ConnectionString:='Provider=SQLOLEDB.1;Persist Security Info=False;Password='+trim(pass)+';User ID='+trim(user)+';Initial Catalog='+trim(base)+';Data Source='+trim(servidor);
+
+ end else
+ begin
+  {
+   modulo.conexion.ConnectionString:='Provider=MSDASQL.1;Persist Security Info=False;'+
+                                  'User ID='+trim(user)+';Data Source=cita;'+
+                                  'Extended Properties="DSN=cita;Description=conexion a reservas de turnos;'+
+                                  'UID=sa;APP=Enterprise;WSID='+trim(servidor)+';DATABASE='+trim(base)+';Network=DBMSSOCN";Initial Catalog='+trim(base);
+}
+
+    modulo.conexion.ConnectionString:='Provider=SQLOLEDB.1;Persist Security Info=False;User ID='+trim(user)+';Initial Catalog='+trim(base)+';Data Source='+trim(servidor);
+ end;
+
+ try
+  if not (modulo.conexion.Connected) then
+     begin
+        modulo.conexion.Open;
+      modulo.conexion.Connected:=true;
+     // uglobal.ID_PLANTA:=GetRegistryData(HKEY_LOCAL_MACHINE,'\Software\Citas\', 'Planta');
+   //   form1.caption:='Administración de Reservas de Turnos OnLine.  [ '+trim(busca_nombr_centro(uglobal.ID_PLANTA))+' ]';
+   CITAS_CONECT:=TRUE;
+     end;
+ except
+  GUARDA_LOG(DATETOSTR(DATE)+'-'+TIMETOSTR(TIME)+'-NO DE PUSO CONECTAR A CITAS');
+  CITAS_CONECT:=FALSE;
+ end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+CAPTION:='EXPORTADOR';
+memo1.Clear;
+Timer1.Enabled:=FALSe;
+BUTTON1.Enabled:=FALSe;
+SELF.BitBtn1.Enabled:=TRUE;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+HINT:='STOP...';
+Timer1.Enabled:=FALSe;
+//MYBD.Close;
+//MODULO.conexion.Close;
+BUTTON1.Enabled:=FALSe;
+SELF.BitBtn1.Enabled:=TRUE;
+CAPTION:='EXPORTADOR';
+ RxTrayIcon1.HiNT:='STOP!!!';
+MEMO1.Clear;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+
+//IF TRIM(TIMETOSTR(TIME))=TRIM(HORA_EEJCUTAR) THEN
+//BEGIN
+HINT:='EXPOTANDO...';
+timer1.Enabled:=falsE;
+ SELF.EJECUTAR;
+ timer1.Interval:=10800000;
+ timer1.Enabled:=true;
+//END;
+MEMO1.Clear;
+MEMO1.Lines.Add('EXPORTACION ...');
+ RxTrayIcon1.HiNT:='INICIADO....';
+APPLICATION.ProcessMessages;
+end;
+
+procedure TForm1.BitBtn1Click(Sender: TObject);
+begin
+HINT:='INICIADO...';
+MEMO1.Clear;
+//MEMO1.Lines.Add('EXPORTACION A LAS '+HORA_EEJCUTAR);
+MEMO1.Lines.Add('EXPORTACION ..');
+ RxTrayIcon1.HiNT:='INICIADO...';
+APPLICATION.ProcessMessages;
+BUTTON1.Enabled:=TRUE;
+SELF.BitBtn1.Enabled:=FALSE;
+Timer1.Enabled:=TRUE;
+end;
+
+procedure TForm1.Ocultar1Click(Sender: TObject);
+begin
+HIDE;
+end;
+
+procedure TForm1.Mostrar1Click(Sender: TObject);
+begin
+SHOW;
+end;
+
+end.
