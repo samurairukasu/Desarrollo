@@ -1,0 +1,2 @@
+
+Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54043215 bytes) in /home/httpd/suvtv/includes/nusoap/lib/nusoap.php on line 291

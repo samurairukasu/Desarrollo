@@ -1,0 +1,24 @@
+unit Unprocesando;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  Tprocesando = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  procesando: Tprocesando;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,948 @@
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=SERVER-DTO)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=SERVER-DTO)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:48:49
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=SERVER-DTO)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=SERVER-DTO)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:48:52
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=SERVER-DTO)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=SERVER-DTO)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:49:40
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=SERVER-DTO)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=SERVER-DTO)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:49:44
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=SERVER-DTO)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=SERVER-DTO)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:52:59
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=SERVER-DTO)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=SERVER-DTO)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:53:00
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-dto)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:53:44
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-dto)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 4.04.21\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 08-MAY-2009 12:53:46
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 16-NOV-2010 14:32:28
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12545
+    TNS-12545: Connect failed because target host or object does not exist
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Connect failed because target host or object does not exist
+    nt secondary err code: 1001
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 16-NOV-2010 14:33:07
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12545
+    TNS-12545: Connect failed because target host or object does not exist
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Connect failed because target host or object does not exist
+    nt secondary err code: 1001
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 18-NOV-2010 11:31:00
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12545
+    TNS-12545: Connect failed because target host or object does not exist
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Connect failed because target host or object does not exist
+    nt secondary err code: 1001
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 21-DIC-2010 11:37:43
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12545
+    TNS-12545: Connect failed because target host or object does not exist
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Connect failed because target host or object does not exist
+    nt secondary err code: 1001
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-bd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-bd)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-ENE-2011 11:51:17
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-bd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-bd)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-ENE-2011 11:51:42
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-bd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-bd)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-ENE-2011 11:56:37
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-bd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-bd)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-ENE-2011 11:57:38
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-bd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-bd)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-ENE-2011 12:01:43
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-bd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-bd)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-ENE-2011 12:02:28
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-bd)(CID=(PROGRAM=C:\DesarrolloStarteam\VTVSAG 5.1.0\Sag98.exe)(HOST=SIS-128)(USER=lminutillo)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-bd)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-ENE-2011 12:03:37
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.28.1)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applus04)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.2.0\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 30-SEP-2011 18:12:13
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.28.1)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applus04)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.2.0\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 30-SEP-2011 18:16:45
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.28.1)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applus)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.0\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-OCT-2011 12:37:07
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=martin)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.6.1\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 26-SEP-2012 12:27:44
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=martin)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.6.1\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 26-SEP-2012 12:28:11
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=martin)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.6.1\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 26-SEP-2012 12:28:13
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=martin)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.6.1\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 26-SEP-2012 12:28:13
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=martin)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.6.1\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 26-SEP-2012 12:31:39
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=martin)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.6.1\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 26-SEP-2012 12:31:41
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-dto)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.9\Sag98.exe)(HOST=SIS-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-FEB-2013 07:50:54
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-dto)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.9\Sag98.exe)(HOST=SIS-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-FEB-2013 07:53:31
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-dto)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.3.9\Sag98.exe)(HOST=SIS-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 13-MAY-2013 15:02:58
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=testing)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.4.0\Sag98.exe)(HOST=SIS-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 12-JUN-2013 10:51:21
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-testing.applus)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.4.0\Sag98.exe)(HOST=SIST-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-testing.applus)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-AGO-2013 10:33:52
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-testing.applus)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.4.0\Sag98.exe)(HOST=SIST-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-testing.applus)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-AGO-2013 10:34:00
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-testing.applus)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.4.0\Sag98.exe)(HOST=SIST-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-testing.applus)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-AGO-2013 10:34:00
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-testing.applus)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.4.0\Sag98.exe)(HOST=SIST-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-testing.applus)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-AGO-2013 10:34:10
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-testing.applus)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.4.0\Sag98.exe)(HOST=SIST-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-testing.applus)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-AGO-2013 10:34:14
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SID=*)(SERVICE_NAME=server-testing.applus)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG 5.4.0\Sag98.exe)(HOST=SIST-128)(USER=mbien)))(ADDRESS=(PROTOCOL=TCP)(HOST=server-testing.applus)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-AGO-2013 10:34:14
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.3.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 23-AGO-2016 12:47:26
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.3.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 23-AGO-2016 12:48:39
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.3.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-AGO-2016 17:51:23
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.3.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-AGO-2016 18:00:02
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.3.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-AGO-2016 18:02:22
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.3.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 01-SEP-2016 14:35:17
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.4.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 15-SEP-2016 10:09:08
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.4.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\VTVSAG CF VERSION 1.02\Sag98.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 15-SEP-2016 11:49:54
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.3.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\SVN\APPLUS\CABA\SAGVTV\trunk\SAGVTV 1.3.3\Sag98.exe)(HOST=SIST-133)(USER=lsuarez))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 17-OCT-2017 11:08:53
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.4.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\SVN\APPLUS\CABA\SAGVTV\trunk\SAGVTV 1.3.3\Sag98.exe)(HOST=SIST-133)(USER=lsuarez))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 07-FEB-2018 17:21:41
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.4.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\SVN\APPLUS\CABA\SAGVTV\trunk\SAGVTV 1.3.3\Sag98.exe)(HOST=SIST-133)(USER=lsuarez))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 22-FEB-2018 17:01:12
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0

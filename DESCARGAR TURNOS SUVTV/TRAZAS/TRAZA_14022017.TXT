@@ -1,0 +1,4 @@
+14/02/2017|14:46:36:PP
+14/02/2017|15:00:06:ERROR REALIZAR INSERT EN TMP_XML_INFORMACIONPAGO EDatabaseError error : IDPAGO: 292638 ORA-01756: quoted string not properly terminated
+
+14/02/2017|15:00:11:ERROR GENERAL EN FUNCION GUARDAR PAGOS. EAccessViolation error : IDPAGO: 292638 Access violation at address 00525FA2 in module 'Project1.exe'. Read of address 00000000

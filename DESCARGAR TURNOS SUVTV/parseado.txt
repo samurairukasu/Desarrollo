@@ -1,0 +1,16 @@
+
+#DOCUMENT
+
+
+SOAP-ENV:ENVELOPE
+
+
+SOAP-ENV:BODY
+
+
+NS1:OBTENER_TOKENRESPONSE
+
+id_resp=01001
+respuesta=Token generado
+token=dc821e59924122d2ad87b0b4c70dc3f9
+**FIN**

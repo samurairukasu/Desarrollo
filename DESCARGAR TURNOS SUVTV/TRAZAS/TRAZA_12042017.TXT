@@ -1,0 +1,40 @@
+12/04/2017|18:17:50:OBTENIENDO CODCLIENTECONTACTO. EDatabaseError error : IDPAGO: 381424 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:17:52:OBTENIENDO CODCLIENTETITULAR. EDatabaseError error : IDPAGO: 381424 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:17:53:OBTENIENDO CODCLIENTEFACTURACION. EDatabaseError error : IDPAGO: 381424 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:18:06:OBTENIENDO CODCLIENTECONTACTO. EDatabaseError error : IDPAGO: 425510 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:18:07:OBTENIENDO CODCLIENTETITULAR. EDatabaseError error : IDPAGO: 425510 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:18:14:OBTENIENDO CODCLIENTEFACTURACION. EDatabaseError error : IDPAGO: 425510 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:18:23:OBTENIENDO CODCLIENTECONTACTO. EDatabaseError error : IDPAGO: 463040 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:18:25:OBTENIENDO CODCLIENTETITULAR. EDatabaseError error : IDPAGO: 463040 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:18:39:OBTENIENDO CODCLIENTECONTACTO. EDatabaseError error : IDPAGO: 463108 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+12/04/2017|18:18:40:OBTENIENDO CODCLIENTETITULAR. EDatabaseError error : IDPAGO: 463108 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 

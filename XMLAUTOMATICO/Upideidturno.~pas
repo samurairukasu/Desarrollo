@@ -1,0 +1,24 @@
+unit Upideidturno;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TPIDEIDTURNO = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PIDEIDTURNO: TPIDEIDTURNO;
+
+implementation
+
+{$R *.dfm}
+
+end.

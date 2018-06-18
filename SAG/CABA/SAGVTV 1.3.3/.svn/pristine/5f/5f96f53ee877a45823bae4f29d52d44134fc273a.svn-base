@@ -1,0 +1,117 @@
+unit UFSeleccionaPlanta;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, globals,uSagClasses, RxLookup, Db, UsagEstacion,
+  uUtils, ExtCtrls, SqlExpr, dbclient, provider;
+
+type
+  TfrmSeleccionaPlanta = class(TForm)
+    btnaceptar: TBitBtn;
+    Label1: TLabel;
+    btncancelar: TBitBtn;
+    cbPlanta: TRxDBLookupCombo;
+    dsPlantas: TDataSource;
+    Bevel1: TBevel;
+    Image1: TImage;
+    procedure btnaceptarClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+    fPlanta: TClientDataSet;
+  public
+    { Public declarations }
+  end;
+  Procedure DoSeleccionarPlanta;
+var
+  frmSeleccionaPlanta: TfrmSeleccionaPlanta;
+
+implementation
+
+uses
+    UFTMP, UFMainSag98;
+{$R *.DFM}
+
+Procedure DoSeleccionarPlanta;
+begin
+  with TfrmSeleccionaPlanta.create(application) do
+  begin
+    try
+      showmodal;
+    finally
+      free;
+    end;
+  end;
+end;
+
+procedure TfrmSeleccionaPlanta.btnaceptarClick(Sender: TObject);
+var
+    DBUserName, DBPassword,alias : string;
+begin
+  FTmp.Temporizar(TRUE,FALSE,caption, 'Cambiando a la Planta Seleccionada');
+
+  {dbUserName:=fPlanta.fieldbyname(FIELD_USUARIO).asstring;
+  dbPassword:=fPlanta.fieldbyname(FIELD_PASSWORD).asstring;   }
+
+   //alias:=fPlanta.fieldbyname(FIELD_USUARIO).asstring;
+   //dbUserName:='caba';
+   //dbPassword:='02lusabaqui03';
+
+   alias:=fPlanta.fieldbyname(FIELD_SERVICIO).asstring;
+   dbUserName:=fPlanta.fieldbyname(FIELD_USUARIO).asstring;
+   dbPassword:=fPlanta.fieldbyname(FIELD_PASSWORD).asstring;
+
+  FMainSag98.sBarra.Panels[2].Text:=cbplanta.Text;
+  mybd.Close;
+  mybd.free;
+  TestOfBD(alias,dbUserName,dbPassword,false);
+  InitAplicationGlobalTables;
+  FTmp.Temporizar(FALSE,FALSE,'', '');
+end;
+
+
+procedure TfrmSeleccionaPlanta.FormActivate(Sender: TObject);
+var username:string;
+    sdsfPlanta : TSQLDataSet;
+    dspfPlanta : TDataSetProvider;
+begin
+  sdsfPlanta:=TSQLDataSet.Create(self);
+  sdsfPlanta.SQLConnection := BDAG;
+  sdsfPlanta.CommandType := ctQuery;
+  sdsfPlanta.GetMetadata := false;
+  sdsfPlanta.NoMetadata := true;
+  sdsfPlanta.ParamCheck := false;
+  dspfPlanta := TDataSetProvider.Create(self);
+  dspfPlanta.DataSet := sdsfPlanta;
+  dspfPlanta.Options := [poIncFieldProps,poAllowCommandText];
+
+  fPlanta:=TClientdataset.Create (self);
+  try
+    with fplanta do
+    begin
+      setprovider(dspfPlanta);
+      commandtext := 'SELECT * FROM PLANTA_CABA WHERE IDPLANTA IN (3,4) ORDER BY IDPLANTA';
+      Open;
+      dsPlantas.DataSet:=fplanta;
+      username:=devuelveusuario(mybd);
+      username:=fplanta.fields[0].value;
+      username:=fPlanta.fieldbyname(FIELD_SERVICIO).asstring;
+      if not (fPlanta.locate(FIELD_USUARIO,username,[])) then
+        fplanta.first;
+      cbplanta.value:=fplanta.fields[0].value;
+      end;
+  except
+    application.messagebox('No se puede realizar esta operación porque no existe la base AGEVA',pchar(caption),mb_ok+mb_applmodal)
+  end;
+end;
+
+procedure TfrmSeleccionaPlanta.FormDestroy(Sender: TObject);
+begin
+  fplanta.Close;
+  fplanta.free;
+end;
+
+end.

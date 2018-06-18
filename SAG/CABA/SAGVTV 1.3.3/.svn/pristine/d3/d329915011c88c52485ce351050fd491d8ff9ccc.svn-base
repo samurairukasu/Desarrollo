@@ -1,0 +1,12 @@
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:suvtv"
+<SOAP-ENV:Body
+<ns1:informarCambioDominioTurnoResponse xmlns:ns1="urn:suvtv"
+<return xsi:type="tns:respuestaInformarCambioDominioTurno"
+<respuestaID xsi:type="xsd:int"
+-100</respuestaID
+<respuestaMensaje xsi:type="xsd:string"
+Error desconocido</respuestaMensaje
+</return
+</ns1:informarCambioDominioTurnoResponse
+</SOAP-ENV:Body
+</SOAP-ENV:Envelope

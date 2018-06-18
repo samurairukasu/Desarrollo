@@ -1,0 +1,421 @@
+unit UFLISTADOPAGOS_MP;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, FMTBcd, DBXpress, DB, SqlExpr, Provider, DBClient, Grids,
+  DBGrids, RXDBCtrl, USAGESTACION, SpeedBar, ExtCtrls,
+  StdCtrls, Mask, DBCtrls, Buttons,
+  RXLookup, ComCtrls, ComObj;
+
+type
+  TPagosMP = class(TForm)
+    OpenDialog: TOpenDialog;
+    SQLConnection1: TSQLConnection;
+    SQLQuery1: TSQLQuery;
+    DSTPagosMP: TDataSource;
+    sdsQTPagosMP: TSQLDataSet;
+    dspQTPagosMP: TDataSetProvider;
+    QTPagosMP: TClientDataSet;
+    DBPagosMP: TRxDBGrid;
+    SBarPrincipal: TSpeedBar;
+    SpeedbarSection1: TSpeedbarSection;
+    SpeedbarSection2: TSpeedbarSection;
+    SpeedbarSection3: TSpeedbarSection;
+    BExcel: TSpeedItem;
+    SBBusqueda: TSpeedItem;
+    SBSalir: TSpeedItem;
+    BImportarExcel: TButton;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure SBBusquedaClick(Sender: TObject);
+    procedure BExcelClick(Sender: TObject);
+    procedure OnOpen (Sender: TObject);
+    procedure OnClose (Sender: TObject);
+    procedure SBSalirClick(Sender: TObject);
+    procedure BImportarExcelClick(Sender: TObject);
+  private
+     fConsulta: TClientDataSet;
+     sdsfConsulta: TSQLDataSet;
+     dspfConsulta: TDataSetProvider;
+     procedure DoListadoMP;
+     Procedure ExportacionExcelGeneral;
+     procedure DoImportacionExlsOracle;
+  public
+     bErrorCreando : boolean;
+     NombreEstacion, NumeroEstacion, DateIni, DateFin : string;
+     function PutEstacion : string;
+  end;
+
+  procedure GenerateListadoMercadoPago;
+
+var
+  PagosMP: TPagosMP;
+  f: integer;
+  ExcelApp, ExcelLibro, ExcelHoja: Variant;
+  
+implementation
+
+{$R *.dfm}
+
+uses
+   UCDIALGS,
+   ULOGS,
+   UGETDATES,
+   UFTMP,
+   GLOBALS,
+   UUTILS,
+   USAGVARIOS;
+
+resourcestring
+      FICHERO_ACTUAL = 'UFLISTADOPAGOS_MP';
+
+procedure GenerateListadoMercadoPago;
+    begin
+        with TPagosMP.Create(Application) do
+        try
+            try
+                if bErrorCreando then exit;
+                If not GetDates(DateIni,DateFin) then Exit;
+                Caption := Format('Listado Mercado Pago. Planta: %S. (%S - %S)', [PutEstacion,Copy(DateIni,1,10), Copy(DateFin,1,10)]);
+                FTmp.Temporizar(TRUE,FALSE,'Listado Mercado Pago', 'Generando el Listado Mercado Pago.');
+
+                Application.ProcessMessages;
+
+                 DoListadoMP;
+
+                 QTPagosMP.Open;
+
+                FTmp.Temporizar(FALSE,FALSE,'', '');
+                ShowModal;
+            except
+                on E: Exception do
+                begin
+                    FTmp.Temporizar(FALSE,FALSE,'', '');
+                    Application.ProcessMessages;
+                    FAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,1,FICHERO_ACTUAL,'Listado Cancelado por: %s', [E.message]);
+                    MessageDlg('Generación de Listado.', 'El listado no puede generarse en este instante: ' + E.message + #10 + #13 + 'Espere unos minutos, e intentelo de nuevo', mtError, [mbOk], mbOk, 0)
+                end
+            end
+        finally
+            Free;
+            Application.ProcessMessages;
+        end;
+    end;
+
+    procedure TPagosMP.DoListadoMP;
+    begin
+        DeleteTable(MyBD, 'TTMP_TMERCADOPAGO');
+
+        {agregamos el alter session porque sino saltaba error en el procedimiento al
+         calcular la menor fecha}
+        with tsqlquery.create(self) do       //
+        try
+          SQLConnection := mybd;
+          sql.add('alter session set nls_date_format = ''DD/MM/YYYY HH24:MI:SS''');
+          execsql;
+        finally
+          free;
+        end;
+
+        with TSQLStoredProc.Create(self) do
+        try
+            SQLConnection := MyBD;
+            StoredProcName := 'PQ_REPORTE_ADM.DoListadoMP';
+
+            Prepared := true;
+            ParamByName('FECHAINI').Value := DateIni;
+            ParamByName('FECHAFIN').Value := DateFin;
+            ExecProc;
+
+            with tsqlquery.create(self) do       //
+            try
+             sdsQTPagosMP.SQLConnection := mybd;
+
+            finally
+              free;
+            end;
+            Close;
+        finally
+            Free
+        end;
+    end;
+
+    function TPagosMP.PutEstacion : string;
+    begin
+        NombreEstacion := fVarios.NombreEstacion;
+        NumeroEstacion := Format('%d'+'%d',[fVarios.Zona, fVarios.CodeEstacion]);
+        Result := NumeroEstacion + ' ' + NombreEstacion;
+    end;
+
+    procedure TPagosMP.FormCreate(Sender: TObject);
+    begin
+        bErrorCreando := False;
+
+        if (not MyBD.InTransaction) then MyBD.StartTransaction(td);
+        try
+            QTPagosMP.Close;
+            sdsQTPagosMP.SQLConnection := MyBD;
+
+        except
+            on E:Exception do
+            begin
+                FAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,4,FICHERO_ACTUAL,'Listado Cancelado por: %s', [E.message]);
+                MessageDlg('Generación de Listado.', 'El listado no puede generarse en este instante: ' + E.message + #10 + #13 + 'Espere unos minuts, e intentelo de nuevo', mtError, [mbOk], mbOk, 0);
+                bErrorCreando := True
+            end
+        end
+    end;
+
+    procedure TPagosMP.SBBusquedaClick(Sender: TObject);
+begin
+    try
+        Enabled := False;
+        try
+            If not GetDates(DateIni,DateFin) then Exit;
+
+            FTmp.Temporizar(TRUE,FALSE,'Mercado Pago', 'Generando el listado de pagos.');
+
+            Application.ProcessMessages;
+
+            Caption := Format('Listado Mercado Pago. Planta: %S. (%S - %S)', [PutEstacion,Copy(DateIni,1,10), Copy(DateFin,1,10)]);
+
+            QTPagosMP.Close;
+
+            DoListadoMP;
+
+            QTPagosMP.Open;
+
+            FTmp.Temporizar(FALSE,FALSE,'', '');
+
+        except
+            on E: Exception do
+            begin
+                FTmp.Temporizar(FALSE,FALSE,'', '');
+                Application.ProcessMessages;
+                FAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,1,FICHERO_ACTUAL,'Informe Cancelado por: %s', [E.message]);
+                MessageDlg('Generación de Informes.', 'El informe no puede generarse en este instante: ' + E.message + #10 + #13 + 'Espere unos minutos, e intentelo de nuevo', mtError, [mbOk], mbOk, 0)
+            end
+        end
+    finally
+        Enabled := True;
+        Show;
+        Application.ProcessMessages;
+    end;
+end;
+
+procedure TPagosMP.FormDestroy(Sender: TObject);
+begin
+     QTPagosMP.Close;
+     try
+        try
+            if MyBD.InTransaction then MyBD.Rollback(td) // MyBD.Commit
+            else raise Exception.Create('Se ha perdido la transacción de Bloqueo de la tabla temporal del informe de Servicios Prestados')
+        except
+            on E: Exception do
+            begin
+                FAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,6,FICHERO_ACTUAL,'Error cerrando la ficha de Epago: %s', [E.message]);
+                MessageDlg('Generación de Informe.', 'Perdida de Transacciones: ' + E.message + #10 + #13 + 'Espere unos minutos e intentelo otra vez' , mtError, [mbOk], mbOk, 0)
+            end
+        end
+    finally
+        FTmp.Temporizar(FALSE,FALSE,'','');
+    end
+end;
+
+procedure TPagosMP.BExcelClick(Sender: TObject);
+begin
+  ExportacionExcelGeneral;
+end;
+
+procedure TPagosMP.ExportacionExcelGeneral;
+const
+
+    //Titulos Cabecera
+    F_TTL = 1;   C_TTL = 5;
+    F_STT = 2;   C_STT = 5;
+
+    //Datos
+    F_INI = 8;   C_ACD = 6;
+                 C_PAG = 7;
+
+var
+    i, f : integer;
+    ExcelApp, ExcelLibro, ExcelHoja: Variant;
+begin
+  try
+    DBPagosMP.DataSource.DataSet.DisableControls;
+    try
+      opendialog.Title := 'Seleccione la Planilla de Entrada';
+      if OpenDialog.Execute then
+      begin
+        FTmp.Temporizar(TRUE,FALSE,'Mercado Pago', 'Exportando los datos a excel');
+        ExcelApp := CreateOleObject('Excel.Application');
+        ExcelLibro := ExcelApp.Workbooks.open(OpenDialog.FileName);
+        ExcelHoja := ExcelLibro.Worksheets[1];
+
+        f:= F_INI;
+        ExcelHoja.Cells[F_TTL,C_TTL].value := 'Mercado Pago';
+        ExcelHoja.Cells[F_STT,C_STT].value := Format('Planta nº: %S. (%S - %S)', [PutEstacion,Copy(DateIni,1,10), Copy(DateFin,1,10)]);
+
+        QTPagosMP.First;
+        while not QTPagosMP.EOF do
+        begin
+            for i := 0 to DBPagosMP.Columns.Count - 1 do
+              BEGIN 
+                ExcelHoja.Cells[f,i+1].value := QTPagosMP.FieldByName(DBPagosMP.Columns[i].FieldName).AsString;
+                ExcelHoja.Cells[f,C_ACD].value := StrToDate(QTPagosMP.FieldByName('FECHA_ACREDITACION').AsString); //Corrige en la exportacion a excel el formato de fecha entre las fecha 01 al 12 del mes. - Lucas
+                ExcelHoja.Cells[f,C_PAG].value := StrToDate(QTPagosMP.FieldByName('FECHA_PAGO').AsString); //Corrige en la exportacion a excel el formato de fecha entre las fecha 01 al 12 del mes. - Lucas
+              END;
+            QTPagosMP.Next;
+            inc(f);
+        end;
+        QTPagosMP.First;
+
+      end;
+      opendialog.Title := 'Seleccione la Planilla de Salida';
+      if OpenDialog.Execute then
+         excellibro.saveas(opendialog.filename);
+      ExcelApp.Quit;
+    except
+            on E: Exception do
+            begin
+                FAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,30,FICHERO_ACTUAL,'Error cerrando la ficha de Mercado Pago: %s', [E.message]);
+                MessageDlg('Exportación','La exportación no ha podido efectuarse correctamente',mtInformation,[mbOK],mbOk,0);
+            end
+    end;
+  finally
+      DBPagosMP.DataSource.DataSet.enableControls;
+      FTmp.Temporizar(FALSE,FALSE,'','');
+      application.ProcessMessages;
+  end;
+end;
+
+procedure TPagosMP.OnClose (Sender: TObject);
+begin
+    FTmp.Temporizar(TRUE,FALSE,'Informes','Cerrando Excel.');
+    Enabled := TRUE;
+end;
+
+procedure TPagosMP.OnOpen (Sender: TObject);
+begin
+    FTmp.Temporizar(TRUE,FALSE,'Informes','Abriendo Excel y exportando los datos.');
+    Enabled := FALSE;
+end;
+
+procedure TPagosMP.SBSalirClick(Sender: TObject);
+begin
+    FTmp.Temporizar(TRUE,FALSE,'Informes','Restableciendo las tablas temporales');
+    ModalResult := mrOk;
+end;
+
+procedure TPagosMP.BImportarExcelClick(Sender: TObject);
+begin
+    DoImportacionExlsOracle;
+end;
+
+procedure TPagosMP.DoImportacionExlsOracle;
+
+const
+
+    //Datos
+    F_DAT = 2;
+
+var
+  fsql : TStringList;
+  si: String;
+
+  VARIABLE1,
+  VARIABLE2,
+  VARIABLE3,
+  VARIABLE4,
+  VARIABLE5,
+  VARIABLE6,
+  VARIABLE7 :STRING;
+
+begin
+  try
+    opendialog.Title := 'Seleccione el fichero que desea Importar los Datos a Oracle';
+    if OpenDialog.Execute then
+      begin
+        ExcelApp := CreateOleObject('Excel.Application');
+        ExcelLibro := ExcelApp.Workbooks.open(OpenDialog.FileName);
+        ExcelHoja := ExcelLibro.Worksheets[1];
+
+        //copiar los datos a los campos en la tabla de Oracle
+       f:= F_DAT;
+       si := IntToStr( f );
+
+       repeat
+
+       begin
+             VARIABLE1 := ExcelHoja.Range['A'+si,'A'+si].Value2; // EXTERNAL_REFERENCE
+             VARIABLE2 := ExcelHoja.Range['B'+si,'B'+si].Value2; // SOURCE_ID
+             VARIABLE3 := ExcelHoja.Range['C'+si,'C'+si].Value2; // PAYMENT_METHOD
+             VARIABLE4 := ExcelHoja.Range['D'+si,'D'+si].Value2; // TRANSACTION_AMOUNT
+             VARIABLE5 := ExcelHoja.Range['E'+si,'E'+si].Value2; // FEE_AMOUNT
+             VARIABLE6 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['F'+si,'F'+si].Value2); // TRANSACTION_DATE
+             VARIABLE7 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['G'+si,'G'+si].Value2); // SETTLEMENT_DATE
+       end;
+
+          sdsfConsulta := TSQLDataSet.Create(application);
+          sdsfConsulta.SQLConnection := MyBD;
+          sdsfConsulta.CommandType := ctQuery;
+
+          dspfConsulta := TDataSetProvider.Create(application);
+          dspfConsulta.DataSet := sdsfConsulta;
+          dspfConsulta.Options := [poIncFieldProps,poAllowCommandText];
+          fConsulta := TClientDataSet.Create(Application);
+
+          fConsulta.SetProvider(dspfConsulta);
+
+          fsql := TStringList.Create;
+          with fConsulta do
+          BEGIN
+             Screen.Cursor := crHourglass;
+            ////Guardar los datos en la tablaOracle
+            commandtext := 'alter session set nls_date_format = ''dd/mm/yyyy''';
+            Execute;
+            close;
+
+            SetProvider(dspfConsulta);
+            fsql.Clear;
+            fsql.add('INSERT INTO TMERCADOPAGO (PAGOID,CODIGOPAGO,METODO_PAGO,MONTO,FEE,FECHA_ACREDITACION,FECHA_PAGO)');
+            fsql.add('VALUES');                                        
+            fsql.add('('''+VARIABLE1+''','); //EXTERNAL_REFERENCE
+            fsql.add(' '''+VARIABLE2+''','); //SOURCE_ID
+            fsql.add(' '''+VARIABLE3+''','); //PAYMENT_METHOD
+            fsql.add(' '''+VARIABLE4+''','); //TRANSACTION_AMOUNT
+            fsql.add(' '''+VARIABLE5+''','); //FEE_AMOUNT
+            fsql.add(' '''+VARIABLE6+''','); //TRANSACTION_DATE
+            fsql.add(' '''+VARIABLE7+''')'); //SETTLEMENT_DATE
+            CommandText := fsql.Text;
+            Execute;
+
+            Inc( f );
+            si := IntToStr( f );
+
+            if ( VarType( ExcelHoja.Range['A'+si,'A'+si].Value2 ) = VarEmpty ) then
+              begin
+                  ShowMessage('Terminado','Ha finalizado la transferencia de Datos con Exito.' );
+                  Screen.Cursor := crdefault;
+              end;
+            end;
+
+          until ( VarType( ExcelHoja.Range['A'+si,'A'+si].Value2 ) = VarEmpty );
+
+      try
+          ExcelApp.Quit;
+      except
+            ShowMessage('Error','La aplicación Excel no se pudo finalizar automaticamente.');
+            ExcelApp.Visible := True;
+      end;
+   end;
+
+   except
+      ShowMessage('Error','No se pudo Migrar los datos.');
+   end;
+end;
+
+end.

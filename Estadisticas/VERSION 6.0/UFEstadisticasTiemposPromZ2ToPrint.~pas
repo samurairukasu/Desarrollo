@@ -1,0 +1,74 @@
+unit UFEstadisticasTiemposPromZ2ToPrint;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, UFEstadisticasResultados,
+  quickrpt, ExtCtrls, Qrctrls, jpeg;
+
+type
+  TFrmEstadisticasTiemposZ2ToPrint = class(TForm)
+    QRTIemposZona2: TQRCompositeReport;
+    RepTiempos21: TQuickRep;
+    QRBand1: TQRBand;
+    lblTitulo: TQRLabel;
+    QRLabel7: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRBtresplantas: TQRBand;
+    QRDBText1: TQRDBText;
+    bdtplanta1: TQRDBText;
+    bdtplanta2: TQRDBText;
+    bdtplanta3: TQRDBText;
+    bdtplanta4: TQRDBText;
+    QRBch3: TQRBand;
+    QRLabel1: TQRLabel;
+    qrlplanta1: TQRLabel;
+    qrlplanta2: TQRLabel;
+    qrlplanta3: TQRLabel;
+    qrlplanta4: TQRLabel;
+    QRGpunto: TQRGroup;
+    QRExpr1: TQRExpr;
+    QRBand4: TQRBand;
+    PageFooterBand1: TQRBand;
+    QRImage1: TQRImage;
+    QRSysData1: TQRSysData;
+    RepTiempos22: TQuickRep;
+    SummaryBand1: TQRBand;
+    QRImage2: TQRImage;
+    PageFooterBand2: TQRBand;
+    QRSysData2: TQRSysData;
+    QRImage4: TQRImage;
+    qrlplanta5: TQRLabel;
+    bdtplanta5: TQRDBText;
+    qrlplanta6: TQRLabel;
+    bdtplanta6: TQRDBText;
+    qrlplanta7: TQRLabel;
+    bdtplanta7: TQRDBText;
+    procedure QRTIemposZona2AddReports(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmEstadisticasTiemposZ2ToPrint: TFrmEstadisticasTiemposZ2ToPrint;
+
+implementation
+
+{$R *.DFM}
+
+uses
+   GLOBALS;
+
+procedure TFrmEstadisticasTiemposZ2ToPrint.QRTIemposZona2AddReports(
+  Sender: TObject);
+begin
+  with QRTIemposZona2 do
+  begin
+    Reports.Add(RepTiempos21);
+    Reports.Add(RepTiempos22);
+  end;
+end;
+
+end.

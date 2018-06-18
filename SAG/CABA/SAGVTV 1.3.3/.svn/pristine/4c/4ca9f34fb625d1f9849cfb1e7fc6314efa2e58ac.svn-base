@@ -1,0 +1,99 @@
+unit Unitcambiartipoinspeccion;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons,globals,SQLExpr;
+
+type
+  Tcambiartipoinspeccion = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    ComboBox1: TComboBox;
+    Edit3: TEdit;
+    Label4: TLabel;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  cambiartipoinspeccion: Tcambiartipoinspeccion;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tcambiartipoinspeccion.BitBtn1Click(Sender: TObject);
+begin
+CLOSE;
+end;
+
+procedure Tcambiartipoinspeccion.BitBtn2Click(Sender: TObject);
+VAR IDTURNO:LONGINT;
+T:STRING;
+begin
+
+
+
+
+
+if Application.MessageBox( '¿Desea continuar con el cambio?', 'Cambiar Tipo inspeccion',
+  MB_ICONQUESTION OR MB_YESNO ) = ID_YES then
+  BEGIN
+
+ MyBD.StartTransaction(TD);
+       TRY
+
+IF COMBOBOX1.ItemIndex=0 THEN
+ T:='P';
+
+IF COMBOBOX1.ItemIndex=1 THEN
+ T:='R';
+
+
+
+IDTURNO:=STRTOINT(TRIM(EDIT1.Text));
+
+  With TSQLQuery.Create(Self) do
+  try
+  Close;
+  SQL.Clear;
+  SQLConnection:=mybd;
+  SQL.Add('UPDATE TDAtosTURNO SET TIPOINSPE='+#39+TRIM(T)+#39+' WHERE TURNOID='+INTTOSTR(IDTURNO));
+  ExecSQL;
+
+
+
+  FINALLY
+   CLOSE;
+   FREE;
+  END;
+
+
+MYBD.Commit(TD);
+Application.MessageBox( 'Se ha realizado con exito el cambio !!!.', 'Atención',
+  MB_ICONINFORMATION );
+EXCEPT
+MyBD.Rollback(TD);
+Application.MessageBox( 'Se produjo un error !!!.',
+  'Acceso denegado', MB_ICONSTOP );
+END ;
+
+
+end;
+
+  
+end;
+
+end.

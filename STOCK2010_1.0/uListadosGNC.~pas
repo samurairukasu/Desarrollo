@@ -1,0 +1,177 @@
+unit uListadosGNC;
+
+interface
+
+uses
+  uGetDates, RxLookup, Globals, dbTables,
+  uStockClasses, uStockEstacion, ucdialgs, urMovObleasGNC, uUtils, urListMovObleasGNC, urListEntObleasGNC, urListStockenPlanta,
+  urListEnviosCD, urListStockGlobal, urListConsumosGNC, urListEnvObleasGNC;
+
+  procedure DoEntradaObleasGNC(FechaIni,FechaFin :string; aEmpresa :integer);
+  procedure DoMovimientoObleasGNC(FechaIni,FechaFin :string; aPlanta :integer; aTipo: string);
+  procedure DoStockenPlantaGNC(aPlanta :integer);
+  procedure DoConsumoObleasGNC(FechaIni, Fechafin : string);
+  procedure DoEnvioCDGNC(FechaIni, Fechafin : string);
+  procedure DoStockGlobalGNC;
+
+var
+  fi,ff: string;
+
+implementation
+
+procedure DoEntradaObleasGNC(FechaIni, FechaFin: string;
+  aEmpresa: integer);
+begin
+    DeleteTable(MyBD, 'TTMP_ENTRADAS');
+    with TStoredProc.Create(nil) do
+    try
+        DataBaseName := MyBD.DataBaseName;
+        SessionName := MyBD.SessionName;
+
+        if aEmpresa = 0 then
+           StoredProcName := 'LIST_ENTRADAS_GLOBAL'
+        else
+           StoredProcName := 'LIST_ENTRADAS';
+        Prepare;
+        ParamByName('FECHAINI').Value := FechaIni;
+        ParamByName('FECHAFIN').Value := FechaFin;
+
+        if aEmpresa <> 0 then
+            ParamByName('aEmpresa').Value := aEmpresa;
+        ExecProc;
+        Close;
+    finally
+        Free
+    end
+end;
+
+procedure DoMovimientoObleasGNC(FechaIni, FechaFin: string;
+  aPlanta: integer; aTipo: string);
+begin
+  if aTipo = MOV_TIPO_ENTRADA then
+  begin
+    DeleteTable(MyBD, 'TTMP_MOVIMIENTOS');
+    with TStoredProc.Create(nil) do
+    try
+        DataBaseName := MyBD.DataBaseName;
+        SessionName := MyBD.SessionName;
+
+        if aPlanta = 0 then
+           StoredProcName := 'LIST_MOVIMIENTOS_GLOBAL'
+        else
+           StoredProcName := 'LIST_MOVIMIENTOS';
+        Prepare;
+        ParamByName('FECHAINI').Value := FechaIni;
+        ParamByName('FECHAFIN').Value := FechaFin;
+
+        if aPlanta <> 0 then
+            ParamByName('aPlanta').Value := aPlanta;
+        ExecProc;
+        Close;
+    finally
+        Free
+    end
+  end
+  else
+  begin
+    with TStoredProc.Create(nil) do
+    try
+        DataBaseName := MyBD.DataBaseName;
+        SessionName := MyBD.SessionName;
+
+        if aPlanta = 0 then
+        begin
+           DeleteTable(MyBD, 'TTMP_SALIDAS');
+           StoredProcName := 'LIST_SALIDAS_GLOBAL'
+        end
+        else
+        begin
+           DeleteTable(MyBD, 'TTMP_MOVIMIENTOS');
+           StoredProcName := 'LIST_SALIDAS';
+        end;
+        Prepare;
+        ParamByName('FECHAINI').Value := FechaIni;
+        ParamByName('FECHAFIN').Value := FechaFin;
+
+        if aPlanta <> 0 then
+            ParamByName('aPlanta').Value := aPlanta;
+        ExecProc;
+        Close;
+    finally
+        Free
+    end
+  end;
+end;
+
+procedure DoStockenPlantaGNC(aPlanta: integer);
+begin
+    DeleteTable(MyBD, 'TTMP_STOCKOBLEAS');
+    with TStoredProc.Create(nil) do
+    try
+        DataBaseName := MyBD.DataBaseName;
+        SessionName := MyBD.SessionName;
+        StoredProcName := 'STOCK_OBLEAS';
+        Prepare;
+        ParamByName('aPlanta').Value := aPlanta;
+        ExecProc;
+        Close;
+    finally
+        Free
+    end
+end;
+
+
+procedure DoConsumoObleasGNC(FechaIni, Fechafin: string);
+begin
+    DeleteTable(MyBD, 'TTMP_CONSUMOS');
+    with TStoredProc.Create(nil) do
+    try
+        DataBaseName := MyBD.DataBaseName;
+        SessionName := MyBD.SessionName;
+        StoredProcName := 'LIST_CONSUMOS_GLOBAL';
+        Prepare;
+        ParamByName('FI').Value := FechaIni;
+        ParamByName('FF').Value := FechaFin;
+        ExecProc;
+        Close;
+    finally
+        Free
+    end
+
+end;
+
+procedure DoEnvioCDGNC(FechaIni, Fechafin: string);
+begin
+    DeleteTable(MyBD, 'TTMP_CONTROL');
+    with TStoredProc.Create(nil) do
+    try
+        DataBaseName := MyBD.DataBaseName;
+        SessionName := MyBD.SessionName;
+        StoredProcName := 'LIST_CONTROL_ENVIOS';
+        Prepare;
+        ParamByName('FI').Value := FechaIni;
+        ParamByName('FF').Value := Fechafin;
+        ExecProc;
+        Close;
+    finally
+        Free
+    end
+end;
+
+procedure DoStockGlobalGNC;
+begin
+    DeleteTable(MyBD, 'TTMP_STOCKOBLEAS_GLOBAL');
+    with TStoredProc.Create(nil) do
+    try
+        DataBaseName := MyBD.DataBaseName;
+        SessionName := MyBD.SessionName;
+        StoredProcName := 'STOCK_OBLEAS_GLOBAL';
+        Prepare;
+        ExecProc;
+        Close;
+    finally
+        Free
+    end
+end;
+
+end.

@@ -1,0 +1,74 @@
+unit urListControlRecepOblVTV;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, QRCtrls, jpeg, QuickRpt, ExtCtrls, SqlExpr, globals, ustockestacion,
+  FMTBcd, Provider, DB, DBClient;
+
+type
+  TfRepListContolMovObleasVTV = class(TForm)
+    repMovObleasVTV: TQuickRep;
+    QRBand2: TQRBand;
+    QRBDetalle: TQRBand;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    qrlPlantaEnca: TQRLabel;
+    qrlcant: TQRLabel;
+    qrlAno: TQRLabel;
+    qrlini: TQRLabel;
+    qrlfin: TQRLabel;
+    QRExpr1: TQRExpr;
+    qrecant: TQRExpr;
+    qreano: TQRExpr;
+    qreini: TQRExpr;
+    qrefin: TQRExpr;
+    QRExpr8: TQRExpr;
+    QRBand3: TQRBand;
+    QRSysData1: TQRSysData;
+    QRGroup1: TQRGroup;
+    QREPlanta: TQRExpr;
+    QRShape1: TQRShape;
+    QRBand1: TQRBand;
+    QRImage1: TQRImage;
+    QRLabel1: TQRLabel;
+    qrlFecha: TQRLabel;
+    qconsulta: TClientDataSet;
+    dspconsulta: TDataSetProvider;
+    sdsconsulta: TSQLDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+  Procedure DoLisContReceObleasVTV(fi,ff: string);
+
+
+var
+  fRepListContolMovObleasVTV: TfRepListContolMovObleasVTV;
+
+implementation
+
+{$R *.dfm}
+
+Procedure DoLisContReceObleasVTV(fi,ff: string);
+begin
+  with TfRepListContolMovObleasVTV.Create(application) do
+   try
+     with qConsulta do
+     begin
+       sdsconsulta.SQLConnection := MyBD;
+       CommandText:= 'SELECT TO_CHAR(FECHA,'DD/MM/YYYY') AS FECHA,TIPOMOV,NROPLANTA,NOMPLANTA,CANTIDAD,ANIO,OBLEAINIC,OBLEAFIN  FROM TTMP_CONTROL_OB_RECIBIDAS ORDER BY NROPLANTA';
+       open;
+     end;
+     repMovObleasVTV.DataSet := qConsulta;
+     qrlFecha.Caption := 'Desde: '+copy(fi,1,10)+' - Hasta: '+copy(ff,1,10);
+     repMovObleasVTV.preview;
+   finally
+     qConsulta.Free;
+     free;
+   end;
+end;
+
+end.

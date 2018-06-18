@@ -1,0 +1,99 @@
+
+#DOCUMENT
+
+
+SOAP-ENV:ENVELOPE
+
+
+SOAP-ENV:BODY
+
+
+NS1:CONSULTARFERIADOSRESPONSE
+
+
+RETURN
+
+respuestaID=1
+respuestaMensaje=Operación exitosa
+
+FERIADOS
+
+
+ITEM
+
+feriadoID=308
+fecha=2018-01-01
+descripcion=Año nuevo
+
+ITEM
+
+feriadoID=309
+fecha=2018-02-12
+descripcion=Feriado Carnaval
+
+ITEM
+
+feriadoID=310
+fecha=2018-02-13
+descripcion=Feriado Carnaval
+
+ITEM
+
+feriadoID=311
+fecha=2018-02-24
+descripcion=Feriado Dia del Mecanico
+
+ITEM
+
+feriadoID=312
+fecha=2018-03-24
+descripcion=Feriado Día Nacional de la Memoria por la Verdad y la Justicia
+
+ITEM
+
+feriadoID=313
+fecha=2018-03-30
+descripcion=Viernes Santo
+
+ITEM
+
+feriadoID=318
+fecha=2018-03-31
+descripcion=Dia no laborable por gremio de SMATA
+
+ITEM
+
+feriadoID=314
+fecha=2018-04-02
+descripcion=Día del Veterano y de los Caídos en la Guerra de Malvinas
+
+ITEM
+
+feriadoID=319
+fecha=2018-04-28
+descripcion=Dia no laborable por SMATA y CAVEA
+
+ITEM
+
+feriadoID=315
+fecha=2018-04-30
+descripcion=Feriado Puente
+
+ITEM
+
+feriadoID=316
+fecha=2018-05-01
+descripcion=Dia del trabajador
+
+ITEM
+
+feriadoID=317
+fecha=2018-05-25
+descripcion=Dia de Revolución de Mayo
+
+ITEM
+
+feriadoID=320
+fecha=2018-05-26
+descripcion=Dia no laborable por SMATA y CAVEA
+**FIN**

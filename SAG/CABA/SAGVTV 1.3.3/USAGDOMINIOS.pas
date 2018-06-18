@@ -1,0 +1,552 @@
+unit USagDominios;
+
+interface
+
+    uses
+        SysUtils,
+        Forms,
+        sqlExpr,
+        provider,
+        dbclient,
+        USagEstacion;
+
+    type
+
+        TDominio = class
+        private
+            class function IsMoto (const aValue: string) : boolean;
+            class function IsAuto (const aValue: string): boolean;
+            class function IsOld  (const aValue: string): boolean;
+            class function IsMercosur (const aValue: string) : boolean;
+            class function IsSpanish (const aValue: string): boolean;
+            class function IsTractor(const aValue : string) : boolean;     //mb
+            class function IsEmbajada(const aValue : string) : boolean;
+            class function IsDiplomatica(const aValue : string) : boolean;
+        protected
+            fDataBase : tSQLConnection;
+            function ExisteDominio (const aValue: string): boolean; virtual; abstract;
+        public
+            Patente: string;
+            Complementaria: string;
+            PerteneceA: string;
+            constructor Create (const aBD: TSQLConnection; const aValue: string); virtual;
+            constructor CreateBis (const aValue, aRowId, aComplemento: string); virtual;
+            class function TipoDominio(const aValue : string) : tTipoDominio;
+            procedure Assign (const aOne: TDominio);
+            destructor Destroy; override;
+        end;
+
+        TDominioAntiguo = class(TDominio)
+        private
+            procedure AjustaDominio;
+            function ExisteDominio(const aValue : string): boolean; override;
+        public
+            constructor Create (const aBD: TSQLConnection; const aValue: string); override;
+            constructor CreateBis (const aValue, aRowId, aComplemento: string); override;
+        end;
+
+        TDominioNuevo = class(TDominio)
+        private
+            function ExisteDominio(const aValue : string): boolean; override;
+        end;
+
+        TClassDominio = class of TDominio;
+
+implementation
+
+    uses
+        ULogs;
+
+    resourcestring
+        FILE_NAME = 'USAGDOMINIOS.PAS';
+
+        ROWID = 'ROWID';
+        PATENTE_NUEVA = 'PATENTEN';
+        PATENTE_ANTIGUA = 'PATENTEA';
+
+        BUSQUEDA_DOMINIOS = 'SELECT ROWID, NVL(%S,'''') PATENTE FROM TVEHICULOS WHERE %S = ''%S''';
+        C_ROWID = 'ROWID';
+        C_PATENTEN = 'PATENTEN';
+        C_PATENTEA = 'PATENTEA';
+        C_PATENTE = 'PATENTE';
+
+    const
+        MIN_LONGITUD = 1;
+        MAX_LONTIGUD_OLD = 8;
+        MAX_LONGITUD_NEW = 6;
+        MAX_LONGITUD_SPANISH = 15;
+
+                // mb
+    class function TDominio.IsTractor(const aValue : string) : boolean;
+    var
+        i: integer;
+        bIsTractor: boolean;
+    begin
+        bIsTractor := False;
+        try
+            if Length(aValue) = 5
+            then begin
+                for i := 1 to 3 do
+                begin
+                    {$IFDEF CRICA}
+                    bIsTractor :=  (aValue[i] in ['0'..'9']);
+                    {$ELSE}
+                    bIsTractor :=  (aValue[i] in ['A'..'Z']);     //MODI CRICA
+                    {$ENDIF}
+                    if not bIsTractor then break
+                end;
+
+                if bIsTractor
+                then begin
+                    for i:= 4 to 5 do
+                    begin
+                        bIsTractor := aVAlue[i] in ['0'..'9'];
+                        if not bIsTractor then break
+                    end
+                end
+            end
+        finally
+            result := bIsTractor
+        end
+    end;
+    //fin mb
+
+
+        class function TDominio.IsEmbajada(const aValue : string) : boolean;
+    var
+        i: integer;
+        bIsEmbajada: boolean;
+    begin
+        bIsEmbajada := False;
+        try
+            if Length(aValue) = 7
+            then begin
+                for i := 1 to 3 do
+                begin
+                    bIsEmbajada :=  (aValue[i] in ['A'..'Z']);
+                    if not bIsEmbajada then break
+                end;
+
+                if bIsEmbajada
+                then begin
+                      for i := 4 to 4 do
+                      begin
+                       bIsEmbajada := aVAlue[i] in ['0'..'9'];
+                       if not bIsEmbajada then break
+                      end
+                end;
+
+                if bIsEmbajada
+                then begin
+                    for i:= 5 to 7 do
+                    begin
+                        bIsEmbajada := (aValue[i] in ['A'..'Z']);
+                        if not bIsEmbajada then break
+                    end
+                end
+            end
+        finally
+            result := bIsEmbajada
+        end
+    end;
+
+            class function TDominio.Isdiplomatica(const aValue : string) : boolean;
+    var
+        i: integer;
+        bIsdiplomatica: boolean;
+    begin
+        bIsdiplomatica := False;
+        try
+            if Length(aValue) = 7
+            then begin
+                for i := 1 to 1 do
+                begin
+                    bIsdiplomatica :=  (aValue[i] in ['D','I','A','C','M']);
+                    if not bIsdiplomatica then break
+                end;
+
+                if bIsdiplomatica
+                then begin
+                      for i := 2 to 4 do
+                      begin
+                       bIsdiplomatica := aVAlue[i] in ['0'..'9'];
+                       if not bIsdiplomatica then break
+                      end
+                end;
+
+                if bIsdiplomatica
+                then begin
+                    for i:= 5 to 7 do
+                    begin
+                        bIsdiplomatica := (aValue[i] in ['A'..'Z']);
+                        if not bIsdiplomatica then break
+                    end
+                end
+            end
+        finally
+            result := bIsdiplomatica
+        end
+    end;
+
+    class function TDominio.IsAuto(const aValue : string) : boolean;
+    var
+        i: integer;
+        bIsAuto: boolean;
+    begin
+        bIsAuto := False;
+        try
+            if Length(aValue) = 6
+            then begin
+                for i := 1 to 3 do
+                begin
+                    {$IFDEF CRICA}
+                    bIsAuto :=  (aValue[i] in ['0'..'9']);
+                    {$ELSE}
+                    bIsAuto :=  (aValue[i] in ['A'..'Z']);     //MODI CRICA
+                    {$ENDIF}
+                    if not bIsAuto then break
+                end;
+
+                if bIsAuto
+                then begin
+                    for i:= 4 to 6 do
+                    begin
+                        bIsAuto := aVAlue[i] in ['0'..'9'];
+                        if not bIsAuto then break
+                    end
+                end
+            end
+        finally
+            result := bIsAuto
+        end
+    end;
+
+    class function TDominio.IsMercosur(const aValue : string) : boolean;
+    var
+        i: integer;
+        bIsMercosur: boolean;
+    begin
+        bIsMercosur := False;
+        try
+            if Length(aValue) = 7
+            then begin
+                for i := 1 to 2 do
+                begin
+                    {$IFDEF CRICA}
+                    bIsMercosur :=  (aValue[i] in ['0'..'9']);
+                    {$ELSE}
+                    bIsMercosur :=  (aValue[i] in ['A'..'Z']);     //MODI CRICA
+                    {$ENDIF}
+                    if not bIsMercosur then break
+                end;
+
+                if bIsMercosur
+                then begin
+                    for i:= 3 to 5 do
+                    begin
+                        bIsMercosur := aVAlue[i] in ['0'..'9'];
+                        if not bIsMercosur then break
+                    end
+                end;
+
+                if bIsMercosur
+                then begin
+                    for i:= 6 to 7 do
+                    begin
+                       {$IFDEF CRICA}
+                        bIsMercosur :=  (aValue[i] in ['0'..'9']);
+                        {$ELSE}
+                        bIsMercosur :=  (aValue[i] in ['A'..'Z']);     //MODI CRICA
+                        {$ENDIF}
+                        if not bIsMercosur then break
+                    end
+                end;
+
+            end
+        finally
+            result := bIsMercosur
+        end
+    end;
+
+    class function TDominio.IsMoto(const aValue: string) : boolean;
+    begin
+        if Length(aValue) = 6
+        then result := IsAuto(Format('%s%s',[Copy(aValue,4,6),Copy(aValue,1,3)]))
+        else result := False;
+    end;
+
+    class function TDominio.IsOld(const aValue: string) : boolean;
+    var
+        i: integer;
+        bIsOld: boolean;
+    begin
+        bIsOld := False;
+        try
+            if (Length(aValue) > MIN_LONGITUD) and (Length(aValue) <= 8)
+            then begin
+                    bIsOld :=  (aValue[1] in ['A'..'Z']);
+                    if bIsOld
+                    then begin
+                        for i:= 2 to Length(aValue) do
+                        begin
+                            bIsOld := aVAlue[i] in ['0'..'9'];
+                            if not bIsOld then break
+                        end
+                    end
+            end
+        finally
+            result := bIsOld
+        end
+    end;
+
+    class function TDominio.IsSpanish(const aValue : string) : boolean;
+    var
+        i: integer;
+        bIsSpanish: boolean;
+    begin
+        bIsSpanish := TRUE;
+        try
+            if (Length(aValue) > MIN_LONGITUD) and (Length(aValue) <= MAX_LONGITUD_SPANISH)
+            then begin
+                for i:= 1 to Length(aValue) do
+                begin
+                    bIsSpanish := aVAlue[i] in ['A'..'Z','0'..'9'];
+                    if not bIsSpanish then break
+                end
+            end
+        finally
+            result := bIsSpanish
+        end
+    end;
+
+
+
+    class function TDominio.TipoDominio (const aValue : string) : tTipoDominio;
+    var
+        aType : tTipoDominio;
+    begin
+        aType := ttdmNull;
+        try
+        
+          if Length(aValue) = 0
+            then aType := ttdmVacio
+            else if IsAuto(aValue)
+                then aType := ttdmAutos
+                else if IsMoto(aValue)
+                    then aType := ttdmMotos
+                    else if IsOld(aValue)
+                        then aType := ttdmAntiguo
+                            else if IsTractor(aValue)  //mb
+                                then aType := ttdmTractor    //mb
+                                 else if IsEmbajada(aValue)  //mb
+                                then aType := ttdmEmbajada    //mb
+                                else if Isdiplomatica(aValue)  //mb
+                                then aType := ttdmDiplomatica    //mb
+                                else if IsMercosur(aValue)
+                                    then aType:=ttdmMercosur
+                                  else if IsSpanish(aValue)
+                                then aType := ttdmSpanish
+
+        finally
+            result := aType
+        end
+    end;
+
+    constructor TDominio.Create (const aBD: TSQLConnection; const aValue: string);
+    begin
+        inherited Create;
+        fDataBase := aBD;
+        if ExisteDominio(aValue)
+        then Patente := aValue
+        else begin
+            Patente := aValue;
+            Complementaria := '';
+            PerteneceA := ''
+        end
+    end;
+
+    constructor TDominio.CreateBis (const aValue, aRowId, aComplemento: string);
+    begin
+        inherited Create;
+        Patente := aVAlue;
+        PerteneceA := aRowId;
+        Complementaria := aComplemento;
+        fDatabase := nil;
+    end;
+
+    procedure TDominio.Assign (const aOne: TDominio);
+    begin
+        fDatabase := aOne.fDataBase;
+        Patente := aOne.Patente;
+        Complementaria := aOne.Complementaria;
+        PerteneceA := aOne.PerteneceA
+    end;
+
+    destructor TDominio.Destroy;
+    begin
+        fDatabase := nil;
+        inherited Destroy
+    end;
+
+    constructor TDominioAntiguo.Create (const aBD: TSQLConnection; const aValue: string);
+    begin
+        Patente := aValue;
+        AjustaDominio;
+        inherited Create(aBD, Patente);
+    end;
+
+    constructor TDominioAntiguo.CreateBis (const aValue, aRowId, aComplemento: string);
+    begin
+        inherited CreateBis(aValue, aRowId, aComplemento);
+        AjustaDominio
+    end;
+
+    procedure TDominioAntiguo.AjustaDominio;
+    var
+        i: integer;
+    begin
+        i := Length(Patente);
+        if (i > 1) and (i < 8)
+        then Patente := Format('%s%.7d',[Patente[1],StrToInt(Copy(Patente,2,i))])
+    end;
+
+    function TDominioAntiguo.ExisteDominio (const aValue: string) : boolean;
+    var
+        bExiste : boolean;
+        aQ : TSQLDataSet;
+        dsp : tDatasetprovider;
+        cds : tClientDataSet;
+        sBusqueda : string;
+    begin
+        bExiste := False;
+        PerteneceA := '';
+        Complementaria := '';
+
+        aQ := TSQLDataSet.Create(application);
+        aQ.SQLConnection := fDataBase;
+        aQ.CommandType := ctQuery;
+        aQ.GetMetadata := false;
+        aQ.NoMetadata := true;
+        aQ.ParamCheck := false;
+
+        dsp := TDataSetProvider.Create(application);
+        dsp.DataSet := aQ;
+        dsp.Options := [poIncFieldProps,poAllowCommandText];
+
+        cds:=TClientDataSet.Create(application);
+
+        try
+            with cds do
+            try
+
+                SetProvider(dsp);
+                sBusqueda := Format(BUSQUEDA_DOMINIOS,[PATENTE_NUEVA,PATENTE_ANTIGUA,aValue]);
+                commandtext := sBusqueda;
+
+                {$IFDEF TRAZAS}
+                fTrazas.PonAnotacion(TRAZA_FLUJO,1,FILE_NAME, 'Busqueda en Patentes Antiguas');
+                fTrazas.PonComponente(TRAZA_SQL,1,FILE_NAME,cds);
+                {$ENDIF}
+
+                Open;
+
+                if RecordCount = 1
+                then begin
+                    {$IFDEF TRAZAS}
+                    fTrazas.PonAnotacion(TRAZA_FLUJO,1,FILE_NAME, 'Encontrado en Patentes Antiguas');
+                    fTrazas.PonRegistro(TRAZA_SQL,1,FILE_NAME,CDS);
+                    {$ENDIF}
+                    PerteneceA := FieldByName(C_ROWID).AsString;
+                    Complementaria := FieldByName(C_PATENTE).AsString;
+                    bExiste := True
+                end
+
+            except
+                on E: Exception do
+                begin
+                    bExiste := False;
+                    PerteneceA := '';
+                    Complementaria := '';
+                    fAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,1,FILE_NAME,'Fallo la búsqueda de dominios por: %s',[E.message]);
+                    raise Exception.Create('An error occurs when the system was finding the vehicle identification.')
+                end
+            end
+        finally
+            result := bExiste;
+            cds.Free;
+            dsp.Free;
+            aQ.close;
+            aQ.free;
+        end
+    end;
+
+    function TDominioNuevo.ExisteDominio (const aValue : string) : boolean;
+    var
+        bExiste : boolean;
+        aQ : TSQLDataSet;
+        dsp : tDatasetprovider;
+        cds : tClientDataSet;
+        sBusqueda : string;
+    begin
+        bExiste := False;
+        PerteneceA := '';
+        Complementaria := '';
+
+        aQ := TSQLDataSet.Create(application);
+        aQ.SQLConnection := fDataBase;
+        aQ.CommandType := ctQuery;
+        aQ.GetMetadata := false;
+        aQ.NoMetadata := true;
+        aQ.ParamCheck := false;
+
+        dsp := TDataSetProvider.Create(application);
+        dsp.DataSet := aQ;
+        dsp.Options := [poIncFieldProps,poAllowCommandText];
+
+        cds:=TClientDataSet.Create(application);
+        try
+            with cds do
+            try
+                SetProvider(dsp);
+
+                sBusqueda := Format(BUSQUEDA_DOMINIOS,[PATENTE_NUEVA,PATENTE_NUEVA,aValue]);
+                commandtext := sBusqueda;
+
+                {$IFDEF TRAZAS}
+                fTrazas.PonAnotacion(TRAZA_FLUJO,1,FILE_NAME, 'Busqueda en Patentes Nuevas');
+                fTrazas.PonComponente(TRAZA_SQL,1,FILE_NAME,cds);
+                {$ENDIF}
+
+                Open;
+
+                if RecordCount = 1
+                then begin
+                    {$IFDEF TRAZAS}
+                    fTrazas.PonAnotacion(TRAZA_FLUJO,1,FILE_NAME, 'Encontrado en Patentes Nuevas');
+                    fTrazas.PonRegistro(TRAZA_SQL,1,FILE_NAME,cds);
+                    {$ENDIF}
+                    PerteneceA := FieldByName(C_ROWID).AsString;
+                    Complementaria := FieldByName(C_PATENTE).AsString;
+                    bExiste := True
+                end
+
+            except
+                on E: Exception do
+                begin
+                    bExiste := False;
+                    PerteneceA := '';
+                    Complementaria := '';
+                    fAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,1,FILE_NAME,'Fallo la búsqueda de dominios por: %s',[E.message]);
+                    raise Exception.Create('An error occurs when the system was finding the vehicle identification')
+                end
+            end
+        finally
+            result := bExiste;
+            cds.Free;
+            dsp.Free;
+            aQ.close;
+            aQ.free;
+        end
+    end;
+
+end.

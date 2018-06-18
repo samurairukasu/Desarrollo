@@ -1,0 +1,5 @@
+16/02/2017|23:25:20:ERROR LA GENERAR LA FACTURA ELECTRONICAEDatabaseError. iddetallespago=76. ERROR: ORA-01000: maximum open cursors exceeded
+
+16/02/2017|23:25:34:ERROR EN GENERA_COMPROBANTES_ELECTRONICOS_AFIP EDatabaseError. ERROR: dbExpress Error: Operation Not Supported
+16/02/2017|23:25:42:ERROR EN GENERA_COMPROBANTES_ELECTRONICOS_AFIP EDatabaseError. ERROR: ORA-01000: maximum open cursors exceeded
+

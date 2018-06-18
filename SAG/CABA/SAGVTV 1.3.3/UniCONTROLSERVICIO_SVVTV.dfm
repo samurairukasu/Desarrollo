@@ -1,0 +1,28 @@
+object CONTROLSERVICIO_SVVTV: TCONTROLSERVICIO_SVVTV
+  Left = 390
+  Top = 126
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'SERVICIO DE SUVTV'
+  ClientHeight = 94
+  ClientWidth = 245
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Calibri'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 14
+  object BitBtn1: TBitBtn
+    Left = 48
+    Top = 24
+    Width = 145
+    Height = 41
+    Caption = 'TESTEAR'
+    TabOrder = 0
+    OnClick = BitBtn1Click
+  end
+end

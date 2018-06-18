@@ -1,0 +1,436 @@
+unit ufPlanillaControlObleas;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DB, SqlExpr, Grids, DBGrids, globals, comobj,
+  ucdialgs, ustockclasses, uStockEstacion, uUtils, SpeedBar, ExtCtrls,
+  DBTables, FMTBcd, DBClient, Provider ;
+
+type
+  TfrmPlanillaControlObleas = class(TForm)
+    dbgConsumos: TDBGrid;
+    dbgExistencias: TDBGrid;
+    srcConsumos: TDataSource;
+    srcExistencias: TDataSource;
+    OpenDialog: TOpenDialog;
+    SpeedBar1: TSpeedBar;
+    SpeedbarSection1: TSpeedbarSection;
+    btnSalir: TSpeedItem;
+    btnExportar: TSpeedItem;
+    Label1: TLabel;
+    Label2: TLabel;
+    sdsQConsumos: TSQLDataSet;
+    dspConsumos: TDataSetProvider;
+    QConsumos: TClientDataSet;
+    sdsQExistencias: TSQLDataSet;
+    DspExistencias: TDataSetProvider;
+    QExistencias: TClientDataSet;
+    sdsTQConsumos: TSQLDataSet;
+    DspTConsumo: TDataSetProvider;
+    TQConsumos: TClientDataSet;
+    sdsTQExistencias: TSQLDataSet;
+    dspTExistencias: TDataSetProvider;
+    TQExistencias: TClientDataSet;
+    sdsTQTotales: TSQLDataSet;
+    dspTTotales: TDataSetProvider;
+    TQTotales: TClientDataSet;
+    procedure FormCreate(Sender: TObject);
+    procedure SpeedItem1Click(Sender: TObject);
+    procedure SpeedItem2Click(Sender: TObject);
+  private
+    { Private declarations }
+    ExcelApp, ExcelLibro, ExcelHoja: Variant;
+    marcaConsumos, marcaExistencias, f: integer;
+    plantaCons, plantaConsAnt, PlantaExis, PlantaExisAnt : string;
+    procedure ExportaPlanta(planta : string);
+    procedure ExportaTotal(planta, aTotUtil, aTotInuObl, aTotAnuObl, aTotCant, aTotApto, aTotCond, aTotInuCD, aTotAnuCD :string);
+    function PuedoExportar(plantaCons, plantaConsAnt, PlantaExis, PlantaExisAnt, tipo : string):boolean;
+    function PuedoNext(plantaCons, plantaConsAnt, PlantaExis, PlantaExisAnt, tipo : string):boolean;
+  public
+    { Public declarations }
+  end;
+  procedure GeneratePlanillaControlObleas(aDateIni, aDateFin:string);
+
+var
+  frmPlanillaControlObleas: TfrmPlanillaControlObleas;
+  DateIni, DateFin:string;
+  fSQL : tstringList;
+implementation
+
+uses
+  ulogs,uftmp;
+
+resourcestring
+  FICHERO_ACTUAL = 'ufPlanillaControlObleas.pas';
+
+{$R *.dfm}
+
+procedure GeneratePlanillaControlObleas(aDateIni, aDateFin:string);
+begin
+  with TfrmPlanillaControlObleas.Create(application) do
+    try
+      DateIni := aDateIni;
+      DateFin := aDateFin;
+      showmodal;
+    finally
+      free;
+    end;
+end;
+
+procedure TfrmPlanillaControlObleas.FormCreate(Sender: TObject);
+begin
+   fSQL := TStringList.Create;
+  with QConsumos do
+  begin
+     Close;
+     sdsQConsumos.SQLConnection := MyBD;
+     fsql.Add('SELECT EJERCICI, CONSUMIDAS, ANULADAS, INUTILIZADAS, NOMBRE, ZONA, PLANTA '+
+    'FROM TTMP_CONSUMOSANIO_VTV C, PLANTAS P '+
+    'WHERE ZONA = IDZONA AND PLANTA = NROPLANTA ORDER BY ZONA, PLANTA, EJERCICI ');
+    CommandText := fSQL.text;
+    Open;
+  end;
+  with QExistencias do
+  begin
+     fsql.Clear;
+     Close;
+     sdsQExistencias.SQLConnection := MyBD;
+    fsql.Add('SELECT ANIO, CANTIDAD, OBLEAINIC, OBLEAFIN, NOMBRE, IDZONA, NROPLANTA '+
+    'FROM TTMP_STOCKOBLEAS_GLOBAL S, PLANTAS P '+
+    'WHERE S.IDPLANTA = P.IDPLANTA '+
+    'AND P.TIPO IN (''P'',''M'') '+
+    'ORDER BY IDZONA, NROPLANTA, ANIO ');
+    CommandText := fSQL.text;
+    Open;
+  end;
+
+  with TQConsumos do
+  begin
+     Close;
+     sdsTQConsumos.SQLConnection := MyBD;
+  end;
+  with TQExistencias do
+  begin
+     Close;
+     sdsTQExistencias.SQLConnection := MyBD;
+  end;
+  with TQTotales do
+  begin
+    Close;
+    sdsTqTotales.SQLConnection := MyBD;
+  end;
+
+end;
+
+procedure TfrmPlanillaControlObleas.ExportaPlanta(planta:string);
+const
+
+    F_INI = 9;  C_INI = 2;
+    C_COL = 6;
+
+var
+    i : integer;
+begin
+
+        ExcelHoja := ExcelLibro.Worksheets[PLANTA];
+
+        if marcaConsumos > marcaExistencias then
+          f:= marcaConsumos
+        else f:= marcaExistencias;
+
+        QConsumos.First;
+        QExistencias.First;
+
+        plantaCons := QConsumos.fields[4].asstring;
+        PlantaExis := QExistencias.fields[4].asstring;
+        plantaConsAnt := QConsumos.fields[4].asstring;
+        PlantaExisAnt := QExistencias.fields[4].asstring;
+
+
+        while (not QConsumos.EOF) or (not QExistencias.eof) do
+        begin
+            if marcaConsumos > marcaExistencias then
+               f:= marcaConsumos
+            else f:= marcaExistencias;
+            if (not QConsumos.Eof) and (PuedoExportar(plantaCons,plantaConsAnt,PlantaExis,PlantaExisAnt,'C')) then
+            begin
+              for i := 0 to dbgConsumos.Columns.Count - 1 do
+              begin
+                  if i = 0 then
+                  begin
+                    if (plantaCons <> plantaConsAnt) or (f = F_INI)  then
+                      excelHoja.cells[f,i+1] := conviertecomaenpunto(QConsumos.FieldByName(dbgConsumos.Columns[i].FieldName).AsString);
+                  end
+                  else
+                    excelHoja.cells[f,i+1] := conviertecomaenpunto(QConsumos.FieldByName(dbgConsumos.Columns[i].FieldName).AsString);
+              end;
+              marcaConsumos := f+1;
+            end;
+            if (not QExistencias.Eof) and (PuedoExportar(plantaCons,plantaConsAnt,PlantaExis,PlantaExisAnt,'E')) then
+            begin
+              for i := 1 to dbgExistencias.Columns.Count - 1 do
+              begin
+                  excelHoja.cells[f,i+C_COL] := conviertecomaenpunto(QExistencias.FieldByName(dbgExistencias.Columns[i].FieldName).AsString);
+              end;
+              marcaExistencias := f+1;
+            end;
+            if (not QConsumos.Eof) and PuedoNext(plantaCons,plantaConsAnt,PlantaExis,PlantaExisAnt,'C') then
+            begin
+              plantaConsAnt := plantaCons;
+              QConsumos.Next;
+            end;
+            if (not QExistencias.Eof) and PuedoNext(plantaCons,plantaConsAnt,PlantaExis,PlantaExisAnt,'E') then
+            begin
+              PlantaExisAnt := PlantaExis;
+              QExistencias.NEXT;
+           end;
+            PlantaExis := QExistencias.fields[4].asstring;
+            plantaCons := QConsumos.fields[4].asstring;
+            inc(f);
+        end;
+end;
+
+
+
+function TfrmPlanillaControlObleas.PuedoExportar(plantaCons, plantaConsAnt,
+  PlantaExis, PlantaExisAnt, tipo: string): boolean;
+begin
+  result := false;
+  if plantaCons = PlantaExis then
+  begin
+    result := true;
+  end
+  else
+  begin
+    if tipo = 'C' then
+    begin
+      if plantaCons = plantaConsAnt then result := true
+      else result := false;
+    end
+    else
+    begin
+      if plantaExis = plantaExisAnt then result := true
+      else result := false;
+
+    end;
+  end;
+//  result := true;
+end;
+
+function TfrmPlanillaControlObleas.PuedoNext(plantaCons, plantaConsAnt,
+  PlantaExis, PlantaExisAnt, tipo: string): boolean;
+begin
+  result := false;
+  if plantaCons = PlantaExis then
+  begin
+    result := true;
+  end
+  else
+  begin
+    if tipo = 'C' then
+    begin
+      if plantaCons = plantaConsAnt then result := true
+      else result := false;
+    end
+    else
+    begin
+      if plantaExis = plantaExisAnt then result := true
+      else result := false;
+
+    end;
+  end;
+//  result := true;
+end;
+
+
+procedure TfrmPlanillaControlObleas.ExportaTotal(planta, aTotUtil,
+  aTotInuObl, aTotAnuObl, aTotCant, aTotApto, aTotCond, aTotInuCD,
+  aTotAnuCD: string);
+const
+    C_TUT = 3; C_TIN = 4; C_TAN = 5; C_TCA = 10;
+    C_LEY = 1;
+    F_FEC = 4; C_FEC = 2;
+    F_EXI = 7; C_EXI = 7;
+begin
+    ExcelHoja := ExcelLibro.Worksheets[PLANTA];
+    excelHoja.cells[f,C_TUT-1] := 'TOTAL';
+    excelHoja.cells[f,C_TUT] := aTotUtil;
+    excelHoja.cells[f,C_TIN] := aTotInuObl;
+    if StrToInt(aTotInuObl)<>StrToInt(aTotInuCD) then
+    begin
+      excelHoja.cells[f+1,C_TIN] := aTotInuCD;
+      excelHoja.cells[f+1,C_TIN].interior.color := $00688AFD
+    end;
+    excelHoja.cells[f,C_TAN] := aTotAnuObl;
+    if StrToInt(aTotAnuObl)<>StrToInt(aTotAnuCD) then
+    begin
+      excelHoja.cells[f+1,C_TAN] := aTotAnuCD;
+      excelHoja.cells[f+1,C_TAN].interior.color := $00688AFD
+    end;
+    excelHoja.cells[f,C_TCA] := aTotCant;
+    f := f+2;
+    excelHoja.cells[f,C_LEY] := 'Revisiones cumplidas con entregas de obleas al '+copy(DateFin,1,10);
+    f := f+2;
+    excelHoja.cells[f,C_LEY] := 'APTO';
+    ExcelHoja.cells[f,C_TUT] := aTotApto;
+    inc(f);
+   // excelHoja.cells[f,C_LEY] := 'CONDICIONAL';
+   // ExcelHoja.cells[f,C_TUT] := aTotCond;
+   // inc(f);
+    excelHoja.cells[f,C_LEY+1] := 'TOTAL';
+    ExcelHoja.cells[f,C_TUT] := IntToStr(strtoint(aTotApto)+StrToInt(aTotCond));
+    if IntToStr(strtoint(aTotApto)+StrToInt(aTotCond)) <> aTotUtil then
+      ExcelHoja.cells[f,C_TUT].interior.color := $00688AFD;
+
+    ExcelHoja.cells[F_FEC,C_FEC] := PoneFecha(copy(DateIni,1,10),copy(Datefin,1,10),0);
+    ExcelHoja.cells[F_EXI,C_EXI] := 'Existencias al '+copy(Datefin,1,10);
+
+end;
+
+procedure TfrmPlanillaControlObleas.SpeedItem1Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TfrmPlanillaControlObleas.SpeedItem2Click(Sender: TObject);
+var
+    nombre : string;
+    fzona : tzonas;
+const
+     F_TIT = 2;   C_TIT = 1;
+begin
+  try
+    try
+      opendialog.Title := 'Seleccione la Planilla de Entrada';
+      if OpenDialog.Execute then
+      begin
+        FTmp.Temporizar(TRUE,FALSE,'Planilla Control Obleas', 'Exportando los datos a excel');
+        ExcelApp := CreateOleObject('Excel.Application');
+        ExcelLibro := ExcelApp.Workbooks.open(OpenDialog.FileName);
+        nombre := OpenDialog.FileName;
+
+        fZona := tZonas.Create(MyBD);
+        fZona.Open;
+
+        fZona.First;
+        while not fZona.Eof do
+        begin
+           with QConsumos do
+           begin
+              fsql.clear;
+              Close;
+              sdsQConsumos.SQLConnection := MyBD;
+              fsql.Add('SELECT EJERCICI, CONSUMIDAS, ANULADAS, INUTILIZADAS, NOMBRE, ZONA, PLANTA '+
+              'FROM TTMP_CONSUMOSANIO_VTV C, PLANTAS P '+
+              'WHERE ZONA = IDZONA AND PLANTA = NROPLANTA  '+
+              format('and zona = %s ',[fZona.ValueByName[FIELD_IDZONA]]) +
+              'ORDER BY ZONA, PLANTA, EJERCICI  ');
+              CommandText := fSQL.text;
+              Open;
+           end;
+
+           with QExistencias do
+           begin
+              fsql.clear;
+              Close;
+              sdsQExistencias.SQLConnection := MyBD;
+              fsql.Add('SELECT ANIO, CANTIDAD, OBLEAINIC, OBLEAFIN, NOMBRE, IDZONA, NROPLANTA '+
+              'FROM TTMP_STOCKOBLEAS_GLOBAL S, PLANTAS P '+
+              'WHERE S.IDPLANTA = P.IDPLANTA  '+
+              format('and idzona = %s ',[fZona.ValueByName[FIELD_IDZONA]])+
+              'AND P.TIPO IN (''P'',''M'') '+
+              'ORDER BY IDZONA, NROPLANTA, ANIO');
+              CommandText := fSQL.text;
+              Open;
+           end;
+
+           with TQConsumos do
+           begin
+              fsql.clear;
+              Close;
+              sdsTQConsumos.SQLConnection := MyBD;
+              fsql.Add('SELECT sum(CONSUMIDAS), sum(INUTILIZADAS), sum(ANULADAS) '+
+              'FROM TTMP_CONSUMOSANIO_VTV C '+
+              format('WHERE zona = %s ',[fZona.ValueByName[FIELD_IDZONA]]));
+              CommandText := fSQL.text;
+              Open;
+           end;
+           with TQExistencias do
+           begin
+              fsql.clear;
+              Close;
+              sdsTQExistencias.SQLConnection := MyBD;
+              fsql.Add('SELECT SUM(CANTIDAD) '+
+              'FROM TTMP_STOCKOBLEAS_GLOBAL S, PLANTAS P '+
+              'WHERE S.IDPLANTA = P.IDPLANTA '+
+              format('and idzona = %s ',[fZona.ValueByName[FIELD_IDZONA]])+
+              'AND P.TIPO IN (''P'',''M'') ');
+              CommandText := fSQL.text;
+              Open;
+           end;
+           with TsqlQuery.Create(nil) do
+             try
+
+               SQLConnection := MyBD;
+               sql.Add('alter session set nls_date_format = ''dd/mm/yyyy hh24:mi:ss''');
+               ExecSQL;
+             finally
+               free;
+             end;
+           with TQTotales do
+           begin
+              fsql.clear;
+              Close;
+              sdsTQExistencias.SQLConnection := MyBD;
+                 //CAMBIO
+               fsql.Add('select sum(cantaprv)+sum(cantaprr) cantapro, '+
+              ' 0 AS cantcond, sum(cantanuladas) cantanul, sum(cantinutil) cantinut '+
+              //
+             // fsql.Add('select sum(cantaprv)+sum(cantaprr) cantapro, '+
+            //  'sum(cantconv)+sum(cantconr) cantcond, sum(cantanuladas) cantanul, sum(cantinutil) cantinut '+
+              'from vtv_datos_cd '+
+              format('where (zona = %s) ',[fZona.ValueByName[FIELD_IDZONA]])+
+              format('and ((fecha >= ''%s'') and (fecha <=''%s''))',[DateIni,DateFin]));
+              CommandText := fSQL.text;
+              Open;
+           end;
+           marcaConsumos := 9;
+           marcaExistencias := 9;
+           exportaplanta('Zona'+fZona.ValueByName[FIELD_IDZONA]);
+           ExportaTotal('Zona'+fZona.ValueByName[FIELD_IDZONA],TQConsumos.fields[0].asstring,TQConsumos.fields[1].asstring,TQConsumos.fields[2].asstring,TQExistencias.fields[0].asstring,
+                        TQTotales.Fields[0].asstring,TQTotales.Fields[1].asstring,TQTotales.Fields[3].asstring,TQTotales.Fields[2].asstring);
+           fZona.Next;
+        end;
+        opendialog.Title := 'Seleccione la Planilla de Salida';
+        if OpenDialog.Execute then
+          if OpenDialog.FileName <> nombre then
+          begin
+           excellibro.saveas(opendialog.filename);
+          end
+          else
+          begin
+             MessageDlg('Exportación a Excel.', 'La Planilla de Entrada y Salida no pueden tener el mismo nombre ', mtError, [mbOk], mbOk, 0)
+          end;
+        ExcelApp.DisplayAlerts := False;
+        ExcelApp.Quit;
+      end;
+    except
+            on E: Exception do
+            begin
+                FAnomalias.PonAnotacionFmt(TRAZA_SIEMPRE,30,FICHERO_ACTUAL,'Error cerrando la ficha de UIVABook: %s', [E.message]);
+                MessageDlg('Generación de Informes.', 'Pérdida de Transacciones: ' + E.message + #10 + #13 + 'Espere unos minutos e intentelo otra vez' , mtError, [mbOk], mbOk, 0)
+            end
+    end;
+
+  finally
+      FTmp.Temporizar(FALSE,FALSE,'','');
+      application.ProcessMessages;
+  end;
+
+
+end;
+
+end.
+

@@ -1,0 +1,1312 @@
+#document_SOAP-ENV:Envelope
+SOAP-ENV:Envelope_SOAP-ENV:Body
+SOAP-ENV:Body_ns1:solicitarTurnosResponse
+ns1:solicitarTurnosResponse_return
+return_respuestaID = 1
+return_respuestaMensaje = Operación exitosa
+return_cantidadTurnos = 13
+return_turnos
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 856289
+datosTurno_estadoID = 2
+datosTurno_estado = Re asignado
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = P
+datosTurno_fechaTurno = 2018-03-02
+datosTurno_horaTurno = 14:30:00
+datosTurno_fechaRegistro = 2018-02-22T13:18:23-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:20:48-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1078814
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 28165843
+datosTitular_numeroCuit
+datosTitular_nombre = Julian
+datosTitular_apellido = Smith
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 28165843
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = Julian
+datosPersonalesTurno_apellido = Smith
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1163503553
+contactoTurno_email = smithjulianroberto@gmail.com
+contactoTurno_fechaNacimiento = 1980-04-30
+item_datosVehiculo
+datosVehiculo_dominio = ERF202
+datosVehiculo_marcaID = 136
+datosVehiculo_marca = VOLKSWAGEN
+datosVehiculo_tipoID = 22
+datosVehiculo_tipo = SEDAN 3 PUERTAS
+datosVehiculo_modeloID = 274
+datosVehiculo_modelo = GOL 1.6
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BWCB05X45T015948
+datosVehiculo_anio = 2005
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 13622274
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 136
+datosValidados_marca = VOLKSWAGEN
+datosValidados_tipoID = 22
+datosValidados_tipo = SEDAN 3 PUERTAS
+datosValidados_modeloID = 274
+datosValidados_modelo = GOL 1.6
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BWCB05X45T015948
+datosValidados_mtm = 13622274
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 28165843
+datosPersonales_numeroCuit
+datosPersonales_nombre = Julian
+datosPersonales_apellido = Smith
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = arenales
+domicilio_numero = 1670
+domicilio_piso
+domicilio_departamento
+domicilio_localidad = caba
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 706973
+datosPago_gatewayID = 3
+datosPago_entidadID = 32
+datosPago_entidadNombre = Rapipago
+datosPago_fechaPago = 2018-02-22
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1358156
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 641377
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1358156
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859087
+datosTurno_estadoID = 1
+datosTurno_estado = Vigente
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = P
+datosTurno_fechaTurno = 2018-02-28
+datosTurno_horaTurno = 14:30:00
+datosTurno_fechaRegistro = 2018-02-23T15:20:48-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:20:48-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085331
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 28165843
+datosTitular_numeroCuit
+datosTitular_nombre = Julian
+datosTitular_apellido = Smith
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 28165843
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = Julian
+datosPersonalesTurno_apellido = Smith
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1163503553
+contactoTurno_email = smithjulianroberto@gmail.com
+contactoTurno_fechaNacimiento = 1980-04-30
+item_datosVehiculo
+datosVehiculo_dominio = ERF202
+datosVehiculo_marcaID = 136
+datosVehiculo_marca = VOLKSWAGEN
+datosVehiculo_tipoID = 22
+datosVehiculo_tipo = SEDAN 3 PUERTAS
+datosVehiculo_modeloID = 274
+datosVehiculo_modelo = GOL 1.6
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BWCB05X45T015948
+datosVehiculo_anio = 2005
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 13622274
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 136
+datosValidados_marca = VOLKSWAGEN
+datosValidados_tipoID = 22
+datosValidados_tipo = SEDAN 3 PUERTAS
+datosValidados_modeloID = 274
+datosValidados_modelo = GOL 1.6
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BWCB05X45T015948
+datosValidados_mtm = 13622274
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 28165843
+datosPersonales_numeroCuit
+datosPersonales_nombre = Julian
+datosPersonales_apellido = Smith
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = arenales
+domicilio_numero = 1670
+domicilio_piso
+domicilio_departamento
+domicilio_localidad = caba
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 706973
+datosPago_gatewayID = 3
+datosPago_entidadID = 32
+datosPago_entidadNombre = Rapipago
+datosPago_fechaPago = 2018-02-22
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1358156
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 641377
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1358156
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859090
+datosTurno_estadoID = 3
+datosTurno_estado = Finalizado
+datosTurno_esReve = S
+datosTurno_esReveDia = S
+datosTurno_tipoTurno = P
+datosTurno_fechaTurno = 2018-02-23
+datosTurno_horaTurno = 09:00:00
+datosTurno_fechaRegistro = 2018-02-23T15:21:31-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:23:28-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085334
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 29812695
+datosTitular_numeroCuit
+datosTitular_nombre = atilio sebastian
+datosTitular_apellido = alvarenga
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 29812695
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = atilio sebastian
+datosPersonalesTurno_apellido = alvarenga
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1563836923
+contactoTurno_email = infoloas@speedy.com.ar
+contactoTurno_fechaNacimiento = 1982-10-27
+item_datosVehiculo
+datosVehiculo_dominio = 884HUO
+datosVehiculo_marcaID = 053
+datosVehiculo_marca = YAMAHA
+datosVehiculo_tipoID = 44
+datosVehiculo_tipo = MOTOCICLETA
+datosVehiculo_modeloID = 01
+datosVehiculo_modelo = YBR 125
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8C6KE1276B0051319
+datosVehiculo_anio = 2011
+datosVehiculo_jurisdiccionID = 1
+datosVehiculo_jurisdiccion = Buenos Aires
+datosVehiculo_mtm = 0534401
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 053
+datosValidados_marca = YAMAHA
+datosValidados_tipoID = 44
+datosValidados_tipo = MOTOCICLETA
+datosValidados_modeloID = 01
+datosValidados_modelo = YBR 125
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8C6KE1276B0051319
+datosValidados_mtm = 0534401
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 29812695
+datosPersonales_numeroCuit
+datosPersonales_nombre = sebastian
+datosPersonales_apellido = alvarenga
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = husares
+domicilio_numero = 453
+domicilio_piso
+domicilio_departamento
+domicilio_localidad = quilmes
+domicilio_provinciaID = 1
+domicilio_provincia = Buenos Aires
+domicilio_codigoPostal = 1879
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 706324
+datosPago_gatewayID = 3
+datosPago_entidadID = 31
+datosPago_entidadNombre = Pago Facil
+datosPago_fechaPago = 2018-02-22
+datosPago_importeTotal = 301.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1357467
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 212.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 639516
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1357467
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859103
+datosTurno_estadoID = 1
+datosTurno_estado = Vigente
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = EX
+datosTurno_fechaTurno = 2018-02-27
+datosTurno_horaTurno = 16:45:00
+datosTurno_fechaRegistro = 2018-02-23T15:25:27-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:25:27-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085350
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 7602079
+datosTitular_numeroCuit
+datosTitular_nombre = Juan Jose 
+datosTitular_apellido = Sgro
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 7602079
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = Juan Jose 
+datosPersonalesTurno_apellido = Sgro
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1562213631
+contactoTurno_email = juanjo.cantante@hotmail.com
+contactoTurno_fechaNacimiento = 1947-04-20
+item_datosVehiculo
+datosVehiculo_dominio = ICU300
+datosVehiculo_marcaID = 039
+datosVehiculo_marca = PEUGEOT
+datosVehiculo_tipoID = 34
+datosVehiculo_tipo = SEDAN 5 PUERTAS
+datosVehiculo_modeloID = JM
+datosVehiculo_modelo = 207 COMPACT XT 1.6 5P TIPTRONIC
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8AD2MN6AR9GO62374
+datosVehiculo_anio = 2009
+datosVehiculo_jurisdiccionID
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 03934JM
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 039
+datosValidados_marca = PEUGEOT
+datosValidados_tipoID = 34
+datosValidados_tipo = SEDAN 5 PUERTAS
+datosValidados_modeloID = JM
+datosValidados_modelo = 207 COMPACT XT 1.6 5P TIPTRONIC /2009
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8AD2MN6AR9G062374
+datosValidados_mtm = 03934JM
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 7602079
+datosPersonales_numeroCuit
+datosPersonales_nombre = Juan Jose 
+datosPersonales_apellido = Sgro
+datosPersonales_razonSocial
+datosFacturacion_condicionIva = E
+item_datosPago
+datosPago_pagoID = 711348
+datosPago_gatewayID = 2
+datosPago_entidadID = 18
+datosPago_entidadNombre = Exento
+datosPago_fechaPago = 2018-02-23
+datosPago_importeTotal = 0.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1363049
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 0.00
+detallesPagoVerificacion_estadoAcreditacion = E
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1363050
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 0.00
+detallesPagoOblea_estadoAcreditacion = E
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859107
+datosTurno_estadoID = 7
+datosTurno_estado = Condicional
+datosTurno_esReve = S
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = P
+datosTurno_fechaTurno = 2018-03-02
+datosTurno_horaTurno = 11:00:00
+datosTurno_fechaRegistro = 2018-02-23T15:26:55-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:26:55-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085356
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 22183022
+datosTitular_numeroCuit
+datosTitular_nombre = dario
+datosTitular_apellido = durruty
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 22183022
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = dario
+datosPersonalesTurno_apellido = durruty
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1530351971
+contactoTurno_email = durruty@yahoo.com.ar
+contactoTurno_fechaNacimiento = 1971-07-29
+item_datosVehiculo
+datosVehiculo_dominio = EVO662
+datosVehiculo_marcaID = 127
+datosVehiculo_marca = SUZUKI
+datosVehiculo_tipoID = 05
+datosVehiculo_tipo = SEDAN 5 PUERTAS
+datosVehiculo_modeloID = 706
+datosVehiculo_modelo = FUN 1.4
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BGRS48J056169197
+datosVehiculo_anio = 2005
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 12705706
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 127
+datosValidados_marca = SUZUKI
+datosValidados_tipoID = 05
+datosValidados_tipo = SEDAN 5 PUERTAS
+datosValidados_modeloID = 706
+datosValidados_modelo = FUN 1.4
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BGRS48J05G169197
+datosValidados_mtm = 12705706
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 22183022
+datosPersonales_numeroCuit
+datosPersonales_nombre = dario
+datosPersonales_apellido = durruty
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = leguizamon
+domicilio_numero = 580
+domicilio_piso = 0
+domicilio_departamento = 0
+domicilio_localidad = caba
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal = 1408
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 596429
+datosPago_gatewayID = 3
+datosPago_entidadID = 31
+datosPago_entidadNombre = Pago Facil
+datosPago_fechaPago = 2017-12-21
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1195823
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 435140
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1195823
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859113
+datosTurno_estadoID = 1
+datosTurno_estado = Vigente
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = O
+datosTurno_fechaTurno = 2018-02-27
+datosTurno_horaTurno = 08:15:00
+datosTurno_fechaRegistro = 2018-02-23T15:29:19-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:29:19-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085355
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 50415098
+datosTitular_numeroCuit
+datosTitular_nombre = maximo ramiro
+datosTitular_apellido = coria
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = F
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 27644492
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = analia virginia
+datosPersonalesTurno_apellido = benegas
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 0111565866996
+contactoTurno_email = abenegas@motormax.com.ar
+contactoTurno_fechaNacimiento = 1979-09-24
+item_datosVehiculo
+datosVehiculo_dominio = HGQ062
+datosVehiculo_marcaID = 136
+datosVehiculo_marca = VOLKSWAGEN
+datosVehiculo_tipoID = 22
+datosVehiculo_tipo = SEDAN 3 PUERTAS
+datosVehiculo_modeloID = 274
+datosVehiculo_modelo = GOL 1.6
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9VWCB05W08T193304
+datosVehiculo_anio = 2008
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 13622274
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 136
+datosValidados_marca = VOLKSWAGEN
+datosValidados_tipoID = 22
+datosValidados_tipo = SEDAN 3 PUERTAS
+datosValidados_modeloID = 274
+datosValidados_modelo = GOL 1.6
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BWCB05W08T193304
+datosValidados_mtm = 13622274
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = F
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 27644492
+datosPersonales_numeroCuit
+datosPersonales_nombre = analia virginia
+datosPersonales_apellido = benegas
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = JACARANDA
+domicilio_numero = 1420
+domicilio_piso
+domicilio_departamento
+domicilio_localidad = caba
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal = 1407
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 711360
+datosPago_gatewayID = 3
+datosPago_entidadID = 33
+datosPago_entidadNombre = VISA Debito
+datosPago_fechaPago = 2018-02-23
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1363062
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 653853
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1363062
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 852876
+datosTurno_estadoID = 3
+datosTurno_estado = Finalizado
+datosTurno_esReve = S
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = O
+datosTurno_fechaTurno = 2018-02-23
+datosTurno_horaTurno = 15:30:00
+datosTurno_fechaRegistro = 2018-02-20T19:25:07-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:33:25-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1078372
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 7756687
+datosTitular_numeroCuit
+datosTitular_nombre = luis alfredo 
+datosTitular_apellido = ortega
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 7756687
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = luis alfredo 
+datosPersonalesTurno_apellido = ortega
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 11 4190 0902
+contactoTurno_email = malaracalu@gmail.com
+contactoTurno_fechaNacimiento = 1945-03-06
+item_datosVehiculo
+datosVehiculo_dominio = GBN218
+datosVehiculo_marcaID = 112
+datosVehiculo_marca = RENAULT
+datosVehiculo_tipoID = 09
+datosVehiculo_tipo = BLOCK
+datosVehiculo_modeloID = 208
+datosVehiculo_modelo = 1.6 NAFTA
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8A1LA1V157L804273
+datosVehiculo_anio = 2007
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 11209208
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 033
+datosValidados_marca = RENAULT
+datosValidados_tipoID = 37
+datosValidados_tipo = SEDAN 4 PUERTAS
+datosValidados_modeloID = SN
+datosValidados_modelo = MEGANE TRI 1.6 L PACK
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8A1LA1V157L804273
+datosValidados_mtm = 03337SN
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 776687
+datosPersonales_numeroCuit
+datosPersonales_nombre = luis alfredo
+datosPersonales_apellido = ortega
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = pje las tunas 
+domicilio_numero = 11174
+domicilio_piso
+domicilio_departamento
+domicilio_localidad = bsas
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal = 1408
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 647238
+datosPago_gatewayID = 1
+datosPago_entidadID = 1
+datosPago_entidadNombre = Visa
+datosPago_fechaPago = 2018-01-15
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1274570
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 3351342851
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1274571
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 851406
+datosTurno_estadoID = 3
+datosTurno_estado = Finalizado
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = P
+datosTurno_fechaTurno = 2018-02-23
+datosTurno_horaTurno = 15:45:00
+datosTurno_fechaRegistro = 2018-02-20T11:50:48-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:33:55-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1069295
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 93269508
+datosTitular_numeroCuit
+datosTitular_nombre = KIL HYUN
+datosTitular_apellido = YOON
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 93269508
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = KIL HYUN
+datosPersonalesTurno_apellido = YOON
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 15-6907-2321
+contactoTurno_email = hwangsungdoo@gmail.com
+contactoTurno_fechaNacimiento = 1948-04-30
+item_datosVehiculo
+datosVehiculo_dominio = JPX992
+datosVehiculo_marcaID = 025
+datosVehiculo_marca = CHRYSLER
+datosVehiculo_tipoID = 12
+datosVehiculo_tipo = FAMILIAR
+datosVehiculo_modeloID = 140
+datosVehiculo_modelo = TOWN & COUNTRY LIMITED
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 2A4PS6D16AR431085
+datosVehiculo_anio = 2011
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 02512140
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 025
+datosValidados_marca = CHRYSLER
+datosValidados_tipoID = 12
+datosValidados_tipo = FAMILIAR
+datosValidados_modeloID = 140
+datosValidados_modelo = TOWN & COUNTRY LIMITED
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 2A4PS6D16AR431085
+datosValidados_mtm = 02512140
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 93269508
+datosPersonales_numeroCuit
+datosPersonales_nombre = KIL HYUN
+datosPersonales_apellido = YOON
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = Agustin de Vedia
+domicilio_numero = 2180
+domicilio_piso
+domicilio_departamento
+domicilio_localidad = CABA
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 700299
+datosPago_gatewayID = 3
+datosPago_entidadID = 31
+datosPago_entidadNombre = Pago Facil
+datosPago_fechaPago = 2018-02-20
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1350855
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 625289
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1350855
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859118
+datosTurno_estadoID = 3
+datosTurno_estado = Finalizado
+datosTurno_esReve = S
+datosTurno_esReveDia = S
+datosTurno_tipoTurno = O
+datosTurno_fechaTurno = 2018-02-23
+datosTurno_horaTurno = 14:30:00
+datosTurno_fechaRegistro = 2018-02-23T15:33:33-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:36:35-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085377
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 31655660
+datosTitular_numeroCuit
+datosTitular_nombre = Claudio
+datosTitular_apellido = Rocchio
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 31655660
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = Claudio
+datosPersonalesTurno_apellido = Rocchio
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1132475853
+contactoTurno_email = clau.rocchio@outlook.com.ar
+contactoTurno_fechaNacimiento = 1985-06-18
+item_datosVehiculo
+datosVehiculo_dominio = GZY910
+datosVehiculo_marcaID = 039
+datosVehiculo_marca = PEUGEOT
+datosVehiculo_tipoID = 34
+datosVehiculo_tipo = SEDAN 5 PUERTAS
+datosVehiculo_modeloID = CM
+datosVehiculo_modelo = 206 XT 1.6 5P
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8AD2AN6AD8G069415
+datosVehiculo_anio = 2008
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 03934CM
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 039
+datosValidados_marca = PEUGEOT
+datosValidados_tipoID = 34
+datosValidados_tipo = SEDAN 5 PUERTAS
+datosValidados_modeloID = CM
+datosValidados_modelo = 206 XT 1.6 5P
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8AD2AN6AD8G069415
+datosValidados_mtm = 03934CM
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 31655660
+datosPersonales_numeroCuit
+datosPersonales_nombre = Claudio Domingo
+datosPersonales_apellido = Rocchio
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = Manuel Artigas
+domicilio_numero = 6135
+domicilio_piso
+domicilio_departamento
+domicilio_localidad = Mataderos
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal = 1440
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 710038
+datosPago_gatewayID = 3
+datosPago_entidadID = 25
+datosPago_entidadNombre = Visa
+datosPago_fechaPago = 2018-02-22
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1361649
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 649961
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1361649
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 845732
+datosTurno_estadoID = 3
+datosTurno_estado = Finalizado
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = P
+datosTurno_fechaTurno = 2018-02-23
+datosTurno_horaTurno = 15:30:00
+datosTurno_fechaRegistro = 2018-02-16T13:33:23-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:37:16-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1065220
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 92931737
+datosTitular_numeroCuit
+datosTitular_nombre = Epifanio 
+datosTitular_apellido = Espinola Roda
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 92931737
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = Epifanio 
+datosPersonalesTurno_apellido = Espinola Roda
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1527628429
+contactoTurno_email = noposee@suvtv.com.ar
+contactoTurno_fechaNacimiento = 1965-04-07
+item_datosVehiculo
+datosVehiculo_dominio = KMS372
+datosVehiculo_marcaID = 042
+datosVehiculo_marca = CHEVROLET
+datosVehiculo_tipoID = 08
+datosVehiculo_tipo = SEDAN 4 PUERTAS
+datosVehiculo_modeloID = DK
+datosVehiculo_modelo = CLASSIC 4 PTAS LT SPIRIT 1.4N
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8AGSS1950CR110108
+datosVehiculo_anio = 2011
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 04208DK
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 042
+datosValidados_marca = CHEVROLET
+datosValidados_tipoID = 08
+datosValidados_tipo = SEDAN 4 PUERTAS
+datosValidados_modeloID = DK
+datosValidados_modelo = CLASSIC 4 PTAS LT SPIRIT 1.4N
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 8AGSS1950CR110108
+datosValidados_mtm = 04208DK
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 92931737
+datosPersonales_numeroCuit
+datosPersonales_nombre = Epifanio 
+datosPersonales_apellido = Espinola Roda
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = Del valle irverlucea
+domicilio_numero = 854
+domicilio_piso
+domicilio_departamento = 4
+domicilio_localidad = La boca 
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal = 1160
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 697668
+datosPago_gatewayID = 3
+datosPago_entidadID = 32
+datosPago_entidadNombre = Rapipago
+datosPago_fechaPago = 2018-02-16
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1348010
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 618425
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1348010
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859123
+datosTurno_estadoID = 1
+datosTurno_estado = Vigente
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = O
+datosTurno_fechaTurno = 2018-02-26
+datosTurno_horaTurno = 08:45:00
+datosTurno_fechaRegistro = 2018-02-23T15:38:29-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:38:29-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085372
+item_datosTitular
+datosTitular_genero = PJ
+datosTitular_tipoDocumento = 9
+datosTitular_numeroDocumento = 30700843080
+datosTitular_numeroCuit
+datosTitular_nombre
+datosTitular_apellido
+datosTitular_razonSocial = CONSTRUCTORA ACUARIO S A      
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 10788313
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = OSCAR ALBERTO
+datosPersonalesTurno_apellido = PAZOS
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 0111564567652
+contactoTurno_email = dr_oscar_pazos@hotmail.com
+contactoTurno_fechaNacimiento = 1953-02-15
+item_datosVehiculo
+datosVehiculo_dominio = JGI960
+datosVehiculo_marcaID = 024
+datosVehiculo_marca = CHEVROLET
+datosVehiculo_tipoID = 05
+datosVehiculo_tipo = SEDAN 5 PUERTAS
+datosVehiculo_modeloID = 342
+datosVehiculo_modelo = ZAFIRA GLS
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BGTT75E0BC138549
+datosVehiculo_anio = 2010
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 02405342
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 024
+datosValidados_marca = CHEVROLET
+datosValidados_tipoID = 05
+datosValidados_tipo = SEDAN 5 PUERTAS
+datosValidados_modeloID = 342
+datosValidados_modelo = ZAFIRA GLS
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BGTT75E0BC138549
+datosValidados_mtm = 02405342
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_tipoDocumento = 9
+datosPersonales_numeroDocumento
+datosPersonales_numeroCuit = 30700843080
+datosPersonales_nombre
+datosPersonales_apellido
+datosPersonales_razonSocial = CONSTRUCTORA ACUARIO S A      
+datosFacturacion_domicilio
+domicilio_calle = Montevideo 
+domicilio_numero = 595
+domicilio_piso = 4
+domicilio_departamento = a
+domicilio_localidad = C.A.B.A.
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal = 1019
+datosFacturacion_condicionIva = M
+item_datosPago
+datosPago_pagoID = 711380
+datosPago_gatewayID = 3
+datosPago_entidadID = 25
+datosPago_entidadNombre = Visa
+datosPago_fechaPago = 2018-02-23
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1363083
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 653893
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1363083
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 859124
+datosTurno_estadoID = 1
+datosTurno_estado = Vigente
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = O
+datosTurno_fechaTurno = 2018-03-09
+datosTurno_horaTurno = 10:00:00
+datosTurno_fechaRegistro = 2018-02-23T15:38:31-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:38:31-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1085382
+item_datosTitular
+datosTitular_genero = M
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 4891028
+datosTitular_numeroCuit
+datosTitular_nombre = Norma Coccaro
+datosTitular_apellido = Coccaro
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = M
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 4891028
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = Norma Coccaro
+datosPersonalesTurno_apellido = Coccaro
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 01151482930
+contactoTurno_email = norma_coccaro@yahoo.com.ar
+contactoTurno_fechaNacimiento = 1940-07-01
+item_datosVehiculo
+datosVehiculo_dominio = MLD020
+datosVehiculo_marcaID = 102
+datosVehiculo_marca = NISSAN
+datosVehiculo_tipoID = 05
+datosVehiculo_tipo = SEDAN 5 PUERTAS
+datosVehiculo_modeloID = 485
+datosVehiculo_modelo = TIIDA 1.8 6MT TEKNA
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 3N1BC1CEXDK194227
+datosVehiculo_anio = 2013
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 10205485
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 102
+datosValidados_marca = NISSAN
+datosValidados_tipoID = 05
+datosValidados_tipo = SEDAN 5 PUERTAS
+datosValidados_modeloID = 485
+datosValidados_modelo = TIIDA 1.8 6MT TEKNA
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 3N1BC1CEXDK194227
+datosValidados_mtm = 10205485
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = M
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 4891028
+datosPersonales_numeroCuit
+datosPersonales_nombre = Norma Coccaro
+datosPersonales_apellido = Coccaro
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = SAN JOSE DE CALASANZ
+domicilio_numero = 308
+domicilio_piso = pb
+domicilio_departamento = c
+domicilio_localidad = capital federal
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal = 1424
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 711381
+datosPago_gatewayID = 3
+datosPago_entidadID = 25
+datosPago_entidadNombre = Visa
+datosPago_fechaPago = 2018-02-23
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1363084
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 653895
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1363084
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+turnos_item
+item_datosTurno
+datosTurno_turnoID = 850995
+datosTurno_estadoID = 3
+datosTurno_estado = Finalizado
+datosTurno_esReve = N
+datosTurno_esReveDia = N
+datosTurno_tipoTurno = P
+datosTurno_fechaTurno = 2018-02-23
+datosTurno_horaTurno = 15:45:00
+datosTurno_fechaRegistro = 2018-02-20T10:23:28-03:00
+datosTurno_fechaNovedad = 2018-02-23T15:39:35-03:00
+datosTurno_plantaID = 00004
+datosTurno_reservaID = 1076112
+item_datosTitular
+datosTitular_genero = F
+datosTitular_tipoDocumento = 1
+datosTitular_numeroDocumento = 14813925
+datosTitular_numeroCuit
+datosTitular_nombre = maria hilda
+datosTitular_apellido = frachia
+datosTitular_razonSocial
+item_datosContacto
+datosContacto_datosPersonalesTurno
+datosPersonalesTurno_genero = F
+datosPersonalesTurno_tipoDocumento = 1
+datosPersonalesTurno_numeroDocumento = 14813925
+datosPersonalesTurno_numeroCuit
+datosPersonalesTurno_nombre = maria hilda
+datosPersonalesTurno_apellido = frachia
+datosPersonalesTurno_razonSocial
+datosContacto_contactoTurno
+contactoTurno_telefonoCelular = 1560496313
+contactoTurno_email = hildafrachia12@hotmail.com
+contactoTurno_fechaNacimiento = 1961-12-12
+item_datosVehiculo
+datosVehiculo_dominio = NUX519
+datosVehiculo_marcaID = 047
+datosVehiculo_marca = FORD
+datosVehiculo_tipoID = 05
+datosVehiculo_tipo = SEDAN 5 PUERTAS
+datosVehiculo_modeloID = A37
+datosVehiculo_modelo = FIESTA 1.6L S PLUS
+datosVehiculo_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BF2D55N7EB736447
+datosVehiculo_anio = 2014
+datosVehiculo_jurisdiccionID = 2
+datosVehiculo_jurisdiccion = Ciudad Autonoma de Buenos Aires
+datosVehiculo_mtm = 04705A37
+datosVehiculo_valTitular = V
+datosVehiculo_valChasis = V
+datosVehiculo_datosValidados
+datosValidados_marcaID = 047
+datosValidados_marca = FORD
+datosValidados_tipoID = 05
+datosValidados_tipo = SEDAN 5 PUERTAS
+datosValidados_modeloID = A37
+datosValidados_modelo = FIESTA 1.6L S PLUS
+datosValidados_numeroChasis
+numeroChasis_marca
+numeroChasis_numero = 9BFZD55N7EB736447
+datosValidados_mtm = 04705A37
+item_datosFacturacion
+datosFacturacion_datosPersonales
+datosPersonales_genero = F
+datosPersonales_tipoDocumento = 1
+datosPersonales_numeroDocumento = 14813925
+datosPersonales_numeroCuit
+datosPersonales_nombre = maria hilda
+datosPersonales_apellido = frachia
+datosPersonales_razonSocial
+datosFacturacion_domicilio
+domicilio_calle = curapalihue
+domicilio_numero = 183
+domicilio_piso = 8
+domicilio_departamento = b
+domicilio_localidad = capital federal
+domicilio_provinciaID = 2
+domicilio_provincia = Ciudad Autonoma de Buenos Aires
+domicilio_codigoPostal
+datosFacturacion_condicionIva = C
+item_datosPago
+datosPago_pagoID = 690935
+datosPago_gatewayID = 3
+datosPago_entidadID = 31
+datosPago_entidadNombre = Pago Facil
+datosPago_fechaPago = 2018-02-11
+datosPago_importeTotal = 802.00
+datosPago_detallesPagoVerificacion
+detallesPagoVerificacion_pagoID = 1340794
+detallesPagoVerificacion_plantaID = 00004
+detallesPagoVerificacion_importe = 713.50
+detallesPagoVerificacion_estadoAcreditacion = A
+detallesPagoVerificacion_pagoGatewayID = 601740
+datosPago_detallesPagoOblea
+detallesPagoOblea_pagoID = 1340794
+detallesPagoOblea_plantaID = 00004
+detallesPagoOblea_importe = 88.50
+detallesPagoOblea_estadoAcreditacion = A
+****999****
+****999****
+**FIN**

@@ -1,0 +1,508 @@
+unit UCteVerificaciones;
+// Constantes y Funciones comunes a las unidades UInforme y UFinVeri
+
+interface
+
+   uses
+        sqlExpr,forms;
+
+
+procedure ObtenerLiteralCalificativo (aBD: TSQLConnection; iEjercicio, iCodInspeccion: integer;
+                                      const sCadenaDefecto, sCalificacion,
+                                            sLiteral, sUbicacion : string;
+                                      var sCodigo,
+                                          sDescripcion,
+                                          sOk,
+                                          sLeve,
+                                          sGrave : string);
+
+
+implementation
+
+   uses
+      SysUtils,
+      ULOGS,
+      USAGESTACION;
+
+
+   const
+      FICHERO_ACTUAL = 'UCteVerificaciones';
+
+   type
+      EDatosMalEnTDATOSINSPECC = Exception;
+
+
+   function StrToPuntoComa (const unValor: string; const Precision, Decimales : Integer ) : string;
+   var
+     AnteriorSeparadorDecimal : char;
+     rAux : real;
+
+   begin
+       result := '';
+       AnteriorSeparadorDecimal := DecimalSeparator;
+       DecimalSeparator := '.';
+
+       try
+         rAux := StrToFloat(UnValor);
+         DecimalSeparator := ',';
+         result := FloatToStrF(Abs(rAux), ffNumber, PRECISION, DECIMALES);
+       except
+         result := '';
+       end;
+       DecimalSeparator  :=  AnteriorSeparadorDecimal;
+   end;
+
+
+   function FuerzaRuedasPorEje (const sFRD, sFRI : string; const iEje : Integer) : real;
+   var
+     rFRD, rFRI : real;
+     AnteriorSeparadorDecimal : char;
+   begin
+       AnteriorSeparadorDecimal := DecimalSeparator;
+       DecimalSeparator := '.';
+
+       {result := 0;
+       rFRD := 0;
+       rFRI := 0;}
+
+
+       try
+         rFRD := StrToFloat (sFRD)
+       except
+         rFRD := 0;
+         fAnomalias.PonAnotacion(TRAZA_SIEMPRE,9, FICHERO_ACTUAL,'NO SE PUEDE CALCULAR LA FUERZA DE LA RUEDA DERECHA PARA EL EJE ' + IntToStr(iEje));
+       end;
+
+       try
+         rFRI := StrToFloat (sFRI)
+       except
+         rFRI := 0;
+         fAnomalias.PonAnotacion(TRAZA_SIEMPRE,10, FICHERO_ACTUAL,'NO SE PUEDE CALCULAR LA FUERZA DE LA RUEDA IZQUIERDA PARA EL EJE ' + IntToStr(iEje));
+       end;
+
+       DecimalSeparator := AnteriorSeparadorDecimal;
+       result := Abs(rFRD) + Abs(rFRI)
+   end;
+
+   
+   function PesoDeRuedas ( const sRD1e, sRI1e,
+                                 sRD2e, sRI2e,
+                                 sRD3e, sRI3e,
+                                 sRD4e, sRI4e: string ) : real;
+   var
+    rRD1e, rRI1e,
+    rRD2e, rRI2e,
+    rRD3e, rRI3e,
+    rRD4e, rRI4e : real;
+
+    AnteriorSeparadorDecimal : char;
+
+   begin
+       AnteriorSeparadorDecimal := DecimalSeparator;
+       DecimalSeparator := '.';
+
+       {result := 0;
+       rRD1e := 0; rRI1e := 0;
+       rRD2e := 0; rRI2e := 0;
+       rRD3e := 0; rRI3e := 0;
+       rRD4e := 0; rRI4e := 0;}
+
+       try
+         rRD1e := StrToFloat(sRD1e);
+       except
+         rRD1e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,0,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA DERECHA DEL PRIMER EJE');
+       end;
+
+       try
+         rRI1e := StrToFloat(sRI1e);
+       except
+         rRI1e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,1,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA IZQUIERDA DEL PRIMER EJE');
+       end;
+
+       try
+         rRD2e := StrToFloat(sRD2e);
+       except
+         rRD2e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,2,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA DERECHA DEL SEGUNDO EJE');
+       end;
+
+       try
+         rRI2e := StrToFloat(sRI2e);
+       except
+         rRI2e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,3,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA IZQUIERDA DEL SEGUNDO EJE');
+       end;
+
+       try
+         rRD3e := StrToFloat(sRD3e);
+       except
+         rRD3e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,4,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA DERECHA DEL TERCER EJE');
+       end;
+
+       try
+         rRI3e := StrToFloat(sRI3e);
+       except
+         rRI3e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,5,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA IZQUIERDA DEL TERCER EJE');
+       end;
+
+       try
+         rRD4e := StrToFloat(sRD4e);
+       except
+         rRD4e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,6,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA DERECHA DEL CUARTO EJE');
+       end;
+
+       try
+         rRI4e := StrToFloat(sRI4e);
+       except
+         rRI4e := 0;
+         fIncidencias.PonAnotacion(TRAZA_SIEMPRE,7,FICHERO_ACTUAL,'NO SE PUEDE CALCULAR EL PESO DE LA RUEDA IZQUIERDA DEL CUARTO EJE');
+       end;
+
+       DecimalSeparator := AnteriorSeparadorDecimal;
+
+       result :=  Abs(rRD1e) + Abs(rRI1e) +
+                  Abs(rRD2e) + Abs(rRI2e) +
+                  Abs(rRD3e) + Abs(rRI3e) +
+                  Abs(rRD4e) + Abs(rRI4e);
+   end;
+
+
+procedure ObtenerLiteralCalificativo (aBD: TSQLConnection; iEjercicio, iCodInspeccion: integer;
+                                      const sCadenaDefecto, sCalificacion,
+                                            sLiteral, sUbicacion : string;
+                                      var sCodigo,
+                                          sDescripcion,
+                                          sOk,
+                                          sLeve,
+                                          sGrave : string);
+const
+    GUION = '-';
+    UN_BLANCO = ' ';
+    OK = '0';
+    OBSERVACION = '1';
+    LEVE = '2';
+    GRAVE = '3';
+
+    SEGUNDO_EJE = '2';
+    TERCER_EJE = '3';
+    CUARTO_EJE = '4';
+
+    RUEDA_DERECHA = 'D';
+    RUEDA_IZQUIERDA = 'I';
+
+var
+    aQ: TSQLQuery;
+    TDatInspecc: TSQLDataset;
+    parte1,parte2,parte3,valor1,valor2,valor3:string;
+begin
+    TDatInspecc := TSQLDataset.Create (nil);
+    try
+        with TDatInspecc do
+        begin
+            SQLConnection := aBD;
+            CommandType := ctTable;
+            GetMetadata := false;
+            NoMetadata := true;
+            ParamCheck := false;
+            CommandText := DATOS_TDATINSPECC;
+            Open;
+        end;
+
+      try
+
+
+
+          sCodigo := sCadenaDefecto;
+
+          If Length(sCalificacion)>0
+          Then begin
+              case sCalificacion[1] of
+                  OK:
+                  begin
+                      sOk := 'X';
+                      sLeve := '';
+                      sGrave := '';
+                  end;
+
+                  OBSERVACION:
+                  begin
+                      sOk := '';
+                      sLeve := '';
+                      sGrave := '';
+                  end;
+
+                  LEVE:
+                  begin
+                      sOk := '';
+                      sLeve := 'X';
+                      sGrave := '';
+                  end;
+
+                  GRAVE:
+                  begin
+                      sOk := '';
+                      sLeve := '';
+                      sGrave := 'X';
+                  end;
+              end;
+          end;
+          {iEjercicio:=StrToInt(aInspeccion.ValueByName[FIELD_EJERCICI]);
+          iCodigo:=StrToInt(aInspeccion.ValueByName[FIELD_CODINSPE]);}
+
+          if (copy (sCadenaDefecto, 7, length(sCadenaDefecto)) = '001')
+          then
+              sDescripcion := sLiteral
+          else begin
+              aQ:=TSQLQuery.Create(application);
+              Try
+                  with aQ do
+                  begin
+                      SQLConnection := aBD;
+
+                      Sql.Add(Format('SELECT * FROM %s WHERE %S = %D AND %S = %D',[DATOS_TDATINSPECC, FIELD_EJERCICI,iEjercicio,FIELD_CODINSPE,iCodInspeccion]));
+                      Open;
+                      if not Recordcount = 0
+                      then
+                          raise EDatosMalEnTDATOSINSPECC.CREATE ('NO EXISTE EL REGISTRO')
+                      else begin
+                          if sCadenaDefecto = '03.10.050' then sDescripcion := format (sLiteral, [StrToPuntoComa(Fields[2].AsString, 2, 0)])
+                          else if sCadenaDefecto = '03.10.051' then
+                              case sUbicacion[1] of
+                                  SEGUNDO_EJE,
+                                  TERCER_EJE,
+                                  CUARTO_EJE : sDescripcion :=  format (sLiteral, [sUbicacion[1],
+                                                                           StrToPuntoComa(Fields[StrToInt(sUbicacion[1]) + 1].AsString, 2, 0) ]);
+                                  else raise EDatosMalEnTDATOSINSPECC.CREATE ('DATOS INVEROSIMILES PARA EL LITERAL CALIFICATIVO 03.10.51, EJE DESCONOCIDO');
+                              end
+                          else if sCadenaDefecto = '04.03.050' then
+                              sDescripcion :=  format (sLiteral,
+                                                [StrToPuntoComa(Fields[18].AsString, 2, 0),
+                                                 FloatToStrF(FuerzaRuedasPorEje(
+                                                             Fields[14].AsString,
+                                                             Fields[15].AsString, 1),ffNumber,10,2),
+                                                 FloatToStrF(FuerzaRuedasPorEje(
+                                                             Fields[16].AsString,
+                                                             Fields[17].AsString, 2),ffNumber,10,2),
+                                                 FloatToStrF( PesoDeRuedas (
+                                                              Fields[6].AsString,
+                                                              Fields[7].AsString,
+                                                              Fields[8].AsString,
+                                                              Fields[9].AsString,
+                                                              Fields[10].AsString,
+                                                              Fields[11].AsString,
+                                                              Fields[12].AsString,
+                                                              Fields[13].AsString ),ffNumber,10,2)])
+                          else if sCadenaDefecto = '04.04.050' then
+                              sDescripcion := format (sLiteral,
+                                               [StrToPuntoComa(Fields[27].AsString, 2, 0),
+                                                FloatToStrF(FuerzaRuedasPorEje(
+                                                              Fields[19].AsString,
+                                                              Fields[20].AsString, 1),ffNumber,10,2),
+                                                FloatToStrF(FuerzaRuedasPorEje(
+                                                              Fields[21].AsString,
+                                                              Fields[22].AsString, 2),ffNumber,10,2),
+                                                FloatToStrF(FuerzaRuedasPorEje(
+                                                              Fields[23].AsString,
+                                                              Fields[24].AsString, 3),ffNumber,10,2),
+                                                FloatToStrF(FuerzaRuedasPorEje(
+                                                              Fields[25].AsString,
+                                                              Fields[26].AsString, 4),ffNumber,10,2),
+                                                FloatToStrF(PesoDeRuedas (
+                                                              Fields[6].AsString,
+                                                              Fields[7].AsString,
+                                                              Fields[8].AsString,
+                                                              Fields[9].AsString,
+                                                              Fields[10].AsString,
+                                                              Fields[11].AsString,
+                                                              Fields[12].AsString,
+                                                              Fields[13].AsString ),ffNumber,10,2)])
+                          else if sCadenaDefecto = '04.05.050' then
+                              sDescripcion := format (sLiteral,
+                                                [StrToPuntoComa(Fields[36].AsString,2,0),
+                                                 StrToPuntoComa(Fields[20].AsString,10,2),
+                                                 StrToPuntoComa(Fields[19].AsString,10,2) ])
+                          else if sCadenaDefecto = '04.06.050' then
+                              case sUbicacion[1] of
+                                  SEGUNDO_EJE :
+                                      sDescripcion := format (sLiteral,
+                                                   [sUbicacion[1],
+                                                    StrToPuntoComa(Fields[37].AsString,2,0),
+                                                    StrToPuntoComa(Fields[22].AsString,10,2),
+                                                    StrToPuntoComa(Fields[21].AsString,10,2) ]);
+
+                                  TERCER_EJE :
+                                      sDescripcion  := format (sLiteral,
+                                                     [sUbicacion[1],
+                                                      StrToPuntoComa(Fields[38].AsString,2,0),
+                                                      StrToPuntoComa(Fields[24].AsString,10,2),
+                                                      StrToPuntoComa(Fields[23].AsString,10,2) ]);
+
+                                  CUARTO_EJE :
+                                      sDescripcion := format (sLiteral,
+                                                    [sUbicacion[1],
+                                                     StrToPuntoComa(Fields[39].AsString,2,0),
+                                                     StrToPuntoComa(Fields[26].AsString,10,2),
+                                                     StrToPuntoComa(Fields[25].AsString,10,2) ]);
+
+
+                                  else raise EDatosMalEnTDATOSINSPECC.CREATE ('DATOS INVERSOIMILES PARA EL LITERAL CALIFICATIVO 04.06.50, EJE DESCONOCIDO');
+                              end
+
+                          else if sCadenaDefecto = '05.01.050' then
+                              sDescripcion := format (sLiteral,
+                                               [StrToPuntoComa(Fields[60].AsString,2,0),
+                                                StrToPuntoComa(Fields[57].AsString,2,0),
+                                                StrToPuntoComa(Fields[56].AsString,2,0) ])
+
+                          else if sCadenaDefecto = '05.01.051' then
+                              sDescripcion :=  format (sLiteral,
+                                                [StrToPuntoComa(Fields[61].AsString,2,0),
+                                                 StrToPuntoComa(Fields[59].AsString,2,0),
+                                                 StrToPuntoComa(Fields[58].AsString,2,0) ])
+
+
+                          else if sCadenaDefecto = '05.01.052' then
+
+                              case sUbicacion[1] of
+                                  RUEDA_DERECHA:
+                                      sDescripcion := format (sLiteral,
+                                                    [ 'Dch',
+                                                      StrToPuntoComa(Fields[56].AsString,2,0),
+                                                      StrToPuntoComa(Fields[62].AsString,2,0) ]);
+
+                                  RUEDA_IZQUIERDA:
+                                      sDescripcion := format (sLiteral,
+                                                    [ 'Izq',
+                                                      StrToPuntoComa(Fields[57].AsString,2,0),
+                                                      StrToPuntoComa(Fields[63].AsString,2,0)]);
+
+                                  else raise EDatosMalEnTDATOSINSPECC.CREATE ('DATOS INVERSOIMILES PARA EL LITERAL CALIFICATIVO 05.01.52, RUEDA DESCONOCIDA');
+                              end
+
+                          else if sCadenaDefecto = '05.01.053' then
+                              case sUbicacion[1] of
+
+                                  RUEDA_DERECHA:
+                                      sDescripcion := format (sLiteral,
+                                                   [ 'Dch',
+                                                      StrToPuntoComa(Fields[58].AsString,2,0),
+                                                      StrToPuntoComa(Fields[64].AsString,2,0) ]);
+
+                                  RUEDA_IZQUIERDA:
+                                      sDescripcion := format (sLiteral,
+                                                   [ 'Izq',
+                                                     StrToPuntoComa(Fields[59].AsString,2,0),
+                                                     StrToPuntoComa(Fields[65].AsString,2,0)]);
+
+                                  else raise EDatosMalEnTDATOSINSPECC.CREATE ('DATOS INVERSOIMILES PARA EL LITERAL CALIFICATIVO 05.01.53, RUEDA DESCONOCIDA');
+                              end
+
+                          else if sCadenaDefecto = '05.01.054' then
+                              case sUbicacion[1] of
+
+                                  RUEDA_DERECHA:
+                                      sDescripcion :=  format (sLiteral,
+                                                   [ 'Dch',
+                                                      StrToPuntoComa(Fields[56].AsString,3,0),
+                                                      StrToPuntoComa(Fields[62].AsString,3,0)]);
+
+                                  RUEDA_IZQUIERDA:
+                                      sDescripcion :=  format (sLiteral,
+                                                   [ 'Izq',
+                                                      StrToPuntoComa(Fields[57].AsString,3,0),
+                                                      StrToPuntoComa(Fields[63].AsString,3,0)]);
+
+                                  else raise EDatosMalEnTDATOSINSPECC.CREATE ('DATOS INVERSOIMILES PARA EL LITERAL CALIFICATIVO 05.01.54, RUEDA DESCONOCIDA');
+                              end
+
+
+                          else if sCadenaDefecto = '05.01.055' then
+                              case sUbicacion[1] of
+
+                                  RUEDA_DERECHA:
+                                      sDescripcion :=  format (sLiteral,
+                                                    [ 'Dch',
+                                                       StrToPuntoComa(Fields[58].AsString,2,0),
+                                                       StrToPuntoComa(Fields[64].AsString,2,0)]);
+
+                                  RUEDA_IZQUIERDA:
+                                      sDescripcion :=  format (sLiteral,
+                                                    [ 'Izq',
+                                                      StrToPuntoComa(Fields[59].AsString,2,0),
+                                                      StrToPuntoComa(Fields[65].AsString,2,0) ]);
+
+                                  else raise EDatosMalEnTDATOSINSPECC.CREATE ('DATOS INVERSOIMILES PARA EL LITERAL CALIFICATIVO 05.01.55, RUEDA DESCONOCIDA');
+                              end
+
+
+                          else if sCadenaDefecto = '10.01.050' then
+                              sDescripcion := format (sLiteral,
+                                               [StrToPuntoComa(Fields[66].AsString,10,2),
+                                                StrToPuntoComa(Fields[67].AsString,10,2),
+                                                StrToPuntoComa(Fields[68].AsString,10,2) ])
+
+
+                          else if sCadenaDefecto = '10.01.051' then
+                              sDescripcion :=  format (sLiteral,
+                                                [StrToPuntoComa(Fields[67].AsString,10,2),
+                                                 StrToPuntoComa(Fields[66].AsString,10,2),
+                                                 StrToPuntoComa(Fields[68].AsString,10,2) ])
+
+
+                             else if sCadenaDefecto = '09.13.014' then
+                                 begin
+                                       parte1:=copy(sLiteral,0,62) ;
+                                       parte2:=copy(sLiteral,64,6) ;
+                                       parte3:=copy(sLiteral,71,11) ;
+                                       valor1:=copy(sLiteral,83,2) ;
+                                       valor2:=copy(sLiteral,85,2) ;
+                                       valor3:=copy(sLiteral,87,2) ;
+                                      sDescripcion:=parte1+':'+valor1+'  '+parte2+':'+valor2+'  '+parte3+':'+valor3;
+                                  end
+                         
+
+
+                          else if sCadenaDefecto = '10.02.050' then
+                              sDescripcion :=  format (sLiteral,
+                                                [StrToPuntoComa(Fields[70].AsString,10,2) ])
+                          else sDescripcion := sLiteral;
+                      end;
+                  end;
+              Finally
+                  aQ.Close;
+                  aQ.Free;
+              end;
+          end;
+
+
+           
+          if ((Length(sDescripcion)>0) and (sDescripcion[length(sDescripcion)] = GUION)) then
+              sDescripcion[length(sDescripcion)] := UN_BLANCO;
+
+      except
+          on E: Exception do
+          begin
+              fIncidencias.PonAnotacion(TRAZA_SIEMPRE,10,FICHERO_ACTUAL, 'NO SE PUDO OBTENER EL LITERAL CALIFICATIVO DE '
+                                  + sCadenaDefecto +  ' PARA: ' +
+                                  IntTostr(iEjercicio) + '-' +
+                                  IntToStr(iCodInspeccion)  +
+                                   ' POR:  ' + E.message);
+              raise;
+          end;
+      end;
+    finally
+         TDatInspecc.Free;
+    end;
+
+
+
+end;
+
+
+end.
+

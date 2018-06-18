@@ -1,0 +1,1084 @@
+**************************19/01/10**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Pu**************************19/01/10**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************19/01/10**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************19/02/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************25/03/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************06/05/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************06/05/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************06/05/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************06/05/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************06/05/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************06/05/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************08/05/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************03/06/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************09/06/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************15/06/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************09/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************09/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************09/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************14/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************15/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************15/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************23/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************24/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************27/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************27/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************29/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************30/09/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************05/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************07/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************13/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************15/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************18/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************21/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************28/10/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************12/11/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************25/11/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 3
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************01/12/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 2
+**************************14/12/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 2
+**************************14/12/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 2
+**************************20/12/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 2
+**************************21/12/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 2
+**************************21/12/2010**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 2
+**************************25/01/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************03/02/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************10/02/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************11/10/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************14/10/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************15/10/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************31/10/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************08/11/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************11/11/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************15/11/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************24/11/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************21/12/2011**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************09/01/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************11/01/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************24/01/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************29/02/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************05/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 1
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************14/03/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/11/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/11/2012**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************07/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************08/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************29/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************29/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************29/01/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************18/02/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************18/02/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Error al abrir el puerto
+**************************27/02/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************26/11/2013**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM9
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************16/04/2014**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM7
+Tipo CF: 4
+Abre **************************21/04/2014**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM7
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Post en la Base
+**************************FIN**************************
+**************************08/05/2014**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM7
+Tipo CF: 1
+**************************07/07/2015**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************23/12/2015**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************14/01/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************03/02/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************04/02/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************07/04/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************07/04/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************07/04/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************28/04/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 9998
+**************************28/04/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 9998
+**************************28/04/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 9998
+**************************13/12/2016**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************05/01/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************05/01/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************05/01/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Realiza Cierre Z... @CIERREZ|
+Error en Cierre Z. Genera el X y Despues el**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO
+**************************06/03/2017**************************
+Lee Puerto y Tipo de Contolador
+Puerto: COM1
+Tipo CF: 4
+Abre Puerto para controlador
+Prepara el Estado @ESTADO|N
+Error al preparar el estado de impresion en el controlador. @ESTADO

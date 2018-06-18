@@ -1,0 +1,352 @@
+unit UGestionCampos;
+
+interface
+
+uses
+   Forms,
+   Windows,
+   Messages,
+   SysUtils,
+   Classes,
+   Controls,
+   DB,
+   sqlexpr,
+   provider,
+   dbclient,
+   ULOGS;
+
+const
+
+  FICHERO_ACTUAL = 'USagCampos.pas';
+
+    PRIMERA_DEPENDENCIA = 1;
+    ULTIMA_DEPENDENCIA = 20;
+
+    { TABLA CAMPOS }
+    PRIMER_CAMPO = 10;
+    ULTIMO_CAMPO = 63 {57};
+
+
+type
+
+  tCalificacion = (ok, obs, dl, dg);{, imp); { Igual orden que la tabla ordenada }
+
+  tDependencia = PRIMERA_DEPENDENCIA..ULTIMA_DEPENDENCIA;
+
+  ETablaCamposFueraDeRango = class(Exception);
+  ENoExisteElDato = class(Exception);
+
+  tSenUmb = record
+    sSentido : string;
+    rUmbral : real;
+  end;
+ {
+  tMinMax = record
+    rValMinimo, rValMaximo : real;
+  end;
+  }
+
+  tDatosCampo = record
+    sSimbolo : string {[LONGITUD_CADENA]};
+    // dIntervalo : tMinMax;
+    dIntervalo : tSenUmb;
+    dDependencia : tDependencia;
+  end;
+
+  ptUnCampo = ^tUnCampo;
+
+  tUnCampo = record
+    dDatosCampo : tDatosCampo;
+    pSiguiente : ptUnCampo;
+  end;
+
+
+
+  tTablaCampos = array [PRIMER_CAMPO..ULTIMO_CAMPO] of PtUnCampo;
+
+  TCampos = class(TObject)
+  private
+    aTablaCampos : tTablaCampos;
+
+    procedure InsertaCampo(var lista : ptUnCampo; UnNodo : tDatosCampo);
+    function Existe (iCampo : integer) : boolean;
+    function CadenaParaVehiculo (iCampo: integer; UnaDependencia : tDependencia) : string;
+    function TipoDeCalificacion (iCampo : integer) : integer;
+
+    {function ValoresMinMax (iCampo : integer; UnaDependencia : tDependencia): tMinMax;}
+
+    function SentidoYUmbral(iCampo : integer; UnaDependencia: tDependencia) : tSenUmb;
+    function ResultadoInspeccion (iCampo : integer; UnValor: real; UnaDependencia : tDependencia) : integer;
+
+  protected
+      FbHuboError : Boolean;
+  public
+
+    constructor Create (const sDireccionDeLaTabla: tsqlconnection);
+
+    function SimboloDeCampoPara (iCampo  : integer; UnaDependencia : tDependencia ): string;
+
+    function InspeccionPara (iCampo : integer;  UnValor : real; UnaDependencia : tDependencia) : integer;
+
+    property HuboError : boolean read FbHuboError write FbHuboError;
+  end;
+
+implementation
+
+const
+
+  ARRIBA = 'U';
+  ABAJO =  'D';
+  MAXIMO = 999999999; { un 9 más } // Valor maximo de un campo
+
+  // Valores por parametro, (0k, obs, dl}
+  VALORES = 3{4};
+
+  // Cualquier tipo de vehiculo, no importa
+  CUALQUIERA = 6; {Dependencia equivalente a cualquiera }
+{ ********************************************************************* }
+
+procedure TCampos.InsertaCampo(var lista : ptUnCampo; UnNodo : tDatosCampo);
+begin
+  if lista = nil then
+  begin
+    new(lista);
+    lista^.dDatosCampo := UnNodo;
+    lista^.pSiguiente := nil;
+  end
+  else InsertaCampo(lista^.pSiguiente, UnNodo);
+end;
+
+{ ********************************************************************* }
+
+constructor TCampos.Create  (const sDireccionDeLaTabla : tsqlConnection);
+const
+  { Nombre de la tabla }
+  TABLA = 'TCAMPOS';
+
+  { Atributos de la tabla }
+
+   CAMPO       = 'CAMPO';
+   DEPENDENCIA = 'DEPENDEN';
+
+   { MINIMO = 'MINVALOR';
+     MAXIMO = 'MAXVALOR'; }
+
+   SENTIDO     = 'SENTIDO';
+   UMBRAL      = 'UMBRAL';
+   LITERAL     = 'LITERAL';
+
+var
+ i: integer;
+ dCampo : tDatosCampo;
+ dsp : TDataSetProvider;
+ cds : TSQLDataSet;
+begin
+  try
+
+   FbHuboError := False;
+
+
+   for i:= low(aTablaCampos) to high(aTablaCampos) do
+   begin
+     aTablaCampos[i] := nil
+   end;
+
+   cds   := TSQLDataSet.Create(Application);
+   cds.SQLConnection := sDireccionDeLaTabla;
+   cds.CommandType := ctTable;
+   cds.GetMetadata := false;
+   cds.NoMetadata := true;
+   cds.ParamCheck := false;
+   dsp := TDataSetProvider.Create(Application);
+   dsp.DataSet := cds;
+   dsp.Options := [poIncFieldProps,poAllowCommandText];
+
+    with TClientDataSet.Create(application) do
+    begin
+      SetProvider(dsp);
+      CommandText := TABLA;
+      Open;
+      Application.ProcessMessages;
+      for i := 1 to RecordCount do
+      begin
+        dCampo.sSimbolo := FieldByName(LITERAL).AsString;
+
+        if FieldByName(DEPENDENCIA).AsInteger in [PRIMERA_DEPENDENCIA..ULTIMA_DEPENDENCIA] then
+          dCampo.dDependencia := FieldByName(DEPENDENCIA).AsInteger
+        else raise ETablaCamposFueraDeRango.Create('LA DEPENDENCIA ' + IntToStr(FieldByName(DEPENDENCIA).AsInteger) + ' EN LA TABLA: ' + TABLA + 'NO ESTÁ CONTEMPLADA EN ESTA VERSIÓN DEL PROGRAMA');
+
+
+  {      dCampo.dIntervalo.rValMinimo := FieldByName(MINIMO).AsFloat;
+        dCampo.dIntervalo.rValMaximo := FieldByName(MAXIMO).AsFloat;}
+
+        dCampo.dIntervalo.rUmbral := FieldByName(UMBRAL).AsFloat;
+        dCampo.dIntervalo.sSentido := FieldByName(SENTIDO).AsString;
+
+        //j := FieldByName(CAMPO).AsInteger;
+
+
+        InsertaCampo(aTablaCampos[FieldByName(CAMPO).AsInteger], dCampo);
+        {$IFDEF TRAZAS}
+      if fTrazas <> nil
+      then fTrazas.PonAnotacion (TRAZA_FLUJO, 0, FICHERO_ACTUAL,'camnpo: ' +inttostr(FieldByName(CAMPO).AsInteger));
+    {$ENDIF}
+        next
+      end;
+      Close;
+      Free;
+    end;
+
+    {$IFDEF TRAZAS}
+      if fTrazas <> nil
+      then fTrazas.PonAnotacion (TRAZA_FLUJO, 0, FICHERO_ACTUAL,'TABLA: ' + TABLA + ' LEIDA CORRECTAMENTE');
+    {$ENDIF}
+
+  except
+    on E : Exception do
+    begin
+      FbHuboError := True;
+      if fAnomalias <> nil
+      then fAnomalias.PonAnotacion(TRAZA_SIEMPRE,1,FICHERO_ACTUAL,'TABLA: ' + TABLA + ' NO LEIDA CORRECTAMENTE : ' + E.Message);
+    end;
+  end;
+end;
+
+
+{ ********************************************************************* }
+
+function TCampos.Existe (iCampo : integer) : boolean;
+{ Indica si el campo pedido existe o no }
+begin
+  result := (iCampo in [low(aTablaCampos)..high(aTablaCampos)]);
+        //    and  (aTablaCampos[iCampo] <> nil);
+end;
+
+{ ********************************************************************* }
+
+
+function TCampos.TipoDeCalificacion(iCampo : integer) : integer;
+{ Devuelve el tipo de calificacion }
+begin
+  result := (iCampo - PRIMER_CAMPO) mod VALORES;
+end;
+
+{ ********************************************************************* }
+
+function TCampos.CadenaParaVehiculo (iCampo : integer; UnaDependencia : tDependencia) : string;
+const
+  CADENA_VACIA = '';
+var
+ lista : ptUnCampo;
+ bEncontrado : boolean;
+
+begin
+
+  bEncontrado := False;
+
+  lista := aTablaCampos[iCampo];
+
+  while (lista <> nil) and (not bEncontrado) do
+    if  (lista^.dDatosCampo.dDependencia = UnaDependencia)
+    or  (lista^.dDatosCampo.dDependencia = CUALQUIERA)
+    then bEncontrado := True
+    else lista := lista^.pSiguiente;
+
+  if bEncontrado then result := lista.dDatosCampo.sSimbolo
+  else result := CADENA_VACIA;
+
+end;
+
+{ ********************************************************************* }
+
+function TCampos.SimboloDeCampoPara (iCampo  : integer; UnaDependencia : tDependencia ): string;
+
+begin
+
+  if (not Existe(iCampo)) then {result := CADENA_VACIA }raise ENoExisteElDato.Create('NO EXISTE EL CAMPO DE VERIFICACION: ' + IntToStr(iCampo))
+  else result := CadenaParaVehiculo(iCampo, UnaDependencia);
+
+end;
+
+{ ********************************************************************* }
+
+function TCampos.InspeccionPara (iCampo : integer;  UnValor : real; UnaDependencia : tDependencia{UnVehiculo : tVehiculo}) : integer;
+begin
+  if (not Existe(iCampo)) then raise ENoExisteElDato.Create('NO EXISTE EL CAMPO DE VERIFICACION: ' + IntToStr(iCampo))
+  else result :=  ResultadoInspeccion (iCampo, UnValor, UnaDependencia);
+end;
+
+{ ********************************************************************* }
+
+function TCampos.SentidoYUmbral(iCampo : integer; UnaDependencia: tDependencia) : tSenUmb;
+
+
+var
+ lista : ptUnCampo;
+ bEncontrado : boolean;
+ R : tSenUmb;
+
+begin
+  bEncontrado := False;
+
+  R.sSentido := ARRIBA;
+  R.rUmbral := MAXIMO;
+
+  lista := aTablaCampos[iCampo];
+
+  while (lista <> nil) and (not bEncontrado) do
+    if ((lista^.dDatosCampo.dDependencia = UnaDependencia)
+        or
+       (lista^.dDatosCampo.dDependencia = CUALQUIERA)) then bEncontrado := True
+    else lista := lista^.pSiguiente;
+
+  if bEncontrado then result := lista^.dDatosCampo.dIntervalo
+  else result := R;
+
+end;
+
+
+
+{ ********************************************************************* }
+
+function TCampos.ResultadoInspeccion (iCampo : integer; UnValor : real; UnaDependencia : tDependencia) : integer;
+{ Si un valor es 0 ojo
+ no debiera llamarase a la funcion, de todas formas si se llama devuelve calificacion Ext }
+var
+  bDetectado : Boolean;
+  //dMinMax : tMinMax;
+  dSenUmb : tSenUmb;
+  i : integer;
+begin
+
+
+  { El tratamiento recorre las 4 posiciones pudiendo empezar desde cualquiera }
+  { Tratamiento para ver si es nulo -> result := ext }
+//  bDetectado := False;
+  { De esta forma me moy al primer campo ok correspondiente con la observacion }
+  iCampo := iCampo - TipoDeCalificacion(iCampo);
+
+
+  for i := 1 to VALORES do
+  begin
+    dSenUmb := SentidoYUmbral(iCampo, UnaDependencia);
+    //dMinMax := ValoresMinMax(iCampo, UnaDependencia);
+
+    if dSenUmb.sSentido = ARRIBA then bDetectado := Abs(UnValor) <= dSenUmb.rUmbral
+    else bDetectado := Abs(UnValor) >= dSenUmb.rUmbral;
+
+    //bDetectado := (UnValor > dMinMax.rValMinimo) and (UnValor < dMinMax.rValMaximo);
+
+    if bDetectado then break
+    else inc(iCampo);
+  end;
+
+  if bDetectado then result := TipoDeCalificacion(iCampo)
+  else result := ord(dg); {Imp); { RESULTADO IMPOSIBLE }
+
+end;
+
+{ ********************************************************************* }
+
+end.
+

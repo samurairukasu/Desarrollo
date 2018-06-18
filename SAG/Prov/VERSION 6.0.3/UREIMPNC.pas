@@ -1,0 +1,491 @@
+unit UReimpNC;
+// Unidad que se encarga de reimprimir una nota de crédito seleccionando la matrícula o el número de factura
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, ExtCtrls, Db, SQLExpr, FMTBcd;
+
+type
+  TfrmReimpresionNC = class(TForm)
+    Bevel1: TBevel;
+    chkbxNumFactura: TCheckBox;
+    lblMatricula: TLabel;
+    lblNumFactura: TLabel;
+    edtInspeccion: TEdit;
+    edtNumFactura: TEdit;
+    btnAceptar: TBitBtn;
+    btnCancelar: TBitBtn;
+    lblTipo: TLabel;
+    CmbBxTipo: TComboBox;
+    rgtipo: TRadioGroup;
+    qryConsultas: TSQLQuery;
+    procedure chkbxNumFacturaClick(Sender: TObject);
+    procedure btnAceptarClick(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure CmbBxTipoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure edtNumFacturaKeyPress(Sender: TObject; var Key: Char);
+    procedure edtNumFacturaEnter(Sender: TObject);
+    procedure edtNumFacturaExit(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+    NumeroEstacion: integer; // var. auxi. que almacena el número de la planta
+    fNumeroFactura: integer;
+    fTipoFactura: string;
+    fRowidVehiculo: string;
+
+    fRowidInspeccion: string;
+
+    procedure ActivarDesactivarNumFactura (const bActivar: boolean);
+    function ExisteFactura_TFACTURAS: boolean;
+//    function ExisteVehiculo_TVEHICULOS: boolean;
+    function ExisteInspeccion_TINSPECCION: boolean;
+//    function NumEstacionCorrecto: boolean;
+
+function Yatienenotadecredito_TFACTURAS: boolean;
+  function tiene_oblea_para_inutilizar: boolean;             //
+
+  public
+    { Public declarations }
+    // Almacena el número de factura introducido
+    nro_oblea:string;
+    anular_oblea:boolean;
+    property NumeroFactura: integer read fNumeroFactura write fNumeroFactura;
+    // Almacena el tipo de la factura
+    property TipoFactura: string read fTipoFactura write fTipoFactura;
+    // Almacena el rowid del vehículo
+    property RowidVehiculo: string read fRowidVehiculo write fRowidVehiculo;
+    property RowidInspeccion: string read fRowidInspeccion write fRowidInspeccion;
+
+    constructor CreateFromFactura (const iEstacion: integer);
+    constructor CreateFromNCredito (const iEstacion: integer);
+  end;
+
+var
+  frmReimpresionNC: TfrmReimpresionNC;
+
+implementation
+
+uses
+   UCDIALGS,
+   ULOGS,
+   GLOBALS,
+   USAGDOMINIOS,
+   USAGESTACION,
+   UUTILS,
+   UINTERFAZUSUARIO;
+
+
+{$R *.DFM}
+
+
+resourcestring
+    CAPTION_REIMPNCRED = 'Reimpresión de notas de crédito';
+    CAPTION_FACTURAS = 'Reimpresión de facturas';
+    LBL_FACTURA = 'Búsqueda por Nº Factura';
+
+    FICHERO_ACTUAL = 'UReimpNC';
+
+    MSJ_ENTDTVEH_DOMNOVAL = 'El formato del dominio introducido es ' +
+        'incorrecto. Debería introducir, o bien tres letras y tres dígitos '+
+        '(por ejemplo: AAA111) o bien una letra y siete dígitos (por ejemplo: A1234567). ' +
+        'De todas formas, ¿Desea continuar realizando la inspección del vehículo?';
+    MSJ_REIMPFNC_INSNOEX = 'La inspección introducida no se encuentra almacenada.';
+    MSJ_REIMPFNC_FACNOEX = 'La factura introducida no se encuentra almacenada o se ha cancelado anteriormente.';
+    MSJ_REIMPFNC_NROERRO = 'El formato del número de factura no es correcto.';
+
+procedure TfrmReimpresionNC.chkbxNumFacturaClick(Sender: TObject);
+begin
+    if (chkBxNumFactura.Checked) then
+    begin
+        edtInspeccion.Text := '';
+        ActivarDesactivarNumFactura (True);
+        edtNumFactura.setfocus;
+    end
+    else
+    begin
+        edtNumFactura.Text := '';
+        ActivarDesactivarNumFactura (False);
+        edtInspeccion.setfocus;
+    end
+end;
+
+
+procedure TFrmReimpresionNC.ActivarDesactivarNumFactura (const bActivar: boolean);
+begin
+    lblNumFactura.Enabled := bActivar;
+    edtNumFactura.Enabled := bActivar;
+    lblTipo.Enabled := bActivar;
+    CmbBxTipo.Enabled := bActivar;
+
+    lblMatricula.Enabled := not bActivar;
+    edtInspeccion.Enabled := not bActivar;
+    rgtipo.Enabled := not bActivar;
+end;
+
+
+procedure TfrmReimpresionNC.btnAceptarClick(Sender: TObject);
+begin
+anular_oblea:=false;
+    if (chkBxNumFactura.Checked) then
+    begin
+        if (Es_Numero (Copy (edtNumFactura.Text,6,8))) then
+        begin
+            NumeroFactura := StrToInt (Copy (edtNumFactura.Text,6,8));
+            TipoFactura := CmbBxTipo.Items[cmbBxTipo.ItemIndex];
+
+
+            if (Yatienenotadecredito_TFACTURAS) then
+                 begin
+                         MessageDlg (Application.Title, 'La factura introducida ya tiene una Nota de Crédito asociada.', mtInformation, [mbOk], mbOk, 0);
+
+                    exit;
+                end;
+
+            if (ExisteFactura_TFACTURAS) then
+            begin
+                {$IFDEF TRAZAS}
+                  FTrazas.PonComponente (TRAZA_FORM,5,FICHERO_ACTUAL,Self);
+                {$ENDIF}
+                ModalResult := mrOk
+            end
+            else
+            begin
+                { La factura introducida no existe en TFACTURAS }
+                MessageDlg (Application.Title, MSJ_REIMPFNC_FACNOEX, mtInformation, [mbOk], mbOk, 0);
+                {$IFDEF TRAZAS}
+                  FTrazas.PonAnotacion (TRAZA_FLUJO,1,FICHERO_ACTUAL,'Se ha intentado reimprimir la nota de crédito de un vehículo que no está en TVEHICULOS');
+                {$ENDIF}
+                edtNumFactura.setfocus;
+            end;
+        end
+        else
+        begin
+                MessageDlg (Application.Title, MSJ_REIMPFNC_NROERRO, mtInformation, [mbOk], mbOk, 0);
+        end
+    end
+    else
+    begin
+        if ExisteInspeccion_TINSPECCION then
+        begin
+                {$IFDEF TRAZAS}
+                  FTrazas.PonComponente (TRAZA_FORM,5,FICHERO_ACTUAL,Self);
+                {$ENDIF}
+
+
+
+                ModalResult := mrOk
+        end
+        else
+        begin
+            { La inspección introducida no existe en TINSPECCION }
+            MessageDlg (Application.Title, MSJ_REIMPFNC_INSNOEX, mtInformation, [mbOk], mbOk, 0);
+            {$IFDEF TRAZAS}
+              FTrazas.PonAnotacion (TRAZA_FLUJO,2,FICHERO_ACTUAL,'Se ha intentado reimprimir la nota de crédito de una inspección que no está en TINSPECCION');
+            {$ENDIF}
+            edtInspeccion.setfocus;
+        end;
+    end
+end;
+
+
+
+function TfrmReimpresionNC.Yatienenotadecredito_TFACTURAS: boolean;
+var puntoventa:integer;
+begin
+    try
+      with qryConsultas do
+      begin
+          puntoventa:=strtoint(copy(edtnumfactura.text,1,4));
+          Close;
+          Sql.Clear;
+          Sql.Add (Format ('SELECT NUMFACTU FROM TFACTURAS, TFACT_ADICION WHERE CODCOFAC IS NOT NULL AND  CODFACTU = CODFACT AND NUMFACTU = %d AND TIPFACTU =  ''%s'' and ERROR = ''N'' and PTOVENT = %d',[NumeroFactura,tipofactura,puntoventa]));
+          {$IFDEF TRAZAS}
+            FTrazas.PonComponente (TRAZA_SQL,8,FICHERO_ACTUAL,qryConsultas);
+          {$ENDIF}
+          Open;
+          Application.ProcessMessages;
+      end;
+      {$IFDEF TRAZAS}
+        FTrazas.PonRegistro (TRAZA_REGISTRO,7,FICHERO_ACTUAL,qryConsultas);
+      {$ENDIF}
+
+      Result := (qryConsultas.Fields[0].AsString <> '');
+
+    except
+         on E:Exception do
+         begin
+             Result := False;
+             FAnomalias.PonAnotacion (TRAZA_SIEMPRE,1,FICHERO_ACTUAL, 'Error .Esta factura ya tiene nota de credito: ' + E.Message);
+         end;
+    end;
+end;
+
+
+
+// Devuelve true si el nº de factura existe en TFACTURAS
+function TfrmReimpresionNC.ExisteFactura_TFACTURAS: boolean;
+var puntoventa:integer;
+begin
+    try
+      with qryConsultas do
+      begin
+          puntoventa:=strtoint(copy(edtnumfactura.text,1,4));
+          Close;
+          Sql.Clear;
+          Sql.Add (Format ('SELECT NUMFACTU  FROM TFACTURAS, TFACT_ADICION WHERE CODFACTU = CODFACT AND NUMFACTU = %d AND TIPFACTU =  ''%s'' and ERROR = ''N'' and PTOVENT = %d',[NumeroFactura,tipofactura,puntoventa]));
+          {$IFDEF TRAZAS}
+            FTrazas.PonComponente (TRAZA_SQL,8,FICHERO_ACTUAL,qryConsultas);
+          {$ENDIF}
+          Open;
+          Application.ProcessMessages;
+      end;
+      {$IFDEF TRAZAS}
+        FTrazas.PonRegistro (TRAZA_REGISTRO,7,FICHERO_ACTUAL,qryConsultas);
+      {$ENDIF}
+
+
+
+      Result := (qryConsultas.Fields[0].AsString <> '');
+
+    except
+         on E:Exception do
+         begin
+             Result := False;
+             FAnomalias.PonAnotacion (TRAZA_SIEMPRE,1,FICHERO_ACTUAL, 'Error en ExisteFactura_TFACTURAS: ' + E.Message);
+         end;
+    end;
+end;
+
+// Devuelve True si la matrícula está almacenada en TVEHICULOS
+//function TfrmReimpresionNC.ExisteVehiculo_TVEHICULOS: boolean;
+//begin
+(*    Result := False;
+    try
+       with qryConsultas do
+       begin
+           Close;
+           Sql.Clear;
+           Sql.Add (Format('SELECT %s FROM %s WHERE %s=''%s'' or %s=''%s''',[FIELD_ROWID, DATOS_VEHICULOS, FIELD_PATENTEN, edtMatricula.Text,FIELD_PATENTEA, edtMatricula.Text]));
+           {$IFDEF TRAZAS}
+             FTrazas.PonComponente (TRAZA_FLUJO,10,FICHERO_ACTUAL,qryConsultas);
+           {$ENDIF}
+           Open;
+           Application.ProcessMessages;
+       end;
+       if (qryConsultas.Fields[0].AsString <> '') then
+       begin
+           Result := True;
+           fRowidVehiculo := qryConsultas.Fields[0].AsString;
+       end;
+    except
+         on E:Exception do
+         begin
+             Result := False;
+             FAnomalias.PonAnotacion (TRAZA_SIEMPRE,2,FICHERO_ACTUAL,'No existe el vehículo en TVEHICULOS' + E.Message);
+         end;
+    end;*)
+//end;
+
+function TfrmReimpresionNC.ExisteInspeccion_TINSPECCION: boolean;             //
+var
+  nroinspeccion, ejercicio: integer;
+begin
+    try
+      with qryConsultas do
+      begin
+          ejercicio := strtoint(copy(trim(edtInspeccion.text),1,2));
+          ejercicio := 2000+ejercicio;
+          nroinspeccion := strtoint(copy(trim(edtInspeccion.text),11,8));
+          Close;
+          Sql.Clear;
+          if rgtipo.ItemIndex = 1 then
+            Sql.Add (Format ('SELECT ROWID FROM TINSPECCION WHERE EJERCICI = %d AND CODINSPE = %d',[ejercicio,NroInspeccion]))
+          else
+            Sql.Add (Format ('SELECT ROWID FROM INSPGNC WHERE EJERCICI = %d AND CODINSPGNC = %d',[ejercicio,NroInspeccion]));
+          {$IFDEF TRAZAS}
+            FTrazas.PonComponente (TRAZA_SQL,8,FICHERO_ACTUAL,qryConsultas);
+          {$ENDIF}
+          Open;
+          Application.ProcessMessages;
+      end;
+      {$IFDEF TRAZAS}
+        FTrazas.PonRegistro (TRAZA_REGISTRO,7,FICHERO_ACTUAL,qryConsultas);
+      {$ENDIF}
+
+
+
+      Result := (qryConsultas.Fields[0].AsString <> '');
+      fRowidInspeccion := qryConsultas.Fields[0].AsString;
+    except
+         on E:Exception do
+         begin
+             Result := False;
+             FAnomalias.PonAnotacion (TRAZA_SIEMPRE,1,FICHERO_ACTUAL, 'Error en ExisteInspeccion_TINSPECCION: ' + E.Message);
+         end;
+    end;
+end;
+
+function TfrmReimpresionNC.tiene_oblea_para_inutilizar: boolean;             //
+var
+  nroinspeccion, ejercicio: integer;
+begin
+tiene_oblea_para_inutilizar:=false;
+    try
+      with qryConsultas do
+      begin
+          ejercicio := strtoint(copy(trim(edtInspeccion.text),1,2));
+          ejercicio := 2000+ejercicio;
+          nroinspeccion := strtoint(copy(trim(edtInspeccion.text),11,8));
+          Close;
+          Sql.Clear;
+
+            Sql.Add (Format ('SELECT numoblea FROM TINSPECCION WHERE EJERCICI = %d AND CODINSPE = %d',[ejercicio,NroInspeccion]));
+            if trim(fields[0].asstring)<>'' then
+             begin
+               nro_oblea:=trim(fields[0].asstring);
+
+               tiene_oblea_para_inutilizar:=true;
+              end;
+          {$IFDEF TRAZAS}
+            FTrazas.PonComponente (TRAZA_SQL,8,FICHERO_ACTUAL,qryConsultas);
+          {$ENDIF}
+          Open;
+          Application.ProcessMessages;
+      end;
+      {$IFDEF TRAZAS}
+        FTrazas.PonRegistro (TRAZA_REGISTRO,7,FICHERO_ACTUAL,qryConsultas);
+      {$ENDIF}
+
+      Result := (qryConsultas.Fields[0].AsString <> '');
+      fRowidInspeccion := qryConsultas.Fields[0].AsString;
+    except
+         on E:Exception do
+         begin
+             Result := False;
+             FAnomalias.PonAnotacion (TRAZA_SIEMPRE,1,FICHERO_ACTUAL, 'Error en ExisteInspeccion_TINSPECCION: ' + E.Message);
+         end;
+    end;
+end;
+
+
+constructor TfrmReimpresionNC.CreateFromFactura (const iEstacion: integer);
+begin
+    inherited Create (Application);
+
+    NumeroEstacion := iEstacion;
+
+    Caption := CAPTION_FACTURAS;
+    ChkBxNumFactura.Caption := LBL_FACTURA;
+    ChkBxNumFactura.Checked := True;
+    ActivarDesactivarNumFactura (True);
+
+    with qryConsultas do
+    begin
+        Close;
+        SQLConnection := MyBD;
+    end;
+
+    // Por defecto, el tipo de factura a reimprimir es la B
+    CmbBxTipo.ItemIndex := 1;
+end;
+
+constructor TfrmReimpresionNC.CreateFromNCredito;
+begin
+    inherited Create (Application);
+
+    NumeroEstacion := iEstacion;
+
+    Caption := CAPTION_REIMPNCRED;
+    //ChkBxNumFactura.Caption := LBL_NCREDITO;
+    ChkBxNumFactura.Caption := LBL_FACTURA;
+    ChkBxNumFactura.Checked := True;
+    ActivarDesactivarNumFactura (True);
+
+    with qryConsultas do
+    begin
+        Close;
+        SQLConnection := MyBD;
+    end;
+
+    // Por defecto, el tipo de factura a reimprimir es la B
+    CmbBxTipo.ItemIndex := 1;
+end;
+
+
+procedure TfrmReimpresionNC.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+    if (Key = Chr(VK_RETURN)) then
+    begin
+        Perform (WM_NEXTDLGCTL, 0, 0);
+        Key := #0;
+    end;
+end;
+
+
+procedure TfrmReimpresionNC.CmbBxTipoKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+   if Key = VK_SPACE then
+     Combo_ConTeclas (CmbBxTipo, Key);
+end;
+
+procedure TfrmReimpresionNC.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+    qryConsultas.Close;
+end;
+
+
+// Dado un nº factura con formato: abcd-nnnnnnnn, devuelve True si abcd se corresponde con el nº de la planta
+(*function TfrmReimpresionNC.NumEstacionCorrecto: boolean;
+begin
+    try
+       Result := (NumeroEstacion = StrToInt(Copy (edtNumFactura.Text,1,4)));
+    except
+        on E:Exception do
+           Result := False;
+    end;
+end;*)
+
+
+procedure TfrmReimpresionNC.edtNumFacturaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+    if (not (Key in ['0'..'9','-',#8])) then
+       Key := #0;
+end;
+
+procedure TfrmReimpresionNC.edtNumFacturaEnter(Sender: TObject);
+begin
+    DestacarControl (Sender, clGreen, clWhite, False);
+end;
+
+procedure TfrmReimpresionNC.edtNumFacturaExit(Sender: TObject);
+begin
+    AtenuarControl (Sender, False);
+    Self.Text := Trim (Self.Text);
+end;
+
+procedure TfrmReimpresionNC.FormShow(Sender: TObject);
+begin
+    edtNumFactura.Setfocus;
+end;
+
+procedure TfrmReimpresionNC.FormCreate(Sender: TObject);
+begin
+//    fIncidencias.PonAnotacion(TRAZA_FLUJO,1,'ureimpnc', 'entre ureimpnc '+inttostr(cursores));
+end;
+
+procedure TfrmReimpresionNC.FormDestroy(Sender: TObject);
+begin
+//    fIncidencias.PonAnotacion(TRAZA_FLUJO,1,'ureimpnc', 'sale ureimpnc '+inttostr(cursores));
+end;
+
+end.

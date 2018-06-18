@@ -1,0 +1,775 @@
+[Closed Files]
+File_0=SourceModule,'C:\Archivos de programa\Borland\Delphi7\Source\Vcl\SqlExpr.pas',0,1,4058,1,4075,0,0
+File_1=SourceModule,'C:\Archivos de programa\Borland\Delphi7\Source\Vcl\DB.pas',0,1,2334,56,2365,0,0
+File_2=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.04.21\UFRestaurarObleaPWD.pas',0,1,43,37,68,1,0
+File_3=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.04.21\UFRestaurarOblea.pas',0,1,61,1,78,0,0
+File_4=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.04.21\UCTINSPECTORES.pas',0,1,61,14,69,0,0
+File_5=SourceModule,'C:\Archivos de programa\Borland\Delphi7\Source\Vcl\Forms.pas',0,1,2608,1,2625,0,0
+File_6=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.04.21\UtilOracle.pas',0,1,87,1,104,0,0
+File_7=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.04.21\UCTEVERIFICACIONES.pas',0,1,281,1,298,0,0
+File_8=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.04.21\uconversiones.pas',0,1,1,1,32,0,0
+
+[Modules]
+Module0=C:\desarrolloStarteam\VTVSAG 4.04.21\ufOblInutilizad.pas
+Module1=C:\desarrolloStarteam\VTVSAG 4.04.21\UFinVeri.pas
+Module2=C:\desarrolloStarteam\VTVSAG 4.04.21\ufOblAnulad.pas
+Module3=C:\desarrolloStarteam\VTVSAG 4.04.21\UFHISTORICOINSPECCIONES.pas
+Module4=C:\desarrolloStarteam\VTVSAG 4.04.21\USAGDATA.pas
+Module5=C:\desarrolloStarteam\VTVSAG 4.04.21\UPROTECT.pas
+Module6=C:\desarrolloStarteam\VTVSAG 4.04.21\UFMainSag98.pas
+Module7=C:\desarrolloStarteam\VTVSAG 4.04.21\uSagClasses.pas
+Module8=C:\desarrolloStarteam\VTVSAG 4.04.21\UFDOMINIOS.pas
+Module9=C:\desarrolloStarteam\VTVSAG 4.04.21\UFRECEPCION.pas
+Module10=C:\desarrolloStarteam\VTVSAG 4.04.21\UFTmp.pas
+Module11=C:\desarrolloStarteam\VTVSAG 4.04.21\ugacceso.pas
+Module12=C:\desarrolloStarteam\VTVSAG 4.04.21\uHistorial.pas
+Module13=C:\desarrolloStarteam\VTVSAG 4.04.21\UFCAJA.pas
+Module14=C:\desarrolloStarteam\VTVSAG 4.04.21\UVERSION.pas
+Count=15
+EditWindowCount=1
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\ufOblInutilizad.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UFinVeri.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=1
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\ufOblAnulad.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UFHISTORICOINSPECCIONES.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\USAGDATA.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UPROTECT.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UFMainSag98.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\uSagClasses.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UFDOMINIOS.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UFRECEPCION.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UFTmp.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\ugacceso.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\uHistorial.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UFCAJA.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\UVERSION.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Archivos de programa\Borland\Delphi7\Projects\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\VTVSAG 4.04.21\Sag98.dpr]
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+ViewCount=15
+CurrentView=10
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+View8=8
+View9=9
+View10=10
+View11=11
+View12=12
+View13=13
+View14=14
+CodeExplorer=CodeExplorer@EditWindow0
+MessageView=MessageView@EditWindow0
+Create=1
+Visible=1
+State=2
+Left=237
+Top=102
+Width=1443
+Height=897
+MaxLeft=-4
+MaxTop=97
+MaxWidth=808
+MaxHeight=454
+ClientWidth=800
+ClientHeight=427
+LeftPanelSize=140
+LeftPanelClients=CodeExplorer@EditWindow0
+LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
+RightPanelSize=0
+BottomPanelSize=201
+BottomPanelClients=MessageView@EditWindow0,WatchWindow
+BottomPanelData=0000040000000000200300000000000002C9000000000000000100000000480300000B000000576174636857696E646F770100000000200300000B0000004D65737361676556696577FFFFFFFF
+
+[View0]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UFMainSag98.pas
+CursorX=24
+CursorY=539
+TopLine=515
+LeftCol=1
+
+[View1]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UFinVeri.pas
+CursorX=36
+CursorY=418
+TopLine=404
+LeftCol=1
+
+[View2]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UPROTECT.pas
+CursorX=1
+CursorY=514
+TopLine=497
+LeftCol=1
+
+[View3]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UFHISTORICOINSPECCIONES.pas
+CursorX=1
+CursorY=1
+TopLine=112
+LeftCol=1
+
+[View4]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\uHistorial.pas
+CursorX=59
+CursorY=277
+TopLine=250
+LeftCol=1
+
+[View5]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\ugacceso.pas
+CursorX=46
+CursorY=130
+TopLine=113
+LeftCol=1
+
+[View6]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UFTmp.pas
+CursorX=41
+CursorY=26
+TopLine=25
+LeftCol=1
+
+[View7]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UFRECEPCION.pas
+CursorX=1
+CursorY=1953
+TopLine=1936
+LeftCol=1
+
+[View8]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UFCAJA.pas
+CursorX=1
+CursorY=490
+TopLine=458
+LeftCol=1
+
+[View9]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UFDOMINIOS.pas
+CursorX=1
+CursorY=133
+TopLine=116
+LeftCol=1
+
+[View10]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\ufOblInutilizad.pas
+CursorX=24
+CursorY=438
+TopLine=450
+LeftCol=1
+
+[View11]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\ufOblAnulad.pas
+CursorX=11
+CursorY=294
+TopLine=285
+LeftCol=1
+
+[View12]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\uSagClasses.pas
+CursorX=1
+CursorY=1070
+TopLine=1053
+LeftCol=1
+
+[View13]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\USAGDATA.pas
+CursorX=61
+CursorY=740
+TopLine=719
+LeftCol=1
+
+[View14]
+Module=C:\desarrolloStarteam\VTVSAG 4.04.21\UVERSION.pas
+CursorX=30
+CursorY=111
+TopLine=73
+LeftCol=1
+
+[Watches]
+Count=4
+Watch0='iTresdeOblea',256,0,18,1,0,'Watches'
+Watch1='iDiaHoy',256,0,18,1,0,'Watches'
+Watch2='iDiasMes',256,0,18,1,0,'Watches'
+Watch3='Result',256,0,18,1,0,'Watches'
+
+[WatchWindow]
+WatchColumnWidth=100
+WatchShowColumnHeaders=1
+Create=1
+Visible=1
+State=0
+Left=12
+Top=0
+Width=824
+Height=201
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=824
+ClientHeight=201
+TBDockHeight=201
+LRDockWidth=583
+Dockable=1
+
+[Breakpoints]
+Count=153
+Breakpoint0='C:\desarrolloStarteam\VTVSAG 4.01\IMPRVLIM.pas',482,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint1='C:\desarrolloStarteam\VTVSAG 4.01\uArqueoCajaExtendedXCajero.pas',124,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint2='C:\desarrolloStarteam\VTVSAG 4.01\uArqueoCajaExtendedXCajero.pas',160,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint3='C:\desarrolloStarteam\VTVSAG 4.01\UFListadoDecJuradas.pas',157,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint4='C:\desarrolloStarteam\VTVSAG 4.01\ufLiqDiaria.pas',199,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint5='C:\Lucho\Manuales\UFINVERI.pas',1099,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint6='C:\Lucho\Manuales\UFINVERI.pas',647,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint7='C:\desarrolloStarteam\VTVSAG 4.01\UFFACTURA.pas',192,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint8='C:\desarrolloStarteam\VTVSAG 4.01\UFCAJA.pas',1104,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint9='C:\desarrolloStarteam\VTVSAG 4.01\UFCAJA.pas',1095,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint10='C:\desarrolloStarteam\VTVSAG 4.01\uSagClasses.pas',1070,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint11='C:\desarrolloStarteam\VTVSAG 4.01\UCOMUNIC.pas',56,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint12='C:\desarrolloStarteam\VTVSAG 4.02\UGACCESO.pas',254,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint13='C:\desarrolloStarteam\VTVSAG 4.02\uSagClasses.pas',4370,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint14='C:\desarrolloStarteam\VTVSAG 4.02\uSagClasses.pas',4408,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint15='C:\desarrolloStarteam\VTVSAG 4.03\FICHINI.pas',696,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint16='C:\desarrolloStarteam\VTVSAG 4.03\FICHINI.pas',718,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint17='C:\desarrolloStarteam\VTVSAG 4.03\UFNEWINSPECTOR.pas',350,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint18='C:\desarrolloStarteam\VTVSAG 4.03\UFSEARCHINSPECTOR.pas',221,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint19='C:\desarrolloStarteam\VTVSAG 4.03\UFNEWINSPECTOR.pas',205,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint20='C:\desarrolloStarteam\VTVSAG 4.03\UReimpresion.pas',412,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint21='C:\desarrolloStarteam\VTVSAG 4.04\UFNEWINSPECTOR.pas',462,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint22='C:\desarrolloStarteam\VTVSAG 4.04\UFRestaurarOblea.pas',78,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint23='C:\desarrolloStarteam\VTVSAG 4.04\UFRestaurarOblea.pas',119,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint24='C:\desarrolloStarteam\VTVSAG 4.04\UFRestaurarOblea.pas',116,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint25='C:\desarrolloStarteam\VTVSAG 4.04\uExportaciones.pas',980,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint26='C:\desarrolloStarteam\VTVSAG 4.04\UFMainSag98.pas',532,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint27='C:\desarrolloStarteam\VTVSAG 4.04\UFinVeri.pas',937,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint28='C:\desarrolloStarteam\VTVSAG 4.03\USAGESTACION.pas',76,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint29='C:\desarrolloStarteam\VTVSAG 4.04\UFDOMINIOS.pas',152,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint30='C:\desarrolloStarteam\VTVSAG 4.04\UFDOMINIOS.pas',97,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint31='C:\desarrolloStarteam\VTVSAG 4.04\UFMainSag98.pas',600,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint32='C:\desarrolloStarteam\VTVSAG 4.04\UFDOMINIOS.pas',133,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint33='C:\desarrolloStarteam\VTVSAG 4.03\USAGESTACION.pas',692,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint34='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',764,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint35='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',597,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint36='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',650,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint37='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',1336,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint38='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',1370,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint39='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',1784,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint40='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',1820,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint41='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2137,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint42='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2233,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint43='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2282,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint44='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2929,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint45='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2930,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint46='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3237,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint47='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3249,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint48='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3227,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint49='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3244,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint50='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3206,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint51='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2036,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint52='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2127,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint53='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3212,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint54='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2139,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint55='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2146,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint56='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2933,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint57='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2934,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint58='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2935,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint59='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2936,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint60='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2937,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint61='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2939,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint62='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2940,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint63='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2941,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint64='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2943,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint65='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',2942,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint66='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3073,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint67='C:\desarrolloStarteam\VTVSAG 4.04\UFRECEPCION.pas',3115,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint68='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',1865,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint69='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',658,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint70='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',655,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint71='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',107,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint72='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',139,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint73='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',195,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint74='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',215,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint75='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',247,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint76='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',298,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint77='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',314,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint78='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',325,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint79='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',350,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint80='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',145,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint81='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',250,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint82='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',256,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint83='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',342,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint84='C:\desarrolloStarteam\VTVSAG 4.04.1\UREIMPCER.pas',270,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint85='C:\desarrolloStarteam\VTVSAG 4.04.1\ufDeclaracionJurada.pas',105,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint86='C:\desarrolloStarteam\VTVSAG 4.04.1\ufDeclaracionJurada.pas',124,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint87='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',551,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint88='C:\desarrolloStarteam\VTVSAG 4.04.1\ufDeclaracionJurada.pas',136,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint89='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',1944,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint90='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',2403,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint91='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',2730,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint92='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',1948,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint93='C:\desarrolloStarteam\VTVSAG 4.04.1\UFRECEPCION.pas',1975,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint94='C:\desarrolloStarteam\VTVSAG 4.04.1\UFinVeri.pas',473,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint95='C:\desarrolloStarteam\VTVSAG 4.04.1\UFinVeri.pas',540,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint96='C:\desarrolloStarteam\VTVSAG 4.04.2\UFRECEPCION.pas',1055,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint97='C:\desarrolloStarteam\VTVSAG 4.04.2\USAGDATA.pas',1013,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint98='C:\desarrolloStarteam\VTVSAG 4.04.2\UFRECEPCION.pas',2703,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint99='C:\desarrolloStarteam\VTVSAG 4.04.2\UFMainSag98.pas',1173,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint100='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',560,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint101='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',548,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint102='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',585,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint103='C:\desarrolloStarteam\VTVSAG 4.04.2\UFHISTORICOINSPECCIONES.pas',76,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint104='C:\desarrolloStarteam\VTVSAG 4.04.2\ufOblInutilizad.pas',165,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint105='C:\desarrolloStarteam\VTVSAG 4.04.2\ufOblAnulad.pas',111,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint106='C:\desarrolloStarteam\VTVSAG 4.04.2\ufOblAnulad.pas',129,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint107='C:\desarrolloStarteam\VTVSAG 4.04.2\ufOblInutilizad.pas',148,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint108='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1222,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint109='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1237,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint110='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1287,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint111='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1308,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint112='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1260,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint113='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1320,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint114='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',500,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint115='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',940,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint116='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1061,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint117='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',1070,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint118='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',994,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint119='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',962,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint120='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',757,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint121='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',690,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint122='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',611,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint123='C:\desarrolloStarteam\VTVSAG 4.04.2\UFinVeri.pas',423,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint124='C:\desarrolloStarteam\VTVSAG 4.04.2\UFRECEPCION.pas',1961,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint125='C:\desarrolloStarteam\VTVSAG 4.04.2\UFRECEPCION.pas',2329,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint126='C:\desarrolloStarteam\VTVSAG 4.04.2\UFPagoConTarjeta.pas',148,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint127='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',641,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint128='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',706,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint129='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',944,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint130='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',923,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint131='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',165,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint132='C:\desarrolloStarteam\VTVSAG 4.04.2\UFRecepcion.pas',1953,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint133='C:\desarrolloStarteam\VTVSAG 4.04.2\UFRecepcion.pas',2206,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint134='C:\desarrolloStarteam\VTVSAG 4.04.2\UCTINSPECTORES.pas',69,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint135='C:\desarrolloStarteam\VTVSAG 4.04.2\UCTINSPECTORES.pas',74,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint136='C:\desarrolloStarteam\VTVSAG 4.04.2\UtilOracle.pas',104,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint137='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',372,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint138='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',441,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint139='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',461,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint140='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',475,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint141='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',484,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint142='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',490,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint143='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',458,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint144='C:\desarrolloStarteam\VTVSAG 4.04.2\UFCAJA.pas',453,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint145='C:\desarrolloStarteam\VTVSAG 4.04.21\UCOMUNIC.pas',375,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint146='C:\desarrolloStarteam\VTVSAG 4.04.21\UCOMUNIC.pas',581,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint147='C:\desarrolloStarteam\VTVSAG 4.04.21\uSagClasses.pas',3443,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint148='C:\desarrolloStarteam\VTVSAG 4.04.21\uSagClasses.pas',3450,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint149='C:\desarrolloStarteam\VTVSAG 4.04.21\UFinVeri.pas',494,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint150='C:\desarrolloStarteam\VTVSAG 4.04.21\USAGDATA.pas',736,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint151='C:\desarrolloStarteam\VTVSAG 4.04.21\UFinVeri.pas',910,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint152='C:\desarrolloStarteam\VTVSAG 4.04.21\ufOblInutilizad.pas',410,'',0,1,'',1,0,0,'',1,'','',''
+
+[AddressBreakpoints]
+Count=0
+
+[Main Window]
+Create=1
+Visible=1
+State=2
+Left=63
+Top=137
+Width=1617
+Height=105
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=808
+MaxHeight=105
+ClientWidth=800
+ClientHeight=78
+
+[ProjectManager]
+Create=1
+Visible=0
+State=0
+Left=369
+Top=372
+Width=438
+Height=303
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=430
+ClientHeight=279
+TBDockHeight=303
+LRDockWidth=438
+Dockable=1
+
+[Components]
+Left=240
+Top=237
+Width=183
+Height=233
+Create=1
+Visible=0
+State=0
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=175
+ClientHeight=209
+TBDockHeight=233
+LRDockWidth=183
+Dockable=1
+
+[CPUWindow]
+Create=1
+Visible=0
+State=0
+Left=482
+Top=426
+Width=798
+Height=545
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=790
+ClientHeight=518
+DumpPane=79
+DisassemblyPane=187
+RegisterPane=231
+FlagPane=64
+
+[AlignmentPalette]
+Create=1
+Visible=0
+State=0
+Left=536
+Top=572
+Width=156
+Height=82
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=150
+ClientHeight=60
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=337
+Width=243
+Height=653
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=235
+ClientHeight=629
+TBDockHeight=297
+LRDockWidth=224
+Dockable=1
+SplitPos=120
+ArrangeBy=Name
+SelectedItem=Tag
+ExpandedItems=BoundLines,Brush,DataSource,DataSource.DataSet,DataSource.DataSet.DataSet,DataSource.DataSet.MasterSource,DataSource.DataSet.MasterSource.DataSet,Page,PrinterSettings,Title,Title.Font,Title.Font.Style
+HiddenCategories=
+
+[BreakpointWindow]
+Create=1
+Visible=0
+State=0
+Left=79
+Top=137
+Width=865
+Height=421
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=857
+ClientHeight=397
+TBDockHeight=197
+LRDockWidth=737
+Dockable=1
+Column0Width=175
+Column1Width=75
+Column2Width=200
+Column3Width=200
+Column4Width=75
+Column5Width=75
+
+[CallStackWindow]
+Create=1
+Visible=0
+State=0
+Left=429
+Top=351
+Width=294
+Height=161
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=286
+ClientHeight=137
+TBDockHeight=161
+LRDockWidth=294
+Dockable=1
+
+[ThreadStatusWindow]
+Create=1
+Visible=0
+State=0
+Left=383
+Top=507
+Width=624
+Height=152
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=616
+ClientHeight=128
+TBDockHeight=152
+LRDockWidth=624
+Dockable=1
+Column0Width=145
+Column1Width=100
+Column2Width=115
+Column3Width=250
+
+[ObjectTree]
+Create=1
+Visible=1
+State=0
+Left=-1
+Top=99
+Width=242
+Height=240
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=234
+ClientHeight=216
+TBDockHeight=66
+LRDockWidth=190
+Dockable=1
+
+[DebugLogView]
+Create=1
+Visible=0
+State=0
+Left=367
+Top=286
+Width=417
+Height=291
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=409
+ClientHeight=267
+TBDockHeight=291
+LRDockWidth=417
+Dockable=1
+
+[LocalVarsWindow]
+Create=1
+Visible=0
+State=0
+Left=222
+Top=319
+Width=421
+Height=189
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=413
+ClientHeight=165
+TBDockHeight=189
+LRDockWidth=421
+Dockable=1
+
+[ToDo List]
+Create=1
+Visible=0
+State=0
+Left=277
+Top=259
+Width=470
+Height=250
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=462
+ClientHeight=226
+TBDockHeight=250
+LRDockWidth=470
+Dockable=1
+Column0Width=200
+Column1Width=30
+Column2Width=100
+Column3Width=70
+Column4Width=70
+SortOrder=4
+ShowHints=1
+ShowChecked=1
+
+[ModuleWindow]
+Create=1
+Visible=0
+State=0
+Left=481
+Top=422
+Width=638
+Height=355
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=630
+ClientHeight=331
+TBDockHeight=355
+LRDockWidth=638
+Dockable=1
+Column0Width=125
+Column1Width=100
+Column2Width=155
+EntryPointPane=225
+CompUnitPane=104
+
+[MessageHintFrm]
+Create=1
+Visible=0
+State=0
+Left=481
+Top=423
+Width=383
+Height=195
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=375
+ClientHeight=171
+TBDockHeight=195
+LRDockWidth=383
+Dockable=1
+
+[fmGrepResults]
+Create=1
+Visible=0
+State=0
+Left=2
+Top=211
+Width=232
+Height=404
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=224
+ClientHeight=380
+TBDockHeight=555
+LRDockWidth=224
+Dockable=1
+
+[fmPeInformation]
+Create=1
+Visible=0
+State=0
+Left=349
+Top=269
+Width=454
+Height=298
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=446
+ClientHeight=274
+TBDockHeight=298
+LRDockWidth=454
+Dockable=1
+
+[CodeExplorer@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=12
+Width=140
+Height=211
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=140
+ClientHeight=211
+TBDockHeight=305
+LRDockWidth=140
+Dockable=1
+
+[MessageView@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=852
+Top=0
+Width=0
+Height=201
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=0
+ClientHeight=201
+TBDockHeight=201
+LRDockWidth=443
+Dockable=1
+
+[DockHosts]
+DockHostCount=0
+

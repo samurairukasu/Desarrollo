@@ -1,0 +1,32 @@
+04/04/2017|10:23:26:OBTENIENDO CODCLIENTECONTACTO. EDatabaseError error : IDPAGO: 184140 ORA-20015: NO SE ENCONTRARON DATOS
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 460
+ORA-06512: at line 2
+. archivo: 
+04/04/2017|10:23:58:OBTENIENDO CODCLIENTETITULAR. EDatabaseError error : IDPAGO: 184140 ORA-20015: NO SE ENCONTRARON DATOS
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 460
+ORA-06512: at line 2
+. archivo: 
+04/04/2017|10:24:32:OBTENIENDO CODCLIENTEFACTURACION. EDatabaseError error : IDPAGO: 184140 ORA-20015: NO SE ENCONTRARON DATOS
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 460
+ORA-06512: at line 2
+. archivo: 
+04/04/2017|12:53:26:OBTENIENDO CODCLIENTECONTACTO. EDatabaseError error : IDPAGO: 424191 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+04/04/2017|12:54:41:OBTENIENDO CODCLIENTETITULAR. EDatabaseError error : IDPAGO: 424191 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+04/04/2017|13:10:39:OBTENIENDO CODCLIENTECONTACTO. EDatabaseError error : IDPAGO: 424986 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+04/04/2017|13:11:09:OBTENIENDO CODCLIENTETITULAR. EDatabaseError error : IDPAGO: 424986 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 
+04/04/2017|13:11:35:OBTENIENDO CODCLIENTEFACTURACION. EDatabaseError error : IDPAGO: 424986 ORA-20015: Se ha producido un error al intentar ejecutar  por:ORA-01400: cannot insert NULL into ("CABA"."TCLIENTES"."NOMBRE")
+ORA-06512: at "CABA.PQ_DATOSRECEP", line 462
+ORA-06512: at line 2
+. archivo: 

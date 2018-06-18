@@ -1,0 +1,133 @@
+unit UFRestaurarObleaPWD;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, ExtCtrls, Buttons, Math, DateUtils;
+
+type
+  TFrmRestaurarObleaPWD = class(TForm)
+    BitBtn1: TBitBtn;
+    ENroOtorgado: TEdit;
+    Bevel1: TBevel;
+    EObleaDigitos: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    SBGenerar: TSpeedButton;
+    ENumAleatorios: TEdit;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure EObleaDigitosKeyPress(Sender: TObject; var Key: Char);
+    procedure FormActivate(Sender: TObject);
+    procedure SBGenerarClick(Sender: TObject);
+  private
+   Clave: Integer;
+   Function GenerarClave(CincoDigitos, TresDigitos: String): Integer; overload;
+   Procedure GenerarClave; overload;
+   Function ComprobarClave(NumeroOtorgado: Integer): Boolean;
+    { Private declarations }
+  public
+  { Public declarations }
+    Resultado: Boolean;
+  end;
+  //IntToStr(Clave MOD (StrToInt(EObleaDigitos.Text)+DayOf(Now))* DaysInMonth(Now));
+var
+  FrmRestaurarObleaPWD: TFrmRestaurarObleaPWD;
+
+implementation
+
+uses
+UGAcceso,
+USagCtte;
+
+{$R *.dfm}
+
+Function TFrmRestaurarObleaPWD.GenerarClave(CincoDigitos, TresDigitos: String): Integer;
+var
+iCincoAleatorios, iTresdeOblea, iDiaHoy, iDiasMes: Integer;
+Begin
+iCincoAleatorios:=StrToInt(ENumAleatorios.Text);
+iTresdeOblea:=StrToInt(EObleaDigitos.Text);
+iDiaHoy:= DayOf(Now);
+iDiasMes:= DaysInMonth(Now);
+  try
+    Result:= (iCincoAleatorios - iDiasMes) * (iTresdeOblea + iDiaHoy);
+  except
+    On E: Exception Do
+      MessageDlg('Se ha producido un error por: '#13#10+ E.Message, mtError, [mbOK], 0);
+  end;
+end;
+
+
+Function TFrmRestaurarObleaPWD.ComprobarClave(NumeroOtorgado: Integer): Boolean;
+var
+Resultado, TresdeOblea, DiaHoy, DiasMes: Integer;
+Begin
+Result:=False;
+TresdeOblea:=StrToInt(EObleaDigitos.Text);
+DiaHoy:= DayOf(Now);
+DiasMes:= DaysInMonth(Now);
+Resultado:= (Clave - DiasMes) * (TresdeOblea + DiaHoy);
+If Resultado = NumeroOtorgado then
+  Result:=true;
+end;
+
+
+Procedure TFrmRestaurarObleaPWD.GenerarClave;
+Begin
+Randomize;
+Screen.Cursor:=crHourGlass;
+repeat
+  Clave:=Random(99999);
+until Clave > 10000;
+Screen.Cursor:=crDefault;
+Label1.Caption:=IntToStr(Clave);
+end;
+
+
+procedure TFrmRestaurarObleaPWD.BitBtn1Click(Sender: TObject);
+begin
+If ENroOtorgado.Text <> '' then
+  Begin
+  If ComprobarClave(StrToInt(ENroOtorgado.Text)) then
+    Begin
+      Resultado:=true;
+      ModalResult:=mrOk;
+    end
+  else
+    MessageBox(0, 'Error en el numero de validación.'+#13+#10+'Solicitelo nuevamente.', 'ERROR DE VALIDACION', MB_ICONSTOP or MB_OK);
+  end;
+end;
+
+
+procedure TFrmRestaurarObleaPWD.FormShow(Sender: TObject);
+begin
+GenerarClave;
+end;
+
+
+procedure TFrmRestaurarObleaPWD.EObleaDigitosKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+if not (Key in ['0'..'9',#8]) then
+  Key:=#0;
+end;
+
+
+procedure TFrmRestaurarObleaPWD.FormActivate(Sender: TObject);
+begin
+If PasswordUser = MASTER_KEY then
+  begin
+  SBGenerar.Visible:=true;
+  ENumAleatorios.Visible:=true;
+  end;
+end;
+
+procedure TFrmRestaurarObleaPWD.SBGenerarClick(Sender: TObject);
+begin
+If (ENumAleatorios.Text <> '') and (EObleaDigitos.Text <> '') then
+  Caption:='Codigo de seguridad: '+IntToStr(GenerarClave(ENumAleatorios.Text, EObleaDigitos.Text));
+end;
+
+end.

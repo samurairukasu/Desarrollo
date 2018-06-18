@@ -1,0 +1,477 @@
+[Closed Files]
+File_0=SourceModule,'C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',0,1,1,1,1371,1,0
+File_1=SourceModule,'C:\desarrolloStarteam\Serv-impresion 2.7.1\UPrinter.pas',0,1,125,17,138,1,0
+File_2=SourceModule,'C:\Archivos de programa\Borland\Delphi7\quickrpt\QrPrntr.pas',0,1,178,5,206,0,0
+File_3=SourceModule,'C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',0,1,1,8,7,0,0
+File_4=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.00\USAGPRINTERS.pas',0,1,84,32,192,0,0
+File_5=SourceModule,'C:\desarrolloStarteam\Serv-impresion 2.7.1\UCONFIGIMPRESORAS.pas',0,1,36,1,541,0,0
+File_6=SourceModule,'C:\desarrolloStarteam\Serv-impresion 2.7.1\UINICIO.pas',0,1,10,1,1,1,0
+File_7=SourceModule,'C:\desarrolloStarteam\Serv-impresion 2.7.1\USUCESOS.pas',0,1,22,47,39,1,0
+File_8=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.00\UVERSION.pas',0,1,34,1,1,0,0
+File_9=SourceModule,'C:\desarrolloStarteam\VTVSAG 4.00\USAGDATA.pas',0,1,175,3,205,0,0
+
+[Modules]
+Count=0
+EditWindowCount=0
+
+[C:\Archivos de programa\Borland\Delphi7\Projects\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\Serv-impresion 2.7.2\SvrImp.dpr]
+FormState=0
+FormOnTop=0
+
+[Watches]
+Count=4
+Watch0='CantidadOc',256,0,18,1,0,'Watches'
+Watch1='iTrabajosEnCola',256,0,18,1,0,'Watches'
+Watch2='OcupacionesImpresora[UnaImpresora.Impresora, UnaImpresora.Bandeja]',256,0,18,1,0,'Watches'
+Watch3='result',256,0,18,1,0,'Watches'
+
+[WatchWindow]
+WatchColumnWidth=100
+WatchShowColumnHeaders=1
+Create=1
+Visible=0
+State=0
+Left=0
+Top=804
+Width=564
+Height=191
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=556
+ClientHeight=167
+TBDockHeight=167
+LRDockWidth=583
+Dockable=1
+
+[Breakpoints]
+Count=102
+Breakpoint0='C:\desarrolloStarteam\SvrImp 2.5\UIMPRIME.pas',197,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint1='C:\desarrolloStarteam\SvrImp 2.5\UIMPRIME.pas',545,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint2='C:\desarrolloStarteam\VTVSAG 3.8\USAGPrinters.pas',349,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint3='C:\desarrolloStarteam\SvrImp 2.5\UCONFIGIMPRESORAS.pas',479,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint4='C:\Archivos de programa\Borland\Delphi7\quickrpt\QrPrntr.pas',2811,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint5='C:\Archivos de programa\Borland\Delphi7\quickrpt\QrPrntr.pas',2806,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint6='C:\Archivos de programa\Borland\Delphi7\quickrpt\QrPrntr.pas',859,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint7='C:\desarrolloStarteam\serv-impresion 2.7\UCONFIGIMPRESORAS.pas',455,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint8='C:\desarrolloStarteam\serv-impresion 2.7\UPrinter.pas',737,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint9='C:\desarrolloStarteam\serv-impresion 2.7\UPrinter.pas',777,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint10='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',546,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint11='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',607,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint12='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',613,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint13='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',566,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint14='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',558,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint15='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',568,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint16='C:\desarrolloStarteam\VTVSAG 4.00\USAGPRINTERS.pas',494,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint17='C:\desarrolloStarteam\VTVSAG 4.00\USAGPRINTERS.pas',488,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint18='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',560,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint19='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',1027,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint20='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',1107,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint21='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',844,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint22='C:\desarrolloStarteam\serv-impresion 2.7\UPrinter.pas',314,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint23='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',864,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint24='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',831,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint25='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',875,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint26='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',1027,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint27='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',564,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint28='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',582,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint29='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',638,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint30='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',661,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint31='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',710,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint32='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',728,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint33='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',780,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint34='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',799,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint35='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',849,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint36='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',907,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint37='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',916,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint38='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',952,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint39='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',997,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint40='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',1046,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint41='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',1085,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint42='C:\desarrolloStarteam\serv-impresion 2.7\UIMPRIME.pas',1126,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint43='C:\desarrolloStarteam\serv-impresion 2.7\UModDat.pas',799,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint44='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',295,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint45='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',364,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint46='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',396,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint47='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',475,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint48='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',635,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint49='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',642,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint50='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',702,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint51='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',740,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint52='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',789,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint53='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',848,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint54='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',880,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint55='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',912,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint56='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',948,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint57='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',1028,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint58='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',1110,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint59='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',1372,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint60='C:\desarrolloStarteam\Serv-impresion 2.7.1\UModDat.pas',1371,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint61='C:\desarrolloStarteam\Serv-impresion 2.7.1\UPrinter.pas',426,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint62='C:\desarrolloStarteam\Serv-impresion 2.7.1\UPrinter.pas',479,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint63='C:\desarrolloStarteam\Serv-impresion 2.7.1\UPrinter.pas',715,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint64='C:\desarrolloStarteam\Serv-impresion 2.7.1\UPrinter.pas',855,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint65='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',212,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint66='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',382,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint67='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',411,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint68='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',438,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint69='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',504,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint70='C:\desarrolloStarteam\Serv-impresion 2.7.1\UCONFIGIMPRESORAS.pas',240,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint71='C:\desarrolloStarteam\Serv-impresion 2.7.1\UCONFIGIMPRESORAS.pas',303,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint72='C:\desarrolloStarteam\Serv-impresion 2.7.1\UCONFIGIMPRESORAS.pas',424,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint73='C:\desarrolloStarteam\Serv-impresion 2.7.1\UCONFIGIMPRESORAS.pas',541,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint74='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',150,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint75='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',112,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint76='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',851,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint77='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',862,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint78='C:\desarrolloStarteam\Serv-impresion 2.7.1\UIMPRIME.pas',886,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint79='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',234,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint80='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',250,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint81='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',350,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint82='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',409,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint83='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',480,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint84='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',557,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint85='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',558,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint86='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',559,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint87='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',565,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint88='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',566,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint89='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',567,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint90='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',595,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint91='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',689,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint92='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',800,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint93='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',801,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint94='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',802,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint95='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',803,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint96='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',804,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint97='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',238,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint98='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',487,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint99='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',526,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint100='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',527,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint101='C:\desarrolloStarteam\VTVSAG 4.00\UINFORME.pas',528,'',0,1,'',1,0,0,'',1,'','',''
+
+[AddressBreakpoints]
+Count=0
+
+[Main Window]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=211
+Width=1280
+Height=105
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1288
+MaxHeight=105
+ClientWidth=1280
+ClientHeight=78
+
+[ProjectManager]
+Create=1
+Visible=0
+State=0
+Left=369
+Top=372
+Width=438
+Height=303
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=430
+ClientHeight=279
+TBDockHeight=303
+LRDockWidth=438
+Dockable=1
+
+[Components]
+Left=240
+Top=237
+Width=183
+Height=233
+Create=1
+Visible=0
+State=0
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=175
+ClientHeight=209
+TBDockHeight=233
+LRDockWidth=183
+Dockable=1
+
+[CPUWindow]
+Create=1
+Visible=0
+State=0
+Left=6
+Top=6
+Width=652
+Height=492
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=644
+ClientHeight=465
+DumpPane=79
+DisassemblyPane=187
+RegisterPane=231
+FlagPane=64
+
+[AlignmentPalette]
+Create=1
+Visible=0
+State=0
+Left=536
+Top=572
+Width=156
+Height=82
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=150
+ClientHeight=60
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=211
+Height=549
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=211
+ClientHeight=549
+TBDockHeight=625
+LRDockWidth=226
+Dockable=1
+SplitPos=109
+ArrangeBy=Name
+SelectedItem=
+ExpandedItems=BorderIcons,DataSource.DataSet,Font.Style,Frame,Options,PrinterSettings,Title.Font.Style,Value
+HiddenCategories=
+
+[BreakpointWindow]
+Create=1
+Visible=0
+State=0
+Left=79
+Top=137
+Width=865
+Height=421
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=857
+ClientHeight=397
+TBDockHeight=197
+LRDockWidth=737
+Dockable=1
+Column0Width=175
+Column1Width=75
+Column2Width=200
+Column3Width=200
+Column4Width=75
+Column5Width=75
+
+[CallStackWindow]
+Create=1
+Visible=0
+State=0
+Left=429
+Top=351
+Width=294
+Height=161
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=286
+ClientHeight=137
+TBDockHeight=161
+LRDockWidth=294
+Dockable=1
+
+[ThreadStatusWindow]
+Create=1
+Visible=0
+State=0
+Left=383
+Top=507
+Width=624
+Height=152
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=616
+ClientHeight=128
+TBDockHeight=152
+LRDockWidth=624
+Dockable=1
+Column0Width=145
+Column1Width=100
+Column2Width=115
+Column3Width=250
+
+[ObjectTree]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=98
+Width=239
+Height=180
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=231
+ClientHeight=156
+TBDockHeight=66
+LRDockWidth=190
+Dockable=1
+
+[DebugLogView]
+Create=1
+Visible=0
+State=0
+Left=367
+Top=286
+Width=417
+Height=291
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=409
+ClientHeight=267
+TBDockHeight=291
+LRDockWidth=417
+Dockable=1
+
+[LocalVarsWindow]
+Create=1
+Visible=0
+State=0
+Left=222
+Top=319
+Width=421
+Height=189
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=413
+ClientHeight=165
+TBDockHeight=189
+LRDockWidth=421
+Dockable=1
+
+[ToDo List]
+Create=1
+Visible=0
+State=0
+Left=277
+Top=259
+Width=470
+Height=250
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=462
+ClientHeight=226
+TBDockHeight=250
+LRDockWidth=470
+Dockable=1
+Column0Width=200
+Column1Width=30
+Column2Width=100
+Column3Width=70
+Column4Width=70
+SortOrder=4
+ShowHints=1
+ShowChecked=1
+
+[ModuleWindow]
+Create=1
+Visible=0
+State=0
+Left=481
+Top=422
+Width=638
+Height=355
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=630
+ClientHeight=331
+TBDockHeight=355
+LRDockWidth=638
+Dockable=1
+Column0Width=125
+Column1Width=100
+Column2Width=155
+EntryPointPane=225
+CompUnitPane=104
+
+[MessageHintFrm]
+Create=1
+Visible=0
+State=0
+Left=481
+Top=423
+Width=383
+Height=195
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=375
+ClientHeight=171
+TBDockHeight=195
+LRDockWidth=383
+Dockable=1
+
+[fmGrepResults]
+Create=1
+Visible=0
+State=0
+Left=0
+Top=0
+Width=211
+Height=549
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=211
+ClientHeight=549
+TBDockHeight=555
+LRDockWidth=215
+Dockable=1
+
+[fmPeInformation]
+Create=1
+Visible=0
+State=0
+Left=349
+Top=269
+Width=454
+Height=298
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=446
+ClientHeight=274
+TBDockHeight=298
+LRDockWidth=454
+Dockable=1
+
+[DockHosts]
+DockHostCount=1
+
+[DockSite0]
+DockSiteType=1
+Create=1
+Visible=1
+State=0
+Left=0
+Top=235
+Width=227
+Height=602
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=219
+ClientHeight=578
+TBDockHeight=625
+LRDockWidth=226
+Dockable=1
+TabPosition=0
+ActiveTab=Object Inspector
+TabDockClients=PropertyInspector,fmGrepResults
+

@@ -1,0 +1,220 @@
+unit Uncambiar_calificacion_defectos_solo_reve;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons,SqlExpr,
+  globals,
+  DBCtrls, USAGClasses,USAGDOMINIOS,USAGESTACION, ADODB, ExtCtrls, UCDIALGS;
+
+type
+  Tcambiar_calificacion_defectos_solo_reve = class(TForm)
+    Label1: TLabel;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Label3: TLabel;
+    Edit2: TEdit;
+    Label4: TLabel;
+    ComboBox1: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+    procedure ComboBox1KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  cambiar_calificacion_defectos_solo_reve: Tcambiar_calificacion_defectos_solo_reve;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tcambiar_calificacion_defectos_solo_reve.BitBtn1Click(
+  Sender: TObject);
+begin
+close;
+end;
+
+procedure Tcambiar_calificacion_defectos_solo_reve.BitBtn2Click(
+  Sender: TObject);
+  var cadena,patente,sql1,sql2,t,f,califica,sql3:string;
+  CODINSPE:longint;
+
+  sql_global: TSQLQuery;
+
+
+begin
+if trim(edit1.Text)='' then
+ begin
+     Application.MessageBox( 'Debe ingresar la Patente del Vehículo.',
+  'Atención', MB_ICONSTOP );
+    edit1.SetFocus;
+
+     exit;
+ end;
+
+
+ if trim(edit2.Text)='' then
+ begin
+     Application.MessageBox( 'Debe ingresar la Cadena del Defecto.',
+  'Atención', MB_ICONSTOP );
+    edit2.SetFocus;
+
+     exit;
+ end;
+
+
+   if combobox1.ItemIndex =-1 then
+ begin
+     Application.MessageBox( 'Debe seleccionar la Calificación del Defecto.',
+  'Atención', MB_ICONSTOP );
+
+
+     exit;
+ end;
+
+
+patente:=trim(edit1.Text);
+cadena:=trim(edit2.Text);
+califica:=trim(inttostr(combobox1.ItemIndex+1));
+
+if Application.MessageBox( pchar('¿Desea modificar la calificación del defecto: '+trim(cadena)+' del vehiculo: '+trim(patente)+' ?'), 'Modificar Calificación',
+  MB_ICONQUESTION OR MB_YESNO ) = ID_YES then
+  begin
+      t:='E';
+      f:='N';
+      sql1:=' select max(CODINSPE) from TINSPECCION  I, TVEHICULOS V  '+
+            ' where I.CODVEHIC=V.CODVEHIC AND TIPO =:tipo AND INSPFINA=:fina AND EJERCICI=2013 '+
+            ' AND PATENTEN=:patente';
+      //      set CALIFDEF=2
+        //    where codinspe=978921 and CADDEFEC='04.03.050';
+
+
+        with TSQLQuery.Create(self) do
+          try
+            SQLConnection:=mybd;
+
+                close;
+                sql.clear;
+                SQL.Add(sql1);
+                ParamByName('tipo').AsString:=t;
+                ParamByName('fina').AsString:=f;
+                ParamByName('patente').AsString:=patente;
+                OPEN;
+                 if  IsEmpty then
+                  begin
+                     MessageDlg(caption,'La Patente ingresada no existe.',mteRROR,[mbYes],mbyes,0)  ;
+                     edit1.setfocus;
+                     edit1.SelectAll;
+                     exit;
+                  end;
+
+
+                    CODINSPE:=Fields[0].AsInteger;
+                    //MessageDlg(caption,INTTOSTR(CODINSPE),mteRROR,[mbYes],mbyes,0)  ;
+
+
+                 sql3:=' select * from tinspdefect  where codinspe=:codinspe and CADDEFEC=:cadena';
+                 close;
+                sql.clear;
+                SQL.Add(sql3);
+                    ParamByName('codinspe').asinteger:=codinspe;
+                   ParamByName('cadena').AsString:=cadena;
+                OPEN;
+                 if  IsEmpty then
+                  begin
+                     MessageDlg(caption,'La cadena del defecto ingresada no pertenece a este vehiculo.',mteRROR,[mbYes],mbyes,0)  ;
+                     edit2.setfocus;
+                     edit2.SelectAll;
+                     exit;
+                  end;
+
+
+                   sql2:=' update tinspdefect  '+
+                         ' set CALIFDEF=:califica    '+
+                         ' where codinspe=:codinspe and CADDEFEC=:cadena';
+                  mybd.StartTransaction(td);
+                    close;
+                    sql.clear;
+                   SQL.Add(sql2);
+                   ParamByName('califica').AsString:=califica;
+                   ParamByName('codinspe').asinteger:=codinspe;
+                   ParamByName('cadena').AsString:=cadena;
+                   ExecSQL;
+                   mybd.Commit(td);
+                        MessageDlg(caption,'Se ha procesado correctamente.',mtconfirmation,[mbYes],mbyes,0);
+                   edit1.setfocus;
+                   edit1.SelectAll;
+                   edit2.Clear;
+             except
+            MessageDlg(caption,'Se produjo un error al intentar procesar la modficación.',mteRROR,[mbYes],mbyes,0);
+            mybd.Rollback(td);
+          end;
+
+  end;
+
+
+end;
+
+procedure Tcambiar_calificacion_defectos_solo_reve.FormActivate(
+  Sender: TObject);
+begin
+edit1.SetFocus;
+end;
+
+procedure Tcambiar_calificacion_defectos_solo_reve.Edit1KeyPress(
+  Sender: TObject; var Key: Char);
+begin
+if key=#13 then
+begin
+     if trim(edit1.Text)='' then
+ begin
+     Application.MessageBox( 'Debe ingresar la Patente del Vehículo.',
+  'Atención', MB_ICONSTOP );
+    edit1.SetFocus;
+
+     exit;
+ end;
+
+    edit2.SetFocus;
+
+end;
+end;
+
+procedure Tcambiar_calificacion_defectos_solo_reve.Edit2KeyPress(
+  Sender: TObject; var Key: Char);
+begin
+if key=#13 then
+begin
+     if trim(edit2.Text)='' then
+ begin
+     Application.MessageBox( 'Debe ingresar la Cadena del Defecto.',
+  'Atención', MB_ICONSTOP );
+    edit2.SetFocus;
+
+     exit;
+ end;
+
+    combobox1.SetFocus;
+
+end;
+end;
+
+procedure Tcambiar_calificacion_defectos_solo_reve.ComboBox1KeyPress(
+  Sender: TObject; var Key: Char);
+begin
+if key=#13 then
+   BitBtn2Click(sender);
+end;
+
+end.

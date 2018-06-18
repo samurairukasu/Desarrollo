@@ -1,0 +1,199 @@
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:suvtv"
+<SOAP-ENV:Body
+<ns1:solicitarTurnoReverificacionResponse xmlns:ns1="urn:suvtv"
+<return xsi:type="tns:respuestaSolicitarTurnos"
+<respuestaID xsi:type="xsd:int"
+1</respuestaID
+<respuestaMensaje xsi:type="xsd:string"
+Operación exitosa</respuestaMensaje
+<cantidadTurnos xsi:type="xsd:unsignedLong"
+1</cantidadTurnos
+<turnos xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:turnosSolicitados[1]"
+<item xsi:type="tns:turnosSolicitados"
+<datosTurno xsi:type="tns:datosTurno"
+<turnoID xsi:type="xsd:unsignedLong"
+13111</turnoID
+<estadoID xsi:type="xsd:int"
+7</estadoID
+<estado xsi:type="xsd:string"
+Condicional</estado
+<tipoTurno xsi:type="tns:tipoTurno"
+P</tipoTurno
+<fechaTurno xsi:type="xsd:date"
+2016-10-03</fechaTurno
+<horaTurno xsi:type="xsd:time"
+08:45:00</horaTurno
+<fechaRegistro xsi:type="xsd:dateTime"
+2016-10-03T12:47:31-03:00</fechaRegistro
+<fechaNovedad xsi:type="xsd:dateTime"
+2016-10-03T12:47:31-03:00</fechaNovedad
+<plantaID xsi:type="xsd:unsignedLong"
+00004</plantaID
+</datosTurno
+<datosTitular xsi:type="tns:datosPersonales"
+<genero xsi:type="tns:genero"
+M</genero
+<tipoDocumento xsi:type="xsd:int"
+1</tipoDocumento
+<numeroDocumento xsi:type="xsd:unsignedLong"
+31652979</numeroDocumento
+<numeroCuit xsi:nil="true" xsi:type="xsd:unsignedLong"/
+<nombre xsi:type="xsd:string"
+Javier</nombre
+<apellido xsi:type="xsd:string"
+Ciordia</apellido
+<razonSocial xsi:nil="true" xsi:type="xsd:string"/
+</datosTitular
+<datosContacto xsi:type="tns:datosContactoTurno"
+<datosPersonalesTurno xsi:type="tns:datosPersonales"
+<tipoDocumento xsi:type="xsd:int"
+1</tipoDocumento
+<numeroDocumento xsi:type="xsd:unsignedLong"
+31652979</numeroDocumento
+<numeroCuit xsi:nil="true" xsi:type="xsd:unsignedLong"/
+<nombre xsi:type="xsd:string"
+Javier</nombre
+<apellido xsi:type="xsd:string"
+Ciordia</apellido
+<razonSocial xsi:nil="true" xsi:type="xsd:string"/
+</datosPersonalesTurno
+<contactoTurno xsi:type="tns:datosContacto"
+<telefonoCelular xsi:type="xsd:string"
+1551270699</telefonoCelular
+<email xsi:type="xsd:string"
+jciordia@trasorras.com.ar</email
+<fechaNacimiento xsi:type="xsd:date"
+1985-04-24</fechaNacimiento
+</contactoTurno
+</datosContacto
+<datosVehiculo xsi:type="tns:datosVehiculo"
+<dominio xsi:type="xsd:string"
+EVL540</dominio
+<marcaID xsi:type="xsd:string"
+136</marcaID
+<marca xsi:type="xsd:string"
+VOLKSWAGEN</marca
+<tipoID xsi:type="xsd:string"
+05</tipoID
+<tipo xsi:type="xsd:string"
+SEDAN 5 PUERTAS</tipo
+<modeloID xsi:type="xsd:string"
+283</modeloID
+<modelo xsi:type="xsd:string"
+GOL 1.9 SD</modelo
+<numeroChasis xsi:type="tns:chasis"
+<marca xsi:type="xsd:string"
+</marca
+<numero xsi:type="xsd:string"
+9BWCD45X35T023461</numero
+</numeroChasis
+<anio xsi:type="xsd:int"
+2005</anio
+<jurisdiccionID xsi:type="xsd:int"
+2</jurisdiccionID
+<jurisdiccion xsi:type="xsd:string"
+Ciudad Autonoma de Buenos Aires</jurisdiccion
+<mtm xsi:type="xsd:string"
+13605283</mtm
+<valTitular xsi:type="tns:tipoValidacion"
+V</valTitular
+<valChasis xsi:type="tns:tipoValidacion"
+V</valChasis
+<datosValidados xsi:type="tns:datosValidados"
+<marcaID xsi:type="xsd:string"
+136</marcaID
+<marca xsi:type="xsd:string"
+VOLKSWAGEN</marca
+<tipoID xsi:type="xsd:string"
+05</tipoID
+<tipo xsi:type="xsd:string"
+SEDAN 5 PUERTAS</tipo
+<modeloID xsi:type="xsd:string"
+283</modeloID
+<modelo xsi:type="xsd:string"
+GOL 1.9 SD</modelo
+<numeroChasis xsi:type="tns:chasis"
+<marca xsi:type="xsd:string"
+</marca
+<numero xsi:type="xsd:string"
+9BWCD45X35T023461</numero
+</numeroChasis
+<mtm xsi:type="xsd:string"
+13605283</mtm
+</datosValidados
+</datosVehiculo
+<datosFacturacion xsi:type="tns:datosFacturacion"
+<datosPersonales xsi:type="tns:datosPersonales"
+<genero xsi:type="tns:genero"
+M</genero
+<tipoDocumento xsi:type="xsd:int"
+1</tipoDocumento
+<numeroDocumento xsi:type="xsd:unsignedLong"
+31652979</numeroDocumento
+<numeroCuit xsi:nil="true" xsi:type="xsd:unsignedLong"/
+<nombre xsi:type="xsd:string"
+Javier</nombre
+<apellido xsi:type="xsd:string"
+Ciordia</apellido
+<razonSocial xsi:nil="true" xsi:type="xsd:string"/
+</datosPersonales
+<domicilio xsi:type="tns:domicilio"
+<calle xsi:type="xsd:string"
+Juan A. García</calle
+<numero xsi:type="xsd:string"
+4239</numero
+<piso xsi:type="xsd:string"
+-</piso
+<departamento xsi:type="xsd:string"
+-</departamento
+<localidad xsi:type="xsd:string"
+CABA</localidad
+<provinciaID xsi:type="xsd:int"
+2</provinciaID
+<provincia xsi:type="xsd:string"
+Ciudad Autonoma de Buenos Aires</provincia
+<codigoPostal xsi:type="xsd:string"
+1407</codigoPostal
+</domicilio
+<condicionIva xsi:type="tns:condicionIva"
+C</condicionIva
+<numeroIibb xsi:nil="true" xsi:type="xsd:unsignedLong"/
+</datosFacturacion
+<datosPago xsi:type="tns:datosPago"
+<pagoID xsi:type="xsd:unsignedLong"
+9660</pagoID
+<gatewayID xsi:type="xsd:unsignedLong"
+1</gatewayID
+<entidadID xsi:type="xsd:int"
+11</entidadID
+<entidadNombre xsi:type="xsd:string"
+Pago Facil</entidadNombre
+<fechaPago xsi:type="xsd:dateTime"
+2016-09-28</fechaPago
+<importeTotal xsi:type="xsd:float"
+680.00</importeTotal
+<detallesPagoVerificacion xsi:type="tns:detallesPago"
+<pagoID xsi:type="xsd:unsignedLong"
+19586</pagoID
+<importe xsi:type="xsd:float"
+605.00</importe
+<estadoAcreditacion xsi:type="xsd:string"
+A</estadoAcreditacion
+<pagoGatewayID xsi:type="xsd:unsignedLong"
+2371895075</pagoGatewayID
+</detallesPagoVerificacion
+<detallesPagoOblea xsi:type="tns:detallesPagoSinGW"
+<pagoID xsi:type="xsd:unsignedLong"
+19587</pagoID
+<importe xsi:type="xsd:float"
+75.00</importe
+<estadoAcreditacion xsi:type="xsd:string"
+A</estadoAcreditacion
+</detallesPagoOblea
+</datosPago
+</item
+</turnos
+</return
+</ns1:solicitarTurnoReverificacionResponse
+</SOAP-ENV:Body
+</SOAP-ENV:Envelope

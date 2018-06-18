@@ -1,0 +1,56 @@
+object PISE_MOTIVO_CAMBIO_OBLEA: TPISE_MOTIVO_CAMBIO_OBLEA
+  Left = 245
+  Top = 152
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'MOTIVO CAMBIO OBLEA'
+  ClientHeight = 120
+  ClientWidth = 384
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ComboBox1: TComboBox
+    Left = 8
+    Top = 16
+    Width = 369
+    Height = 31
+    Style = csDropDownList
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Calibri'
+    Font.Style = []
+    ItemHeight = 23
+    ParentFont = False
+    TabOrder = 0
+    Items.Strings = (
+      'ROTURA PARABRISAS'
+      'DESCOLORIDO'
+      'ROBO'
+      'MAL PERFORADA'
+      'EXTRAV'#205'O'
+      'OTROS')
+  end
+  object BitBtn1: TBitBtn
+    Left = 136
+    Top = 72
+    Width = 75
+    Height = 25
+    Caption = 'Aceptar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Calibri'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BitBtn1Click
+  end
+end

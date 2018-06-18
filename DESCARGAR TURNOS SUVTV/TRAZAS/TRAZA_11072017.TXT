@@ -1,0 +1,1 @@
+11/07/2017|10:07:16:ERROR EN FUNCION ControlServidor. ESOAPHTTPException. error : Espacio de almacenamiento insuficiente para procesar este comando. - URL:https://www.suvtv.com.ar/service/s_001.php - SOAPAction:https://www.suvtv.com.ar/service/s_001.php

@@ -1,0 +1,1503 @@
+date/time          : 2018-03-26, 15:48:56, 491ms
+computer name      : SIST-133
+user name          : lsuarez <admin>
+registered owner   : SIST-133
+operating system   : Windows 7 x64 Service Pack 1 build 7601
+system language    : Spanish
+system up time     : 4 days
+program up time    : 2 minutes 51 seconds
+processors         : 4x Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+physical memory    : 1409/3999 MB (free/total)
+free disk space    : (C:) 351,12 GB
+display mode       : 1366x768, 32 bit
+process id         : $1ffc
+allocated memory   : 49,87 MB
+largest free block : 986,76 MB
+executable         : Stock2010.exe
+exec. date/time    : 2018-03-01 12:56
+compiled with      : Delphi 7
+madExcept version  : 4.0.19
+callstack crc      : $bc648d26, $db5d911c, $db5d911c
+count              : 2
+exception number   : 2
+exception message  : The application seems to be frozen.
+
+main thread ($2258):
+76f7f8fa +00e ntdll.dll                            NtWaitForSingleObject
+76386e0f +06e WS2_32.dll                           WSARecv
+614d5d4b +13b oran9.dll                            nsrdr
+6149042f +3df oran9.dll                            nioqrc
+605337a4 +2e4 oracommon9.dll                       ttcdrv
+6149387b +02b oran9.dll                            nioqwa
+0055e5f8 +0f0 Stock2010.exe  SqlExpr               TCustomSQLDataSet.GetFieldData
+0055e8e4 +11c Stock2010.exe  SqlExpr               TCustomSQLDataSet.GetFieldData
+0050010d +045 Stock2010.exe  DB                    TDataSet.GetFieldData
+614a2e4c +16c oran9.dll                            nnfgfrm
+6149387b +02b oran9.dll                            nioqwa
+60675a1b +b9b OraClient9.Dll                       kpuexec
+60601bd5 +025 OraClient9.Dll                       OCIStmtExecute
+10006d51 +031 oci.dll                              OCIStmtExecute
+0055fffd +0e1 Stock2010.exe  SqlExpr               TCustomSQLDataSet.ExecuteStatement
+0055fe69 +055 Stock2010.exe  SqlExpr               TCustomSQLDataSet.ExecSQL
+00562594 +004 Stock2010.exe  SqlExpr               TSQLStoredProc.ExecProc
+005f79d4 +0d4 Stock2010.exe  uListadosVTV  184  +8 DoConsumoObleasxAnoVTV
+0060da5c +024 Stock2010.exe  UFPrincipal   566  +2 TFrmPrincipal.DoConsumoObleasxAnio_PDFClick
+004d4e8a +0a6 Stock2010.exe  Menus                 TMenuItem.Click
+004d6037 +013 Stock2010.exe  Menus                 TMenu.DispatchCommand
+0054813c +0c8 Stock2010.exe  RxMenus      1352 +11 TPopupList.WndProc
+00485d0c +014 Stock2010.exe  Classes               StdWndProc
+74ac7bc5 +00a user32.dll                           DispatchMessageA
+004e327b +083 Stock2010.exe  Forms                 TApplication.ProcessMessage
+004e32b2 +00a Stock2010.exe  Forms                 TApplication.HandleMessage
+004e34d2 +096 Stock2010.exe  Forms                 TApplication.Run
+0060e556 +09e Stock2010.exe  Stock2010      30 +10 initialization
+7665343b +010 kernel32.dll                         BaseThreadInitThunk
+
+thread $2b0:
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $20d8:
+76f80186 +0e ntdll.dll     NtWaitForMultipleObjects
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $12e8:
+76f81f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+modules:
+00400000 Stock2010.exe                                         C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+05000000 dbexpoda.dll                     6.10.15.0            C:\Windows\system32
+051f0000 orageneric9.dll                  9.2.0.1.0 Production C:\oracle\ora92\bin
+10000000 oci.dll                          9.2.0.1.0            C:\Windows\system32
+4dae0000 midas.dll                        7.1.1692.668         C:\Windows\SysWOW64
+60500000 oracommon9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60600000 OraClient9.Dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60800000 oravsn9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60810000 orawtc9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60a00000 orapls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+610a0000 oracore9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+612a0000 oranls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+61350000 orasnls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+613a0000 oraunls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61400000 oranl9.dll                       9.2.0.1.0 Production C:\oracle\ora92\bin
+61480000 oran9.dll                        9.2.0.1.0 Production C:\oracle\ora92\bin
+615a0000 orannzsbb9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+616a0000 orancds9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+616b0000 orancrypt9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61730000 oranro9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+617c0000 oranhost9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+617d0000 oranoname9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61820000 orantns9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61910000 orantcp9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61960000 oranldap9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+62000000 oraldapclnt9.dll                 9.2.0.1.0 Production C:\oracle\ora92\bin
+62300000 ORATRACE9.dll                                         C:\oracle\ora92\bin
+62500000 oraslax9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+62600000 orasql9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+62fc0000 oraxml9.dll                                           C:\oracle\ora92\bin
+630f0000 oraxsd9.dll                                           C:\oracle\ora92\bin
+64000000 oranms.dll                       9.2.0.0.0            C:\oracle\ora92\bin
+64020000 oranmsp.dll                      9.2.0.0.0            C:\oracle\ora92\bin
+6e570000 dwmapi.dll                       6.1.7601.18917       C:\Windows\system32
+6e590000 cscapi.dll                       6.1.7601.17514       C:\Windows\system32
+6ff30000 wkscli.dll                       6.1.7601.17514       C:\Windows\system32
+6fff0000 winspool.drv                     6.1.7601.17514       C:\Windows\system32
+70690000 ntmarta.dll                      6.1.7600.16385       C:\Windows\system32
+706c0000 propsys.dll                      7.0.7601.17514       C:\Windows\system32
+72140000 UMEngx86.dll                     11.4.0.29            C:\ProgramData\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Data\Definitions\BASHDefs\20180320.001
+72fa0000 uxtheme.dll                      6.1.7600.16385       C:\Windows\system32
+73590000 api-ms-win-core-synch-l1-2-0.DLL 10.0.10586.1171      C:\Windows\system32
+73830000 FaultRep.dll                     6.1.7601.17514       C:\Windows\system32
+73970000 MSVCIRT.dll                      7.0.7600.16385       C:\Windows\system32
+73990000 olepro32.dll                     6.1.7601.23452       C:\Windows\system32
+73ae0000 mswsock.dll                      6.1.7601.23451       C:\Windows\system32
+73b80000 winmm.dll                        6.1.7601.17514       C:\Windows\system32
+73bc0000 wsock32.dll                      6.1.7600.16385       C:\Windows\system32
+73bd0000 wshtcpip.dll                     6.1.7600.16385       C:\Windows\System32
+73be0000 comctl32.DLL                     6.10.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_41e855142bd5705d
+744b0000 version.dll                      6.1.7600.16385       C:\Windows\system32
+744c0000 comctl32.dll                     5.82.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.18837_none_ec86b8d6858ec0bc
+74620000 SYSFER.DLL                       14.0.1849.0          C:\Windows\SysWOW64
+74800000 CRYPTBASE.dll                    6.1.7601.24000       C:\Windows\syswow64
+74810000 SspiCli.dll                      6.1.7601.24000       C:\Windows\syswow64
+74ab0000 user32.dll                       6.1.7601.23594       C:\Windows\syswow64
+74bb0000 sechost.dll                      6.1.7601.18869       C:\Windows\SysWOW64
+74be0000 GDI32.dll                        6.1.7601.23914       C:\Windows\syswow64
+74f20000 ADVAPI32.dll                     6.1.7601.24000       C:\Windows\syswow64
+74fd0000 ole32.dll                        6.1.7601.24000       C:\Windows\syswow64
+75130000 CFGMGR32.dll                     6.1.7601.17621       C:\Windows\syswow64
+75160000 SHLWAPI.dll                      6.1.7601.17514       C:\Windows\syswow64
+75310000 RPCRT4.dll                       6.1.7601.24000       C:\Windows\syswow64
+75430000 WINTRUST.dll                     6.1.7601.23769       C:\Windows\syswow64
+75460000 shell32.dll                      6.1.7601.24000       C:\Windows\syswow64
+760b0000 WLDAP32.dll                      6.1.7601.23889       C:\Windows\syswow64
+76110000 MSASN1.dll                       6.1.7601.17514       C:\Windows\syswow64
+76120000 DEVOBJ.dll                       6.1.7601.17621       C:\Windows\syswow64
+76140000 comdlg32.dll                     6.1.7601.17514       C:\Windows\syswow64
+761d0000 LPK.dll                          6.1.7601.23974       C:\Windows\syswow64
+761e0000 CLBCatQ.DLL                      2001.12.8530.16385   C:\Windows\syswow64
+76270000 msvcrt.dll                       7.0.7601.17744       C:\Windows\syswow64
+76380000 WS2_32.dll                       6.1.7601.23451       C:\Windows\syswow64
+76410000 USP10.dll                        1.626.7601.23894     C:\Windows\syswow64
+764b0000 IMM32.DLL                        6.1.7601.17514       C:\Windows\system32
+76510000 CRYPT32.dll                      6.1.7601.23769       C:\Windows\syswow64
+76640000 kernel32.dll                     6.1.7601.24000       C:\Windows\syswow64
+76760000 NSI.dll                          6.1.7601.23889       C:\Windows\syswow64
+76770000 oleaut32.dll                     6.1.7601.23775       C:\Windows\syswow64
+76810000 SETUPAPI.dll                     6.1.7601.17514       C:\Windows\syswow64
+769c0000 KERNELBASE.dll                   6.1.7601.24000       C:\Windows\syswow64
+76aa0000 psapi.dll                        6.1.7600.16385       C:\Windows\syswow64
+76ab0000 MSCTF.dll                        6.1.7601.23915       C:\Windows\syswow64
+76f60000 ntdll.dll                        6.1.7601.24000       C:\Windows\SysWOW64
+
+processes:
+0000 Idle                           0 0   0
+0004 System                         0 0   0
+0168 smss.exe                       0 0   0
+0228 csrss.exe                      0 0   0
+026c wininit.exe                    0 0   0
+0274 csrss.exe                      1 0   0
+0298 winlogon.exe                   1 0   0
+02dc services.exe                   0 0   0
+02e4 lsass.exe                      0 0   0
+0300 lsm.exe                        0 0   0
+0364 svchost.exe                    0 0   0
+03b4 svchost.exe                    0 0   0
+01e4 svchost.exe                    0 0   0
+0214 svchost.exe                    0 0   0
+0330 svchost.exe                    0 0   0
+03a4 svchost.exe                    0 0   0
+04d4 igfxCUIService.exe             0 0   0
+0520 svchost.exe                    0 0   0
+0574 spoolsv.exe                    0 0   0
+059c svchost.exe                    0 0   0
+062c armsvc.exe                     0 0   0
+068c svchost.exe                    0 0   0
+06ac ibtsiva.exe                    0 0   0
+06ec ibguard.exe                    0 0   0
+0738 MsDtsSrvr.exe                  0 0   0   normal
+07b0 omtsreco.exe                   0 0   0
+06d8 tnslsnr.exe                    0 0   0   normal
+07a8 oravssw.exe                    0 0   0
+0760 rserver3.exe                   0 0   0
+0510 ccSvcHst.exe                   0 0   0
+081c Sks8821.exe                    0 0   0
+0840 skdh8821.exe                   1 0   0
+084c sqlwriter.exe                  0 0   0
+086c ss_conn_service.exe            0 0   0
+0888 svchost.exe                    0 0   0
+0930 TeamViewer_Service.exe         0 0   0
+0a34 WmiPrvSE.exe                   0 0   0
+0abc ibserver.exe                   0 0   0
+0b94 svchost.exe                    0 0   0
+0ec0 ccSvcHst.exe                   1 56  35  normal C:\Program Files (x86)\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Bin
+0edc taskhost.exe                   1 29  24  normal
+0f30 PresentationFontCache.exe      0 0   0
+0f60 dwm.exe                        1 31  9   high
+0f90 explorer.exe                   1 728 426 normal
+0e24 unsecapp.exe                   0 0   0
+12b4 igfxEM.exe                     1 16  13  normal
+12bc igfxHK.exe                     1 16  12  normal
+1394 RAVCpl64.exe                   1 61  20  normal
+13f0 Skd8821.exe                    1 50  28  normal
+13fc rundll32.exe                   1 44  23  normal
+1048 StikyNot.exe                   1 72  39  normal
+116c Skype.exe                      1 78  52  normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+1174 X-Lite.exe                     1 130 88  normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+11a4 iusb3mon.exe                   1 21  8   normal C:\Program Files (x86)\Intel\Intel(R) USB 3.0 eXtensible Host Controller Driver\Application
+0c3c SearchIndexer.exe              0 0   0
+120c Teams.exe                      1 37  53  normal
+1144 devmonsrv.exe                  0 0   0
+13b0 obexsrv.exe                    0 0   0
+0f1c mediasrv.exe                   0 0   0
+0eac Skype.exe                      1 12  3   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+1434 Skype.exe                      1 14  7   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+148c Skype.exe                      1 13  14  normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+1760 Teams.exe                      1 9   4   normal
+0a74 Teams.exe                      1 4   1   normal
+04c8 Teams.exe                      1 4   1   normal
+076c Teams.exe                      1 13  15  normal
+1824 CefSharp.BrowserSubprocess.exe 1 4   1   normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+19a0 svchost.exe                    0 0   0
+1b9c OUTLOOK.EXE                    1 876 633 normal C:\Program Files (x86)\Microsoft Office\Office14
+196c OSPPSVC.EXE                    0 0   0
+0e44 TSVNCache.exe                  1 12  6   normal
+1928 notepad++.exe                  1 329 292 normal
+0998 FamItrfc.Exe                   1 0   0
+0da0 FamItrfc.Exe                   1 10  10  high   C:\Windows\SysWOW64\rserver30
+2044 RdrCEF.exe                     1 9   22  normal C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF
+19e0 RdrCEF.exe                     1 4   1   normal C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF
+1d58 chrome.exe                     1 45  44  normal
+1b40 chrome.exe                     1 9   4   normal
+0e84 chrome.exe                     1 9   4   normal
+1ea4 chrome.exe                     1 11  8   normal
+20f0 chrome.exe                     1 4   1   normal
+20c8 chrome.exe                     1 4   1   idle
+1be8 Radmin.exe                     1 92  75  normal C:\Program Files (x86)\Radmin Viewer 3
+20b8 firefox.exe                    1 43  62  normal
+179c firefox.exe                    1 12  10  normal
+1f54 firefox.exe                    1 11  28  normal
+2114 firefox.exe                    1 11  13  normal
+0c24 firefox.exe                    1 11  10  normal
+1e38 audiodg.exe                    0 0   0
+1ffc Stock2010.exe                  1 129 73  normal C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+14e8 Skype.exe                      1 4   1   idle   C:\Program Files (x86)\Microsoft\Skype for Desktop
+
+hardware:
++ Computer
+  - ACPI x64-based PC
++ Disk drives
+  - WDC WD5000AZLX-08K2TA0 ATA Device
++ Display adapters
+  - Intel(R) HD Graphics 530 (driver 20.19.15.4474)
+  - Radmin Mirror Driver V3 (driver 3.1.0.0)
++ DVD/CD-ROM drives
+  - PLDS DVD-RW DU8A6SH ATA Device
++ Human Interface Devices
+  - Dispositivo compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
++ IDE ATA/ATAPI controllers
+  - ATA Channel 0
+  - ATA Channel 1
+  - ATA Channel 2
+  - ATA Channel 3
+  - Controladora ATA de serie AHCI 1.0 estándar
++ Keyboards
+  - Dispositivo de teclado HID
++ Mice and other pointing devices
+  - Mouse compatible con HID
++ Monitors
+  - Monitor PnP genérico
++ Network adapters
+  - Adaptador ISATAP de Microsoft
+  - Minipuerto WAN (IP)
+  - Minipuerto WAN (IPv6)
+  - Minipuerto WAN (L2TP)
+  - Minipuerto WAN (Monitor de red)
+  - Minipuerto WAN (PPPOE)
+  - Minipuerto WAN (PPTP)
+  - Minipuerto WAN (SSTP)
+  - Realtek PCIe GBE Family Controller (driver 7.92.115.2015)
+  - Teredo Tunneling Pseudo-Interface
+  - WAN Miniport (IKEv2)
++ Ports (COM & LPT)
+  - Puerto de comunicaciones (COM1)
++ Processors
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
++ Security Devices
+  - Módulo de plataforma segura 1.2
++ Sound, video and game controllers
+  - Logitech USB Headset
+  - Realtek High Definition Audio (driver 6.0.1.7910)
+  - Sonido Intel(R) para pantallas (driver 6.16.0.3197)
++ Storage volume shadow copies
+  - Instantánea de volumen genérico
+  - Instantánea de volumen genérico
+  - Instantánea de volumen genérico
++ System devices
+  - Administrador de volúmenes
+  - Archivar como controlador de volumen
+  - Botón de característica fija ACPI
+  - Botón de encendido ACPI
+  - Botón de suspensión ACPI
+  - Bus PCI
+  - Controlador BIOS de Microsoft System Management
+  - Controlador de enumerador de unidades virtuales de Microsoft
+  - Controlador de mouse de Terminal Server
+  - Controlador de teclado de Terminal Server
+  - Controladora de High Definition Audio
+  - Controladora programable de interrupciones
+  - Cronómetro del sistema
+  - Dispositivo concentrador de firmware Intel(R) 82802
+  - Enumerador de bus compuesto
+  - Enumerador de bus raíz de UMBus
+  - Enumerador de dispositivos de software Plug and Play
+  - Enumerador de UMBus
+  - Intel(R) 100 Series/C230 Series Chipset Family LPC Controller - A143 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset Family Management Engine Interface - A13A (driver 0.0.0.1)
+  - Intel(R) 100 Series/C230 Series Chipset Family PCI Express Root Port #6 - A115 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset PMC - A121 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset SMBus - A123 (driver 10.1.1.9)
+  - Interfaz de administración para ACPI de Microsoft Windows
+  - Procesador de datos numéricos
+  - Puente PCI de CPU host estándar
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Remote Desktop Device Redirector Bus
+  - Sistema CMOS/reloj en tiempo real
+  - Sistema Microsoft compatible con ACPI
+  - Temporizador de eventos de alta precisión
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Zona térmica ACPI
+  - Zona térmica ACPI
++ Universal Serial Bus controllers
+  - Concentrador raíz Intel(R) USB 3.0 (driver 4.0.2.42)
+  - Controladora de host Intel(R) USB 3.0 eXtensible (driver 4.0.2.42)
+  - Dispositivo compuesto USB
+  - Dispositivo compuesto USB
+
+disassembling:
+[...]
+005f79c6       lea     edx, [ebp-$2c]
+005f79c9       pop     eax
+005f79ca       call    -$f9183 ($4fe84c)      ; DB.TParam.SetAsVariant
+005f79cf 184   mov     eax, [ebp-$c]
+005f79d2       mov     edx, [eax]
+005f79d4     > call    dword ptr [edx+$284]
+005f79da 185   mov     eax, [ebp-$c]
+005f79dd       call    -$f878e ($4ff254)      ; DB.TDataSet.Close
+005f79e2       xor     eax, eax
+005f79e4       pop     edx
+005f79e5       pop     ecx
+[...]
+
+date/time          : 2018-03-29, 11:51:16, 93ms
+computer name      : SIST-133
+user name          : lsuarez <admin>
+registered owner   : SIST-133
+operating system   : Windows 7 x64 Service Pack 1 build 7601
+system language    : Spanish
+system up time     : 6 days 20 hours
+program up time    : 1 minute 54 seconds
+processors         : 4x Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+physical memory    : 1791/3999 MB (free/total)
+free disk space    : (C:) 351,86 GB
+display mode       : 1366x768, 32 bit
+process id         : $24d4
+allocated memory   : 44,15 MB
+largest free block : 986,76 MB
+executable         : Stock2010.exe
+exec. date/time    : 2018-03-01 12:56
+compiled with      : Delphi 7
+madExcept version  : 4.0.19
+callstack crc      : $bc648d26, $a995b776, $a995b776
+count              : 3
+exception number   : 1
+exception message  : The application seems to be frozen.
+
+main thread ($2410):
+76f7f8fa +00e ntdll.dll                            NtWaitForSingleObject
+76386e0f +06e WS2_32.dll                           WSARecv
+614d5d4b +13b oran9.dll                            nsrdr
+6149042f +3df oran9.dll                            nioqrc
+605337a4 +2e4 oracommon9.dll                       ttcdrv
+0055e5f8 +0f0 Stock2010.exe  SqlExpr               TCustomSQLDataSet.GetFieldData
+0055e8e4 +11c Stock2010.exe  SqlExpr               TCustomSQLDataSet.GetFieldData
+0050010d +045 Stock2010.exe  DB                    TDataSet.GetFieldData
+6149387b +02b oran9.dll                            nioqwa
+60675a1b +b9b OraClient9.Dll                       kpuexec
+60601bd5 +025 OraClient9.Dll                       OCIStmtExecute
+10006d51 +031 oci.dll                              OCIStmtExecute
+0055fffd +0e1 Stock2010.exe  SqlExpr               TCustomSQLDataSet.ExecuteStatement
+0055fe69 +055 Stock2010.exe  SqlExpr               TCustomSQLDataSet.ExecSQL
+00562594 +004 Stock2010.exe  SqlExpr               TSQLStoredProc.ExecProc
+005f79d4 +0d4 Stock2010.exe  uListadosVTV  184  +8 DoConsumoObleasxAnoVTV
+0060da5c +024 Stock2010.exe  UFPrincipal   566  +2 TFrmPrincipal.DoConsumoObleasxAnio_PDFClick
+004d4e8a +0a6 Stock2010.exe  Menus                 TMenuItem.Click
+004d6037 +013 Stock2010.exe  Menus                 TMenu.DispatchCommand
+0054813c +0c8 Stock2010.exe  RxMenus      1352 +11 TPopupList.WndProc
+00485d0c +014 Stock2010.exe  Classes               StdWndProc
+74ac7bc5 +00a user32.dll                           DispatchMessageA
+004e327b +083 Stock2010.exe  Forms                 TApplication.ProcessMessage
+004e32b2 +00a Stock2010.exe  Forms                 TApplication.HandleMessage
+004e34d2 +096 Stock2010.exe  Forms                 TApplication.Run
+0060e556 +09e Stock2010.exe  Stock2010      30 +10 initialization
+7665343b +010 kernel32.dll                         BaseThreadInitThunk
+
+thread $266c:
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $1754:
+76f80186 +0e ntdll.dll     NtWaitForMultipleObjects
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $1270:
+76f7f8fa +0e ntdll.dll                NtWaitForSingleObject
+769d15c8 +92 KERNELBASE.dll           WaitForSingleObjectEx
+7665118f +3e kernel32.dll             WaitForSingleObjectEx
+76651143 +0d kernel32.dll             WaitForSingleObject
+0045fcbd +0d Stock2010.exe  madExcept CallThreadProcSafe
+0045fd27 +37 Stock2010.exe  madExcept ThreadExceptFrame
+7665343b +10 kernel32.dll             BaseThreadInitThunk
+>> created by main thread ($2410) at:
+70004c95 +00 winspool.drv
+
+thread $e3c:
+76f81f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $261c:
+76f81f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $1b3c:
+76f81f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7665343b +10 kernel32.dll  BaseThreadInitThunk
+
+modules:
+00400000 Stock2010.exe                                         C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+050a0000 dbexpoda.dll                     6.10.15.0            C:\Windows\system32
+05290000 orageneric9.dll                  9.2.0.1.0 Production C:\oracle\ora92\bin
+10000000 oci.dll                          9.2.0.1.0            C:\Windows\system32
+4dae0000 midas.dll                        7.1.1692.668         C:\Windows\SysWOW64
+5b840000 mscms.dll                        6.1.7601.23971       C:\Windows\system32
+60500000 oracommon9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60600000 OraClient9.Dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60800000 oravsn9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60810000 orawtc9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60a00000 orapls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+610a0000 oracore9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+612a0000 oranls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+61350000 orasnls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+613a0000 oraunls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61400000 oranl9.dll                       9.2.0.1.0 Production C:\oracle\ora92\bin
+61480000 oran9.dll                        9.2.0.1.0 Production C:\oracle\ora92\bin
+615a0000 orannzsbb9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+616a0000 orancds9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+616b0000 orancrypt9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61730000 oranro9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+617c0000 oranhost9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+617d0000 oranoname9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61820000 orantns9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61910000 orantcp9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61960000 oranldap9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+62000000 oraldapclnt9.dll                 9.2.0.1.0 Production C:\oracle\ora92\bin
+62300000 ORATRACE9.dll                                         C:\oracle\ora92\bin
+62500000 oraslax9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+62600000 orasql9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+62fc0000 oraxml9.dll                                           C:\oracle\ora92\bin
+630f0000 oraxsd9.dll                                           C:\oracle\ora92\bin
+64000000 oranms.dll                       9.2.0.0.0            C:\oracle\ora92\bin
+64020000 oranmsp.dll                      9.2.0.0.0            C:\oracle\ora92\bin
+6b0f0000 slc.dll                          6.1.7600.16385       C:\Windows\system32
+6e570000 dwmapi.dll                       6.1.7601.18917       C:\Windows\system32
+6e590000 cscapi.dll                       6.1.7601.17514       C:\Windows\system32
+6ff30000 wkscli.dll                       6.1.7601.17514       C:\Windows\system32
+6fff0000 winspool.drv                     6.1.7601.17514       C:\Windows\system32
+70690000 ntmarta.dll                      6.1.7600.16385       C:\Windows\system32
+706c0000 PROPSYS.dll                      7.0.7601.17514       C:\Windows\system32
+71ff0000 prnfldr.dll                      6.1.7601.17514       C:\Windows\system32
+72060000 UMEngx86.dll                     11.4.0.29            C:\ProgramData\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Data\Definitions\BASHDefs\20180320.001
+72150000 FaultRep.dll                     6.1.7601.17514       C:\Windows\system32
+72fa0000 uxtheme.dll                      6.1.7600.16385       C:\Windows\system32
+73020000 apphelp.dll                      6.1.7601.19050       C:\Windows\system32
+730e0000 MSVCIRT.dll                      7.0.7600.16385       C:\Windows\system32
+73590000 api-ms-win-core-synch-l1-2-0.DLL 10.0.10586.1171      C:\Windows\system32
+73830000 olepro32.dll                     6.1.7601.23452       C:\Windows\system32
+73ae0000 mswsock.dll                      6.1.7601.23451       C:\Windows\system32
+73b80000 winmm.dll                        6.1.7601.17514       C:\Windows\system32
+73bc0000 wsock32.dll                      6.1.7600.16385       C:\Windows\system32
+73bd0000 wshtcpip.dll                     6.1.7600.16385       C:\Windows\System32
+73be0000 comctl32.DLL                     6.10.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_41e855142bd5705d
+744b0000 version.dll                      6.1.7600.16385       C:\Windows\system32
+744c0000 comctl32.dll                     5.82.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.18837_none_ec86b8d6858ec0bc
+74620000 SYSFER.DLL                       14.0.1849.0          C:\Windows\SysWOW64
+74800000 CRYPTBASE.dll                    6.1.7601.24000       C:\Windows\syswow64
+74810000 SspiCli.dll                      6.1.7601.24000       C:\Windows\syswow64
+74ab0000 user32.dll                       6.1.7601.23594       C:\Windows\syswow64
+74bb0000 sechost.dll                      6.1.7601.18869       C:\Windows\SysWOW64
+74bd0000 profapi.dll                      6.1.7600.16385       C:\Windows\syswow64
+74be0000 GDI32.dll                        6.1.7601.23914       C:\Windows\syswow64
+74f20000 ADVAPI32.dll                     6.1.7601.24000       C:\Windows\syswow64
+74fd0000 ole32.dll                        6.1.7601.24000       C:\Windows\syswow64
+75130000 CFGMGR32.dll                     6.1.7601.17621       C:\Windows\syswow64
+75160000 SHLWAPI.dll                      6.1.7601.17514       C:\Windows\syswow64
+75310000 RPCRT4.dll                       6.1.7601.24000       C:\Windows\syswow64
+75460000 shell32.dll                      6.1.7601.24000       C:\Windows\syswow64
+760b0000 WLDAP32.dll                      6.1.7601.23889       C:\Windows\syswow64
+76120000 DEVOBJ.dll                       6.1.7601.17621       C:\Windows\syswow64
+76140000 comdlg32.dll                     6.1.7601.17514       C:\Windows\syswow64
+761d0000 LPK.dll                          6.1.7601.23974       C:\Windows\syswow64
+761e0000 CLBCatQ.DLL                      2001.12.8530.16385   C:\Windows\syswow64
+76270000 msvcrt.dll                       7.0.7601.17744       C:\Windows\syswow64
+76380000 WS2_32.dll                       6.1.7601.23451       C:\Windows\syswow64
+763d0000 USERENV.dll                      6.1.7601.17514       C:\Windows\syswow64
+76410000 USP10.dll                        1.626.7601.23894     C:\Windows\syswow64
+764b0000 IMM32.DLL                        6.1.7601.17514       C:\Windows\system32
+76640000 kernel32.dll                     6.1.7601.24000       C:\Windows\syswow64
+76760000 NSI.dll                          6.1.7601.23889       C:\Windows\syswow64
+76770000 oleaut32.dll                     6.1.7601.23775       C:\Windows\syswow64
+76810000 SETUPAPI.dll                     6.1.7601.17514       C:\Windows\syswow64
+769c0000 KERNELBASE.dll                   6.1.7601.24000       C:\Windows\syswow64
+76ab0000 MSCTF.dll                        6.1.7601.23915       C:\Windows\syswow64
+76f60000 ntdll.dll                        6.1.7601.24000       C:\Windows\SysWOW64
+
+processes:
+0000 Idle                           0 0    0
+0004 System                         0 0    0
+0168 smss.exe                       0 0    0
+0228 csrss.exe                      0 0    0
+026c wininit.exe                    0 0    0
+0274 csrss.exe                      1 0    0
+0298 winlogon.exe                   1 0    0
+02dc services.exe                   0 0    0
+02e4 lsass.exe                      0 0    0
+0300 lsm.exe                        0 0    0
+0364 svchost.exe                    0 0    0
+03b4 svchost.exe                    0 0    0
+01e4 svchost.exe                    0 0    0
+0214 svchost.exe                    0 0    0
+0330 svchost.exe                    0 0    0
+03a4 svchost.exe                    0 0    0
+04d4 igfxCUIService.exe             0 0    0
+0520 svchost.exe                    0 0    0
+0574 spoolsv.exe                    0 0    0
+059c svchost.exe                    0 0    0
+062c armsvc.exe                     0 0    0
+068c svchost.exe                    0 0    0
+06ac ibtsiva.exe                    0 0    0
+06ec ibguard.exe                    0 0    0
+0738 MsDtsSrvr.exe                  0 0    0   normal
+07b0 omtsreco.exe                   0 0    0
+06d8 tnslsnr.exe                    0 0    0   normal
+07a8 oravssw.exe                    0 0    0
+0510 ccSvcHst.exe                   0 0    0
+081c Sks8821.exe                    0 0    0
+0840 skdh8821.exe                   1 0    0
+084c sqlwriter.exe                  0 0    0
+086c ss_conn_service.exe            0 0    0
+0888 svchost.exe                    0 0    0
+0930 TeamViewer_Service.exe         0 0    0
+0a34 WmiPrvSE.exe                   0 0    0
+0abc ibserver.exe                   0 0    0
+0b94 svchost.exe                    0 0    0
+0ec0 ccSvcHst.exe                   1 58   35  normal C:\Program Files (x86)\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Bin
+0edc taskhost.exe                   1 31   22  normal
+0f30 PresentationFontCache.exe      0 0    0
+0f60 dwm.exe                        1 31   9   high
+0f90 explorer.exe                   1 715  434 normal
+0e24 unsecapp.exe                   0 0    0
+12b4 igfxEM.exe                     1 16   13  normal
+12bc igfxHK.exe                     1 16   12  normal
+1394 RAVCpl64.exe                   1 61   20  normal
+13f0 Skd8821.exe                    1 50   28  normal
+13fc rundll32.exe                   1 45   23  normal
+1048 StikyNot.exe                   1 72   39  normal
+116c Skype.exe                      1 136  46  normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+1174 X-Lite.exe                     1 130  88  normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+11a4 iusb3mon.exe                   1 21   8   normal C:\Program Files (x86)\Intel\Intel(R) USB 3.0 eXtensible Host Controller Driver\Application
+0c3c SearchIndexer.exe              0 0    0
+120c Teams.exe                      1 37   54  normal
+1144 devmonsrv.exe                  0 0    0
+13b0 obexsrv.exe                    0 0    0
+0f1c mediasrv.exe                   0 0    0
+0eac Skype.exe                      1 12   3   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+1434 Skype.exe                      1 14   7   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+148c Skype.exe                      1 15   13  idle   C:\Program Files (x86)\Microsoft\Skype for Desktop
+1760 Teams.exe                      1 9    4   normal
+0a74 Teams.exe                      1 4    1   normal
+04c8 Teams.exe                      1 4    1   normal
+1824 CefSharp.BrowserSubprocess.exe 1 4    1   normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+19a0 svchost.exe                    0 0    0
+1b9c OUTLOOK.EXE                    1 867  641 normal C:\Program Files (x86)\Microsoft Office\Office14
+196c OSPPSVC.EXE                    0 0    0
+0e44 TSVNCache.exe                  1 12   6   normal
+1928 notepad++.exe                  1 330  301 normal
+2730 splwow64.exe                   1 9    3   normal
+21ac Toad.exe                       1 1171 647 normal C:\Toad 12.8\Toad for Oracle 12.8
+2140 rserver3.exe                   0 0    0
+1e04 Teams.exe                      1 9    17  normal
+0804 FamItrfc.Exe                   1 0    0
+13a8 FamItrfc.Exe                   1 10   10  high   C:\Windows\SysWOW64\rserver30
+1734 taskhost.exe                   1 9    4   normal
+1c64 audiodg.exe                    0 0    0
+24d4 Stock2010.exe                  1 136  75  normal C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+1288 PrintIsolationHost.exe         0 0    0
+
+hardware:
++ Computer
+  - ACPI x64-based PC
++ Disk drives
+  - WDC WD5000AZLX-08K2TA0 ATA Device
++ Display adapters
+  - Intel(R) HD Graphics 530 (driver 20.19.15.4474)
+  - Radmin Mirror Driver V3 (driver 3.1.0.0)
++ DVD/CD-ROM drives
+  - PLDS DVD-RW DU8A6SH ATA Device
++ Human Interface Devices
+  - Dispositivo compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
++ IDE ATA/ATAPI controllers
+  - ATA Channel 0
+  - ATA Channel 1
+  - ATA Channel 2
+  - ATA Channel 3
+  - Controladora ATA de serie AHCI 1.0 estándar
++ Keyboards
+  - Dispositivo de teclado HID
++ Mice and other pointing devices
+  - Mouse compatible con HID
++ Monitors
+  - Monitor PnP genérico
++ Network adapters
+  - Adaptador ISATAP de Microsoft
+  - Minipuerto WAN (IP)
+  - Minipuerto WAN (IPv6)
+  - Minipuerto WAN (L2TP)
+  - Minipuerto WAN (Monitor de red)
+  - Minipuerto WAN (PPPOE)
+  - Minipuerto WAN (PPTP)
+  - Minipuerto WAN (SSTP)
+  - Realtek PCIe GBE Family Controller (driver 7.92.115.2015)
+  - Teredo Tunneling Pseudo-Interface
+  - WAN Miniport (IKEv2)
++ Ports (COM & LPT)
+  - Puerto de comunicaciones (COM1)
++ Processors
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
++ Security Devices
+  - Módulo de plataforma segura 1.2
++ Sound, video and game controllers
+  - Logitech USB Headset
+  - Realtek High Definition Audio (driver 6.0.1.7910)
+  - Sonido Intel(R) para pantallas (driver 6.16.0.3197)
++ Storage volume shadow copies
+  - Instantánea de volumen genérico
+  - Instantánea de volumen genérico
+  - Instantánea de volumen genérico
++ System devices
+  - Administrador de volúmenes
+  - Archivar como controlador de volumen
+  - Botón de característica fija ACPI
+  - Botón de encendido ACPI
+  - Botón de suspensión ACPI
+  - Bus PCI
+  - Controlador BIOS de Microsoft System Management
+  - Controlador de enumerador de unidades virtuales de Microsoft
+  - Controlador de mouse de Terminal Server
+  - Controlador de teclado de Terminal Server
+  - Controladora de High Definition Audio
+  - Controladora programable de interrupciones
+  - Cronómetro del sistema
+  - Dispositivo concentrador de firmware Intel(R) 82802
+  - Enumerador de bus compuesto
+  - Enumerador de bus raíz de UMBus
+  - Enumerador de dispositivos de software Plug and Play
+  - Enumerador de UMBus
+  - Intel(R) 100 Series/C230 Series Chipset Family LPC Controller - A143 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset Family Management Engine Interface - A13A (driver 0.0.0.1)
+  - Intel(R) 100 Series/C230 Series Chipset Family PCI Express Root Port #6 - A115 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset PMC - A121 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset SMBus - A123 (driver 10.1.1.9)
+  - Interfaz de administración para ACPI de Microsoft Windows
+  - Procesador de datos numéricos
+  - Puente PCI de CPU host estándar
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Remote Desktop Device Redirector Bus
+  - Sistema CMOS/reloj en tiempo real
+  - Sistema Microsoft compatible con ACPI
+  - Temporizador de eventos de alta precisión
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Zona térmica ACPI
+  - Zona térmica ACPI
++ Universal Serial Bus controllers
+  - Concentrador raíz Intel(R) USB 3.0 (driver 4.0.2.42)
+  - Controladora de host Intel(R) USB 3.0 eXtensible (driver 4.0.2.42)
+  - Dispositivo compuesto USB
+  - Dispositivo compuesto USB
+
+disassembling:
+[...]
+005f79c6       lea     edx, [ebp-$2c]
+005f79c9       pop     eax
+005f79ca       call    -$f9183 ($4fe84c)      ; DB.TParam.SetAsVariant
+005f79cf 184   mov     eax, [ebp-$c]
+005f79d2       mov     edx, [eax]
+005f79d4     > call    dword ptr [edx+$284]
+005f79da 185   mov     eax, [ebp-$c]
+005f79dd       call    -$f878e ($4ff254)      ; DB.TDataSet.Close
+005f79e2       xor     eax, eax
+005f79e4       pop     edx
+005f79e5       pop     ecx
+[...]
+
+date/time          : 2018-06-01, 10:07:54, 504ms
+computer name      : SIST-133
+user name          : lsuarez <admin>
+registered owner   : SIST-133
+operating system   : Windows 7 x64 Service Pack 1 build 7601
+system language    : Spanish
+system up time     : 11 days
+program up time    : 15 seconds
+processors         : 4x Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+physical memory    : 3909/8095 MB (free/total)
+free disk space    : (C:) 342,01 GB
+display mode       : 1366x768, 32 bit
+process id         : $2b34
+allocated memory   : 43,35 MB
+largest free block : 986,76 MB
+executable         : Stock2010.exe
+exec. date/time    : 2018-04-24 16:35
+compiled with      : Delphi 7
+madExcept version  : 4.0.19
+callstack crc      : $a71e7da6, $1e37c1f6, $1e37c1f6
+exception number   : 1
+exception class    : EAccessViolation
+exception message  : Access violation at address 006033B4 in module 'Stock2010.exe'. Read of address 00000000.
+
+main thread ($1260):
+006033b4 +0c Stock2010.exe UFPrincipal  622  +1 TFrmPrincipal.Excel2Click
+004d4e52 +a6 Stock2010.exe Menus                TMenuItem.Click
+004d5fff +13 Stock2010.exe Menus                TMenu.DispatchCommand
+00547f5c +c8 Stock2010.exe RxMenus     1352 +11 TPopupList.WndProc
+00485cd4 +14 Stock2010.exe Classes              StdWndProc
+76ec7bc5 +0a user32.dll                         DispatchMessageA
+004e3243 +83 Stock2010.exe Forms                TApplication.ProcessMessage
+004e327a +0a Stock2010.exe Forms                TApplication.HandleMessage
+004e349a +96 Stock2010.exe Forms                TApplication.Run
+00603c2c +4c Stock2010.exe Stock2010     25  +5 initialization
+7572343b +10 kernel32.dll                       BaseThreadInitThunk
+
+thread $1c80:
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $289c:
+775c1f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $2304:
+775c0186 +0e ntdll.dll     NtWaitForMultipleObjects
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $2074:
+775c1f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $2838:
+775c1f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+modules:
+00400000 Stock2010.exe                                         C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+050c0000 dbexpoda.dll                     6.10.15.0            C:\Windows\system32
+052b0000 orageneric9.dll                  9.2.0.1.0 Production C:\oracle\ora92\bin
+10000000 oci.dll                          9.2.0.1.0            C:\Windows\system32
+4dae0000 midas.dll                        7.1.1692.668         C:\Windows\SysWOW64
+60500000 oracommon9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60600000 OraClient9.Dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60800000 oravsn9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60810000 orawtc9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60a00000 orapls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+610a0000 oracore9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+612a0000 oranls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+61350000 orasnls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+613a0000 oraunls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61400000 oranl9.dll                       9.2.0.1.0 Production C:\oracle\ora92\bin
+61480000 oran9.dll                        9.2.0.1.0 Production C:\oracle\ora92\bin
+615a0000 orannzsbb9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+616a0000 orancds9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+616b0000 orancrypt9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61730000 oranro9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+617c0000 oranhost9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+617d0000 oranoname9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61820000 orantns9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61910000 orantcp9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61960000 oranldap9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+62000000 oraldapclnt9.dll                 9.2.0.1.0 Production C:\oracle\ora92\bin
+62300000 ORATRACE9.dll                                         C:\oracle\ora92\bin
+62500000 oraslax9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+62600000 orasql9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+62fc0000 oraxml9.dll                                           C:\oracle\ora92\bin
+630f0000 oraxsd9.dll                                           C:\oracle\ora92\bin
+64000000 oranms.dll                       9.2.0.0.0            C:\oracle\ora92\bin
+64020000 oranmsp.dll                      9.2.0.0.0            C:\oracle\ora92\bin
+6c9f0000 cscapi.dll                       6.1.7601.17514       C:\Windows\system32
+70310000 winspool.drv                     6.1.7601.17514       C:\Windows\system32
+705d0000 wkscli.dll                       6.1.7601.17514       C:\Windows\system32
+70b00000 dwmapi.dll                       6.1.7601.18917       C:\Windows\system32
+717c0000 ntmarta.dll                      6.1.7600.16385       C:\Windows\system32
+71900000 propsys.dll                      7.0.7601.17514       C:\Windows\system32
+72120000 uxtheme.dll                      6.1.7600.16385       C:\Windows\system32
+728c0000 api-ms-win-core-synch-l1-2-0.DLL 10.0.10586.1171      C:\Windows\system32
+72b80000 FaultRep.dll                     6.1.7601.17514       C:\Windows\system32
+72be0000 UMEngx86.dll                     11.4.0.29            C:\ProgramData\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Data\Definitions\BASHDefs\20180528.003
+72dc0000 wshtcpip.dll                     6.1.7600.16385       C:\Windows\System32
+72dd0000 mswsock.dll                      6.1.7601.23451       C:\Windows\system32
+72e70000 winmm.dll                        6.1.7601.17514       C:\Windows\system32
+72eb0000 wsock32.dll                      6.1.7600.16385       C:\Windows\system32
+72ec0000 comctl32.DLL                     6.10.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_41e855142bd5705d
+73790000 version.dll                      6.1.7600.16385       C:\Windows\system32
+737a0000 comctl32.dll                     5.82.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.18837_none_ec86b8d6858ec0bc
+73900000 SYSFER.DLL                       14.0.1849.0          C:\Windows\SysWOW64
+74c90000 MSVCIRT.dll                      7.0.7600.16385       C:\Windows\system32
+74cf0000 olepro32.dll                     6.1.7601.23452       C:\Windows\system32
+74e40000 CRYPTBASE.dll                    6.1.7601.24000       C:\Windows\syswow64
+74e50000 SspiCli.dll                      6.1.7601.24000       C:\Windows\syswow64
+74eb0000 RPCRT4.dll                       6.1.7601.24000       C:\Windows\syswow64
+74fb0000 CFGMGR32.dll                     6.1.7601.17621       C:\Windows\syswow64
+74fe0000 comdlg32.dll                     6.1.7601.17514       C:\Windows\syswow64
+75060000 GDI32.dll                        6.1.7601.23914       C:\Windows\syswow64
+75100000 USP10.dll                        1.626.7601.23894     C:\Windows\syswow64
+751a0000 KERNELBASE.dll                   6.1.7601.24000       C:\Windows\syswow64
+754a0000 LPK.dll                          6.1.7601.23974       C:\Windows\syswow64
+754b0000 oleaut32.dll                     6.1.7601.23775       C:\Windows\syswow64
+75550000 DEVOBJ.dll                       6.1.7601.17621       C:\Windows\syswow64
+75570000 SETUPAPI.dll                     6.1.7601.17514       C:\Windows\syswow64
+75710000 kernel32.dll                     6.1.7601.24000       C:\Windows\syswow64
+75820000 WLDAP32.dll                      6.1.7601.23889       C:\Windows\syswow64
+75ad0000 NSI.dll                          6.1.7601.23889       C:\Windows\syswow64
+75c90000 IMM32.DLL                        6.1.7601.17514       C:\Windows\system32
+75e40000 ole32.dll                        6.1.7601.24000       C:\Windows\syswow64
+75fa0000 WS2_32.dll                       6.1.7601.23451       C:\Windows\syswow64
+75ff0000 msvcrt.dll                       7.0.7601.17744       C:\Windows\syswow64
+760c0000 shell32.dll                      6.1.7601.24000       C:\Windows\syswow64
+76d10000 ADVAPI32.dll                     6.1.7601.24000       C:\Windows\syswow64
+76dd0000 MSCTF.dll                        6.1.7601.23915       C:\Windows\syswow64
+76eb0000 user32.dll                       6.1.7601.23594       C:\Windows\syswow64
+76fe0000 sechost.dll                      6.1.7601.18869       C:\Windows\SysWOW64
+77010000 SHLWAPI.dll                      6.1.7601.17514       C:\Windows\syswow64
+77100000 CLBCatQ.DLL                      2001.12.8530.16385   C:\Windows\syswow64
+775a0000 ntdll.dll                        6.1.7601.24000       C:\Windows\SysWOW64
+
+processes:
+0000 Idle                           0 0    0
+0004 System                         0 0    0
+0168 smss.exe                       0 0    0
+0228 csrss.exe                      0 0    0
+025c wininit.exe                    0 0    0
+0274 csrss.exe                      1 0    0
+02ac services.exe                   0 0    0
+02c8 winlogon.exe                   1 0    0
+02d8 lsass.exe                      0 0    0
+02e8 lsm.exe                        0 0    0
+0360 svchost.exe                    0 0    0
+03b4 svchost.exe                    0 0    0
+01f0 svchost.exe                    0 0    0
+0170 svchost.exe                    0 0    0
+0218 svchost.exe                    0 0    0
+034c svchost.exe                    0 0    0
+04e8 igfxCUIService.exe             0 0    0
+0554 svchost.exe                    0 0    0
+05f0 spoolsv.exe                    0 0    0
+0614 svchost.exe                    0 0    0
+0694 armsvc.exe                     0 0    0
+06c4 svchost.exe                    0 0    0
+06f0 ibtsiva.exe                    0 0    0
+071c ibguard.exe                    0 0    0
+076c MsDtsSrvr.exe                  0 0    0    normal
+04a4 omtsreco.exe                   0 0    0
+0578 tnslsnr.exe                    0 0    0    normal
+053c oravssw.exe                    0 0    0
+0750 rserver3.exe                   0 0    0
+080c ccSvcHst.exe                   0 0    0
+0840 Sks8821.exe                    0 0    0
+0860 skdh8821.exe                   1 0    0
+0870 sqlwriter.exe                  0 0    0
+08ac ss_conn_service.exe            0 0    0
+08cc svchost.exe                    0 0    0
+090c TeamViewer_Service.exe         0 0    0
+0a58 ibserver.exe                   0 0    0
+0b2c svchost.exe                    0 0    0
+0b9c WmiPrvSE.exe                   0 0    0
+077c taskhost.exe                   1 29   22   normal
+0c08 ccSvcHst.exe                   1 58   35   normal C:\Program Files (x86)\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Bin
+0ccc PresentationFontCache.exe      0 0    0
+0cd4 dwm.exe                        1 21   3    high
+0cf0 explorer.exe                   1 830  623  normal
+0d74 igfxEM.exe                     1 16   13   normal
+0d80 igfxHK.exe                     1 16   12   normal
+0f44 svchost.exe                    0 0    0
+0ca4 unsecapp.exe                   0 0    0
+1168 RAVCpl64.exe                   1 61   20   normal
+11a8 Skd8821.exe                    1 50   28   normal
+11dc rundll32.exe                   1 45   23   normal
+11e8 StikyNot.exe                   1 73   39   normal
+129c SearchIndexer.exe              0 0    0
+12dc X-Lite.exe                     1 130  92   normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+13c0 iusb3mon.exe                   1 21   8    normal C:\Program Files (x86)\Intel\Intel(R) USB 3.0 eXtensible Host Controller Driver\Application
+111c devmonsrv.exe                  0 0    0
+1248 obexsrv.exe                    0 0    0
+00a4 mediasrv.exe                   0 0    0
+19b4 CefSharp.BrowserSubprocess.exe 1 4    1    normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+058c TSVNCache.exe                  1 12   6    normal
+14e8 taskhost.exe                   1 12   8    normal
+1494 OUTLOOK.EXE                    1 964  882  normal C:\Program Files (x86)\Microsoft Office\Office14
+15bc OSPPSVC.EXE                    0 0    0
+167c Radmin.exe                     1 214  106  normal C:\Program Files (x86)\Radmin Viewer 3
+15d8 notepad++.exe                  1 319  232  normal
+23c4 Skype.exe                      1 60   38   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+271c Skype.exe                      1 9    3    normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+1320 Skype.exe                      1 9    8    normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+2940 Skype.exe                      1 9    13   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+2858 splwow64.exe                   1 9    4    normal
+2be0 Toad.exe                       1 1731 1002 normal C:\Toad 12.8\Toad for Oracle 12.8
+2960 FamItrfc.Exe                   1 0    0
+1fb0 FamItrfc.Exe                   1 10   10   high   C:\Windows\SysWOW64\rserver30
+0be4 audiodg.exe                    0 0    0
+27f4 sqldeveloper64W.exe            1 78   31   normal
+2b78 RdrCEF.exe                     1 9    22   normal C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF
+1ddc RdrCEF.exe                     1 4    1    normal C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF
+2b34 Stock2010.exe                  1 84   60   normal C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+
+hardware:
++ Computer
+  - ACPI x64-based PC
++ Disk drives
+  - WDC WD5000AZLX-08K2TA0 ATA Device
++ Display adapters
+  - Intel(R) HD Graphics 530 (driver 20.19.15.4474)
+  - Radmin Mirror Driver V3 (driver 3.1.0.0)
++ DVD/CD-ROM drives
+  - PLDS DVD-RW DU8A6SH ATA Device
++ Human Interface Devices
+  - Dispositivo compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
++ IDE ATA/ATAPI controllers
+  - ATA Channel 0
+  - ATA Channel 1
+  - ATA Channel 2
+  - ATA Channel 3
+  - Controladora ATA de serie AHCI 1.0 estándar
++ Keyboards
+  - Dispositivo de teclado HID
++ Mice and other pointing devices
+  - Mouse compatible con HID
++ Monitors
+  - Monitor PnP genérico
++ Network adapters
+  - Adaptador ISATAP de Microsoft
+  - Minipuerto WAN (IP)
+  - Minipuerto WAN (IPv6)
+  - Minipuerto WAN (L2TP)
+  - Minipuerto WAN (Monitor de red)
+  - Minipuerto WAN (PPPOE)
+  - Minipuerto WAN (PPTP)
+  - Minipuerto WAN (SSTP)
+  - Realtek PCIe GBE Family Controller (driver 7.92.115.2015)
+  - Teredo Tunneling Pseudo-Interface
+  - WAN Miniport (IKEv2)
++ Ports (COM & LPT)
+  - Puerto de comunicaciones (COM1)
++ Processors
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
++ Security Devices
+  - Módulo de plataforma segura 1.2
++ Sound, video and game controllers
+  - Logitech USB Headset
+  - Realtek High Definition Audio (driver 6.0.1.7910)
+  - Sonido Intel(R) para pantallas (driver 6.16.0.3197)
++ Storage volume shadow copies
+  - Instantánea de volumen genérico
+  - Instantánea de volumen genérico
++ System devices
+  - Administrador de volúmenes
+  - Archivar como controlador de volumen
+  - Botón de característica fija ACPI
+  - Botón de encendido ACPI
+  - Botón de suspensión ACPI
+  - Bus PCI
+  - Controlador BIOS de Microsoft System Management
+  - Controlador de enumerador de unidades virtuales de Microsoft
+  - Controlador de mouse de Terminal Server
+  - Controlador de teclado de Terminal Server
+  - Controladora de High Definition Audio
+  - Controladora programable de interrupciones
+  - Cronómetro del sistema
+  - Dispositivo concentrador de firmware Intel(R) 82802
+  - Enumerador de bus compuesto
+  - Enumerador de bus raíz de UMBus
+  - Enumerador de dispositivos de software Plug and Play
+  - Enumerador de UMBus
+  - Intel(R) 100 Series/C230 Series Chipset Family LPC Controller - A143 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset Family Management Engine Interface - A13A (driver 0.0.0.1)
+  - Intel(R) 100 Series/C230 Series Chipset Family PCI Express Root Port #6 - A115 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset PMC - A121 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset SMBus - A123 (driver 10.1.1.9)
+  - Interfaz de administración para ACPI de Microsoft Windows
+  - Procesador de datos numéricos
+  - Puente PCI de CPU host estándar
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Remote Desktop Device Redirector Bus
+  - Sistema CMOS/reloj en tiempo real
+  - Sistema Microsoft compatible con ACPI
+  - Temporizador de eventos de alta precisión
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Zona térmica ACPI
+  - Zona térmica ACPI
++ Universal Serial Bus controllers
+  - Concentrador raíz Intel(R) USB 3.0 (driver 4.0.2.42)
+  - Controladora de host Intel(R) USB 3.0 eXtensible (driver 4.0.2.42)
+  - Dispositivo compuesto USB
+  - Dispositivo compuesto USB
+
+cpu registers:
+eax = 00000000
+ebx = 022b3ab8
+ecx = 022cdec4
+edx = 0018fda8
+esi = 00000000
+edi = 00000003
+eip = 006033b4
+esp = 0018fd90
+ebp = 0018fdd8
+
+stack dump:
+0018fd90  58 4e 4d 00 01 00 00 00 - 00 00 00 00 02 60 4d 00  XNM..........`M.
+0018fda0  e0 fd 18 00 61 7f 54 00 - 84 fe 18 00 18 40 40 00  ....a.T......@@.
+0018fdb0  d8 fd 18 00 00 00 00 00 - 7a 0f a8 00 00 00 00 00  ........z.......
+0018fdc0  08 5f 4c 00 00 00 00 00 - 00 00 00 00 a1 0f a8 00  ._L.............
+0018fdd0  01 00 00 00 c4 fd 2a 02 - f0 fd 18 00 d6 5c 48 00  ......*......\H.
+0018fde0  11 01 00 00 2c 00 00 00 - 00 00 00 00 00 00 00 00  ....,...........
+0018fdf0  1c fe 18 00 fa 62 ec 76 - 10 0c 68 00 11 01 00 00  .....b.v..h.....
+0018fe00  2c 00 00 00 00 00 00 00 - 7a 0f a8 00 cd ab ba dc  ,.......z.......
+0018fe10  00 00 00 00 00 00 00 00 - 7a 0f a8 00 94 fe 18 00  ........z.......
+0018fe20  3a 6d ec 76 7a 0f a8 00 - 10 0c 68 00 11 01 00 00  :m.vz.....h.....
+0018fe30  2c 00 00 00 00 00 00 00 - 3e 47 06 a2 2c ff 18 00  ,.......>G..,...
+0018fe40  24 ff 18 00 50 ba e5 00 - 24 00 00 00 01 00 00 00  $...P...$.......
+0018fe50  00 00 00 00 00 00 00 00 - 30 00 00 00 ff ff ff ff  ........0.......
+0018fe60  ff ff ff ff e9 6c ec 76 - 00 00 00 00 02 01 00 00  .....l.v........
+0018fe70  01 00 00 00 00 00 00 00 - 00 00 00 00 38 fe 18 00  ............8...
+0018fe80  d0 ad ea 00 e4 fe 18 00 - b6 a6 f2 76 f2 d4 f2 d4  ...........v....
+0018fe90  00 00 00 00 f4 fe 18 00 - c4 77 ec 76 00 00 00 00  .........w.v....
+0018fea0  7a 0f a8 00 10 0c 68 00 - 11 01 00 00 2c 00 00 00  z.....h.....,...
+0018feb0  00 00 00 00 78 ba e5 00 - 01 00 00 00 5e 47 06 a2  ....x.......^G..
+0018fec0  24 ff 18 00 80 24 2a 02 - 01 00 00 00 ac 71 ed 76  $....$*......q.v
+
+disassembling:
+006033a8     public UFPrincipal.TFrmPrincipal.Excel2Click:  ; function entry point
+006033a8 621   call    -$11f05 ($5f14a8)      ; uListadosVTV.DoStockGlobalVTV
+006033ad 622   mov     eax, [$60b4e4]
+006033b2       mov     eax, [eax]
+006033b4     > mov     edx, [eax]
+006033b6       call    dword ptr [edx+$ec]
+006033bc 623   ret
+
+date/time          : 2018-06-01, 11:45:45, 743ms
+computer name      : SIST-133
+user name          : lsuarez <admin>
+registered owner   : SIST-133
+operating system   : Windows 7 x64 Service Pack 1 build 7601
+system language    : Spanish
+system up time     : 11 days 2 hours
+program up time    : 16 minutes 16 seconds
+processors         : 4x Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+physical memory    : 3386/8095 MB (free/total)
+free disk space    : (C:) 342,03 GB
+display mode       : 1366x768, 32 bit
+process id         : $2884
+allocated memory   : 52,39 MB
+largest free block : 986,76 MB
+executable         : Stock2010.exe
+exec. date/time    : 2018-04-24 16:35
+compiled with      : Delphi 7
+madExcept version  : 4.0.19
+callstack crc      : $bc648d26, $9d1a7bca, $9d1a7bca
+count              : 6
+exception number   : 4
+exception message  : The application seems to be frozen.
+
+main thread ($624):
+775bf8fa +00e ntdll.dll                            NtWaitForSingleObject
+75fa6e0f +06e WS2_32.dll                           WSARecv
+614d5d4b +13b oran9.dll                            nsrdr
+6149042f +3df oran9.dll                            nioqrc
+605337a4 +2e4 oracommon9.dll                       ttcdrv
+0055e398 +11c Stock2010.exe  SqlExpr               TCustomSQLDataSet.GetFieldData
+004fff2d +045 Stock2010.exe  DB                    TDataSet.GetFieldData
+6149387b +02b oran9.dll                            nioqwa
+60675a1b +b9b OraClient9.Dll                       kpuexec
+60601bd5 +025 OraClient9.Dll                       OCIStmtExecute
+10006d51 +031 oci.dll                              OCIStmtExecute
+0055fab1 +0e1 Stock2010.exe  SqlExpr               TCustomSQLDataSet.ExecuteStatement
+0055f91d +055 Stock2010.exe  SqlExpr               TCustomSQLDataSet.ExecSQL
+00562048 +004 Stock2010.exe  SqlExpr               TSQLStoredProc.ExecProc
+005f164c +0d4 Stock2010.exe  uListadosVTV  184  +8 DoConsumoObleasxAnoVTV
+00603184 +024 Stock2010.exe  UFPrincipal   566  +2 TFrmPrincipal.DoConsumoObleasxAnio_PDFClick
+004d4e52 +0a6 Stock2010.exe  Menus                 TMenuItem.Click
+004d5fff +013 Stock2010.exe  Menus                 TMenu.DispatchCommand
+00547f5c +0c8 Stock2010.exe  RxMenus      1352 +11 TPopupList.WndProc
+00485cd4 +014 Stock2010.exe  Classes               StdWndProc
+76ec7bc5 +00a user32.dll                           DispatchMessageA
+004e3243 +083 Stock2010.exe  Forms                 TApplication.ProcessMessage
+004e327a +00a Stock2010.exe  Forms                 TApplication.HandleMessage
+004e349a +096 Stock2010.exe  Forms                 TApplication.Run
+00603c2c +04c Stock2010.exe  Stock2010      25  +5 initialization
+7572343b +010 kernel32.dll                         BaseThreadInitThunk
+
+thread $10fc:
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $213c:
+775c0186 +0e ntdll.dll     NtWaitForMultipleObjects
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+thread $24b4:
+775bf8fa +0e ntdll.dll                NtWaitForSingleObject
+751b15c8 +92 KERNELBASE.dll           WaitForSingleObjectEx
+7572118f +3e kernel32.dll             WaitForSingleObjectEx
+75721143 +0d kernel32.dll             WaitForSingleObject
+0045fc85 +0d Stock2010.exe  madExcept CallThreadProcSafe
+0045fcef +37 Stock2010.exe  madExcept ThreadExceptFrame
+7572343b +10 kernel32.dll             BaseThreadInitThunk
+>> created by main thread ($624) at:
+70324c95 +00 winspool.drv
+
+thread $2294:
+775c1f6f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+7572343b +10 kernel32.dll  BaseThreadInitThunk
+
+modules:
+00400000 Stock2010.exe                                         C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+03f30000 oranms.dll                       9.2.0.0.0            C:\oracle\ora92\bin
+03f40000 oranmsp.dll                      9.2.0.0.0            C:\oracle\ora92\bin
+05090000 dbexpoda.dll                     6.10.15.0            C:\Windows\system32
+05280000 orageneric9.dll                  9.2.0.1.0 Production C:\oracle\ora92\bin
+10000000 oci.dll                          9.2.0.1.0            C:\Windows\system32
+4dae0000 midas.dll                        7.1.1692.668         C:\Windows\SysWOW64
+60500000 oracommon9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60600000 OraClient9.Dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+60800000 oravsn9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60810000 orawtc9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+60a00000 orapls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+610a0000 oracore9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+612a0000 oranls9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+61350000 orasnls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+613a0000 oraunls9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61400000 oranl9.dll                       9.2.0.1.0 Production C:\oracle\ora92\bin
+61480000 oran9.dll                        9.2.0.1.0 Production C:\oracle\ora92\bin
+615a0000 orannzsbb9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+616a0000 orancds9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+616b0000 orancrypt9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61730000 oranro9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+617c0000 oranhost9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+617d0000 oranoname9.dll                   9.2.0.1.0 Production C:\oracle\ora92\bin
+61820000 orantns9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61910000 orantcp9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+61960000 oranldap9.dll                    9.2.0.1.0 Production C:\oracle\ora92\bin
+62000000 oraldapclnt9.dll                 9.2.0.1.0 Production C:\oracle\ora92\bin
+62300000 ORATRACE9.dll                                         C:\oracle\ora92\bin
+62500000 oraslax9.dll                     9.2.0.1.0 Production C:\oracle\ora92\bin
+62600000 orasql9.dll                      9.2.0.1.0 Production C:\oracle\ora92\bin
+62fc0000 oraxml9.dll                                           C:\oracle\ora92\bin
+630f0000 oraxsd9.dll                                           C:\oracle\ora92\bin
+63ff0000 UMEngx86.dll                     11.4.0.29            C:\ProgramData\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Data\Definitions\BASHDefs\20180528.003
+641f0000 mscms.dll                        6.1.7601.23971       C:\Windows\system32
+6b330000 slc.dll                          6.1.7600.16385       C:\Windows\system32
+6c9f0000 cscapi.dll                       6.1.7601.17514       C:\Windows\system32
+6ee80000 FaultRep.dll                     6.1.7601.17514       C:\Windows\system32
+70310000 winspool.drv                     6.1.7601.17514       C:\Windows\system32
+705d0000 wkscli.dll                       6.1.7601.17514       C:\Windows\system32
+70b00000 dwmapi.dll                       6.1.7601.18917       C:\Windows\system32
+70b20000 prnfldr.dll                      6.1.7601.17514       C:\Windows\system32
+717c0000 ntmarta.dll                      6.1.7600.16385       C:\Windows\system32
+71900000 PROPSYS.dll                      7.0.7601.17514       C:\Windows\system32
+72120000 uxtheme.dll                      6.1.7600.16385       C:\Windows\system32
+72370000 apphelp.dll                      6.1.7601.19050       C:\Windows\system32
+728c0000 api-ms-win-core-synch-l1-2-0.DLL 10.0.10586.1171      C:\Windows\system32
+72dc0000 wshtcpip.dll                     6.1.7600.16385       C:\Windows\System32
+72dd0000 mswsock.dll                      6.1.7601.23451       C:\Windows\system32
+72e70000 winmm.dll                        6.1.7601.17514       C:\Windows\system32
+72eb0000 wsock32.dll                      6.1.7600.16385       C:\Windows\system32
+72ec0000 comctl32.DLL                     6.10.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_41e855142bd5705d
+73790000 version.dll                      6.1.7600.16385       C:\Windows\system32
+737a0000 comctl32.dll                     5.82.7601.18837      C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.18837_none_ec86b8d6858ec0bc
+73900000 SYSFER.DLL                       14.0.1849.0          C:\Windows\SysWOW64
+74c90000 MSVCIRT.dll                      7.0.7600.16385       C:\Windows\system32
+74cf0000 olepro32.dll                     6.1.7601.23452       C:\Windows\system32
+74e40000 CRYPTBASE.dll                    6.1.7601.24000       C:\Windows\syswow64
+74e50000 SspiCli.dll                      6.1.7601.24000       C:\Windows\syswow64
+74eb0000 RPCRT4.dll                       6.1.7601.24000       C:\Windows\syswow64
+74fb0000 CFGMGR32.dll                     6.1.7601.17621       C:\Windows\syswow64
+74fe0000 comdlg32.dll                     6.1.7601.17514       C:\Windows\syswow64
+75060000 GDI32.dll                        6.1.7601.23914       C:\Windows\syswow64
+75100000 USP10.dll                        1.626.7601.23894     C:\Windows\syswow64
+751a0000 KERNELBASE.dll                   6.1.7601.24000       C:\Windows\syswow64
+754a0000 LPK.dll                          6.1.7601.23974       C:\Windows\syswow64
+754b0000 oleaut32.dll                     6.1.7601.23775       C:\Windows\syswow64
+75550000 DEVOBJ.dll                       6.1.7601.17621       C:\Windows\syswow64
+75570000 SETUPAPI.dll                     6.1.7601.17514       C:\Windows\syswow64
+75710000 kernel32.dll                     6.1.7601.24000       C:\Windows\syswow64
+75820000 WLDAP32.dll                      6.1.7601.23889       C:\Windows\syswow64
+75ab0000 USERENV.dll                      6.1.7601.17514       C:\Windows\syswow64
+75ad0000 NSI.dll                          6.1.7601.23889       C:\Windows\syswow64
+75ae0000 CRYPT32.dll                      6.1.7601.23769       C:\Windows\syswow64
+75c10000 profapi.dll                      6.1.7600.16385       C:\Windows\syswow64
+75c90000 IMM32.DLL                        6.1.7601.17514       C:\Windows\system32
+75e40000 ole32.dll                        6.1.7601.24000       C:\Windows\syswow64
+75fa0000 WS2_32.dll                       6.1.7601.23451       C:\Windows\syswow64
+75fe0000 MSASN1.dll                       6.1.7601.17514       C:\Windows\syswow64
+75ff0000 msvcrt.dll                       7.0.7601.17744       C:\Windows\syswow64
+760a0000 psapi.dll                        6.1.7600.16385       C:\Windows\syswow64
+760c0000 shell32.dll                      6.1.7601.24000       C:\Windows\syswow64
+76d10000 ADVAPI32.dll                     6.1.7601.24000       C:\Windows\syswow64
+76dd0000 MSCTF.dll                        6.1.7601.23915       C:\Windows\syswow64
+76eb0000 user32.dll                       6.1.7601.23594       C:\Windows\syswow64
+76fe0000 sechost.dll                      6.1.7601.18869       C:\Windows\SysWOW64
+77010000 SHLWAPI.dll                      6.1.7601.17514       C:\Windows\syswow64
+77100000 CLBCatQ.DLL                      2001.12.8530.16385   C:\Windows\syswow64
+77190000 WINTRUST.dll                     6.1.7601.23769       C:\Windows\syswow64
+775a0000 ntdll.dll                        6.1.7601.24000       C:\Windows\SysWOW64
+
+processes:
+0000 Idle                           0 0    0
+0004 System                         0 0    0
+0168 smss.exe                       0 0    0
+0228 csrss.exe                      0 0    0
+025c wininit.exe                    0 0    0
+0274 csrss.exe                      1 0    0
+02ac services.exe                   0 0    0
+02c8 winlogon.exe                   1 0    0
+02d8 lsass.exe                      0 0    0
+02e8 lsm.exe                        0 0    0
+0360 svchost.exe                    0 0    0
+03b4 svchost.exe                    0 0    0
+01f0 svchost.exe                    0 0    0
+0170 svchost.exe                    0 0    0
+0218 svchost.exe                    0 0    0
+034c svchost.exe                    0 0    0
+04e8 igfxCUIService.exe             0 0    0
+0554 svchost.exe                    0 0    0
+05f0 spoolsv.exe                    0 0    0
+0614 svchost.exe                    0 0    0
+0694 armsvc.exe                     0 0    0
+06c4 svchost.exe                    0 0    0
+06f0 ibtsiva.exe                    0 0    0
+071c ibguard.exe                    0 0    0
+076c MsDtsSrvr.exe                  0 0    0   normal
+04a4 omtsreco.exe                   0 0    0
+0578 tnslsnr.exe                    0 0    0   normal
+053c oravssw.exe                    0 0    0
+0750 rserver3.exe                   0 0    0
+080c ccSvcHst.exe                   0 0    0
+0840 Sks8821.exe                    0 0    0
+0860 skdh8821.exe                   1 0    0
+0870 sqlwriter.exe                  0 0    0
+08ac ss_conn_service.exe            0 0    0
+08cc svchost.exe                    0 0    0
+090c TeamViewer_Service.exe         0 0    0
+0a58 ibserver.exe                   0 0    0
+0b2c svchost.exe                    0 0    0
+0b9c WmiPrvSE.exe                   0 0    0
+077c taskhost.exe                   1 29   21  normal
+0c08 ccSvcHst.exe                   1 58   35  normal C:\Program Files (x86)\Symantec\Symantec Endpoint Protection\14.0.1904.0000.105\Bin
+0ccc PresentationFontCache.exe      0 0    0
+0cd4 dwm.exe                        1 31   9   high
+0cf0 explorer.exe                   1 840  628 normal
+0d74 igfxEM.exe                     1 16   13  normal
+0d80 igfxHK.exe                     1 16   12  normal
+0f44 svchost.exe                    0 0    0
+0ca4 unsecapp.exe                   0 0    0
+1168 RAVCpl64.exe                   1 61   20  normal
+11a8 Skd8821.exe                    1 50   28  normal
+11dc rundll32.exe                   1 45   23  normal
+11e8 StikyNot.exe                   1 73   39  normal
+129c SearchIndexer.exe              0 0    0
+12dc X-Lite.exe                     1 130  92  normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+13c0 iusb3mon.exe                   1 21   8   normal C:\Program Files (x86)\Intel\Intel(R) USB 3.0 eXtensible Host Controller Driver\Application
+111c devmonsrv.exe                  0 0    0
+1248 obexsrv.exe                    0 0    0
+00a4 mediasrv.exe                   0 0    0
+19b4 CefSharp.BrowserSubprocess.exe 1 4    1   normal C:\Users\lsuarez\AppData\Local\CounterPath\X-Lite\Current
+058c TSVNCache.exe                  1 12   6   normal
+14e8 taskhost.exe                   1 12   8   normal
+1494 OUTLOOK.EXE                    1 854  645 normal C:\Program Files (x86)\Microsoft Office\Office14
+15bc OSPPSVC.EXE                    0 0    0
+167c Radmin.exe                     1 220  108 normal C:\Program Files (x86)\Radmin Viewer 3
+15d8 notepad++.exe                  1 315  231 normal
+23c4 Skype.exe                      1 60   38  normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+271c Skype.exe                      1 9    3   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+1320 Skype.exe                      1 9    8   normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+2940 Skype.exe                      1 9    13  normal C:\Program Files (x86)\Microsoft\Skype for Desktop
+2858 splwow64.exe                   1 9    5   normal
+2be0 Toad.exe                       1 1063 597 normal C:\Toad 12.8\Toad for Oracle 12.8
+2960 FamItrfc.Exe                   1 0    0
+1fb0 FamItrfc.Exe                   1 10   10  high   C:\Windows\SysWOW64\rserver30
+27f4 sqldeveloper64W.exe            1 78   31  normal
+2b78 RdrCEF.exe                     1 9    22  normal C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF
+1ddc RdrCEF.exe                     1 4    1   normal C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF
+17c0 EXCEL.EXE                      1 406  140 normal C:\Program Files (x86)\Microsoft Office\Office14
+1700 chrome.exe                     1 33   39  normal
+25f4 chrome.exe                     1 9    4   normal
+1098 chrome.exe                     1 9    4   normal
+28b0 chrome.exe                     1 7    7   normal
+251c chrome.exe                     1 4    1   normal
+22c0 chrome.exe                     1 4    1   idle
+15fc chrome.exe                     1 4    1   idle
+2884 Stock2010.exe                  1 96   64  normal C:\APPLUS\DESARROLLO STARTEAM\STOCK2010_1.0
+0c8c audiodg.exe                    0 0    0
+
+hardware:
++ Computer
+  - ACPI x64-based PC
++ Disk drives
+  - WDC WD5000AZLX-08K2TA0 ATA Device
++ Display adapters
+  - Intel(R) HD Graphics 530 (driver 20.19.15.4474)
+  - Radmin Mirror Driver V3 (driver 3.1.0.0)
++ DVD/CD-ROM drives
+  - PLDS DVD-RW DU8A6SH ATA Device
++ Human Interface Devices
+  - Dispositivo compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de control del consumidor compatible con HID
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
+  - Dispositivo de entrada USB
++ IDE ATA/ATAPI controllers
+  - ATA Channel 0
+  - ATA Channel 1
+  - ATA Channel 2
+  - ATA Channel 3
+  - Controladora ATA de serie AHCI 1.0 estándar
++ Keyboards
+  - Dispositivo de teclado HID
++ Mice and other pointing devices
+  - Mouse compatible con HID
++ Monitors
+  - Monitor PnP genérico
++ Network adapters
+  - Adaptador ISATAP de Microsoft
+  - Minipuerto WAN (IP)
+  - Minipuerto WAN (IPv6)
+  - Minipuerto WAN (L2TP)
+  - Minipuerto WAN (Monitor de red)
+  - Minipuerto WAN (PPPOE)
+  - Minipuerto WAN (PPTP)
+  - Minipuerto WAN (SSTP)
+  - Realtek PCIe GBE Family Controller (driver 7.92.115.2015)
+  - Teredo Tunneling Pseudo-Interface
+  - WAN Miniport (IKEv2)
++ Ports (COM & LPT)
+  - Puerto de comunicaciones (COM1)
++ Processors
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+  - Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
++ Security Devices
+  - Módulo de plataforma segura 1.2
++ Sound, video and game controllers
+  - Logitech USB Headset
+  - Realtek High Definition Audio (driver 6.0.1.7910)
+  - Sonido Intel(R) para pantallas (driver 6.16.0.3197)
++ Storage volume shadow copies
+  - Instantánea de volumen genérico
+  - Instantánea de volumen genérico
++ System devices
+  - Administrador de volúmenes
+  - Archivar como controlador de volumen
+  - Botón de característica fija ACPI
+  - Botón de encendido ACPI
+  - Botón de suspensión ACPI
+  - Bus PCI
+  - Controlador BIOS de Microsoft System Management
+  - Controlador de enumerador de unidades virtuales de Microsoft
+  - Controlador de mouse de Terminal Server
+  - Controlador de teclado de Terminal Server
+  - Controladora de High Definition Audio
+  - Controladora programable de interrupciones
+  - Cronómetro del sistema
+  - Dispositivo concentrador de firmware Intel(R) 82802
+  - Enumerador de bus compuesto
+  - Enumerador de bus raíz de UMBus
+  - Enumerador de dispositivos de software Plug and Play
+  - Enumerador de UMBus
+  - Intel(R) 100 Series/C230 Series Chipset Family LPC Controller - A143 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset Family Management Engine Interface - A13A (driver 0.0.0.1)
+  - Intel(R) 100 Series/C230 Series Chipset Family PCI Express Root Port #6 - A115 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset PMC - A121 (driver 10.1.1.9)
+  - Intel(R) 100 Series/C230 Series Chipset SMBus - A123 (driver 10.1.1.9)
+  - Interfaz de administración para ACPI de Microsoft Windows
+  - Procesador de datos numéricos
+  - Puente PCI de CPU host estándar
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Recursos de la placa base
+  - Remote Desktop Device Redirector Bus
+  - Sistema CMOS/reloj en tiempo real
+  - Sistema Microsoft compatible con ACPI
+  - Temporizador de eventos de alta precisión
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Ventilador ACPI
+  - Zona térmica ACPI
+  - Zona térmica ACPI
++ Universal Serial Bus controllers
+  - Concentrador raíz Intel(R) USB 3.0 (driver 4.0.2.42)
+  - Controladora de host Intel(R) USB 3.0 eXtensible (driver 4.0.2.42)
+  - Dispositivo compuesto USB
+  - Dispositivo compuesto USB
+
+disassembling:
+[...]
+005f163e       lea     edx, [ebp-$2c]
+005f1641       pop     eax
+005f1642       call    -$f2e33 ($4fe814)      ; DB.TParam.SetAsVariant
+005f1647 184   mov     eax, [ebp-$c]
+005f164a       mov     edx, [eax]
+005f164c     > call    dword ptr [edx+$284]
+005f1652 185   mov     eax, [ebp-$c]
+005f1655       call    -$f243e ($4ff21c)      ; DB.TDataSet.Close
+005f165a       xor     eax, eax
+005f165c       pop     edx
+005f165d       pop     ecx
+[...]
+

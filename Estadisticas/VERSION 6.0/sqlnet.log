@@ -1,0 +1,527 @@
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticassin clave.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:30:45
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticassin clave.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:30:45
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticassin clave.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:30:45
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:31:04
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:31:04
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:31:05
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticassin clave.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:31:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticassin clave.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:31:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticassin clave.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:31:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:32:04
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:32:04
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:32:04
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=server-dto)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:32:06
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:32:06
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.141)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=applusbd)(CID=(PROGRAM=C:\DesarrolloStarteam\Estadisticas v5.02\estadisticas.exe)(HOST=SIS-127)(USER=lachetta))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 04-JUL-2012 12:32:06
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-OCT-2012 15:19:32
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-OCT-2012 15:39:43
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-OCT-2012 15:43:43
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-OCT-2012 17:30:10
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-OCT-2012 17:32:13
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 24-OCT-2012 17:35:00
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-OCT-2012 11:31:32
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-OCT-2012 12:08:13
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-OCT-2012 12:09:55
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12535, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.1.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orc1)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 25-OCT-2012 12:19:13
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12560, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=testing)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-DIC-2012 13:38:35
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12560
+    TNS-12560: TNS:protocol adapter error
+    ns secondary err code: 0
+    nt main err code: 538
+    TNS-00538: Message 538 not found;  product=NETWORK; facility=TNS
+
+    nt secondary err code: 65
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12560, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.100.10.230)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=testing)(CID=(PROGRAM=C:\DesarrolloStarteam\EN DESARROLLOS\Estadisticas v6\estadisticas.exe)(HOST=SIST-128)(USER=mbien))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-DIC-2012 13:38:44
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12560
+    TNS-12560: TNS:protocol adapter error
+    ns secondary err code: 0
+    nt main err code: 538
+    TNS-00538: Message 538 not found;  product=NETWORK; facility=TNS
+
+    nt secondary err code: 65
+    nt OS err code: 0

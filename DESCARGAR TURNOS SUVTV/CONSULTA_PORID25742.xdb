@@ -1,0 +1,571 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xdb="http://www.borland.com/schemas/delphi/6.0/XMLDataBinding">
+  <xs:element name="Envelope" type="SOAP-ENV:EnvelopeType"/>
+  <xs:complexType name="EnvelopeType"><xs:annotation>
+      <xs:appinfo xdb:docElement="Envelope"/>
+    </xs:annotation>
+    
+    <xs:sequence>
+      <xs:element name="Body" type="SOAP-ENV:BodyType"/>
+    </xs:sequence>
+    <xs:attribute name="encodingStyle" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="BodyType">
+    <xs:sequence>
+      <xs:element name="solicitarTurnoResponse" type="SOAP-ENV:solicitarTurnoResponseType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solicitarTurnoResponseType">
+    <xs:sequence>
+      <xs:element name="return" type="SOAP-ENV:returnType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="returnType">
+    <xs:sequence>
+      <xs:element name="respuestaID" type="SOAP-ENV:respuestaIDType"/>
+      <xs:element name="respuestaMensaje" type="SOAP-ENV:respuestaMensajeType"/>
+      <xs:element name="cantidadTurnos" type="SOAP-ENV:cantidadTurnosType"/>
+      <xs:element name="turnos" type="SOAP-ENV:turnosType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="respuestaIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="respuestaMensajeType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="cantidadTurnosType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="turnosType">
+    <xs:sequence>
+      <xs:element name="item" type="SOAP-ENV:itemType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+    <xs:attribute name="arrayType" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="itemType">
+    <xs:sequence>
+      <xs:element name="datosTurno" type="SOAP-ENV:datosTurnoType"/>
+      <xs:element name="datosTitular" type="SOAP-ENV:datosTitularType"/>
+      <xs:element name="datosContacto" type="SOAP-ENV:datosContactoType"/>
+      <xs:element name="datosVehiculo" type="SOAP-ENV:datosVehiculoType"/>
+      <xs:element name="datosFacturacion" type="SOAP-ENV:datosFacturacionType"/>
+      <xs:element name="datosPago" type="SOAP-ENV:datosPagoType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="datosTurnoType">
+    <xs:sequence>
+      <xs:element name="turnoID" type="SOAP-ENV:turnoIDType"/>
+      <xs:element name="estadoID" type="SOAP-ENV:estadoIDType"/>
+      <xs:element name="estado" type="SOAP-ENV:estadoType"/>
+      <xs:element name="tipoTurno" type="SOAP-ENV:tipoTurnoType"/>
+      <xs:element name="fechaTurno" type="SOAP-ENV:fechaTurnoType"/>
+      <xs:element name="horaTurno" type="SOAP-ENV:horaTurnoType"/>
+      <xs:element name="fechaRegistro" type="SOAP-ENV:fechaRegistroType"/>
+      <xs:element name="fechaNovedad" type="SOAP-ENV:fechaNovedadType"/>
+      <xs:element name="plantaID" type="SOAP-ENV:plantaIDType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="turnoIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="estadoIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="estadoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tipoTurnoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="fechaTurnoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="horaTurnoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="fechaRegistroType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="fechaNovedadType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="plantaIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="datosTitularType">
+    <xs:sequence>
+      <xs:element name="genero" type="SOAP-ENV:generoType"/>
+      <xs:element name="tipoDocumento" type="SOAP-ENV:tipoDocumentoType"/>
+      <xs:element name="numeroDocumento" type="SOAP-ENV:numeroDocumentoType"/>
+      <xs:element name="numeroCuit" type="SOAP-ENV:numeroCuitType"/>
+      <xs:element name="nombre" type="SOAP-ENV:nombreType"/>
+      <xs:element name="apellido" type="SOAP-ENV:apellidoType"/>
+      <xs:element name="razonSocial" type="SOAP-ENV:razonSocialType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="generoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="numeroDocumentoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="nil" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="numeroCuitType">
+    <xs:sequence/>
+    <xs:attribute name="nil" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="nombreType">
+    <xs:sequence/>
+    <xs:attribute name="nil" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="apellidoType">
+    <xs:sequence/>
+    <xs:attribute name="nil" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="razonSocialType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="nil" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="datosContactoType">
+    <xs:sequence>
+      <xs:element name="datosPersonalesTurno" type="SOAP-ENV:datosPersonalesTurnoType"/>
+      <xs:element name="contactoTurno" type="SOAP-ENV:contactoTurnoType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="datosPersonalesTurnoType">
+    <xs:sequence>
+      <xs:element name="tipoDocumento" type="SOAP-ENV:tipoDocumentoType"/>
+      <xs:element name="numeroDocumento" type="SOAP-ENV:numeroDocumentoType"/>
+      <xs:element name="numeroCuit" type="SOAP-ENV:numeroCuitType"/>
+      <xs:element name="nombre" type="SOAP-ENV:nombreType"/>
+      <xs:element name="apellido" type="SOAP-ENV:apellidoType"/>
+      <xs:element name="razonSocial" type="SOAP-ENV:razonSocialType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="contactoTurnoType">
+    <xs:sequence>
+      <xs:element name="telefonoCelular" type="SOAP-ENV:telefonoCelularType"/>
+      <xs:element name="email" type="SOAP-ENV:emailType"/>
+      <xs:element name="fechaNacimiento" type="SOAP-ENV:fechaNacimientoType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="telefonoCelularType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="emailType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="fechaNacimientoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="datosVehiculoType">
+    <xs:sequence>
+      <xs:element name="dominio" type="SOAP-ENV:dominioType"/>
+      <xs:element name="marcaID" type="SOAP-ENV:marcaIDType"/>
+      <xs:element name="marca" type="SOAP-ENV:marcaType"/>
+      <xs:element name="tipoID" type="SOAP-ENV:tipoIDType"/>
+      <xs:element name="tipo" type="SOAP-ENV:tipoType"/>
+      <xs:element name="modeloID" type="SOAP-ENV:modeloIDType"/>
+      <xs:element name="modelo" type="SOAP-ENV:modeloType"/>
+      <xs:element name="numeroChasis" type="SOAP-ENV:numeroChasisType"/>
+      <xs:element name="anio" type="SOAP-ENV:anioType"/>
+      <xs:element name="jurisdiccionID" type="SOAP-ENV:jurisdiccionIDType"/>
+      <xs:element name="jurisdiccion" type="SOAP-ENV:jurisdiccionType"/>
+      <xs:element name="mtm" type="SOAP-ENV:mtmType"/>
+      <xs:element name="valTitular" type="SOAP-ENV:valTitularType"/>
+      <xs:element name="valChasis" type="SOAP-ENV:valChasisType"/>
+      <xs:element name="datosValidados" type="SOAP-ENV:datosValidadosType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="dominioType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="marcaIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="marcaType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tipoIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tipoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="modeloIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="modeloType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="numeroChasisType">
+    <xs:sequence>
+      <xs:element name="marca" type="SOAP-ENV:marcaType"/>
+      <xs:element name="numero" type="SOAP-ENV:numeroType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="numeroType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="anioType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="jurisdiccionIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="jurisdiccionType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="mtmType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="valTitularType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="valChasisType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="datosValidadosType">
+    <xs:sequence>
+      <xs:element name="marcaID" type="SOAP-ENV:marcaIDType"/>
+      <xs:element name="marca" type="SOAP-ENV:marcaType"/>
+      <xs:element name="tipoID" type="SOAP-ENV:tipoIDType"/>
+      <xs:element name="tipo" type="SOAP-ENV:tipoType"/>
+      <xs:element name="modeloID" type="SOAP-ENV:modeloIDType"/>
+      <xs:element name="modelo" type="SOAP-ENV:modeloType"/>
+      <xs:element name="numeroChasis" type="SOAP-ENV:numeroChasisType"/>
+      <xs:element name="mtm" type="SOAP-ENV:mtmType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="datosFacturacionType">
+    <xs:sequence>
+      <xs:element name="datosPersonales" type="SOAP-ENV:datosPersonalesType"/>
+      <xs:element name="domicilio" type="SOAP-ENV:domicilioType"/>
+      <xs:element name="condicionIva" type="SOAP-ENV:condicionIvaType"/>
+      <xs:element name="numeroIibb" type="SOAP-ENV:numeroIibbType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="datosPersonalesType">
+    <xs:sequence>
+      <xs:element name="tipoDocumento" type="SOAP-ENV:tipoDocumentoType"/>
+      <xs:element name="numeroDocumento" type="SOAP-ENV:numeroDocumentoType"/>
+      <xs:element name="numeroCuit" type="SOAP-ENV:numeroCuitType"/>
+      <xs:element name="nombre" type="SOAP-ENV:nombreType"/>
+      <xs:element name="apellido" type="SOAP-ENV:apellidoType"/>
+      <xs:element name="razonSocial" type="SOAP-ENV:razonSocialType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="domicilioType">
+    <xs:sequence>
+      <xs:element name="calle" type="SOAP-ENV:calleType"/>
+      <xs:element name="numero" type="SOAP-ENV:numeroType"/>
+      <xs:element name="piso" type="SOAP-ENV:pisoType"/>
+      <xs:element name="departamento" type="SOAP-ENV:departamentoType"/>
+      <xs:element name="localidad" type="SOAP-ENV:localidadType"/>
+      <xs:element name="provinciaID" type="SOAP-ENV:provinciaIDType"/>
+      <xs:element name="provincia" type="SOAP-ENV:provinciaType"/>
+      <xs:element name="codigoPostal" type="SOAP-ENV:codigoPostalType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="calleType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="pisoType">
+    <xs:sequence/>
+    <xs:attribute name="nil" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="departamentoType">
+    <xs:sequence/>
+    <xs:attribute name="nil" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="localidadType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="provinciaIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="provinciaType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="codigoPostalType">
+    <xs:sequence/>
+    <xs:attribute name="nil" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="condicionIvaType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="numeroIibbType">
+    <xs:sequence/>
+    <xs:attribute name="nil" type="xs:string"/>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="datosPagoType">
+    <xs:sequence>
+      <xs:element name="pagoID" type="SOAP-ENV:pagoIDType"/>
+      <xs:element name="gatewayID" type="SOAP-ENV:gatewayIDType"/>
+      <xs:element name="entidadID" type="SOAP-ENV:entidadIDType"/>
+      <xs:element name="entidadNombre" type="SOAP-ENV:entidadNombreType"/>
+      <xs:element name="fechaPago" type="SOAP-ENV:fechaPagoType"/>
+      <xs:element name="importeTotal" type="SOAP-ENV:importeTotalType"/>
+      <xs:element name="detallesPagoVerificacion" type="SOAP-ENV:detallesPagoVerificacionType"/>
+      <xs:element name="detallesPagoOblea" type="SOAP-ENV:detallesPagoObleaType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="pagoIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="gatewayIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="entidadIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="entidadNombreType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="fechaPagoType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="importeTotalType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="detallesPagoVerificacionType">
+    <xs:sequence>
+      <xs:element name="pagoID" type="SOAP-ENV:pagoIDType"/>
+      <xs:element name="importe" type="SOAP-ENV:importeType"/>
+      <xs:element name="estadoAcreditacion" type="SOAP-ENV:estadoAcreditacionType"/>
+      <xs:element name="pagoGatewayID" type="SOAP-ENV:pagoGatewayIDType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="importeType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="estadoAcreditacionType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="pagoGatewayIDType">
+    <xs:simpleContent>
+      <xs:restriction base="xs:string">
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="detallesPagoObleaType">
+    <xs:sequence>
+      <xs:element name="pagoID" type="SOAP-ENV:pagoIDType"/>
+      <xs:element name="importe" type="SOAP-ENV:importeType"/>
+      <xs:element name="estadoAcreditacion" type="SOAP-ENV:estadoAcreditacionType"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>

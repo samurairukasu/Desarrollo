@@ -1,0 +1,6 @@
+CREATE TABLE CISA.TREVESDEL
+(
+  CODINSPE  NUMBER(10),
+  NUMREVIS  NUMBER(4)                           NOT NULL,
+  CADDEFEC  VARCHAR2(9 BYTE)                    NOT NULL
+)

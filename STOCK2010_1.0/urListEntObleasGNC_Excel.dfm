@@ -1,0 +1,270 @@
+object ListaEntradaObleas_Excel: TListaEntradaObleas_Excel
+  Left = 18
+  Top = 22
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsNone
+  Caption = 'ListaEntradaObleas_Excel'
+  ClientHeight = 426
+  ClientWidth = 628
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Planilla: TDBGrid
+    Left = 0
+    Top = 0
+    Width = 625
+    Height = 377
+    DataSource = DataSource1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'FECHA'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PROVEEDOR'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'COMPROBANTE'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'EMPRESA'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CANTIDAD'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ANIO'
+        Title.Alignment = taCenter
+        Title.Caption = 'A'#209'O'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'OBLEAINIC'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'OBLEAFIN'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ZONA'
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Calibri'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end>
+  end
+  object Exportar: TButton
+    Left = 8
+    Top = 384
+    Width = 75
+    Height = 25
+    Caption = 'Exportar'
+    TabOrder = 1
+    OnClick = ExportarClick
+  end
+  object Salir: TButton
+    Left = 88
+    Top = 384
+    Width = 75
+    Height = 25
+    Caption = 'Salir'
+    TabOrder = 2
+    OnClick = SalirClick
+  end
+  object consulta: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspconsulta'
+    Left = 400
+    Top = 384
+  end
+  object dspconsulta: TDataSetProvider
+    DataSet = SQLQuery1
+    Left = 464
+    Top = 384
+  end
+  object sdsconsulta: TSQLDataSet
+    NoMetadata = True
+    GetMetadata = False
+    ParamCheck = False
+    Params = <>
+    Left = 432
+    Top = 384
+  end
+  object ExcelApplication1: TExcelApplication
+    AutoConnect = False
+    ConnectKind = ckRunningOrNew
+    AutoQuit = False
+    Left = 528
+    Top = 384
+  end
+  object ExcelWorkbook1: TExcelWorkbook
+    AutoConnect = False
+    ConnectKind = ckRunningOrNew
+    Left = 560
+    Top = 384
+  end
+  object ExcelWorksheet1: TExcelWorksheet
+    AutoConnect = False
+    ConnectKind = ckRunningOrNew
+    Left = 592
+    Top = 384
+  end
+  object RxMemoryData1: TRxMemoryData
+    FieldDefs = <
+      item
+        Name = 'RxMemoryData1FECHA'
+      end
+      item
+        Name = 'RxMemoryData1PROVEEDOR'
+      end
+      item
+        Name = 'RxMemoryData1COMPROBANTE'
+      end
+      item
+        Name = 'RxMemoryData1EMPRESA'
+      end
+      item
+        Name = 'RxMemoryData1CANTIDAD'
+      end
+      item
+        Name = 'RxMemoryData1ANIO'
+      end
+      item
+        Name = 'RxMemoryData1OBLEAINIC'
+      end
+      item
+        Name = 'RxMemoryData1OBLEAFIN'
+      end
+      item
+        Name = 'RxMemoryData1ZONA'
+      end>
+    Left = 496
+    Top = 384
+    object RxMemoryData1FECHA: TDateTimeField
+      Alignment = taCenter
+      FieldName = 'FECHA'
+    end
+    object RxMemoryData1PROVEEDOR: TStringField
+      Alignment = taCenter
+      FieldName = 'PROVEEDOR'
+    end
+    object RxMemoryData1COMPROBANTE: TIntegerField
+      Alignment = taCenter
+      FieldName = 'COMPROBANTE'
+    end
+    object RxMemoryData1EMPRESA: TStringField
+      Alignment = taCenter
+      FieldName = 'EMPRESA'
+    end
+    object RxMemoryData1CANTIDAD: TIntegerField
+      Alignment = taCenter
+      FieldName = 'CANTIDAD'
+    end
+    object RxMemoryData1ANIO: TIntegerField
+      Alignment = taCenter
+      FieldName = 'ANIO'
+    end
+    object RxMemoryData1OBLEAINIC: TIntegerField
+      Alignment = taCenter
+      FieldName = 'OBLEAINIC'
+    end
+    object RxMemoryData1OBLEAFIN: TIntegerField
+      Alignment = taCenter
+      FieldName = 'OBLEAFIN'
+    end
+    object RxMemoryData1ZONA: TIntegerField
+      Alignment = taCenter
+      FieldName = 'ZONA'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = RxMemoryData1
+    Left = 368
+    Top = 384
+  end
+  object SQLQuery1: TSQLQuery
+    Params = <>
+    Left = 336
+    Top = 384
+  end
+end

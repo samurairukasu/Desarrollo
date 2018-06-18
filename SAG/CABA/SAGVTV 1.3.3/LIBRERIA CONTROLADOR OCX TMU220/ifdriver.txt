@@ -1,0 +1,157 @@
+Buenos Aires, septiembre del 2010
+
+IFDrivers
+
+www: http://www.impresoras-fiscales.com.ar
+email: soporte@impresoras-fiscales.com.ar
+
+
+CONTRATO DE LICENCIA DE USUARIO FINAL DRIVER FISCAL
+
+IFDRIVERS cede al CLIENTE la licencia para utilizar el Software según los siguientes términos y condiciones: 
+ 
+1. DEFINICIONES utilizadas en este Acuerdo: 
+ 
+1.1 "Software" se refiere al(los) archivo(s) de software mencionados anteriormente, que pueden incluir el 
+software del controlador (de ahora en adelante nos referiremos a él como "Controlador"), utilidades, software de 
+demostración, archivos de información para la configuración y documentación. 
+ 
+1.2 "Terminal" se refiere al terminal de aplicación conectado y utilizado de acuerdo con el Hardware en que se 
+instala el Software. 
+ 
+1.3 "Hardware" se refiere al sistema informático o a los dispositivos propiedad de o utilizados por el CLIENTE, que 
+cumplan con los requisitos mencionados anteriormente. 
+ 
+1.4 El Software se considerará "Instalado" al cargarse en la memoria temporal ( RAM) o instalarse en la memoria 
+permanente ( disco duro, CD-ROM u otro dispositivo de almacenamiento) del Hardware. El Software se 
+considerará en "Uso" cuando se ejecute su archivo de programa. 
+ 
+1.5 "Fecha efectiva" se refiere a la fecha en la que el CLIENTE  acepta este Contrato de Licencia de Usuario Final 
+(CLUF) y obtiene el Software. 
+ 
+2. TÉRMINO y FINALIZACIÓN 
+ 
+2.1 Este Acuerdo es válido a partir de la Fecha efectiva. El CLIENTE puede dar por terminado este Acuerdo en 
+cualquier momento destruyendo el Software junto con cualquier copia del mismo. También finalizará 
+automáticamente y sin previo aviso si el CLIENTE no cumple con cualquier término o condición de este Acuerdo. 
+ 
+2.2 En los treinta (30) días siguientes a la finalización, el CLIENTE borrará, y dejará de utilizar, el Software y 
+cualquier copia del mismo residente en el Hardware. 
+ 
+3. CESIÓN DE LICENCIA 
+ 
+3.1 Por la presente, IFDRIVERS cede al CLIENTE, y éste acepta en la Fecha efectiva, una licencia no exclusiva e 
+intransferible para Instalar y Utilizar el Software en una sola unidad de Hardware. El Cliente tiene licencia para 
+realizar una (1) copia del Software con finalidades de archivo. El CLIENTE no tiene licencia para copiar y utilizar 
+más de una (1) copia del Software por Terminal. El CLIENTE no tiene derecho a copiar o reproducir ninguna 
+documentación incluida en el Software. IFDRIVERS se reserva todos los derechos no cedidos de manera expresa 
+al CLIENTE en esta Sección 3. 
+ 
+3.2 El CLIENTE no realizará las siguientes operaciones ni autorizará a ningún tercero a realizarlas: (1) ingeniería 
+inversa, desensamblado, crear trabajos derivados y/o modificar el Software; (2) alquilar, arrendar, vender, 
+transferir o re-licenciar el Software, (3) transferir electrónicamente el Software; (4) traducir el Software a otro 
+lenguaje informático; o (5) reproducir o distribuir el Software de forma distinta a las autorizadas de forma 
+específica en esta Sección. 
+ 
+4. PROPIEDAD 
+ 
+4.1 El Software, y toda la propiedad intelectual aquí contenida, es y seguirá siendo propiedad única y exclusiva de 
+IFDRIVERS y sus proveedores, y está protegida por las leyes de derechos de autor y por las provisiones de los 
+tratados internacionales de derechos de autor. 
+ 
+4.2 El CLIENTE no podrá eliminar ni alterar ningún copyright u otros avisos de propiedad incluidos en el Software  
+ 
+5. MANTENIMIENTO Y SOPORTE 
+ 
+5.1 IFDRIVERS empleará los esfuerzos razonables para ofrecer soporte técnico gratuito al CLIENTE. 
+ 
+5.2 IFDRIVERS no estará obligado a ofrecer soporte técnico por reclamaciones basadas en (1) la utilización del 
+Software junto o en combinación con hardware, software o datos no pensados para utilizarse con el Software; (2) 
+una utilización del Software distinta a la permitida por este Acuerdo, o de una forma para la que no fue diseñado; 
+(3) cualquier modificación realizada en el Software por parte del CLIENTE o de un tercero; o (4) si IFDRIVERS ha 
+notificado al CLIENTE que deje de utilizar el Software. 
+ 
+6. OBLIGACIONES DE CONFIDENCIALIDAD 
+ 
+6.1 Por la presente, el CLIENTE acepta que mantendrá la confidencialidad de la información o de los datos 
+("Información confidencial") obtenidos de IFDRIVERS en relación con este Acuerdo, y que no los revelará a 
+terceros, exceptuando: (1) La información que, en el momento de su revelación, ya hubiera sido hecha pública 
+con anterioridad; (2) La información hecha pública después de revelarla al CLIENTE, a menos que dicha 
+revelación suponga un incumplimiento de éste o de cualquier otro acuerdo; (3) La información que, antes de su 
+revelación al CLIENTE, ya estuviera en posesión de éste; o (4) La información que, posterior a su revelación, 
+obtuvo el CLIENTE de un tercero que la poseía de manera legal, sin violación de ninguna obligación contractual, 
+legal o fiduciaria con respecto a IFDRIVERS o a cualquiera de sus proveedores 
+ 
+6.2 Toda la Información confidencial seguirá siendo propiedad exclusiva de IFDRIVERS. El CLIENTE no dispondrá 
+de ninguna otra licencia implícita ni de ningún derecho sobre la Información confidencial que no sean los cedidos 
+de forma específica por el presente Acuerdo. El CLIENTE no revelará la Información confidencial a nadie que no 
+sean sus empleados y contratistas que deban conocerla obligatoriamente, y que tengan una obligación de 
+confidencialidad vinculante y por escrito con el CLIENTE que proteja dicha Información confidencial contra una 
+revelación o un uso no autorizados. El CLIENTE tomará todas las precauciones razonables para evitar el uso no 
+autorizado o la revelación de la Información confidencial. 
+ 
+6.3 El CLIENTE reconoce que el uso no autorizado o la revelación de la Información confidencial causaría daños 
+irreparables a IFDRIVERS. 
+ 
+6.4 A la terminación de este Acuerdo, el CLIENTE destruirá inmediatamente toda la Información confidencial. 
+ 
+6.5 El pacto u obligación de confidencialidad contenido en esta cláusula seguirá en vigor durante un período de 
+cinco (5) años a partir de la fecha de finalización. 
+ 
+7. GARANTÍAS LIMITADAS 
+ 
+7.1 IFDRIVERS garantiza al CLIENTE que el Software tiene la funcionalidad descrita en la documentación. Esta 
+garantía tendrá una duración limitada de 6 meses a partir de la Fecha efectiva. El recurso del CLIENTE frente a 
+esta provisión se establece en la anterior Sección 5. 
+ 
+8. EXENCIÓN DE GARANTÍA; LIMITACIONES DE RESPONSABILIDAD 
+ 
+8.1 EXCEPTO EN LOS PUNTOS ESTABLECIDOS DE FORMA ESPECÍFICA EN EL ANTERIOR ARTÍCULO 8, 
+IFDRIVERS NO GARANTIZA NI REPRESENTA EL SOFTWARE, QUE SE LICENCIA "TAL CUAL." LA GARANTÍA Y 
+RECURSO MENCIONADOS CON ANTERIORIDAD SON EXCLUSIVOS Y SUSTITUYEN AL RESTO DE LAS 
+GARANTÍAS, EXPRESAS O IMPLÍCITAS, INCLUYENDO, PERO SIN LIMITARSE A, LAS GARANTÍAS IMPLÍCITAS DE 
+COMERCIABILIDAD Y ADECUACIÓN A UNA FINALIDAD CONCRETA, TÍTULO, NO-INFRACCIÓN, Y CUALQUIER 
+DECLARACIÓN O REPRESENTACIÓN REALIZADA POR CUALQUIER OTRA PERSONA O EMPRESA SON NULAS. 
+ 
+8.2 EL CLIENTE ASUME TODOS LOS RIESGOS DERIVADOS DE LA SELECCIÓN, UTILIZACIÓN, PRESTACIONES Y 
+CALIDAD DEL SOFTWARE. EN NINGÚN CASO IFDRIVERS O CUALQUIER PARTE INVOLUCRADA EN LA CREACIÓN, 
+PRODUCCIÓN O ENTREGA DEL SOFTWARE SERÁN RESPONSABLES POR DAÑOS ESPECIALES, DIRECTOS, 
+INDIRECTOS O IMPREVISTOS, INCLUYENDO LA pérdida DE BENEFICIOS O LA IMPOSIBILIDAD DE UTILIZAR EL 
+SOFTWARE, AUNQUE SE HAYA NOTIFICADO A IFDRIVERS O A DICHA PARTE LA POSIBILIDAD DE DICHOS 
+DAÑOS. EN NINGÚN CASO LA RESPONSABILIDAD DE IFDRIVERS ANTE EL CLIENTE O CUALQUIER TERCERO 
+POR DAÑOS O PÉRDIDAS SERÁ SUPERIOR AL IMPORTE SATISFECHO POR EL CLIENTE POR LA LICENCIA 
+OBJETO DE ESTE CONTRATO. 
+ 
+8.3 Algunos estados y/o países no permiten las limitaciones de duración de una garantía implícita, mientras que 
+otros no permiten la exclusión o limitación de daños imprevistos o indirectos, por lo que las anteriores limitaciones 
+y exclusiones pueden no ser aplicables al CLIENTE. Esta garantía da al CLIENTE derechos legales específicos, y el 
+CLIENTE puede también tener otros derechos que pueden variar según el estado y/o el país. 
+ 
+9. GENERAL 
+ 
+9.1 Si cualquier provisión (o parte de ella) de este Acuerdo se considera no válida o sin fuerza legal, se 
+considerará omitida y las provisiones restantes de este Acuerdo seguirán teniendo plena fuerza y efecto. 
+ 
+9.2 Este Acuerdo se rige y elabora de acuerdo con las leyes de la República Argentina. 
+ 
+9.3 Este Acuerdo representa la voluntad completa de las partes con respecto al objeto del mismo, y todos los 
+anteriores acuerdos, representaciones, declaraciones y compromisos quedan cancelados de forma expresa por el 
+presente Acuerdo. 
+ 
+9.4 Ninguna de las partes contratantes será responsable en forma alguna por el incumplimiento o el retardo en el 
+cumplimiento de todo o parte de este Acuerdo, directa o indirectamente debido a cualquier causa o circunstancia 
+más allá de su control razonable, incluyendo, pero sin limitarse a, los supuestos de fuerza mayor y aquellos 
+sucesos imprevisibles, o que, pudiendo preverse, fueran inevitables. 
+ 
+9.5 El CLIENTE no puede asignar ni transferir este Acuerdo ni parte de él a ningún tercero sin el consentimiento 
+expreso por escrito de IFDRIVERS.  
+ 
+9.6 Si alguna de las disposiciones de este Acuerdo entrase en contradicción con las condiciones descritas en el 
+Software, prevalecerán las descritas en el presente. Las condiciones y términos descritas en el Software que no 
+sean acordes con las cláusulas de este Acuerdo deben ser omitidas o inaplicables.
+
+IFDrivers
+
+www: http://www.impresoras-fiscales.com.ar
+email: soporte@impresoras-fiscales.com.ar
+

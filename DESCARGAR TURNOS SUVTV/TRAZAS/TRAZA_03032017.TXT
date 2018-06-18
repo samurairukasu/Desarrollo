@@ -1,0 +1,6 @@
+03/03/2017|14:19:37:ERROR REALIZAR INSERT EDatabaseError error : IDPAGO: 336445 ORA-00001: unique constraint (CABA.TDETALLESPAGO_PK2) violated
+. archivo: 
+03/03/2017|14:19:45:ERROR GENERAL EN FUNCION GUARDAR PAGOS. EAccessViolation error : IDPAGO: 336445 Access violation at address 0052660E in module 'Project1.exe'. Read of address 00000000. archivo: 
+03/03/2017|14:29:33:ERROR REALIZAR INSERT EDatabaseError error : IDPAGO: 336445 ORA-00001: unique constraint (CABA.TDETALLESPAGO_PK2) violated
+. archivo: 
+03/03/2017|14:29:43:ERROR GENERAL EN FUNCION GUARDAR PAGOS. EAccessViolation error : IDPAGO: 336445 Access violation at address 0052660E in module 'Project1.exe'. Read of address 00000000. archivo: 

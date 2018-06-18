@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loginTicketRequest version="1.0"><header><uniqueId>1497556019</uniqueId><generationTime>2017-06-15T16:06:59</generationTime><expirationTime>2017-06-15T17:26:59</expirationTime></header><service>wsfe</service></loginTicketRequest>

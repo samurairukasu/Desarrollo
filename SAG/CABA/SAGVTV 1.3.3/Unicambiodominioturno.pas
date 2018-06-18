@@ -1,0 +1,157 @@
+unit Unicambiodominioturno;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons,SQLExpr,globals;
+
+type
+  Tcambiodominioturno = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  cambiodominioturno: Tcambiodominioturno;
+
+implementation
+
+uses Ufrmturnos;
+
+{$R *.dfm}
+
+procedure Tcambiodominioturno.BitBtn1Click(Sender: TObject);
+begin
+CLOSE;
+end;
+
+procedure Tcambiodominioturno.BitBtn2Click(Sender: TObject);
+VAR DIR,PATH_XML,FECHADIR:STRING;
+updatesql2:TSQLQuery;
+en_linea,VIGENTE:boolean;
+begin
+PATH_XML:='C:\Argentin\XMLCABA';
+IF TRIM(EDIT1.Text)='' THEN
+BEGIN
+Application.MessageBox( 'ERROR CON EL TURNOID',
+  'Acceso denegado', MB_ICONSTOP );
+  EXIT;
+END;
+
+
+IF TRIM(EDIT3.Text)='' THEN
+BEGIN
+Application.MessageBox( 'DEBE INGRESAR LA PATENTE NUEVA',
+  'Acceso denegado', MB_ICONSTOP );
+  EXIT;
+END;
+
+
+en_linea:=falsE;
+
+            updatesql2:=TSQLQuery.Create(Self);
+            updatesql2.SQLConnection:=mybd;
+            updatesql2.Close;
+            updatesql2.SQL.Clear;
+            updatesql2.SQL.Add(' SELECT * FROM testadoinsp where matricul='+#39+trim(edit2.text)+#39);
+            updatesql2.ExecSQL ;
+            updatesql2.OPEN ;
+            while not updatesql2.Eof do
+            begin
+                en_linea:=true ;
+                updatesql2.Next;
+            end;
+if en_linea=true then
+begin
+Application.MessageBox( 'NO SE PUEDE CAMBIAR LA PATENTE PORQUE EL VEHICULO SE ENCUENTRA EN LA LINEA DE INSPECCION.',
+  'Acceso denegado', MB_ICONSTOP );
+  EXIT;
+end;
+
+
+     VIGENTE:=false ;
+            updatesql2:=TSQLQuery.Create(Self);
+            updatesql2.SQLConnection:=mybd;
+            updatesql2.Close;
+            updatesql2.SQL.Clear;
+            updatesql2.SQL.Add(' SELECT * FROM TDATOSTURNO where TURNOID='+INTTOSTR(STRTOINT(EDIT1.TEXT))+' AND ESTADOID in(1,7)' );
+            updatesql2.ExecSQL ;
+            updatesql2.OPEN ;
+            while not updatesql2.Eof do
+            begin
+              VIGENTE:=true ;
+                updatesql2.Next;
+            end;
+
+  if VIGENTE=false then
+begin
+Application.MessageBox( 'NO SE PUEDE CAMBIAR LA PATENTE PORQUE EL VEHICULO NO CUMPLE CON LAS CONDICIONES DE TURNO VIGENTE. POSIBLEMENTE EL TURNO YA FUE INFORMADO DE MODO AUSENTE O FINALIZADO.',
+  'Acceso denegado', MB_ICONSTOP );
+  EXIT;
+end;
+
+
+self.BitBtn1.Enabled:=falsE;
+frmturnos.Inicializa;
+frmturnos.ControlServidor;
+if (frmturnos.disponibilidad_servidor='true') AND (frmturnos.respuestaidservidor=1) THEN
+begin
+
+  //ver_respuestamensajeservidor);
+  APPLICATION.ProcessMessages;
+  frmturnos.Abrir_Seccion;
+    if frmturnos.respuestaid_Abrir=1 then
+     begin
+       //self.respuestamensaje_Abrir;
+
+          if frmturnos.cambiar_dominio_en_turno(strtoint(edit1.text),trim(edit2.text),trim(edit3.text))=true then
+                begin
+                 if fileexists(ExtractFilePath(Application.ExeName)+'cambiopatente'+trim(edit1.text)+'.xml') then
+                      begin
+                       if frmturnos.generar_archivo_CAMBIO_PATENTE('cambiopatente'+trim(edit1.text))=true then
+                         begin
+                             frmturnos.leer_respuesta_CAMBIOPATENTE(ExtractFilePath(Application.ExeName)+'cambiopatente'+trim(edit1.text)+'.txt',strtoint(edit1.text),trim(edit3.text));
+                         end;
+
+                     end;
+
+
+
+        frmturnos.Cerrar_seccion;
+         
+        self.BitBtn1.Enabled:=true;
+        end else
+         begin
+          //error al abrir
+         end;
+
+end
+else
+begin
+//error de servidor
+//ver_respuestamensajeservidor);
+end;
+
+
+
+end;
+
+ self.BitBtn1.Enabled:=true;
+ 
+end;
+
+end.

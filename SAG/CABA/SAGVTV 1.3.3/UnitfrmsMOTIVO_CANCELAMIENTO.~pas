@@ -1,0 +1,25 @@
+unit UnitfrmsMOTIVO_CANCELAMIENTO;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TfrmsMOTIVO_CANCELAMIENTO = class(TForm)
+    ComboBox1: TComboBox;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmsMOTIVO_CANCELAMIENTO: TfrmsMOTIVO_CANCELAMIENTO;
+
+implementation
+
+{$R *.dfm}
+
+end.

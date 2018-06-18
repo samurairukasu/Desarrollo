@@ -1,0 +1,336 @@
+unit uHistorial;
+
+interface
+
+uses
+  Windows,
+  Messages,
+  SysUtils,
+  Classes,
+  Graphics,
+  Controls,
+  Forms,
+  ExtCtrls,
+  StdCtrls,
+  Qrctrls,
+  quickrpt,
+  USAGVARIOS,
+  USAGCLASSES,
+  Db,
+  USAGPRINTERS,
+  sqlExpr, FMTBcd,
+  UCtHistorialVehiculo;
+
+
+type
+  TFrmHistorial = class(TForm)
+    BandFichaInspeccion: TQRBand;
+    QRInformeInspeccion: TQuickRep;
+    CabeceraPagina: TQRBand;
+    LblXEstacion: TQRLabel;
+    LblXNumero: TQRLabel;
+    LblXMarca: TQRLabel;
+    LblXTipo: TQRLabel;
+    LblXModelo: TQRLabel;
+    LblXGNC: TQRLabel;
+    LblXAnio: TQRLabel;
+    LblXTitular: TQRLabel;
+    LblXDominio: TQRLabel;
+    LblXMotor: TQRLabel;
+    LblXChasis: TQRLabel;
+    LblXVencimiento: TQRLabel;
+    LblXApto: TQRLabel;
+    LblLeves: TQRLabel;
+    LblDescripcion: TQRLabel;
+    QryDEFECTOSINSPECCION: TSQLQuery;
+    QRLabel1: TQRLabel;
+    LblXFecMatri: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    LblXDomicilio: TQRLabel;
+    QRLabel5: TQRLabel;
+    LblXTelefono: TQRLabel;
+    QRLabel6: TQRLabel;
+    LblXFechaInspe: TQRLabel;
+    QRLabel7: TQRLabel;
+    LblXFactura: TQRLabel;
+    LblXOblea: TQRLabel;
+    QRLabel9: TQRLabel;
+    QRLabel8: TQRLabel;
+    QRLabel11: TQRLabel;
+    QRLabel12: TQRLabel;
+    QRLabel13: TQRLabel;
+    QRShape1: TQRShape;
+    QRShape2: TQRShape;
+    QRShape3: TQRShape;
+    QRBand1: TQRBand;
+    QRLabel60: TQRLabel;
+    QRLabel61: TQRLabel;
+    QRLabel10: TQRLabel;
+    LblInspector: TQRLabel;
+    repAnterior: TQuickRep;
+    QRBand3: TQRBand;
+    QRExpr1: TQRExpr;
+    comp: TQRCompositeReport;
+    QRDBText1: TQRDBText;
+    QRExpr2: TQRExpr;
+    QRDBText2: TQRDBText;
+    QryAnteriores: TSQLQuery;
+    QRExpr3: TQRExpr;
+    QRDBText3: TQRDBText;
+    QRBand2: TQRBand;
+    QRLabel14: TQRLabel;
+    QRLabel15: TQRLabel;
+    QRLabel16: TQRLabel;
+    QRLabel17: TQRLabel;
+    QRLabel18: TQRLabel;
+    QRLabel20: TQRLabel;
+    QRDBText4: TQRDBText;
+    QRLabel21: TQRLabel;
+    QRBand4: TQRBand;
+    QRShape4: TQRShape;
+    QRLabel22: TQRLabel;
+    QRLabel25: TQRLabel;
+    QRDBText5: TQRDBText;
+    QRLabel28: TQRLabel;
+    tipocliente: TQRLabel;
+    querytipoc: TSQLQuery;
+    procedure CabeceraPaginaBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure BandFichaInspeccionBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+    procedure compAddReports(Sender: TObject);
+  private
+    { Private declarations }
+    fInspeccion: TInspeccion;
+    fEjercicio : integer;
+    fCodigo: integer;
+  public
+    { Public declarations }
+    procedure ResultadoInspeccion (bEsOriginal: boolean);
+    constructor CreateFromInspeccion (const aInspec: TInspeccion; const bEsOrig, bPresPreliminar: boolean);
+  end;
+
+var
+  FrmHistorial: TFrmHistorial;
+
+
+implementation
+
+uses
+  ULOGS,
+  USAGESTACION,
+  UCTINSPECTORES,
+  UCTEVERIFICACIONES,
+  GLOBALS;
+
+
+{$R *.DFM}
+
+const
+    COLOR_GRIS_CLARO = $00DFDFDF;
+    MAX_LONG_NUMINSPECCION_VER = 20;
+    MAX_LONG_RESULTADOINSP = 13;
+    MAX_LONG_NUMCERTIFICADO_INSPANT = 13;
+    MAX_LONG_NUMOBLEA = 4;
+    MAX_LONG_NUMFACTURA = 16;
+
+
+resourcestring
+     FICHERO_ACTUAL = 'UHistorial.Pas';
+
+
+procedure TFrmHistorial.ResultadoInspeccion (bEsOriginal: boolean);
+begin
+    try
+       with qryDefectosInspeccion do
+       begin
+           Close;
+           sqlconnection := MyBD;
+           if Assigned(fInspeccion)
+           then begin
+               ParamByName('UnCodigo').AsString := fInspeccion.ValueByName[FIELD_CODINSPE];
+               ParamByName('UnEjercicio').AsString := fInspeccion.ValueByName[FIELD_EJERCICI];
+           end;
+           Open;
+        end;
+
+        with QryAnteriores do
+        begin
+           Close;
+           sqlconnection := MyBD;
+           if Assigned(fInspeccion)
+           then begin
+               ParamByName('iUnCodigo').AsString := fInspeccion.ValueByName[FIELD_CODINSPE];
+               ParamByName('iUnCodvehic').AsString := fInspeccion.ValueByName[FIELD_CODVEHIC];
+           end;
+           Open;
+        end;
+
+    except
+        on E:Exception do
+           raise Exception.Create ('Error rellenando el Historial por: ' + E.Message);
+    end;
+end;
+
+procedure TFrmHistorial.CabeceraPaginaBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+var
+    aCodigoVehiculo,
+    aCodigoPropietario ,oble1,oble2: string;
+    posi:longint;
+  function sResult: string;
+  begin
+    if fInspeccion.ValueByName[FIELD_RESULTAD] = 'A'
+      then result := 'Apto'
+    else if fInspeccion.ValueByName[FIELD_RESULTAD] = 'R'
+      then result := 'Rechazado'
+    else if fInspeccion.ValueByName[FIELD_RESULTAD] = 'C'
+      then result := 'Condicional'
+    else result := 'Desconocido';
+  end;
+begin
+
+
+          //INSPECCION
+          LblXNumero.Caption := fInspeccion.Informe;
+          LblXVencimiento.Caption := fInspeccion.ValueByName[FIELD_FECVENCI];
+          LblXFechaInspe.Caption := copy(fInspeccion.ValueByName[FIELD_FECHALTA],1,10);
+          LblXApto.Caption := sResult;
+          aCodigoVehiculo := fInspeccion.ValueByName[FIELD_CODVEHIC];
+          aCodigoPropietario := fInspeccion.ValueByName[FIELD_CODCLPRO];
+          LblXOblea.Caption := fInspeccion.GetNumOblea;
+          posi:=pos('-',trim(LblXOblea.Caption));
+          if posi <> 0 then
+          begin
+           oble1:=trim(copy(trim(LblXOblea.Caption),0,posi-1));
+           oble2:=trim(copy(trim(LblXOblea.Caption),posi+1,length(LblXOblea.Caption)));
+           oble1:=oble1+oble2;
+          end;
+
+          if not (querytipoc.Active) then
+              querytipoc.SQLConnection:= MyBD;
+
+            querytipoc.Close;
+            querytipoc.SQL.Clear;
+            querytipoc.SQL.Add('select tc.descripcion from  tfacturas tf, ttiposcliente tc '+
+                               '  where    tf.tipocliente_id = tc.tipocliente_id '+
+                               '  and  tf.codfactu  =' +fInspeccion.ValueByName[FIELD_CODFACTU]);
+            querytipoc.ExecSQL();
+            querytipoc.Open;
+            tipocliente.Caption:=querytipoc.Fields[0].AsString;
+         
+          with tfacturacion.CreateFromDataBase(mybd,DATOS_FACTURAS,format('WHERE CODFACTU = %S',[fInspeccion.ValueByName[FIELD_CODFACTU]])) do
+          begin
+            open;
+            LblXFactura.Caption := valuebyname[FIELD_TIPFACTU]+' '+DevolverNumeroFactura(TIPO_FACTURA);
+            close;
+            free;
+          end;
+
+      //PLANTA
+      LblXEstacion.Caption := fVarios.NombreEstacion;
+
+      with TsqlQuery.Create(self) do
+      try
+          SQLConnection := MyBD;
+
+          SQL.Add(Format
+          (
+           'SELECT NOMMARCA, NOMMODEL, NUMMOTOR, NUMBASTI, NOMTIPVE, NCERTGNC, NVL(PATENTEN, PATENTEA) PATENTE, FECMATRI, ANIOFABR, (NOMBRE || '' '' || APELLID1 || '' '' || APELLID2) NOMBREC ,' +
+           'DIRECCIO||'' ''||NROCALLE||'' ''||PISO||'' ''||DEPTO||'', ''||LOCALIDA DOMICILIO, TELEFONO '+
+           '   FROM TVEHICULOS TV,                                                                                                                                                              ' +
+           '        TMARCAS TM,                                                                                                                                                                 ' +
+           '        TMODELOS TML,                                                                                                                                                               ' +
+           '        TTIPOESPVEH TTE,                                                                                                                                                            ' +
+           '        TTIPOVEHICU TTV,                                                                                                                                                            ' +
+           '        TCLIENTES TC                                                                                                                                                                ' +
+           '   WHERE                                                                                                                                                                            ' +
+           '        TC.CODCLIEN = %S AND TV.CODVEHIC = %S AND                                                                                                  ' +
+           '        TV.TIPOESPE = TTE.TIPOESPE AND                                                                                                                                              ' +
+           '        TTE.TIPOVEHI = TTV.TIPOVEHI AND                                                                                                                                             ' +
+           '        TV.CODMARCA = TML.CODMARCA AND                                                                                                                                              ' +
+           '        TV.CODMODEL = TML.CODMODEL AND                                                                                                                                              ' +
+           '        TV.CODMARCA = TM.CODMARCA',[aCodigoPropietario, aCodigoVehiculo]));
+           Open;
+
+           //VEHICULO
+           LblXAnio.Caption := FieldByName(FIELD_ANIOFABR).AsString;
+           LblXFecMatri.Caption := FieldByName(FIELD_FECMATRI).AsString;
+           LblXGnc.Caption := FieldByName(FIELD_NCERTGNC).AsString;
+           LblXDominio.Caption := FieldByName('PATENTE').AsString;
+           LblXMotor.Caption := FieldByName(FIELD_NUMMOTOR).AsString;
+           LblXChasis.Caption := FieldByName(FIELD_NUMBASTI).AsString;
+           LblXTipo.Caption := FieldByName(FIELD_NOMTIPVE).AsString;
+           LblXMarca.Caption := FieldByName(FIELD_NOMMARCA).AsString;
+           LblXModelo.Caption := FieldByName(FIELD_NOMMODEL).AsString;
+
+           //PROPIETARIO
+           LblXTitular.Caption := FieldByName('NOMBREC').AsString;
+           LblXDomicilio.caption := FieldByName(FIELD_DOMICILIO).AsString;
+           LblXTelefono.caption := FieldByName(FIELD_TELEFONO).AsString;
+           
+      finally
+        Close;
+        Free;
+      end;
+//      Rellenar_MemoInspeccionesAnteriores;
+
+end;
+
+procedure TFrmHistorial.BandFichaInspeccionBeforePrint(Sender: TQRCustomBand; var PrintBand: Boolean);
+var
+  sCodigo_Auxi, sDescripcion_Auxi, sOk_Auxi, sLeve_Auxi, sGrave_Auxi: string;
+begin
+    with qryDefectosInspeccion do
+    begin
+      //if recordcount > 0 then
+      //begin
+        ObtenerLiteralCalificativo (fVarios.Database, fEjercicio, fCodigo,
+                                    qryDefectosInspeccion.FieldByName(FIELD_CADDEFEC).AsString,
+                                    qryDefectosInspeccion.FieldByName(FIELD_CALIFDEF).AsString,
+                                    qryDefectosInspeccion.FieldByName(FIELD_LITDEFEC).AsString,
+                                    qryDefectosInspeccion.FieldByName(FIELD_LOCALIZA).AsString,
+                                    sCodigo_Auxi, sDescripcion_Auxi, sOk_Auxi, sLeve_Auxi,
+                                    sGrave_Auxi);
+        LblDescripcion.Caption := sDescripcion_Auxi;
+        if sLeve_Auxi <> '' then
+          LblLeves.Caption := 'LEVE'
+        else if sGrave_Auxi <> '' then
+          LblLeves.Caption := 'GRAVE'
+        else
+          LblLeves.Caption := 'OBSERVACION';
+        if qryDefectosInspeccion.FieldByName(FIELD_NUMREVIS).asstring <> '' then
+          LblInspector.Caption := Devolver_NombreInspector (qryDefectosInspeccion.FieldByName(FIELD_NUMREVIS).value)
+        else
+        begin
+          LblLeves.enabled := false;
+          LblInspector.enabled := false;
+        end;
+
+    end;
+end;
+
+constructor TFrmHistorial.CreateFromInspeccion (const aInspec: TInspeccion; const bEsOrig, bPresPreliminar: boolean);
+begin
+    inherited Create (Application);
+    fInspeccion := aInspec;
+    fInspeccion.Open;
+    fEjercicio := StrToInt(fInspeccion.ValueByName[FIELD_EJERCICI]);
+    fCodigo := StrToInt(FInspeccion.ValueByName[FIELD_CODINSPE]);
+
+    ResultadoInspeccion (bEsOrig);
+    comp.Preview;
+end;
+
+procedure TFrmHistorial.compAddReports(Sender: TObject);
+begin
+  with comp do
+  begin
+    Reports.Add(QRInformeInspeccion);
+    Reports.Add(repAnterior);
+  end;
+end;
+
+end.
+
+
+

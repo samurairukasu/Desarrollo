@@ -1,0 +1,31 @@
+*************************************************************
+			Version 4.04.30
+*************************************************************
+Unidades que se modifican:
+	UFDominios
+	USagClasses
+	uSagEstacion
+	ufRecepcion
+	uDateVen
+
+
+*************************************************************
+			Version 4.04.21
+*************************************************************
+	
+	Nuevo Campo Celular				ok
+	Alert en vez de timer?	<-Ver como quedo	?
+	Facturacion x Tarjeta?	<-Ver como quedo	?
+	Habilita el Desbloquear Oblea (all)		ok
+	Mensajes de Eliminar Obleas			ok
+	Muestra la Cantidad de Obleas			ok
+
+
+/////////////////////////////////////////////////////////////////////////////
+Script - Nuevos campos.
+
+ALTER TABLE TCLIENTES ADD COD_AREA VARCHAR2(4) ADD CELULAR VARCHAR2(10);
+
+/////////////////////////////////////////////////////////////////////////////
+
+

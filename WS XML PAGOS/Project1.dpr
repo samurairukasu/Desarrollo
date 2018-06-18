@@ -1,0 +1,33 @@
+program Project1;
+
+uses
+  Forms,
+  Unit1 in 'Unit1.pas' {Form1},
+  xml_caba in 'xml_caba.pas',
+  USuperRegistry in 'USuperRegistry.pas',
+  UVERSION in '..\VTVSAG CF VERSION 1.02\UVERSION.pas',
+  WSFEV1 in '..\FAE\WSFEV1.pas',
+  Unitfrmdiseniofactelectronica in '..\VTVSAG CF VERSION 1.02\Unitfrmdiseniofactelectronica.pas' {frmdiseniofactelectronica},
+  Exportar2PDF in 'SynPDF\Exportar2PDF.pas',
+  mORMotReport in 'SynPDF\mORMotReport.pas',
+  SynCommons in 'SynPDF\SynCommons.pas',
+  SynCrypto in 'SynPDF\SynCrypto.pas',
+  SynGdiPlus in 'SynPDF\SynGdiPlus.pas',
+  SynLZ in 'SynPDF\SynLZ.pas',
+  SynPdf in 'SynPDF\SynPdf.pas',
+  SynZip in 'SynPDF\SynZip.pas',
+  UdiseniofacturaBelectronica in '..\VTVSAG CF VERSION 1.02\UdiseniofacturaBelectronica.pas' {facturabelectronica},
+  base64pdf in 'base64pdf.pas',
+  wcrypt2 in 'wcrypt2.pas',
+  base64_new in 'base64_new.pas',
+  Hashes in 'Hashes.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  application.Name:='WS';
+  application.Title:='WebServices';
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

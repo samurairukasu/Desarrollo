@@ -1,0 +1,25 @@
+unit Umodulo;
+
+interface
+
+uses
+  SysUtils, Classes, DBXpress, FMTBcd, DB, SqlExpr,globals, ADODB;
+
+type
+  Tmodulo = class(TDataModule)
+    sql_global: TSQLQuery;
+    sql_global1: TADOQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  modulo: Tmodulo;
+
+implementation
+
+{$R *.dfm}
+
+end.

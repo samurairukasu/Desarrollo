@@ -1,0 +1,504 @@
+[Closed Files]
+File_0=SourceModule,'C:\desarrolloStarteam\Serv-lectura 2.6.7\UMODDAT.pas',0,1,16,15,124,0,0
+File_1=SourceModule,'C:\desarrolloStarteam\Serv-lectura 2.6.7\Prenout.dpr',0,1,1,1,1,0,0
+File_2=SourceModule,'C:\desarrolloStarteam\Serv-lectura 2.6.7\UConfgOT.pas',0,1,1,24,29,0,0
+File_3=SourceModule,'C:\desarrolloStarteam\Serv-lectura 2.6.7\UMain_OT.pas',0,1,149,1,169,0,0
+File_4=SourceModule,'C:\desarrolloStarteam\VTVSAG 3.841\UVERSION.pas',0,1,85,44,98,0,0
+File_5=SourceModule,'C:\desarrolloStarteam\VTVSAG 3.83\Globals.pas',0,1,271,5,98,0,0
+File_6=SourceModule,'C:\desarrolloStarteam\Serv-lectura 2.67\UMODDAT.pas',0,1,103,1,118,1,0
+File_7=SourceModule,'C:\desarrolloStarteam\VTVSAG 3.83\uutils.pas',0,1,128,1,122,0,0
+File_8=SourceModule,'C:\desarrolloStarteam\Serv-lectura 2.67\UVerifOT.pas',0,1,1,1,1,0,0
+File_9=SourceModule,'C:\desarrolloStarteam\VTVSAG 3.83\UVERSION.pas',0,1,82,35,99,0,0
+
+[Modules]
+Module0=C:\desarrolloStarteam\Serv-lectura 2.6.8\UConfgOT.pas
+Module1=C:\desarrolloStarteam\Serv-lectura 2.6.8\UMain_OT.pas
+Module2=C:\desarrolloStarteam\Serv-lectura 2.6.8\UMODDAT.pas
+Module3=C:\desarrolloStarteam\Serv-lectura 2.6.8\URES_OUT.pas
+Count=4
+EditWindowCount=1
+
+[C:\desarrolloStarteam\Serv-lectura 2.6.8\UConfgOT.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\Serv-lectura 2.6.8\UMain_OT.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\Serv-lectura 2.6.8\UMODDAT.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\Serv-lectura 2.6.8\URES_OUT.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Archivos de programa\Borland\Delphi7\Projects\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\desarrolloStarteam\Serv-lectura 2.6.8\Prenout.dpr]
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+ViewCount=4
+CurrentView=2
+View0=0
+View1=1
+View2=2
+View3=3
+CodeExplorer=CodeExplorer@EditWindow0
+MessageView=MessageView@EditWindow0
+Create=1
+Visible=1
+State=2
+Left=245
+Top=125
+Width=1035
+Height=545
+MaxLeft=-4
+MaxTop=97
+MaxWidth=1288
+MaxHeight=878
+ClientWidth=1280
+ClientHeight=851
+LeftPanelSize=140
+LeftPanelClients=CodeExplorer@EditWindow0
+LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
+RightPanelSize=0
+BottomPanelSize=85
+BottomPanelClients=MessageView@EditWindow0
+BottomPanelData=000004000000000000000000000000000000000000000000000100000000000000000B0000004D65737361676556696577FFFFFFFF
+
+[View0]
+Module=C:\desarrolloStarteam\Serv-lectura 2.6.8\URES_OUT.pas
+CursorX=90
+CursorY=1189
+TopLine=1239
+LeftCol=1
+
+[View1]
+Module=C:\desarrolloStarteam\Serv-lectura 2.6.8\UMODDAT.pas
+CursorX=1
+CursorY=141
+TopLine=121
+LeftCol=1
+
+[View2]
+Module=C:\desarrolloStarteam\Serv-lectura 2.6.8\UConfgOT.pas
+CursorX=14
+CursorY=18
+TopLine=1
+LeftCol=1
+
+[View3]
+Module=C:\desarrolloStarteam\Serv-lectura 2.6.8\UMain_OT.pas
+CursorX=29
+CursorY=249
+TopLine=209
+LeftCol=1
+
+[Watches]
+Count=9
+Watch0='iCodInspe',256,0,18,1,0,'Watches'
+Watch1='iNumLinea',256,0,18,1,0,'Watches'
+Watch2='iNumZona',256,0,18,1,0,'Watches'
+Watch3='sAuxiliar',256,0,18,1,0,'Watches'
+Watch4='iCadDefec',256,0,18,1,0,'Watches'
+Watch5='iOtrosDef',256,0,18,1,0,'Watches'
+Watch6='iObservacion',256,0,18,1,0,'Watches'
+Watch7='iCalifDef',256,0,18,1,0,'Watches'
+Watch8='LOCALIZACION_DEFECTOS_318[I]',256,0,18,1,0,'Watches'
+
+[WatchWindow]
+WatchColumnWidth=100
+WatchShowColumnHeaders=1
+Create=1
+Visible=0
+State=0
+Left=0
+Top=0
+Width=572
+Height=188
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=564
+ClientHeight=164
+TBDockHeight=164
+LRDockWidth=767
+Dockable=1
+
+[Breakpoints]
+Count=30
+Breakpoint0='C:\desarrolloStarteam\serv-lectura 2.5 - FACHADA\UMain_OT.pas',565,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint1='C:\desarrolloStarteam\serv-lectura 2.5 - FACHADA\UMain_OT.pas',563,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint2='C:\desarrolloStarteam\serv-lectura 2.5\UInspeOT.pas',124,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint3='C:\desarrolloStarteam\serv-lectura 2.5\UInspeOT.pas',130,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint4='C:\desarrolloStarteam\serv-lectura 2.5\UMODDAT.pas',118,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint5='C:\desarrolloStarteam\serv-lectura 2.5\UMain_OT.pas',218,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint6='C:\desarrolloStarteam\serv-lectura 2.5\UMain_OT.pas',428,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint7='C:\desarrolloStarteam\serv-lectura 2.5\UMain_OT.pas',389,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint8='C:\desarrolloStarteam\VTVSAG 3.8\Globals.pas',122,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint9='C:\desarrolloStarteam\serv-lectura 2.6\URES_OUT.pas',1039,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint10='C:\desarrolloStarteam\serv-lectura 2.6\UConfgOT.pas',30,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint11='C:\desarrolloStarteam\serv-lectura 2.6\UMain_OT.pas',169,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint12='C:\desarrolloStarteam\serv-lectura 2.6\URES_OUT.pas',1281,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint13='C:\desarrolloStarteam\serv-lectura 2.6\URES_OUT.pas',1013,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint14='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',815,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint15='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',909,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint16='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',938,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint17='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',946,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint18='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',1000,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint19='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',1005,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint20='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',1036,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint21='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',1062,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint22='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',1067,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint23='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',1099,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint24='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',977,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint25='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',894,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint26='C:\desarrolloStarteam\Serv-lectura 2.67\URES_OUT.pas',896,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint27='C:\desarrolloStarteam\Serv-lectura 2.6.7\UMODDAT.pas',105,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint28='C:\desarrolloStarteam\Serv-lectura 2.6.7\UMODDAT.pas',141,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint29='C:\desarrolloStarteam\Serv-lectura 2.6.8\URES_OUT.pas',1188,'',0,1,'',1,0,0,'',1,'','',''
+
+[AddressBreakpoints]
+Count=0
+
+[Main Window]
+Create=1
+Visible=1
+State=2
+Left=1
+Top=4
+Width=1279
+Height=105
+MaxLeft=-4
+MaxTop=-4
+MaxWidth=1288
+MaxHeight=105
+ClientWidth=1280
+ClientHeight=78
+
+[ProjectManager]
+Create=1
+Visible=0
+State=0
+Left=369
+Top=372
+Width=438
+Height=303
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=430
+ClientHeight=279
+TBDockHeight=303
+LRDockWidth=438
+Dockable=1
+
+[Components]
+Left=240
+Top=237
+Width=183
+Height=233
+Create=1
+Visible=0
+State=0
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=175
+ClientHeight=209
+TBDockHeight=233
+LRDockWidth=183
+Dockable=1
+
+[CPUWindow]
+Create=1
+Visible=0
+State=0
+Left=85
+Top=101
+Width=853
+Height=565
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=845
+ClientHeight=538
+DumpPane=79
+DisassemblyPane=187
+RegisterPane=231
+FlagPane=64
+
+[AlignmentPalette]
+Create=1
+Visible=0
+State=0
+Left=536
+Top=572
+Width=156
+Height=82
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=150
+ClientHeight=60
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=-2
+Top=267
+Width=237
+Height=573
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=229
+ClientHeight=549
+TBDockHeight=625
+LRDockWidth=229
+Dockable=1
+SplitPos=118
+ArrangeBy=Name
+SelectedItem=
+ExpandedItems=Brush,Font.Style,Frame,Pen,PrinterSettings
+HiddenCategories=
+
+[BreakpointWindow]
+Create=1
+Visible=0
+State=0
+Left=79
+Top=137
+Width=865
+Height=421
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=857
+ClientHeight=397
+TBDockHeight=197
+LRDockWidth=737
+Dockable=1
+Column0Width=175
+Column1Width=75
+Column2Width=200
+Column3Width=200
+Column4Width=75
+Column5Width=75
+
+[CallStackWindow]
+Create=1
+Visible=0
+State=0
+Left=429
+Top=351
+Width=294
+Height=161
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=286
+ClientHeight=137
+TBDockHeight=161
+LRDockWidth=294
+Dockable=1
+
+[ThreadStatusWindow]
+Create=1
+Visible=0
+State=0
+Left=383
+Top=507
+Width=624
+Height=152
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=616
+ClientHeight=128
+TBDockHeight=152
+LRDockWidth=624
+Dockable=1
+Column0Width=145
+Column1Width=100
+Column2Width=115
+Column3Width=250
+
+[ObjectTree]
+Create=1
+Visible=1
+State=0
+Left=-1
+Top=99
+Width=235
+Height=175
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=227
+ClientHeight=151
+TBDockHeight=66
+LRDockWidth=190
+Dockable=1
+
+[DebugLogView]
+Create=1
+Visible=0
+State=0
+Left=367
+Top=286
+Width=417
+Height=291
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=409
+ClientHeight=267
+TBDockHeight=291
+LRDockWidth=417
+Dockable=1
+
+[LocalVarsWindow]
+Create=1
+Visible=0
+State=0
+Left=222
+Top=319
+Width=421
+Height=189
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=413
+ClientHeight=165
+TBDockHeight=189
+LRDockWidth=421
+Dockable=1
+
+[ToDo List]
+Create=1
+Visible=0
+State=0
+Left=277
+Top=259
+Width=470
+Height=250
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=462
+ClientHeight=226
+TBDockHeight=250
+LRDockWidth=470
+Dockable=1
+Column0Width=200
+Column1Width=30
+Column2Width=100
+Column3Width=70
+Column4Width=70
+SortOrder=4
+ShowHints=1
+ShowChecked=1
+
+[ModuleWindow]
+Create=1
+Visible=0
+State=0
+Left=481
+Top=422
+Width=638
+Height=355
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=630
+ClientHeight=331
+TBDockHeight=355
+LRDockWidth=638
+Dockable=1
+Column0Width=125
+Column1Width=100
+Column2Width=155
+EntryPointPane=225
+CompUnitPane=104
+
+[MessageHintFrm]
+Create=1
+Visible=0
+State=0
+Left=481
+Top=423
+Width=383
+Height=195
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=375
+ClientHeight=171
+TBDockHeight=195
+LRDockWidth=383
+Dockable=1
+
+[fmGrepResults]
+Create=1
+Visible=0
+State=0
+Left=0
+Top=110
+Width=209
+Height=259
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=201
+ClientHeight=235
+TBDockHeight=555
+LRDockWidth=201
+Dockable=1
+
+[fmPeInformation]
+Create=1
+Visible=0
+State=0
+Left=349
+Top=269
+Width=454
+Height=298
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=446
+ClientHeight=274
+TBDockHeight=298
+LRDockWidth=454
+Dockable=1
+
+[CodeExplorer@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=12
+Width=140
+Height=751
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=140
+ClientHeight=751
+TBDockHeight=305
+LRDockWidth=140
+Dockable=1
+
+[MessageView@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=12
+Top=0
+Width=1140
+Height=85
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1140
+ClientHeight=85
+TBDockHeight=85
+LRDockWidth=443
+Dockable=1
+
+[DockHosts]
+DockHostCount=0
+

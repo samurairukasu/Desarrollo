@@ -1,0 +1,19 @@
+
+
+***********************************************************************
+Fatal NI connect error 12638, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.54.4.3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=caba)(CID=(PROGRAM=C:\APPLUS\DESARROLLO STARTEAM\EN DESARROLLOS\SISTEMA SAG VTV\VTVSAG CAPITAL FEDERAL\Servidor Lectura CABA\Prenout.exe)(HOST=SIST-132)(USER=jlacaldecastro))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 05-SEP-2016 16:01:40
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12638
+    TNS-12638: Credential retrieval failed
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
