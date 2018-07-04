@@ -1,0 +1,85 @@
+unit Uabm_empresa;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons,uempresas;
+
+type
+  Tabm_empresa = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    codigo_empresa:string;
+  end;
+
+var
+  abm_empresa: Tabm_empresa;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tabm_empresa.BitBtn2Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tabm_empresa.BitBtn1Click(Sender: TObject);
+var ce:tempresas;
+begin
+ce:=tempresas.Create;
+
+
+ if   abm_empresa.Tag=1 then
+     begin
+        if  ce.crear_empresa(trim(edit1.Text)) then
+            begin
+              ce.cargar_empresa_en_grilla;
+              ce.Free;
+              close;
+
+            end;
+
+     end;
+
+
+
+
+      if   abm_empresa.Tag=2 then
+     begin
+        if  ce.modifica_empresa(codigo_empresa,(edit1.Text)) then
+            begin
+              ce.cargar_empresa_en_grilla;
+              ce.Free;
+              close;
+
+            end;
+
+     end;
+
+
+      if   abm_empresa.Tag=3 then
+     begin
+        if  ce.eliminar_empresa(codigo_empresa,trim(edit1.Text)) then
+            begin
+              ce.cargar_empresa_en_grilla;
+              ce.Free;
+              close;
+
+            end;
+
+     end;
+
+end;
+
+end.

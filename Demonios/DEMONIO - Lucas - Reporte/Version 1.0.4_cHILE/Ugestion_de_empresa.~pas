@@ -1,0 +1,77 @@
+unit Ugestion_de_empresa;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Grids, DBGrids, ToolWin, ComCtrls, umodulo,uempresas;
+
+type
+  Tgestion_de_empresa = class(TForm)
+    ToolBar1: TToolBar;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    DBGrid1: TDBGrid;
+    BitBtn1: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  gestion_de_empresa: Tgestion_de_empresa;
+
+implementation
+
+uses Uabm_empresa;
+
+{$R *.dfm}
+
+procedure Tgestion_de_empresa.BitBtn1Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tgestion_de_empresa.FormActivate(Sender: TObject);
+var ce:tempresas;
+begin
+ce:=tempresas.Create;
+ce.cargar_empresa_en_grilla;
+ce.Free;
+
+end;
+
+procedure Tgestion_de_empresa.SpeedButton1Click(Sender: TObject);
+begin
+abm_empresa.Tag:=1;
+abm_empresa.Caption:='Crear nueva empresa';
+abm_empresa.BitBtn1.Caption:='Crear';
+abm_empresa.showmodal
+end;
+
+procedure Tgestion_de_empresa.SpeedButton2Click(Sender: TObject);
+begin
+abm_empresa.Tag:=2;
+abm_empresa.Caption:='Modificar empresa';
+abm_empresa.BitBtn1.Caption:='Modificar';
+abm_empresa.codigo_empresa:=dbgrid1.Fields[0].asstring;
+abm_empresa.showmodal
+end;
+
+procedure Tgestion_de_empresa.SpeedButton3Click(Sender: TObject);
+begin
+abm_empresa.Tag:=3;
+abm_empresa.Caption:='Eliminar empresa';
+abm_empresa.BitBtn1.Caption:='Eliminar';
+abm_empresa.codigo_empresa:=dbgrid1.Fields[0].asstring;
+abm_empresa.showmodal
+end;
+
+end.

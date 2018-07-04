@@ -1,0 +1,51 @@
+unit Uinforme_detalle_por_turnos_por_centro;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, ExtCtrls, QuickRpt,Umodulo, QRCtrls, DBTables;
+
+type
+  Tinforme_detalle_por_turnos_por_centro = class(TForm)
+    QRMODMARCA: TQuickRep;
+    QRBand8: TQRBand;
+    QRLabel28: TQRLabel;
+    DetailBand2: TQRBand;
+    QRDBText17: TQRDBText;
+    QRGroup1: TQRGroup;
+    QRDBText12: TQRDBText;
+    QRLabel13: TQRLabel;
+    QRGroup2: TQRGroup;
+    QRBand5: TQRBand;
+    QRExpr3: TQRExpr;
+    QRLabel20: TQRLabel;
+    ADOQuery1: TADOQuery;
+    QRDBText1: TQRDBText;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRLabel4: TQRLabel;
+    QRLabel5: TQRLabel;
+    QRImage1: TQRImage;
+    QRDBText4: TQRDBText;
+    QRGroup3: TQRGroup;
+    QRLabel3: TQRLabel;
+    QRLabel19: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRLabel1: TQRLabel;
+    QRLabel6: TQRLabel;
+    QRDBText5: TQRDBText;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  informe_detalle_por_turnos_por_centro: Tinforme_detalle_por_turnos_por_centro;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,86 @@
+unit Ugestion_usuarios;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Buttons, Grids, DBGrids, umodulo, ToolWin, ComCtrls,usuarios;
+
+type
+  Tgestion_usuarios = class(TForm)
+    DBGrid1: TDBGrid;
+    BitBtn1: TBitBtn;
+    ToolBar1: TToolBar;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  gestion_usuarios: Tgestion_usuarios;
+
+implementation
+
+uses Uabm_usuario;
+
+{$R *.dfm}
+
+procedure Tgestion_usuarios.BitBtn1Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tgestion_usuarios.SpeedButton1Click(Sender: TObject);
+begin
+abm_usuario.Caption:='Crear Nuevo Usuario';
+abm_usuario.Tag:=1;
+abm_usuario.BitBtn1.Caption:='Crear';
+abm_usuario.showmodal;
+end;
+
+procedure Tgestion_usuarios.SpeedButton2Click(Sender: TObject);
+begin
+abm_usuario.Caption:='Modificar Usuario';
+abm_usuario.Tag:=2;
+abm_usuario.BitBtn1.Caption:='Modificar';
+abm_usuario.codigo_usuario:=dbgrid1.Fields[3].AsInteger;
+abm_usuario.Edit1.Text:=trim(dbgrid1.Fields[0].Asstring);
+abm_usuario.Edit2.Text:=trim(dbgrid1.Fields[1].Asstring);
+abm_usuario.Edit3.Text:=trim(dbgrid1.Fields[2].Asstring);
+
+
+abm_usuario.showmodal;
+end;
+
+procedure Tgestion_usuarios.SpeedButton3Click(Sender: TObject);
+begin
+abm_usuario.Caption:='Eliminar Usuario';
+abm_usuario.Tag:=3;
+abm_usuario.BitBtn1.Caption:='Eliminar';
+abm_usuario.codigo_usuario:=dbgrid1.Fields[3].AsInteger;
+abm_usuario.Edit1.Text:=trim(dbgrid1.Fields[0].Asstring);
+abm_usuario.Edit2.Text:=trim(dbgrid1.Fields[1].Asstring);
+abm_usuario.Edit3.Text:=trim(dbgrid1.Fields[2].Asstring);
+abm_usuario.showmodal;
+end;
+
+procedure Tgestion_usuarios.FormActivate(Sender: TObject);
+var cu:tusuarios;
+begin
+cu:=tusuarios.Create;
+cu.cargar_usuarios_en_grilla;
+cu.Free;
+
+
+end;
+
+end.
