@@ -65,7 +65,10 @@ type
     ARCHIVO_LOG:STRING;
     procedure TestOfBD(Alias, UserName, Password: String; Ageva: boolean);
     function conexion_virtual(base:string):boolean;
-    FUNCTION ENVIAR_A_MSSQL(turnoidhasta:longint;CODINSPE:longint;CODFACTU:longint;plantapasa:longint):BOOLEAN;
+    FUNCTION ENVIAR_FACT_A_MSSQL(CODFACTU:longint;plantapasa:longint):BOOLEAN;
+    FUNCTION ENVIAR_NC_A_MSSQL(NC:longint;plantapasa:longint):BOOLEAN;
+    FUNCTION ENVIAR_TURNO_A_MSSQL(turno:longint;plantapasa:longint):BOOLEAN;
+    FUNCTION ENVIAR_INSPECCION_A_MSSQL(CODINSPE:longint;plantapasa:longint):BOOLEAN;
     FUNCTION GUARDA_LOG(MENSAJE:STRING):BOOLEAN;
     procedure EJECUTAR;
   end;
@@ -180,12 +183,9 @@ END;
 
 procedure TForm1.EJECUTAR;
 VAR
-//BASE,alias,userbd,password:STRING;
-BASE,alias,userbd,password,linea:STRING;
-con,link:string;
+BASE,alias,userbd,password,link,FE:STRING;
 archivo,LOG:textfile;
-FE:STRING;
-TURNOID,CODFACTU,CODINSPE,planta:longint;
+TURNOID,CODINSPE,CODFACTU,NC,planta,PLANTATURNO:longint;
 
 begin
 FE:=COPY(DATETOSTR(DATE),1,2)+COPY(DATETOSTR(DATE),4,2)+COPY(DATETOSTR(DATE),7,4);
@@ -220,7 +220,7 @@ BEGIN
      MEMO1.Clear;
      readln(archivo,alias);
      NOMPALNTA:=ALIAS;
-     userbd:='CABASM';
+     userbd:=ALIAS;//'CABASM';
      password:='02lusabaqui03';
      TestOfBD(alias,userbd,password,false);
 
@@ -233,54 +233,25 @@ BEGIN
         RxTrayIcon1.HiNT:='CONECTADO A '+ ALIAS;
         APPLICATION.ProcessMessages;
 
-        {with tsqlQuery.Create(nil) do
-        try
-          SQLConnection:= MYBD;
-          SQL.Add('select codunicoplanta from planta');
-          Open;
-          planta:=fields[0].AsInteger;
-
-       finally
-         close;
-         free;
-       end; }
-
-        {busco en la base oracle el ultimo TURNOID}
-        with tsqlQuery.Create(nil) do
-        try
-          SQLConnection:= MYBD;
-          SQL.Add('SELECT DISTINCT MAX(TURNOID) FROM TDATOSTURNO WHERE TURNOID NOT LIKE ''%-%'' ');
-          Open;
-          TURNOID:=fields[0].AsInteger;
-
-       finally
-         close;
-         free;
-       end;
-
        {busco en la base oracle el id de planta(centro)}
-       IF (NOMPALNTA <> 'CABASM') or (NOMPALNTA <> 'CABAVS') THEN
-       BEGIN
        with tsqlQuery.Create(nil) do
         try
           SQLConnection:= MYBD;
           SQL.Add('select (zona||estacion) centro from tvarios');
           Open;
           planta:=fields[0].AsInteger;
-
        finally
          close;
          free;
        end;
-       END;
 
-       IF NOMPALNTA = 'CABASM' THEN BEGIN planta:=4 END;
-       IF NOMPALNTA = 'CABAVS' THEN BEGIN planta:=3 END;
+       IF planta = 31 THEN BEGIN planta:=2; PLANTATURNO:=3 END;
+       IF planta = 41 THEN BEGIN planta:=3; PLANTATURNO:=4 END;
 
        {Busco el ultimo Turno}
         modulo.QUERY_WEB.Close;
         modulo.QUERY_WEB.SQL.Clear;
-        modulo.QUERY_WEB.SQL.Add('SELECT MAX(TURNOID) FROM TDATOSTURNO WHERE PLANTA='+inttostr(planta));
+        modulo.QUERY_WEB.SQL.Add('SELECT MAX(TURNOID) FROM TDATOSTURNO WHERE PLANTA='+inttostr(PLANTATURNO));
         modulo.QUERY_WEB.ExecSQL;
         modulo.QUERY_WEB.open;
         TURNOID:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -288,7 +259,9 @@ BEGIN
         {Busco la ultima inspeccion}
         modulo.QUERY_WEB.Close;
         modulo.QUERY_WEB.SQL.Clear;
-        modulo.QUERY_WEB.SQL.Add('SELECT MAX(CODINSPE) FROM TINSPECCION');
+        modulo.QUERY_WEB.SQL.Add('SELECT CASE WHEN MAX(TINS.CODINSPE) IS NULL THEN 0 ELSE MAX(TINS.CODINSPE) END '+
+                                 'FROM TINSPECCION TINS LEFT OUTER JOIN TDATOSTURNO TDAT '+
+                                 'ON TINS.CODINSPE = TDAT.CODINSPE WHERE TDAT.PLANTA='+inttostr(PLANTATURNO));
         modulo.QUERY_WEB.ExecSQL;
         modulo.QUERY_WEB.open;
         CODINSPE:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -297,12 +270,24 @@ BEGIN
         modulo.QUERY_WEB.Close;
         modulo.QUERY_WEB.SQL.Clear;
         modulo.QUERY_WEB.SQL.Add('SELECT MAX(TFAC.CODFACTU) FROM TFACTURAS TFAC INNER JOIN TFACT_ADICION ADI '+
-                                 'ON TFAC.CODFACTU = ADI.CODFACT WHERE ADI.PTOVENT='+inttostr(planta));
+                                 'ON TFAC.CODFACTU = ADI.CODFACT WHERE ADI.PTOVENT='+inttostr(Planta));
         modulo.QUERY_WEB.ExecSQL;
         modulo.QUERY_WEB.open;
         CODFACTU:=modulo.QUERY_WEB.Fields[0].AsInteger;
 
-        ENVIAR_A_MSSQL(TURNOID,CODINSPE,CODFACTU,Planta);
+        {Busco la ultima NC}
+        modulo.QUERY_WEB.Close;
+        modulo.QUERY_WEB.SQL.Clear;
+        modulo.QUERY_WEB.SQL.Add('SELECT MAX(CODCOFAC) FROM TCONTRAFACT');
+        modulo.QUERY_WEB.ExecSQL;
+        modulo.QUERY_WEB.open;
+        NC:=modulo.QUERY_WEB.Fields[0].AsInteger;
+
+        {Envia variables a Funciones}
+        ENVIAR_FACT_A_MSSQL(CODFACTU,Planta);
+        ENVIAR_NC_A_MSSQL(NC,Planta);
+        ENVIAR_TURNO_A_MSSQL(TURNOID,Planta);
+        ENVIAR_INSPECCION_A_MSSQL(CODINSPE,Planta);
         END else
         begin
 
@@ -317,123 +302,16 @@ END;
 
 end;
 
-FUNCTION TFORM1.ENVIAR_A_MSSQL(turnoidhasta:longint;CODINSPE:longint;CODFACTU:longint;plantapasa:longint):BOOLEAN;
-var sqloracle,SQL_WEB,SQL_WEB2:string;
+FUNCTION TFORM1.ENVIAR_FACT_A_MSSQL(CODFACTU:longint;plantapasa:longint):BOOLEAN;
+var
+QUERY_MSSQL,
+QUERY_MSSQL2:string;
 
-CENTRO:string;
-TURNOID,ESTADOID,CODCLIEN,codfact,PTOVENT,IDUSUARI:longint;
-PATENTE,TIPOINSPE,FECHATURNO,FECHALTA,TIPOFAC:string;
+CODCLIEN,PTOVENT,IDUSUARI,codfact,Existe:longint;
 FECHAFAC,TIPOFACTU,TIPTRIBU,FORMPAGO,IVA,IMPORTE,
-NUMFACTU,IDDETALLESPAGO,CODCOFAC:STRING;
-Existe:Longint;
+NUMFACTU,IDDETALLESPAGO,CODCOFAC,TIPOFAC:STRING;
 
 BEGIN
-
- {Tomar los datos de la tabla reservas del SQL} {
-        modulo.QUERY_WEB.Close;
-        modulo.QUERY_WEB.SQL.Clear;
-        modulo.QUERY_WEB.SQL.Add('SELECT '+
-                                 'numero AS TURNOID '+
-                                 ',centro AS PLANTA '+
-                                 ',fecha AS FECHATURNO '+
-                                 ',patente AS DVDOMINO '+
-                                 ',nombre AS TITULARNOMBRE '+
-                                 ',apellido AS TITULARAPELLIDO '+
-                                 ',email AS CONTACTOEMAIL '+
-                                 ',tipo_insp AS TIPOINSPE '+
-                                 ',telefono AS CONTACTOTELEFONO '+
-                                 ',hora AS HORATURNO '+
-                                 ',replace(CONVERT(DATE,FECHALTA,103),''-'',''/'') AS FECHALTA '+
-                                 ',CENTRO '+
-                                 ',TIPO_DOCUMENTO '+
-                                 ',NRO_DOCUMENTO '+
-                                 'FROM reserva '+
-                                 'WHERE NUMERO > '+inttostr(turnoidhasta)+
-                                 'AND CENTRO = '+inttostr(plantapasa)+
-                                 ' ORDER BY fechalta');
-        modulo.QUERY_WEB.ExecSQL;
-        modulo.QUERY_WEB.Open;
-
-        WHILE NOT modulo.QUERY_WEB.Eof DO
-
-        BEGIN
-        CENTRO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('CENTRO').ASSTRING); //plantapasa;
-        TURNOID:=modulo.QUERY_WEB.FIELDBYNAME('TURNOID').ASINTEGER;
-        PATENTE:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('DVDOMINO').ASSTRING);
-        FECHATURNO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('FECHATURNO').ASSTRING);
-        TIPO_DOCUMENTO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('TIPO_DOCUMENTO').ASSTRING);
-        NRO_DOCUMENTO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('NRO_DOCUMENTO').ASSTRING);
-        TITULARNOMBRE:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('TITULARNOMBRE').ASSTRING);
-        TITULARAPELLIDO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('TITULARAPELLIDO').ASSTRING);
-        EMAIL:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('CONTACTOEMAIL').ASSTRING);
-        TIPOINSPE:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('TIPOINSPE').ASSTRING);
-        TELEFONO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('CONTACTOTELEFONO').ASSTRING);
-        HORATURNO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('HORATURNO').ASSTRING);
-        FECHALTA:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('FECHALTA').ASSTRING);
-
-        {Consulto si las reservas web existen en tdatosturno} {
-        with tsqlQuery.Create(nil) do
-        try
-          SQLConnection:= MYBD;
-          SQL.Add('select count(*) from TDATOSTURNO where planta='+#39+TRIM(CENTRO)+#39+' and TURNOID='+inttostr(TURNOID));
-          Open;
-          Existe:=fields[0].ASInteger;
-       finally
-         close;
-         free;
-       end;
-
-       {Fecha que se inserta el turno a la tabla}  {
-       with tsqlQuery.Create(nil) do
-        try
-          SQLConnection:= MYBD;
-          SQL.Add('select TO_DATE(SYSDATE,''DD/MM/YYYY'') from DUAL');
-          Open;
-          FECHANOVEDAD:=fields[0].AsString;
-       finally
-         close;
-         free;
-       end;
-
-         {Insertar los datos de la tabla reserva del SQL a la tabla tdatosturnos del Oracle} {
-         if Existe=0 then
-           begin
-                 sqloracle:='INSERT INTO TDATOSTURNO (TURNOID,FECHATURNO,HORATURNO,FECHAREGISTRO,TTULARTIPODOCUMENTO,TITULARNRODOCUMENTO, '+
-                            ' TITULARNOMBRE,TITULARAPELLIDO,CONTACTOTELEFONO,CONTACTOEMAIL,DVDOMINO,PLANTA,TIPOINSPE,ESTADOID,ESTADODESC,FECHANOVEDAD) '+
-                            ' VALUES ('+INTTOSTR(TURNOID)+',TO_DATE('+#39+TRIM(FECHATURNO)+#39+',''DD/MM/YYYY''),'+#39+TRIM(HORATURNO)+#39+
-                            ',TO_DATE('+#39+TRIM(FECHANOVEDAD)+#39+',''DD/MM/YYYY''),'+#39+TRIM(TIPO_DOCUMENTO)+#39+','+#39+TRIM(NRO_DOCUMENTO)+#39+
-                            ','+#39+TRIM(TITULARNOMBRE)+#39+','+#39+TRIM(TITULARAPELLIDO)+#39+','+#39+TRIM(TELEFONO)+#39+
-                            ','+#39+TRIM(EMAIL)+#39+','+#39+TRIM(PATENTE)+#39+','+#39+TRIM(CENTRO)+#39+
-                            ','+#39+TRIM(TIPOINSPE)+#39+','+INTTOSTR(ESTADOID)+','+#39+TRIM(ESTADODESC)+#39 +
-                            ',TO_DATE('+#39+TRIM(FECHANOVEDAD)+#39+',''DD/MM/YYYY'') )';
-                end else begin
-                end;
-
-          if Existe=0 then
-           with tsqlQuery.Create(nil) do
-            try
-              SQLConnection:= MYBD;
-                MEMO1.Lines.Add('ACTUALIZANDO TURNO: '+INTTOSTR(TURNOID));
-                RxTrayIcon1.HiNT:='ACTUALIZANDO TURNO: '+INTTOSTR(TURNOID);
-                APPLICATION.ProcessMessages;
-                SQL.Clear;
-                SQL.Add(sqloracle);
-                ExecSQL;
-                MEMO1.Lines.Add('TRANSACCION: OK');
-                APPLICATION.ProcessMessages;
-
-           EXCEPT
-             on E: Exception do
-                      BEGIN
-                        MEMO1.Lines.Add('TRANSACCION: ERROR');
-                         APPLICATION.ProcessMessages;
-                         modulo.CONEXION.RollbackTrans;
-                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+NOMPALNTA+' NO SE INSERTO TURNOID '+INTTOSTR(TURNOID)+'   POR :'+ E.message);
-                      END;
-           END;
-           modulo.QUERY_WEB.NEXT;
-        END;
-        }
 
 {Busco facturas nuevas}
 with tsqlQuery.Create(nil) do
@@ -457,12 +335,14 @@ with tsqlQuery.Create(nil) do
                 ',ADI.IDUSUARI AS IDUSUARI '+
                 'FROM TFACTURAS TFAC INNER JOIN TFACT_ADICION ADI '+
                 'ON TFAC.CODFACTU = ADI.CODFACT '+
-                'WHERE CODFACTU >' +inttostr(CODFACTU));
+                'WHERE CODFACTU >' +inttostr(CODFACTU)+
+                ' ORDER BY TFAC.CODFACTU');
         Open;
 
         WHILE NOT EOF DO
 
         BEGIN
+        {Tfacturas}
         CODFACTU:=FIELDBYNAME('CODFACTU').ASINTEGER;
         FECHAFAC:=TRIM(FIELDBYNAME('fechalta').ASSTRING);
         TIPOFACTU:=TRIM(FIELDBYNAME('tipofactu').ASSTRING);
@@ -475,57 +355,143 @@ with tsqlQuery.Create(nil) do
         CODCOFAC:=TRIM(FIELDBYNAME('codcofac').ASSTRING);
         IDDETALLESPAGO:=TRIM(FIELDBYNAME('iddetallespago').ASSTRING);
 
+        {Tfact_Adicion}
         codfact:=FIELDBYNAME('codfact').ASINTEGER;
         TIPOFAC:=TRIM(FIELDBYNAME('TIPOFAC').ASSTRING);
         PTOVENT:=FIELDBYNAME('PTOVENT').ASINTEGER;
         IDUSUARI:=FIELDBYNAME('IDUSUARI').ASINTEGER;
 
-        {aqolicklist:=tsqlQuery.Create(nil);
-        aqolicklist.SQLConnection:= MYBD;
-        aqolicklist.SQL.Add('select PICKLISTDESC from TPICKLIST where CODCLIEN='+inttostr(acodclien));
-        aqolicklist.Open;
-        PICKLISTDESC:=TRIM(aqolicklist.FIELDBYNAME('PICKLISTDESC').ASSTRING);
+        modulo.QUERY_WEB.Close;
+        modulo.QUERY_WEB.SQL.Clear;
+        modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TFACTURAS WHERE CODFACTU='+inttostr(CODFACTU));
+        modulo.QUERY_WEB.ExecSQL;
+        modulo.QUERY_WEB.Open;
+        Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;
 
-        aqolicklist.Close;
-        aqolicklist.free;
-        }
+        IF (Existe = 0) THEN
+          BEGIN
+                QUERY_MSSQL:='INSERT INTO TFACTURAS (codfactu,fechalta,tipfactu,tiptribu,formpago,ivainscr,codclien,imponeto,numfactu,codcofac,iddetallespago) '+
+                             ' VALUES ('+INTTOSTR(CODFACTU)+','+#39+TRIM(FECHAFAC)+#39+','+#39+TRIM(TIPOFACTU)+#39+','+#39+TRIM(TIPTRIBU)+#39+
+                             ','+#39+TRIM(FORMPAGO)+#39+','+#39+TRIM(IVA)+#39+','+INTTOSTR(CODCLIEN)+
+                             ','+#39+TRIM(IMPORTE)+#39+','+#39+TRIM(NUMFACTU)+#39+','+#39+TRIM(NUMFACTU)+#39+','+#39+TRIM(IDDETALLESPAGO)+#39+')';
 
-         modulo.QUERY_WEB.Close;
-         modulo.QUERY_WEB.SQL.Clear;
-         modulo.QUERY_WEB.SQL.Add('SELECT * FROM TFACTURAS WHERE CODFACTU='+inttostr(CODFACTU));
-         modulo.QUERY_WEB.ExecSQL;
-         modulo.QUERY_WEB.Open;
+                QUERY_MSSQL2:='INSERT INTO TFACT_ADICION (codfact,TIPOFAC,ptovent,idusuari) '+
+                              ' VALUES ('+INTTOSTR(codfact)+','+#39+TRIM(TIPOFAC)+#39+','+INTTOSTR(ptovent)+','+INTTOSTR(idusuari)+')';
 
-        if modulo.QUERY_WEB.IsEmpty=true then
-           begin
+          //END ELSE BEGIN END;
 
-             if (CODFACTU <> 0) then
-                begin
-                   SQL_WEB:='INSERT INTO TFACTURAS (codfactu,fechalta,tipfactu,tiptribu,formpago,ivainscr,codclien,imponeto,numfactu,codcofac,iddetallespago) '+
-                            ' VALUES ('+INTTOSTR(CODFACTU)+','+#39+TRIM(FECHAFAC)+#39+','+#39+TRIM(TIPOFACTU)+#39+','+#39+TRIM(TIPTRIBU)+#39+
-                            ','+#39+TRIM(FORMPAGO)+#39+','+#39+TRIM(IVA)+#39+','+INTTOSTR(CODCLIEN)+
-                            ','+#39+TRIM(IMPORTE)+#39+','+#39+TRIM(NUMFACTU)+#39+','+#39+TRIM(NUMFACTU)+#39+','+#39+TRIM(IDDETALLESPAGO)+#39+')';
-
-                   SQL_WEB2:='INSERT INTO TFACT_ADICION (codfact,TIPOFAC,ptovent,idusuari) '+
-                             ' VALUES ('+INTTOSTR(codfact)+','+#39+TRIM(TIPOFAC)+#39+','+INTTOSTR(ptovent)+','+INTTOSTR(idusuari)+')';
-
-               end else begin
-               end;
-
+          IF (Existe = 0) THEN
              modulo.CONEXION.BeginTrans;
                TRY
-                MEMO1.Lines.Add('ACTUALIZANDO CODFACTU: '+INTTOSTR(CODFACTU));
-                RxTrayIcon1.HiNT:='ACTUALIZANDO CODFACTU: '+INTTOSTR(CODFACTU);
+                MEMO1.Lines.Add('ACTUALIZANDO FAC: '+INTTOSTR(CODFACTU));
+                RxTrayIcon1.HiNT:='ACTUALIZANDO FAC: '+INTTOSTR(CODFACTU);
                 APPLICATION.ProcessMessages;
                 modulo.QUERY_WEB.Close;
                 modulo.QUERY_WEB.SQL.Clear;
-                modulo.QUERY_WEB.SQL.Add(SQL_WEB);
-                modulo.QUERY_WEB.SQL.Add(SQL_WEB2);
+                modulo.QUERY_WEB.SQL.Add(QUERY_MSSQL);
+                modulo.QUERY_WEB.SQL.Add(QUERY_MSSQL2);
                 modulo.QUERY_WEB.ExecSQL;
                 modulo.CONEXION.CommitTrans;
                 MEMO1.Lines.Add('TRANSACCION: OK');
                 APPLICATION.ProcessMessages;
 
+           EXCEPT
+             on E: Exception do
+                      BEGIN
+                         MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+                         modulo.CONEXION.RollbackTrans;
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+INTTOSTR(plantapasa)+' NO SE INSERTO FACTURA '+INTTOSTR(CODFACTU)+' POR :'+ E.message);
+                      END;
+           END;
+
+         END ELSE
+           BEGIN
+               MEMO1.Lines.Add('Ya existe FAC: '+INTTOSTR(CODFACTU));
+               RxTrayIcon1.HiNT:='Ya existe FAC: '+INTTOSTR(CODFACTU);
+               APPLICATION.ProcessMessages;
+               modulo.QUERY_WEB.Close;
+               modulo.QUERY_WEB.SQL.Clear;
+           END;
+        NEXT;
+
+       END;
+
+  finally
+        Close;
+        Free;
+  end;
+
+ //Application.MessageBox( 'PROCESO TERMINADO.', 'Atención',
+ // MB_ICONINFORMATION );
+
+END;
+
+FUNCTION TFORM1.ENVIAR_NC_A_MSSQL(NC:longint;plantapasa:longint):BOOLEAN;
+var
+QUERY_MSSQL:string;
+
+CodCoFacNC,NumNC,Existe:longint;
+FECHANC,CaeNC,VenceCaeNc:string;
+
+BEGIN
+{Busco NC nuevas}
+with tsqlQuery.Create(nil) do
+    try
+        SQLConnection:= MYBD;
+        SQL.Add('SELECT '+
+                'TCON.CODCOFAC as CodCoFacNC '+
+                ',TCON.fechalta as FECHANC '+
+                ',TCON.numfactu as NumNC '+
+                ',TCON.CAE as CaeNC '+
+                ',TCON.FECHAVENCE as VenceCaeNc '+
+                'FROM TCONTRAFACT TCON '+
+                'WHERE CODCOFAC >' +inttostr(NC)+
+                ' ORDER BY fechalta');
+        Open;
+
+        WHILE NOT EOF DO
+
+        BEGIN
+
+        {TcontraFac}
+        CodCoFacNC:=FIELDBYNAME('CodCoFacNC').ASINTEGER;
+        FECHANC:=TRIM(FIELDBYNAME('FECHANC').ASSTRING);
+        NumNC:=FIELDBYNAME('NumNC').ASINTEGER;
+        CaeNC:=TRIM(FIELDBYNAME('CaeNC').ASSTRING);
+        VenceCaeNc:=TRIM(FIELDBYNAME('VenceCaeNc').ASSTRING);
+
+         modulo.QUERY_WEB.Close;
+         modulo.QUERY_WEB.SQL.Clear;
+         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TCONTRAFACT WHERE CODCOFAC='+inttostr(CodCoFacNC));
+         modulo.QUERY_WEB.ExecSQL;
+         modulo.QUERY_WEB.Open;
+         Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;
+           
+         IF (Existe = 0) THEN
+            BEGIN
+                 QUERY_MSSQL:='INSERT INTO TCONTRAFACT (CODCOFAC,FECHALTA,NUMFACTU,CAE,FECHAVENCE,PLANTA) '+
+                              ' VALUES ('+INTTOSTR(CodCoFacNC)+' '+
+                              ','+#39+TRIM(FECHANC)+#39+' '+
+                              ','+INTTOSTR(NumNC)+' '+
+                              ','+#39+TRIM(CaeNC)+#39+' '+
+                              ','+#39+TRIM(VenceCaeNc)+#39+' '+
+                              ','+INTTOSTR(plantapasa)+' '+
+                              ')';
+
+            IF (Existe = 0) THEN
+             modulo.CONEXION.BeginTrans;
+               TRY
+                MEMO1.Lines.Add('ACTUALIZANDO NC: '+INTTOSTR(CodCoFacNC));
+                RxTrayIcon1.HiNT:='ACTUALIZANDO NC: '+INTTOSTR(CodCoFacNC);
+                APPLICATION.ProcessMessages;
+                modulo.QUERY_WEB.Close;
+                modulo.QUERY_WEB.SQL.Clear;
+                modulo.QUERY_WEB.SQL.Add(QUERY_MSSQL);
+                modulo.QUERY_WEB.ExecSQL;
+                modulo.CONEXION.CommitTrans;
+                MEMO1.Lines.Add('TRANSACCION: OK');
+                APPLICATION.ProcessMessages;
 
            EXCEPT
              on E: Exception do
@@ -533,14 +499,259 @@ with tsqlQuery.Create(nil) do
                         MEMO1.Lines.Add('TRANSACCION: ERROR');
                          APPLICATION.ProcessMessages;
                          modulo.CONEXION.RollbackTrans;
-                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+INTTOSTR(plantapasa)+' NO SE INSERTO FACTURA '+INTTOSTR(CODFACTU)+' POR :'+ E.message);
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+INTTOSTR(plantapasa)+' NO SE INSERTO NC '+INTTOSTR(CodCoFacNC)+' POR :'+ E.message);
                       END;
           END;
 
-       end;
+      END ELSE
+           BEGIN
+               MEMO1.Lines.Add('Ya existe NC: '+INTTOSTR(CodCoFacNC));
+               RxTrayIcon1.HiNT:='Ya existe NC: '+INTTOSTR(CodCoFacNC);
+               APPLICATION.ProcessMessages;
+               modulo.QUERY_WEB.Close;
+               modulo.QUERY_WEB.SQL.Clear;
+           END;
 
         NEXT;
-        END;
+     END;
+
+  finally
+        Close;
+        Free;
+  end;
+
+ //Application.MessageBox( 'PROCESO TERMINADO.', 'Atención',
+ // MB_ICONINFORMATION );
+
+END;
+
+FUNCTION TFORM1.ENVIAR_TURNO_A_MSSQL(turno:longint;plantapasa:longint):BOOLEAN;
+var
+QUERY_MSSQL:string;
+
+TURNOID,CODVEHIC,CODCLIEN,Existe:longint;
+FECHATURNO,TIPOTURNO,PATENTE,AUSENTE,CODINSPE,
+FACTURADO,REVISO,PAGOID,PLANTA,TIPOINSPE:String;
+
+BEGIN
+{Busco NC nuevas}
+with tsqlQuery.Create(nil) do
+    try
+        SQLConnection:= MYBD;
+        SQL.Add('SELECT '+
+                'TURNOID'+
+                ',FECHATURNO '+
+                ',TIPOTURNO '+
+                ',DVDOMINO '+
+                ',AUSENTE '+
+                ',FACTURADO '+
+                ',REVISO '+
+                ',CODINSPE '+
+                ',CODVEHIC '+
+                ',CODCLIEN '+
+                ',PAGOIDVERIFICACION '+
+                ',TIPOINSPE '+
+                ',PLANTA '+
+                'FROM TDATOSTURNOHISTORIAL '+
+                'WHERE TURNOID >' +inttostr(turno)+
+                ' ORDER BY TURNOID');
+        Open;
+
+        WHILE NOT EOF DO
+
+        BEGIN
+        TURNOID:=FIELDBYNAME('TURNOID').ASINTEGER;
+        FECHATURNO:=TRIM(FIELDBYNAME('FECHATURNO').ASSTRING);
+        TIPOTURNO:=TRIM(FIELDBYNAME('TIPOTURNO').ASSTRING);
+        PATENTE:=TRIM(FIELDBYNAME('DVDOMINO').ASSTRING);
+        AUSENTE:=TRIM(FIELDBYNAME('AUSENTE').ASSTRING);
+        FACTURADO:=TRIM(FIELDBYNAME('FACTURADO').ASSTRING);
+        REVISO:=TRIM(FIELDBYNAME('REVISO').ASSTRING);
+        CODINSPE:=TRIM(FIELDBYNAME('CODINSPE').ASSTRING);
+        CODVEHIC:=FIELDBYNAME('CODVEHIC').ASINTEGER;
+        CODCLIEN:=FIELDBYNAME('CODCLIEN').ASINTEGER;
+        PAGOID:=TRIM(FIELDBYNAME('PAGOIDVERIFICACION').ASSTRING);
+        PLANTA:=TRIM(FIELDBYNAME('PLANTA').ASSTRING);
+        TIPOINSPE:=TRIM(FIELDBYNAME('TIPOINSPE').ASSTRING);
+
+         modulo.QUERY_WEB.Close;
+         modulo.QUERY_WEB.SQL.Clear;
+         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TDATOSTURNO WHERE TURNOID='+inttostr(TURNOID));
+         modulo.QUERY_WEB.ExecSQL;
+         modulo.QUERY_WEB.Open;
+         Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;
+           
+         IF (Existe = 0) THEN
+            BEGIN
+                 QUERY_MSSQL:='INSERT INTO TDATOSTURNO (TURNOID,CODINSPE,CODVEHIC,CODCLIEN,FECHATURNO, '+
+                              ' TIPOTURNO,PATENTE,AUSENTE,FACTURADO,REVISO,PAGOIDVERIFICACION,PLANTA,TIPOINSPE) '+
+                              ' VALUES ('+INTTOSTR(TURNOID)+','+#39+TRIM(CODINSPE)+#39+','+INTTOSTR(CODVEHIC)+','+INTTOSTR(CODCLIEN)+' '+
+                              ','+#39+TRIM(FECHATURNO)+#39+' '+
+                              ','+#39+TRIM(TIPOTURNO)+#39+' '+
+                              ','+#39+TRIM(PATENTE)+#39+' '+
+                              ','+#39+TRIM(AUSENTE)+#39+' '+
+                              ','+#39+TRIM(FACTURADO)+#39+' '+
+                              ','+#39+TRIM(REVISO)+#39+' '+
+                              ','+#39+TRIM(PAGOID)+#39+' '+
+                              ','+#39+TRIM(PLANTA)+#39+' '+
+                              ','+#39+TRIM(TIPOINSPE)+#39+' '+
+                              ')';
+
+            IF (Existe = 0) THEN
+             modulo.CONEXION.BeginTrans;
+               TRY
+                MEMO1.Lines.Add('ACTUALIZANDO TURNO: '+INTTOSTR(TURNOID));
+                RxTrayIcon1.HiNT:='ACTUALIZANDO TURNO: '+INTTOSTR(TURNOID);
+                APPLICATION.ProcessMessages;
+                modulo.QUERY_WEB.Close;
+                modulo.QUERY_WEB.SQL.Clear;
+                modulo.QUERY_WEB.SQL.Add(QUERY_MSSQL);
+                modulo.QUERY_WEB.ExecSQL;
+                modulo.CONEXION.CommitTrans;
+                MEMO1.Lines.Add('TRANSACCION: OK');
+                APPLICATION.ProcessMessages;
+
+           EXCEPT
+             on E: Exception do
+                      BEGIN
+                        MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+                         modulo.CONEXION.RollbackTrans;
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+INTTOSTR(plantapasa)+' NO SE INSERTO TURNO '+INTTOSTR(TURNOID)+' POR :'+ E.message);
+                      END;
+          END;
+
+      END ELSE
+           BEGIN
+               MEMO1.Lines.Add('Ya existe TURNO: '+INTTOSTR(TURNOID));
+               RxTrayIcon1.HiNT:='Ya existe TURNO: '+INTTOSTR(TURNOID);
+               APPLICATION.ProcessMessages;
+               modulo.QUERY_WEB.Close;
+               modulo.QUERY_WEB.SQL.Clear;
+           END;
+
+        NEXT;
+     END;
+
+  finally
+        Close;
+        Free;
+  end;
+
+ //Application.MessageBox( 'PROCESO TERMINADO.', 'Atención',
+ // MB_ICONINFORMATION );
+
+END;
+
+FUNCTION TFORM1.ENVIAR_INSPECCION_A_MSSQL(CODINSPE:longint;plantapasa:longint):BOOLEAN;
+var
+QUERY_MSSQL:string;
+
+Existe:longint;
+FECHAINSP,TIPO,
+EJERCICI,INSPECCION,CODVEHIC,
+CODCLPRO,CODCLCON,CODCLTEN,
+INSPFINA,NUMOBLEA,RESULTAD:String;
+
+BEGIN
+{Busco Inspecciones nuevas}
+with tsqlQuery.Create(nil) do
+    try
+        SQLConnection:= MYBD;
+        SQL.Add('SELECT '+
+                'EJERCICI '+
+                ',CODINSPE '+
+                ',CODVEHIC '+
+                ',CODCLPRO '+
+                ',CODCLCON '+
+                ',CODCLTEN '+
+                ',INSPFINA '+
+                ',TIPO '+
+                ',FECHALTA '+
+                ',NUMOBLEA '+
+                ',RESULTAD '+
+                'FROM TINSPECCION '+
+                'WHERE CODINSPE > ' +IntToStr(CODINSPE)+
+                ' ORDER BY CODINSPE');
+
+        Open;
+
+        WHILE NOT EOF DO
+
+        BEGIN
+        EJERCICI:=TRIM(FIELDBYNAME('EJERCICI').ASSTRING);
+        INSPECCION:=TRIM(FIELDBYNAME('CODINSPE').ASSTRING);
+        CODVEHIC:=TRIM(FIELDBYNAME('CODVEHIC').ASSTRING);
+        CODCLPRO:=TRIM(FIELDBYNAME('CODCLPRO').ASSTRING);
+        CODCLCON:=TRIM(FIELDBYNAME('CODCLCON').ASSTRING);
+        CODCLTEN:=TRIM(FIELDBYNAME('CODCLTEN').ASSTRING);
+        INSPFINA:=TRIM(FIELDBYNAME('INSPFINA').ASSTRING);
+        TIPO:=TRIM(FIELDBYNAME('TIPO').ASSTRING);
+        FECHAINSP:=TRIM(FIELDBYNAME('FECHALTA').ASSTRING);
+        NUMOBLEA:=TRIM(FIELDBYNAME('NUMOBLEA').ASSTRING);
+        RESULTAD:=TRIM(FIELDBYNAME('RESULTAD').ASSTRING);
+
+         modulo.QUERY_WEB.Close;
+         modulo.QUERY_WEB.SQL.Clear;
+         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TINSPECCION WHERE CODINSPE='+#39+TRIM(INSPECCION)+#39);
+         modulo.QUERY_WEB.ExecSQL;
+         modulo.QUERY_WEB.Open;
+         Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;
+
+         IF (Existe = 0) THEN
+            BEGIN
+                 QUERY_MSSQL:='INSERT INTO TINSPECCION (EJERCICI,CODINSPE,CODVEHIC,CODCLPRO,CODCLCON, '+
+                              'CODCLTEN,INSPFINA,TIPO,FECHALTA,NUMOBLEA,RESULTAD,PLANTA )'+
+                              ' VALUES ('+
+                              ''+#39+TRIM(EJERCICI)+#39+' '+
+                              ','+#39+TRIM(INSPECCION)+#39+' '+
+                              ','+#39+TRIM(CODVEHIC)+#39+' '+
+                              ','+#39+TRIM(CODCLPRO)+#39+' '+
+                              ','+#39+TRIM(CODCLCON)+#39+' '+
+                              ','+#39+TRIM(CODCLTEN)+#39+' '+
+                              ','+#39+TRIM(INSPFINA)+#39+' '+
+                              ','+#39+TRIM(TIPO)+#39+' '+
+                              ','+#39+TRIM(FECHAINSP)+#39+' '+
+                              ','+#39+TRIM(NUMOBLEA)+#39+' '+
+                              ','+#39+TRIM(RESULTAD)+#39+' '+
+                              ','+INTTOSTR(plantapasa)+' '+
+                              ')';
+
+            IF (Existe = 0) THEN
+             modulo.CONEXION.BeginTrans;
+               TRY
+                MEMO1.Lines.Add('ACTUALIZANDO INSPECCION: '+TRIM(INSPECCION));
+                RxTrayIcon1.HiNT:='ACTUALIZANDO INSPECCION: '+TRIM(INSPECCION);
+                APPLICATION.ProcessMessages;
+                modulo.QUERY_WEB.Close;
+                modulo.QUERY_WEB.SQL.Clear;
+                modulo.QUERY_WEB.SQL.Add(QUERY_MSSQL);
+                modulo.QUERY_WEB.ExecSQL;
+                modulo.CONEXION.CommitTrans;
+                MEMO1.Lines.Add('TRANSACCION: OK');
+                APPLICATION.ProcessMessages;
+
+           EXCEPT
+             on E: Exception do
+                      BEGIN
+                        MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+                         modulo.CONEXION.RollbackTrans;
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+INTTOSTR(plantapasa)+' NO SE INSERTO INSPECCION '+TRIM(INSPECCION)+' POR :'+ E.message);
+                      END;
+          END;
+
+      END ELSE
+           BEGIN
+               MEMO1.Lines.Add('Ya existe INSPECCION: '+TRIM(INSPECCION));
+               RxTrayIcon1.HiNT:='Ya existe INSPECCION: '+TRIM(INSPECCION);
+               APPLICATION.ProcessMessages;
+               modulo.QUERY_WEB.Close;
+               modulo.QUERY_WEB.SQL.Clear;
+           END;
+
+        NEXT;
+     END;
 
   finally
         Close;
@@ -637,7 +848,7 @@ begin
 
 //IF TRIM(TIMETOSTR(TIME))=TRIM(HORA_EEJCUTAR) THEN
 //BEGIN
-HINT:='EXPOTANDO...';
+HINT:='EXPORTANDO...';
 timer1.Enabled:=falsE;
  SELF.EJECUTAR;
  timer1.Interval:=10800000;

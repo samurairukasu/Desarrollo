@@ -23,7 +23,7 @@ object Form1: TForm1
     Top = 224
     Width = 121
     Height = 42
-    Caption = 'INICIAR'
+    Caption = 'IMPORTAR'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
