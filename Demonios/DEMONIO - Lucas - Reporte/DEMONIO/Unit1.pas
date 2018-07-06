@@ -261,7 +261,8 @@ BEGIN
         modulo.QUERY_WEB.SQL.Clear;
         modulo.QUERY_WEB.SQL.Add('SELECT CASE WHEN MAX(TINS.CODINSPE) IS NULL THEN 0 ELSE MAX(TINS.CODINSPE) END '+
                                  'FROM TINSPECCION TINS LEFT OUTER JOIN TDATOSTURNO TDAT '+
-                                 'ON TINS.CODINSPE = TDAT.CODINSPE WHERE TDAT.PLANTA='+inttostr(PLANTATURNO));
+                                 'ON TINS.CODINSPE = TDAT.CODINSPE WHERE TDAT.PLANTA='+inttostr(PLANTATURNO)+
+                                 ' AND TINS.PLANTA = '+inttostr(PLANTATURNO));
         modulo.QUERY_WEB.ExecSQL;
         modulo.QUERY_WEB.open;
         CODINSPE:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -278,7 +279,7 @@ BEGIN
         {Busco la ultima NC}
         modulo.QUERY_WEB.Close;
         modulo.QUERY_WEB.SQL.Clear;
-        modulo.QUERY_WEB.SQL.Add('SELECT MAX(CODCOFAC) FROM TCONTRAFACT');
+        modulo.QUERY_WEB.SQL.Add('SELECT MAX(CODCOFAC) FROM TCONTRAFACT WHERE PLANTA ='+inttostr(Planta));
         modulo.QUERY_WEB.ExecSQL;
         modulo.QUERY_WEB.open;
         NC:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -463,7 +464,8 @@ with tsqlQuery.Create(nil) do
 
          modulo.QUERY_WEB.Close;
          modulo.QUERY_WEB.SQL.Clear;
-         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TCONTRAFACT WHERE CODCOFAC='+inttostr(CodCoFacNC));
+         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TCONTRAFACT WHERE CODCOFAC='+inttostr(CodCoFacNC)+
+                                  ' AND PLANTA ='+inttostr(plantapasa));
          modulo.QUERY_WEB.ExecSQL;
          modulo.QUERY_WEB.Open;
          Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -534,7 +536,7 @@ FECHATURNO,TIPOTURNO,PATENTE,AUSENTE,CODINSPE,
 FACTURADO,REVISO,PAGOID,PLANTA,TIPOINSPE:String;
 
 BEGIN
-{Busco NC nuevas}
+{Busco Turno Nuevos}
 with tsqlQuery.Create(nil) do
     try
         SQLConnection:= MYBD;
@@ -576,7 +578,8 @@ with tsqlQuery.Create(nil) do
 
          modulo.QUERY_WEB.Close;
          modulo.QUERY_WEB.SQL.Clear;
-         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TDATOSTURNO WHERE TURNOID='+inttostr(TURNOID));
+         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TDATOSTURNO WHERE TURNOID='+inttostr(TURNOID)+
+                                  ' AND PLANTA ='+inttostr(plantapasa));
          modulo.QUERY_WEB.ExecSQL;
          modulo.QUERY_WEB.Open;
          Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -693,7 +696,8 @@ with tsqlQuery.Create(nil) do
 
          modulo.QUERY_WEB.Close;
          modulo.QUERY_WEB.SQL.Clear;
-         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TINSPECCION WHERE CODINSPE='+#39+TRIM(INSPECCION)+#39);
+         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TINSPECCION WHERE CODINSPE='+#39+TRIM(INSPECCION)+#39+
+                                  ' AND PLANTA ='+inttostr(plantapasa));
          modulo.QUERY_WEB.ExecSQL;
          modulo.QUERY_WEB.Open;
          Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;

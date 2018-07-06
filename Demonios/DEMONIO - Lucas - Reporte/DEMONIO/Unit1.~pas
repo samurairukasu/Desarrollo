@@ -261,7 +261,8 @@ BEGIN
         modulo.QUERY_WEB.SQL.Clear;
         modulo.QUERY_WEB.SQL.Add('SELECT CASE WHEN MAX(TINS.CODINSPE) IS NULL THEN 0 ELSE MAX(TINS.CODINSPE) END '+
                                  'FROM TINSPECCION TINS LEFT OUTER JOIN TDATOSTURNO TDAT '+
-                                 'ON TINS.CODINSPE = TDAT.CODINSPE WHERE TDAT.PLANTA='+inttostr(PLANTATURNO));
+                                 'ON TINS.CODINSPE = TDAT.CODINSPE WHERE TDAT.PLANTA='+inttostr(PLANTATURNO)+
+                                 ' AND TINS.PLANTA = '+inttostr(PLANTATURNO));
         modulo.QUERY_WEB.ExecSQL;
         modulo.QUERY_WEB.open;
         CODINSPE:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -278,7 +279,7 @@ BEGIN
         {Busco la ultima NC}
         modulo.QUERY_WEB.Close;
         modulo.QUERY_WEB.SQL.Clear;
-        modulo.QUERY_WEB.SQL.Add('SELECT MAX(CODCOFAC) FROM TCONTRAFACT');
+        modulo.QUERY_WEB.SQL.Add('SELECT MAX(CODCOFAC) FROM TCONTRAFACT WHERE PLANTA ='+inttostr(Planta));
         modulo.QUERY_WEB.ExecSQL;
         modulo.QUERY_WEB.open;
         NC:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -463,7 +464,8 @@ with tsqlQuery.Create(nil) do
 
          modulo.QUERY_WEB.Close;
          modulo.QUERY_WEB.SQL.Clear;
-         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TCONTRAFACT WHERE CODCOFAC='+inttostr(CodCoFacNC));
+         modulo.QUERY_WEB.SQL.Add('SELECT COUNT(*) FROM TCONTRAFACT WHERE CODCOFAC='+inttostr(CodCoFacNC)+
+                                  ' AND PLANTA ='+inttostr(plantapasa));
          modulo.QUERY_WEB.ExecSQL;
          modulo.QUERY_WEB.Open;
          Existe:=modulo.QUERY_WEB.Fields[0].AsInteger;
@@ -648,7 +650,7 @@ var
 QUERY_MSSQL:string;
 
 Existe:longint;
-FECHAINSP,PLANTA,TIPO,
+FECHAINSP,TIPO,
 EJERCICI,INSPECCION,CODVEHIC,
 CODCLPRO,CODCLCON,CODCLTEN,
 INSPFINA,NUMOBLEA,RESULTAD:String;
@@ -701,7 +703,7 @@ with tsqlQuery.Create(nil) do
          IF (Existe = 0) THEN
             BEGIN
                  QUERY_MSSQL:='INSERT INTO TINSPECCION (EJERCICI,CODINSPE,CODVEHIC,CODCLPRO,CODCLCON, '+
-                              'CODCLTEN,INSPFINA,TIPO,FECHALTA,NUMOBLEA,RESULTAD )'+
+                              'CODCLTEN,INSPFINA,TIPO,FECHALTA,NUMOBLEA,RESULTAD,PLANTA )'+
                               ' VALUES ('+
                               ''+#39+TRIM(EJERCICI)+#39+' '+
                               ','+#39+TRIM(INSPECCION)+#39+' '+
@@ -714,6 +716,7 @@ with tsqlQuery.Create(nil) do
                               ','+#39+TRIM(FECHAINSP)+#39+' '+
                               ','+#39+TRIM(NUMOBLEA)+#39+' '+
                               ','+#39+TRIM(RESULTAD)+#39+' '+
+                              ','+INTTOSTR(plantapasa)+' '+
                               ')';
 
             IF (Existe = 0) THEN
