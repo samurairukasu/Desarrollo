@@ -6,7 +6,7 @@ object Form1: TForm1
   BorderStyle = bsSingle
   Caption = 'Form1'
   ClientHeight = 276
-  ClientWidth = 649
+  ClientWidth = 451
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -36,10 +36,17 @@ object Form1: TForm1
   object Memo1: TMemo
     Left = 0
     Top = 0
-    Width = 649
+    Width = 449
     Height = 209
+    Color = clMenuText
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clLime
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
     Lines.Strings = (
       'Memo1')
+    ParentFont = False
     ReadOnly = True
     TabOrder = 1
   end
@@ -60,23 +67,23 @@ object Form1: TForm1
   end
   object Proc: TADOStoredProc
     Parameters = <>
-    Left = 584
-    Top = 8
+    Left = 384
+    Top = 224
   end
   object ADOCommand1: TADOCommand
     Parameters = <>
-    Left = 616
-    Top = 8
+    Left = 416
+    Top = 224
   end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    Left = 616
-    Top = 208
+    Left = 352
+    Top = 224
   end
   object PopupMenu1: TPopupMenu
-    Left = 584
-    Top = 208
+    Left = 320
+    Top = 224
     object Ocultar1: TMenuItem
       Caption = 'Ocultar'
       OnClick = Ocultar1Click
@@ -321,7 +328,7 @@ object Form1: TForm1
       00003FFF0000FF0000007FFF0000FFC00000FFFF0000FFF00001FFFF0000FFFC
       000FFFFF0000FFFF003FFFFF0000}
     PopupMenu = PopupMenu1
-    Left = 552
-    Top = 208
+    Left = 288
+    Top = 224
   end
 end
