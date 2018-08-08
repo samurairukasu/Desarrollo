@@ -5,8 +5,8 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Form1'
-  ClientHeight = 276
-  ClientWidth = 649
+  ClientHeight = 263
+  ClientWidth = 522
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,9 +18,22 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 431
+    Top = 8
+    Width = 82
+    Height = 13
+    Caption = 'Buscar en WS'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object BitBtn1: TBitBtn
-    Left = 16
-    Top = 224
+    Left = 7
+    Top = 216
     Width = 121
     Height = 42
     Caption = 'INICIAR'
@@ -36,16 +49,23 @@ object Form1: TForm1
   object Memo1: TMemo
     Left = 0
     Top = 0
-    Width = 649
+    Width = 425
     Height = 209
+    Color = clBlack
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clLime
+    Font.Height = -13
+    Font.Name = 'Calibri'
+    Font.Style = [fsBold]
     Lines.Strings = (
       'Memo1')
+    ParentFont = False
     ReadOnly = True
     TabOrder = 1
   end
   object Button1: TButton
-    Left = 152
-    Top = 224
+    Left = 143
+    Top = 216
     Width = 120
     Height = 42
     Caption = 'PARAR'
@@ -58,25 +78,51 @@ object Form1: TForm1
     TabOrder = 2
     OnClick = Button1Click
   end
+  object Button2: TButton
+    Left = 272
+    Top = 216
+    Width = 75
+    Height = 25
+    Caption = 'SISTEMA'
+    TabOrder = 3
+    Visible = False
+    OnClick = Button2Click
+  end
+  object BuscarPatente: TEdit
+    Left = 431
+    Top = 24
+    Width = 81
+    Height = 21
+    TabOrder = 4
+  end
+  object Buscar: TButton
+    Left = 430
+    Top = 48
+    Width = 81
+    Height = 25
+    Caption = 'Buscar'
+    TabOrder = 5
+    OnClick = BuscarClick
+  end
   object Proc: TADOStoredProc
     Parameters = <>
-    Left = 584
+    Left = 360
     Top = 8
   end
   object ADOCommand1: TADOCommand
     Parameters = <>
-    Left = 616
+    Left = 392
     Top = 8
   end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    Left = 616
-    Top = 208
+    Left = 392
+    Top = 176
   end
   object PopupMenu1: TPopupMenu
-    Left = 584
-    Top = 208
+    Left = 360
+    Top = 176
     object Ocultar1: TMenuItem
       Caption = 'Ocultar'
       OnClick = Ocultar1Click
@@ -321,7 +367,7 @@ object Form1: TForm1
       00003FFF0000FF0000007FFF0000FFC00000FFFF0000FFF00001FFFF0000FFFC
       000FFFFF0000FFFF003FFFFF0000}
     PopupMenu = PopupMenu1
-    Left = 552
-    Top = 208
+    Left = 328
+    Top = 176
   end
 end

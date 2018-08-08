@@ -1,12 +1,12 @@
 object Form1: TForm1
-  Left = 453
-  Top = 305
+  Left = 549
+  Top = 315
   Hint = 'STOP  !!!'
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Form1'
-  ClientHeight = 276
-  ClientWidth = 649
+  ClientHeight = 269
+  ClientWidth = 587
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,9 +18,23 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 8
+    Top = 215
+    Width = 252
+    Height = 49
+    Caption = 'Facturacion Banco'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+  end
   object BitBtn1: TBitBtn
-    Left = 16
-    Top = 224
+    Left = 464
+    Top = 0
     Width = 121
     Height = 42
     Caption = 'INICIAR'
@@ -36,16 +50,23 @@ object Form1: TForm1
   object Memo1: TMemo
     Left = 0
     Top = 0
-    Width = 649
+    Width = 465
     Height = 209
+    Color = clNone
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clLime
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
     Lines.Strings = (
       'Memo1')
+    ParentFont = False
     ReadOnly = True
     TabOrder = 1
   end
   object Button1: TButton
-    Left = 152
-    Top = 224
+    Left = 465
+    Top = 41
     Width = 120
     Height = 42
     Caption = 'PARAR'
@@ -59,33 +80,59 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Importar: TButton
-    Left = 288
-    Top = 224
+    Left = 96
+    Top = 231
     Width = 75
     Height = 25
     Caption = 'Importar'
+    Enabled = False
     TabOrder = 3
     OnClick = ImportarClick
   end
+  object Exportar: TButton
+    Left = 16
+    Top = 231
+    Width = 75
+    Height = 25
+    Caption = 'Exportar'
+    TabOrder = 4
+    OnClick = ExportarClick
+  end
+  object EnviarFTP: TButton
+    Left = 176
+    Top = 231
+    Width = 75
+    Height = 25
+    Caption = 'FTP'
+    Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 6
+    OnClick = EnviarFTPClick
+  end
   object Proc: TADOStoredProc
     Parameters = <>
-    Left = 584
-    Top = 8
+    Left = 472
+    Top = 152
   end
   object ADOCommand1: TADOCommand
     Parameters = <>
-    Left = 616
-    Top = 8
+    Left = 504
+    Top = 152
   end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    Left = 616
-    Top = 208
+    Left = 536
+    Top = 88
   end
   object PopupMenu1: TPopupMenu
-    Left = 584
-    Top = 208
+    Left = 504
+    Top = 88
     object Ocultar1: TMenuItem
       Caption = 'Ocultar'
       OnClick = Ocultar1Click
@@ -330,24 +377,28 @@ object Form1: TForm1
       00003FFF0000FF0000007FFF0000FFC00000FFFF0000FFF00001FFFF0000FFFC
       000FFFFF0000FFFF003FFFFF0000}
     PopupMenu = PopupMenu1
-    Left = 552
-    Top = 208
+    Left = 472
+    Top = 88
   end
   object OpenExcel: TOpenDialog
-    Left = 616
-    Top = 240
+    Left = 536
+    Top = 120
   end
   object ExcelApplication1: TExcelApplication
     AutoConnect = False
     ConnectKind = ckRunningOrNew
     AutoQuit = False
-    Left = 585
-    Top = 240
+    Left = 505
+    Top = 120
   end
   object ExcelQueryTable1: TExcelQueryTable
     AutoConnect = False
     ConnectKind = ckRunningOrNew
-    Left = 552
-    Top = 240
+    Left = 472
+    Top = 120
+  end
+  object OpenTXT: TOpenDialog
+    Left = 536
+    Top = 152
   end
 end
