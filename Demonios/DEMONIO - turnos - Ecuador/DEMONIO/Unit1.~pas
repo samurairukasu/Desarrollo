@@ -467,6 +467,9 @@ BEGIN
           TIPOPERSONA := 'N'
         END;
 
+        IF (APELLIDO = '') THEN BEGIN APELLIDO := '.'; END;
+        IF (NOMBRE = '') THEN BEGIN NOMBRE := '.'; END;
+
         {Temporal hasta tener los valores del banco}
          IF IMPORTE = '0000000000000' THEN BEGIN
             IMPORTE:='0'; //Importe REVE
@@ -476,12 +479,12 @@ BEGIN
             modulo.QUERY_WEB2.Close;
             modulo.QUERY_WEB2.SQL.Clear;
             modulo.QUERY_WEB2.SQL.Add('SELECT REPLACE(MONTOTARIFA1, '','', ''.'') '+
-                                     'FROM TARIFA T INNER JOIN TTIPOESPVEH TT '+
-                                     'ON T.CODTARIFA = TT.CODTARIFA '+
-                                     'WHERE TT.TIPOESPE ='+IntToStr(TIPOESPE));
+                                      'FROM TARIFA T INNER JOIN TTIPOESPVEH TT '+
+                                      'ON T.CODTARIFA = TT.CODTARIFA '+
+                                      'WHERE TT.TIPOESPE ='+IntToStr(TIPOESPE));
             modulo.QUERY_WEB2.ExecSQL;
             modulo.QUERY_WEB2.Open;
-            IMPORTE:=modulo.QUERY_WEB.fields[0].AsString;
+            IMPORTE:=modulo.QUERY_WEB2.fields[0].AsString;
             EXCEPT
              on E: Exception do
                       BEGIN
@@ -990,10 +993,11 @@ self.CONEXION;
              //VARIABLE16 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['P'+si,'P'+si].Value2); // fechaFactura
              //VARIABLE17 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['Q'+si,'Q'+si].Value2); // fechaacredictacion
 
-             VARIABLE1 := ExcelHoja.Range['W'+si,'W'+si].Value2; // numero_orden
-             VARIABLE2 := ExcelHoja.Range['J'+si,'J'+si].Value2; // Importe
-             VARIABLE3 := ExcelHoja.Range['I'+si,'I'+si].Value2; // nombre cliente/Razonsocial
-             VARIABLE4 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['M'+si,'M'+si].Value2); // fechaCobro
+             VARIABLE1 := ExcelHoja.Range['V'+si,'V'+si].Value2; // numero_orden/REFERENCIA ADICIONAL
+             VARIABLE2 := ExcelHoja.Range['N'+si,'N'+si].Value2; // Importe
+             VARIABLE3 := ExcelHoja.Range['K'+si,'K'+si].Value2; // nombre cliente/Razonsocial
+             VARIABLE4 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['E'+si,'E'+si].Value2); // fechaCobro
+             VARIABLE5 := ExcelHoja.Range['J'+si,'J'+si].Value2; // PATENTE
        end;
 
           sdsfConsulta := TSQLDataSet.Create(application);
@@ -1021,9 +1025,10 @@ self.CONEXION;
             {Realizo el insert de los datos del Excel a la tabla} //tabla de TESTING
             SetProvider(dspfConsulta);
             fsql.Clear;
-            fsql.add('INSERT INTO COBROSBANCO (NROORDEN,IMPORTE,CLIENTE,FECHACOBRO)');
+            fsql.add('INSERT INTO COBROSBANCO (NROORDEN,PATENTE,IMPORTE,CLIENTE,FECHACOBRO)');
             fsql.add('VALUES');
             fsql.add('('''+VARIABLE1+''','); //numero_orden/IDPAGO
+            fsql.add(' '''+VARIABLE5+''','); //PATENTE
             fsql.add(' '''+VARIABLE2+''','); //Importe
             fsql.add(' '''+VARIABLE3+''','); //nombre cliente/Razonsocial
             fsql.add(' '''+VARIABLE4+''')'); //fechaCobro
@@ -1372,7 +1377,7 @@ FECHA:=Now;
                                   ',dcob.cod_retencion_renta_bienes '+
                                   ',dcob.base_retencion_IVA_serv '+
                                   ',dcob.cod_retencion_IVA_serv '+
-                                  ',dcob.base_retencion_IVA_bienes '+ 
+                                  ',dcob.base_retencion_IVA_bienes '+
                                   ',dcob.codigo_retencion_IVA_bienes '+
                                   //',dcob.base_IVA_0 '+
                                   //',dcob.base_ICE '+
@@ -1383,7 +1388,7 @@ FECHA:=Now;
                                   'LEFT JOIN TARIFA TT '+
                                   'on dre.tipo_vehiculo = TT.CODTARIFA '+
                                   'WHERE re.codestado not like ''-%'' '+
-                                  //' AND re.numero >= 994 ' + //->Quitar este filtro, una vez terminadas las pruebas
+                                  ' AND re.numero not in (1206,1205,1203,1202,1201,1200) ' + //->Quitar este filtro, una vez terminadas las pruebas
                                   //' AND re.IMPORTADO = ''N'' '+
                                   ' AND re.codestado = 0 '+
                                   ' AND dcob.valor <> ''0000000000000'' '+
@@ -1483,6 +1488,9 @@ FECHA:=Now;
     MEMO1.Lines.Add('Exportacion De Pagos a TXT Terminada');
     RxTrayIcon1.HiNT:='Exportacion De Pagos TXT Terminada';
     APPLICATION.ProcessMessages;
+    MEMO1.Lines.Add('Subiendo archivo al FTP...');
+    RxTrayIcon1.HiNT:='Subiendo archivo al FTP...';
+    SubirArchivo(sArchivo);
 end;
 
 Procedure TForm1.SubirArchivo( sArchivo: String );
@@ -1490,9 +1498,11 @@ var
   FTP: TIdFTP;
 begin
   FTP := TIdFTP.Create( nil );
-  FTP.Username := 'usuario';
-  FTP.Password := 'miclave';
-  FTP.Host := 'miftp.midominio.com'; //o IP
+  FTP.Username := 'vtv\ftp';
+  FTP.Password := '#ERVTV-2005-inspecciones#';
+  FTP.Host := '10.100.10.4'; //o IP
+  FTP.Port := 21;
+  //FTP.passive := True;
 
   try
     FTP.Connect;
@@ -1508,8 +1518,11 @@ begin
     END;
   END;
 
-  FTP.ChangeDir( '/misarchivos/copiaseguridad/' );   // con esto entras al directorio donde tenemos q poner el archivo
+  FTP.ChangeDir( '/FTP_DESCARGAS/' );   // con esto entras al directorio donde tenemos q poner el archivo
   FTP.Put( sArchivo, ExtractFileName( sArchivo ), False ); //sube archivo
+  MEMO1.Lines.Add('Archivo enviado al FTP');
+  RxTrayIcon1.HiNT:='Archivo enviado al FTP';
+  APPLICATION.ProcessMessages;
   FTP.Disconnect;
   FTP.Free;
 end;
@@ -1681,7 +1694,7 @@ BEGIN
    begin
      MEMO1.Clear;
      NOMPLANTA:=userbd; //ALIAS
-     userbd:='SAGECUADOR';
+     userbd:='CABASM';
      password:='02lusabaqui03';
      TestOfBD(alias,userbd,password,false);
 
