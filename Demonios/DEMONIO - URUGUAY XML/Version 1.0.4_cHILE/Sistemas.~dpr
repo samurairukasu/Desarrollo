@@ -1,0 +1,18 @@
+program Sistemas;
+
+uses
+  Forms,
+  UPRINCIPAL in 'UPRINCIPAL.pas' {Form1},
+  Umodulo in 'Uingreso.pas' {ingreso_al_sistema},
+  Uingreso in 'Umodulo.pas' {ingreso_al_sistema};
+
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+   Application.CreateForm(Tmodulo, modulo);
+  Application.CreateForm(Tingreso_al_sistema, ingreso_al_sistema);
+  Application.Run;
+end.

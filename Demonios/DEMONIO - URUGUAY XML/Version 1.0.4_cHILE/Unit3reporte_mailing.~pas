@@ -1,0 +1,106 @@
+unit Unit3reporte_mailing;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls, Buttons, DB, ADODB, scExcelExport;
+
+type
+  Treporte_mailing = class(TForm)
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    Label2: TLabel;
+    Label3: TLabel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    ADOQuery1: TADOQuery;
+    scExcelExport1: TscExcelExport;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  reporte_mailing: Treporte_mailing;
+
+implementation
+
+uses Umodulo, Unit3listadoparamailing, Umensaje;
+
+{$R *.dfm}
+
+procedure Treporte_mailing.BitBtn2Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure Treporte_mailing.FormCreate(Sender: TObject);
+begin
+
+datetimepicker1.DateTime:=now;
+datetimepicker2.DateTime:=now;
+
+end;
+
+procedure Treporte_mailing.BitBtn1Click(Sender: TObject);
+var sql,fd,fh:string;
+begin
+fd:=datetostr(datetimepicker1.DateTime);
+fh:=datetostr(datetimepicker2.DateTime);
+
+mensaje.Show;
+self.Cursor:=crSQLWait;
+application.ProcessMessages;
+
+if self.ComboBox1.ItemIndex=0 then
+begin
+//agrupado por dia
+sql:='SELECT  codplanta, convert(char(10),FECHALTA,103) as mes ,COUNT(*)  '+
+     ' FROM    '+
+     ' REVISIONVEHICULO   '+
+     ' WHERE  '+
+     ' FECHALTA '+
+     ' BETWEEN '+#39+fd+#39+' AND '+#39+trim(fh)+#39+
+     ' GROUP BY codplanta, convert(char(10),FECHALTA,103) '+
+      '  order by codplanta, convert(char(10),FECHALTA,103) asc';
+end else begin
+//agrupado por mes
+sql:='SELECT  codplanta, datepart(month,FECHALTA) as mes ,COUNT(*)   '+
+     ' FROM   '+
+     ' REVISIONVEHICULO   '+
+     ' WHERE   '+
+     '  FECHALTA   '+
+     '          BETWEEN '+#39+fd+#39+' AND '+#39+trim(fh)+#39+
+     ' GROUP BY codplanta,datepart(month,FECHALTA)  '+
+     ' order by codplanta,datepart(month,FECHALTA) asc ' 12nb bnb 1;m
+end;
+
+aDOQuery1.Close;
+ADOQuery1.SQL.Clear;
+ADOQuery1.SQL.Add(sql);
+ADOQuery1.ExecSQL;
+application.ProcessMessages;
+ADOQuery1.Open;
+application.ProcessMessages;
+
+scExcelExport1.Dataset:=ADOQuery1;
+
+scExcelExport1.ExcelVisible:=true;
+scExcelExport1.ExportDataset;
+application.ProcessMessages;
+scExcelExport1.Disconnect;
+
+self.Cursor:=crDefault;
+application.ProcessMessages;
+mensaje.close;
+
+end;
+
+end.
