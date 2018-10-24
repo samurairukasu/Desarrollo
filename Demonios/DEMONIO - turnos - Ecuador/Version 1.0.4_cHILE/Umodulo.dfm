@@ -167,4 +167,22 @@ object modulo: Tmodulo
     Left = 400
     Top = 128
   end
+  object query_actualiza: TADOQuery
+    Connection = conexion
+    Parameters = <>
+    Left = 512
+    Top = 296
+  end
+  object QUERY_WEB2: TADOQuery
+    Connection = conexion
+    Parameters = <>
+    Left = 456
+    Top = 352
+  end
+  object QUERY_WEB3: TADOQuery
+    Connection = conexion
+    Parameters = <>
+    Left = 528
+    Top = 352
+  end
 end

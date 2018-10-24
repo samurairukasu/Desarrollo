@@ -12,6 +12,7 @@ uses
 
 begin
   Application.Initialize;
+  Application.Title := 'IMPORTADOR XML';
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(Tmodulo, modulo);
 

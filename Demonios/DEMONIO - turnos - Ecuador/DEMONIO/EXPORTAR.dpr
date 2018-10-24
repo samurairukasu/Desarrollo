@@ -14,6 +14,5 @@ begin
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(Tmodulo, modulo);
-
   Application.Run;
 end.

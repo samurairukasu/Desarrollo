@@ -68,11 +68,10 @@ object Form1: TForm1
   object Button2: TButton
     Left = 272
     Top = 216
-    Width = 75
+    Width = 121
     Height = 25
-    Caption = 'SISTEMA'
+    Caption = 'TURNOS OFRECIDOS'
     TabOrder = 3
-    Visible = False
     OnClick = Button2Click
   end
   object Proc: TADOStoredProc

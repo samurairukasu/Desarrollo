@@ -3,7 +3,6 @@ program EXPORTAR;
 uses
   Forms,
   Unit1 in 'Unit1.pas' {Form1},
-  Ufunciones in '..\Version 1.0.4_cHILE\ufunciones.pas',
   Umodulo in '..\Version 1.0.4_cHILE\Umodulo.pas' {modulo: TDataModule},
   USuperRegistry in '..\Version 1.0.4_cHILE\USuperRegistry.pas',
   UGLOBAL in '..\Version 1.0.4_cHILE\UGLOBAL.pas',
@@ -15,6 +14,5 @@ begin
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(Tmodulo, modulo);
-
   Application.Run;
 end.

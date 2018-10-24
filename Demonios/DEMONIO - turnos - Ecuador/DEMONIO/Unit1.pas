@@ -86,7 +86,9 @@ type
     PROCEDURE DoExportacionTXT;
     PROCEDURE ActualizaEstadoReserva;
     PROCEDURE INFORMARTURNOS;
-    PROCEDURE DoFacturacion(CODCLIEN,CODVEHIC,IDPAGO,NROORDEN:longint;IMPORTE:STRING);
+    PROCEDURE ACTUALIZARAUSENTES;
+    PROCEDURE ACTUALIZARCANCELADOS;
+    PROCEDURE DoFacturacion(CODCLIEN,CODVEHIC,IDPAGO,NROORDEN:longint;IMPORTEFAC:STRING);
     PROCEDURE TestOfBD(Alias, UserName, Password: String; Ageva: boolean);
     FUNCTION conexion_virtual(base:string):boolean;
     FUNCTION ENVIAR_A_WEB_TURNOS(IDPAGOhasta:longint;plantapasa:longint):BOOLEAN;
@@ -349,15 +351,16 @@ var sqloracle:string;
 CENTRO:string;
 CODTURNO,CODCLIEN,CODVEHIC,IDPAGO,NROORDEN,ESTADO,TIPO_DOCUMENTO,NUMINSPEC:longint;
 CODMARCA,CODMODEL,AnioFabr,tipo_vehiculo,tipo_destino,TIPOESPE,CIUDAD,CANTON:longint;
-PATENTE,IMPORTE,FECHAMATRI,NUMCHASIS,DIRECCION:string;
+PATENTE,IMPORTE,IMPORTEFAC,FECHAMATRI,NUMCHASIS,DIRECCION:string;
 NOMBRE,APELLIDO,RAZONSOCIAL,TELEFONO,EMAIL:string;
 FECHATURNO,HORATURNO,FECHALTA,NRO_DOCUMENTO,TIPOPERSONA:string;
 Existe,ExisteVeh,ExisteCli,GRUPOVEHICULO,TIPOVEHICULO:Longint;
 
 BEGIN
+ {Busco los turnos cancelados y actualizo primero en tdatosturno}
+ ACTUALIZARCANCELADOS;
 
-{Ingreso la Reserva como turno en tdatosturno}
-
+{Ingreso la Reserva como turno en tdatosturno} 
  {Tomar los datos de la tabla reservas del SQL}
         modulo.QUERY_WEB.Close;
         modulo.QUERY_WEB.SQL.Clear;
@@ -371,6 +374,7 @@ BEGIN
                                   ',re.fecha AS FECHATURNO '+
                                   ',re.hora AS HORATURNO '+
                                   ',dcob.valor AS IMPORTE '+
+                                  ',REPLACE(CONVERT(NUMERIC(10, 2),dcob.valor)/100,'','',''.'') AS IMPORTEFAC '+
                                   ',re.codestado AS ESTADO '+
                                   ',dre.nro_repeticion AS NUMINSPEC '+
                                   //'--tvehiculos '+
@@ -402,7 +406,6 @@ BEGIN
                                   'WHERE re.IMPORTADO = ''N'' '+
                                   ' AND (re.codestado = 1) '+
                                   ' AND re.CENTRO = '+inttostr(plantapasa)+
-                                  //' AND re.numero <=1097 '+ //Solo para la prueba
                                   ' ORDER BY re.fechalta');
 
         modulo.QUERY_WEB.ExecSQL;
@@ -420,6 +423,7 @@ BEGIN
         ESTADO:=modulo.QUERY_WEB.FIELDBYNAME('ESTADO').ASInteger;
         IDPAGO:=modulo.QUERY_WEB.FIELDBYNAME('IDPAGO').ASInteger;
         IMPORTE:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('IMPORTE').ASSTRING);
+        IMPORTEFAC:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('IMPORTEFAC').ASSTRING);
         NUMINSPEC:=modulo.QUERY_WEB.FIELDBYNAME('NUMINSPEC').ASInteger;
         NROORDEN:=modulo.QUERY_WEB.FIELDBYNAME('NROORDEN').ASInteger;
 
@@ -443,8 +447,7 @@ BEGIN
         FECHAMATRI:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('FECHAMATRI').ASSTRING);
         AnioFabr:=modulo.QUERY_WEB.FIELDBYNAME('AnioFabr').ASInteger;
         //tipo_vehiculo:=modulo.QUERY_WEB.FIELDBYNAME('tipo_vehiculo').ASInteger;
-        //tipo_destino:=modulo.QUERY_WEB.FIELDBYNAME('tipo_destino').ASInteger;
-        tipo_destino:=1;
+        tipo_destino:=modulo.QUERY_WEB.FIELDBYNAME('tipo_destino').ASInteger;
         TIPOESPE:=modulo.QUERY_WEB.FIELDBYNAME('TIPOESPE').ASInteger;
 
           //Solo para pruebas
@@ -468,13 +471,13 @@ BEGIN
         END;
 
         IF (APELLIDO = '') THEN BEGIN APELLIDO := '.'; END;
-        IF (NOMBRE = '') THEN BEGIN NOMBRE := '.'; END;
+        IF (NOMBRE = '') THEN BEGIN NOMBRE := '.'; END; 
 
-        {Temporal hasta tener los valores del banco}
-         IF IMPORTE = '0000000000000' THEN BEGIN
+        //Temporal hasta tener los valores del banco
+        { IF IMPORTE = '0000000000000' THEN BEGIN
             IMPORTE:='0'; //Importe REVE
          END ELSE BEGIN
-            {Busco el importe desde la web}
+            //Busco el importe desde la web
             TRY
             modulo.QUERY_WEB2.Close;
             modulo.QUERY_WEB2.SQL.Clear;
@@ -493,9 +496,10 @@ BEGIN
                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| NO SE OBTUVO EL IMPORTE POR :'+ E.message);
                       END;
             END;
-         END;
+         END; }
 
          {Si es reve, el estado tiene que ser 1 en tdatosturno}
+         IF IMPORTE = '0000000000000' THEN BEGIN IMPORTE:='0'; END;  //Importe REVE
          IF (IMPORTE = '0') THEN BEGIN ESTADO:=1; END;
 
         {OBTENGO CODPROVINCIA SEGUN EL CANTON}
@@ -564,7 +568,7 @@ BEGIN
         with tsqlQuery.Create(nil) do
         try
           SQLConnection:= MYBD;
-          SQL.Add('select count(*) from TCLIENTES where CODDOCUMENTO='+INTTOSTR(TIPO_DOCUMENTO)+' and documento ='+NRO_DOCUMENTO);
+          SQL.Add('select count(*) from TCLIENTES where CODDOCUMENTO='+INTTOSTR(TIPO_DOCUMENTO)+' and documento ='+#39+TRIM(NRO_DOCUMENTO)+#39);
           Open;
           ExisteCli:=fields[0].ASInteger;
        finally
@@ -577,7 +581,7 @@ BEGIN
           with tsqlQuery.Create(nil) do
           try
             SQLConnection:= MYBD;
-            SQL.Add('select CODCLIEN from TCLIENTES where CODDOCUMENTO='+INTTOSTR(TIPO_DOCUMENTO)+' and documento ='+NRO_DOCUMENTO);
+            SQL.Add('select CODCLIEN from TCLIENTES where CODDOCUMENTO='+INTTOSTR(TIPO_DOCUMENTO)+' and documento ='+#39+TRIM(NRO_DOCUMENTO)+#39);
             Open;
             CODCLIEN:=fields[0].ASInteger;
           finally
@@ -728,7 +732,7 @@ BEGIN
            END;
 
         {Insertar los datos de la tabla reserva del SQL a la tabla tdatosturnos del Oracle}
-         if Existe=0 then
+         if (Existe=0) then
            begin
 
           {GENERO EL CODIGO DE TURNO si no existe}
@@ -755,7 +759,7 @@ BEGIN
                             ','+#39+TRIM(FECHALTA)+#39+' '+
                             ','+#39+TRIM(PATENTE)+#39+' '+
                             ','+INTTOSTR(NROORDEN)+' '+
-                            ','+#39+TRIM(IMPORTE)+#39+' '+
+                            ','+#39+TRIM(IMPORTEFAC)+#39+' '+
                             ','+INTTOSTR(CODVEHIC)+' '+
                             ','+INTTOSTR(CODCLIEN)+' '+
                             ','+INTTOSTR(ESTADO)+' '+
@@ -782,7 +786,7 @@ BEGIN
                 MEMO1.Lines.Add('TRANSACCION: OK');
                 APPLICATION.ProcessMessages;
                 ACTUALIZAR_CAMPO_IMPORTADO(IDPAGO);
-                DoFacturacion(CODCLIEN,CODVEHIC,IDPAGO,NROORDEN,IMPORTE);{Inserto en tfacturas los pagos cobrados}
+                DoFacturacion(CODCLIEN,CODVEHIC,IDPAGO,NROORDEN,IMPORTEFAC);{Inserto en tfacturas los pagos cobrados}
 
            EXCEPT
              on E: Exception do
@@ -794,7 +798,8 @@ BEGIN
            END;
            modulo.QUERY_WEB.NEXT;
         END;
-      INFORMARTURNOS; {Inoformo a la web los turnos inspeccionados}
+      ACTUALIZARAUSENTES;
+      INFORMARTURNOS; {Informo a la web los turnos inspeccionados}
  //Application.MessageBox( 'PROCESO TERMINADO.', 'Atención', // MB_ICONINFORMATION );
 END;
 
@@ -934,20 +939,17 @@ procedure TForm1.DoImportacionExlsOracle;
 
 const
 //Datos
-F_DAT = 2;
+F_DAT = 13; //Produbanco
+F_FAC = 2;  //Facilito
 
 var
-  fsql : TStringList;
   si: String;
+  sqloracle,archivo: String;
+  Existe:INTEGER;
 
   VARIABLE1,VARIABLE2,VARIABLE3,
   VARIABLE4,VARIABLE5,VARIABLE6,
-  VARIABLE7,VARIABLE8,VARIABLE9,
-  VARIABLE10,VARIABLE11,VARIABLE12,
-  VARIABLE13,VARIABLE14,VARIABLE15,
-  VARIABLE16,VARIABLE17 :STRING;
-
-  SARASA :STRING;
+  VARIABLE7 :STRING;
 
 begin
 self.CONEXION;
@@ -968,36 +970,37 @@ self.CONEXION;
         ExcelApp.Visible := False;
 
        //copiar los datos a los campos en la tabla de Oracle
-       f:= F_DAT;
+       archivo:= extractfilename(OpenExcel.FileName);
+
+       if archivo = 'ReporteMovimientos.xlsx' then begin
+          f:= F_DAT;
+       end else begin
+          f:= F_FAC;
+       end;
+
        si := IntToStr( f );
 
        repeat
 
        {Asigno a las variables los valores de las columnas que se van a exportar}
        begin
-             //VARIABLE1 := ExcelHoja.Range['A'+si,'A'+si].Value2; // PATENTE
-             //VARIABLE2 := ExcelHoja.Range['B'+si,'B'+si].Value2; // numero_orden
-             //VARIABLE3 := ExcelHoja.Range['C'+si,'C'+si].Value2; // TipoFact
-             //VARIABLE4 := ExcelHoja.Range['D'+si,'D'+si].Value2; // monto
-             //VARIABLE5 := ExcelHoja.Range['E'+si,'E'+si].Value2; // Tipodoc
-             //VARIABLE6 := ExcelHoja.Range['F'+si,'F'+si].Value2; // TipoPersona
-             //VARIABLE7 := ExcelHoja.Range['G'+si,'G'+si].Value2; // documento
-             //VARIABLE8 := ExcelHoja.Range['H'+si,'H'+si].Value2; // Razonsocial
-             //VARIABLE9 := ExcelHoja.Range['I'+si,'I'+si].Value2; // nombre cliente
-             //VARIABLE10 := ExcelHoja.Range['J'+si,'J'+si].Value2; // IMPORTE
-             //VARIABLE11 := ExcelHoja.Range['K'+si,'K'+si].Value2; // direccion
-             //VARIABLE12 := ExcelHoja.Range['L'+si,'L'+si].Value2; // calle
-             //VARIABLE13 := ExcelHoja.Range['M'+si,'M'+si].Value2; // pais
-             //VARIABLE14 := ExcelHoja.Range['N'+si,'N'+si].Value2; // provincia
-             //VARIABLE15 := ExcelHoja.Range['O'+si,'O'+si].Value2; // canton
-             //VARIABLE16 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['P'+si,'P'+si].Value2); // fechaFactura
-             //VARIABLE17 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['Q'+si,'Q'+si].Value2); // fechaacredictacion
-
-             VARIABLE1 := ExcelHoja.Range['V'+si,'V'+si].Value2; // numero_orden/REFERENCIA ADICIONAL
-             VARIABLE2 := ExcelHoja.Range['N'+si,'N'+si].Value2; // Importe
-             VARIABLE3 := ExcelHoja.Range['K'+si,'K'+si].Value2; // nombre cliente/Razonsocial
-             VARIABLE4 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['E'+si,'E'+si].Value2); // fechaCobro
-             VARIABLE5 := ExcelHoja.Range['J'+si,'J'+si].Value2; // PATENTE
+          if ExcelHoja.Range['C'+si,'C'+si].Value2 = 'EMOT DURAN' then begin
+             VARIABLE1 := ExcelHoja.Range['G'+si,'G'+si].Value2; // Reserva/REFERENCIA ADICIONAL
+             VARIABLE2 := ExcelHoja.Range['F'+si,'F'+si].Value2; // PATENTE
+             VARIABLE3 := ExcelHoja.Range['I'+si,'I'+si].Value2; // Importe
+             VARIABLE4 := ExcelHoja.Range['I'+si,'I'+si].Value2; // Importe Pro
+             VARIABLE5 := ExcelHoja.Range['E'+si,'E'+si].Value2; // nombre cliente/Razonsocial
+             VARIABLE6 := ExcelHoja.Range['A'+si,'A'+si].Value2; // fechaCobro
+             VARIABLE7 := 'PROCESO OK'; //estado
+          end else if ExcelHoja.Range['F'+si,'F'+si].Value2 = 'EC' then begin
+             VARIABLE1 := stringreplace(ExcelHoja.Range['V'+si,'V'+si].Value2,'|','',[rfReplaceAll, rfIgnoreCase]); // Reserva/REFERENCIA ADICIONAL
+             VARIABLE2 := ExcelHoja.Range['J'+si,'J'+si].Value2; // PATENTE
+             VARIABLE3 := ExcelHoja.Range['L'+si,'L'+si].Value2; // Importe
+             VARIABLE4 := ExcelHoja.Range['M'+si,'M'+si].Value2; // Importe Pro
+             VARIABLE5 := ExcelHoja.Range['K'+si,'K'+si].Value2; // nombre cliente/Razonsocial
+             VARIABLE6 := FormatdateTime('DD/MM/YYYY',ExcelHoja.Range['E'+si,'E'+si].Value2); // fechaCobro
+             VARIABLE7 := ExcelHoja.Range['Q'+si,'Q'+si].Value2; //estado
+          end;
        end;
 
           sdsfConsulta := TSQLDataSet.Create(application);
@@ -1011,8 +1014,6 @@ self.CONEXION;
 
           fConsulta.SetProvider(dspfConsulta);
 
-          fsql := TStringList.Create;
-
           with fConsulta do
           BEGIN
             Screen.Cursor := crHourglass;
@@ -1022,30 +1023,72 @@ self.CONEXION;
             Execute;
             close;
 
-            {Realizo el insert de los datos del Excel a la tabla} //tabla de TESTING
-            SetProvider(dspfConsulta);
-            fsql.Clear;
-            fsql.add('INSERT INTO COBROSBANCO (NROORDEN,PATENTE,IMPORTE,CLIENTE,FECHACOBRO)');
-            fsql.add('VALUES');
-            fsql.add('('''+VARIABLE1+''','); //numero_orden/IDPAGO
-            fsql.add(' '''+VARIABLE5+''','); //PATENTE
-            fsql.add(' '''+VARIABLE2+''','); //Importe
-            fsql.add(' '''+VARIABLE3+''','); //nombre cliente/Razonsocial
-            fsql.add(' '''+VARIABLE4+''')'); //fechaCobro
-            CommandText := fsql.Text;
-            Execute;
+           {Realizo el insert de los datos del Excel a la tabla} //tabla de TESTING
+           SetProvider(dspfConsulta);
+
+           {Realizo el insert de los datos del Excel a la tabla}
+           IF TRIM(VARIABLE7) = 'PROCESO OK' THEN BEGIN //Si la reserva fue cobrada, inserto.
+
+           {Consulto si existe el cobro en COBROSBANCO} {
+           with tsqlQuery.Create(nil) do
+            try
+             SQLConnection:= MYBD;
+             SQL.Add('select count(*) from COBROSBANCO where RESERVA='+VARIABLE1);
+             Open;
+             Existe:=fields[0].ASInteger;
+           finally
+             close;
+             free;
+           end; }
+
+           //IF (Existe = 0) THEN BEGIN
+           sqloracle:='INSERT INTO COBROSBANCO (RESERVA,PATENTE,VALOR,VALORPRO,CLIENTE,FECHACOBRO,ESTADO) '+
+                      ' VALUES ( '+
+                      ' TO_NUMBER('+#39+TRIM(VARIABLE1)+#39+') '+ //numero_orden/IDPAGO
+                      ','+#39+TRIM(VARIABLE2)+#39+' '+ //PATENTE
+                      ','+#39+TRIM(VARIABLE3)+#39+' '+ //Importe
+                      ','+#39+TRIM(VARIABLE4)+#39+' '+ //Importe pro
+                      ','+#39+TRIM(VARIABLE5)+#39+' '+ //nombre cliente/Razonsocial
+                      ','+#39+TRIM(VARIABLE6)+#39+' '+ //fechaCobro
+                      ','+#39+TRIM(VARIABLE7)+#39+' '+ //Estado
+                      ')';
+          { end else begin
+               MEMO1.Lines.Add('Ya existe el Cobro: '+VARIABLE1);
+               RxTrayIcon1.HiNT:='Ya existe el Cobro: '+VARIABLE1;
+               APPLICATION.ProcessMessages;
+           end;}
+
+            with tsqlQuery.Create(nil) do
+            try
+             SQLConnection:= MYBD;
+              MEMO1.Lines.Add('AGREGANDO COBRO: '+VARIABLE1);
+              RxTrayIcon1.HiNT:='AGREGANDO COBRO: '+VARIABLE1;
+              APPLICATION.ProcessMessages;
+              SQL.Clear;
+              SQL.Add(sqloracle);
+              ExecSQL;
+
+             EXCEPT
+             on E: Exception do
+                      BEGIN
+                         MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| NO SE INSERTO COBRO '+VARIABLE1+'. POR :'+ E.message);
+                      END;
+             END;
+           END;
 
             Inc( f );
             si := IntToStr( f );
 
-            if ( VarType( ExcelHoja.Range['W'+si,'W'+si].Value2 ) = VarEmpty ) then
+            if ( VarType( ExcelHoja.Range['F'+si,'F'+si].Value2 ) = VarEmpty ) then
               begin
                   ShowMessage('Terminado','Ha finalizado la transferencia de Datos con Exito.' );
                   Screen.Cursor := crdefault;
               end;
             end;
 
-          until ( VarType( ExcelHoja.Range['W'+si,'W'+si].Value2 ) = VarEmpty );
+          until ( VarType( ExcelHoja.Range['F'+si,'F'+si].Value2 ) = VarEmpty );
 
       try
           ExcelApp.Workbooks.Close;
@@ -1066,7 +1109,7 @@ self.CONEXION;
       KillTask('EXCEL.exe');
 
      //Actualizo el estado de la reserva luego de importar.
-     ActualizaEstadoReserva;
+     //ActualizaEstadoReserva;
 
 end;
 
@@ -1083,16 +1126,17 @@ with tsqlQuery.Create(nil) do
     try
         SQLConnection:= MYBD;
         SQL.Add('SELECT DISTINCT '+
-                'CB.NROORDEN '+
+                'CB.RESERVA '+
                 //'CB.RESACTUALIZADA '+
                 'FROM COBROSBANCO CB '+
-                'WHERE CB.RESACTUALIZADA = ''N'' ');
+                'WHERE CB.RESACTUALIZADA = ''N'' '+
+                '  AND CB.ESTADO = ''PROCESO OK'' ');
         Open;
 
         WHILE NOT EOF DO
 
         BEGIN
-        IDPAGO:=FIELDBYNAME('NROORDEN').ASINTEGER;
+        IDPAGO:=FIELDBYNAME('RESERVA').ASINTEGER;
 
         modulo.QUERY_WEB.Close;
         modulo.QUERY_WEB.SQL.Clear;
@@ -1130,7 +1174,7 @@ with tsqlQuery.Create(nil) do
              SQL.Add('UPDATE COBROSBANCO '+
                      'SET RESACTUALIZADA = ''S'' '+
                      'WHERE RESACTUALIZADA = ''N'' '+
-                     '  AND NROORDEN = '+inttostr(IDPAGO));
+                     '  AND RESERVA = '+inttostr(IDPAGO));
              ExecSQL;
             finally
               Close;
@@ -1164,12 +1208,12 @@ with tsqlQuery.Create(nil) do
   end;
 END;
 
-Procedure TForm1.DoFacturacion(CODCLIEN,CODVEHIC,IDPAGO,NROORDEN:longint;IMPORTE:STRING);
+Procedure TForm1.DoFacturacion(CODCLIEN,CODVEHIC,IDPAGO,NROORDEN:longint;IMPORTEFAC:STRING);
 
-var
-CODFACTU,Existe:LONGINT;
-sqloracle:string;
-IMPORTEBANCO,NUMFACTU:string;
+//var
+//CODFACTU,Existe:LONGINT;
+//sqloracle:string;
+//IMPORTEBANCO,NUMFACTU:string;
 
 BEGIN
 
@@ -1182,7 +1226,7 @@ BEGIN
         ParamByName('CODVEHIC').Value := IntToStr(CODVEHIC);
         ParamByName('IDPAGO').Value := IntToStr(IDPAGO);
         ParamByName('NROORDEN').Value := IntToStr(NROORDEN);
-        ParamByName('IMPORTE').Value := TRIM(IMPORTE);
+        ParamByName('IMPORTE').Value := TRIM(IMPORTEFAC);
         ExecProc;
         Close;
         finally
@@ -1314,6 +1358,7 @@ Procedure TForm1.DoExportacionTXT;
 
 var
 F : TextFile;
+QUERY_MSSQL:STRING;
 //sArchivo: string;
 
 CodigoOrientacion,CuentaEmpresa,SecuencialCobro,
@@ -1324,7 +1369,7 @@ CiudadDeudor,TelefonoDeudor,LocalidadCobro,Referencia,
 ReferenciaAdicional,BaseImponibleRentaServ,CodigoRetencionRentaServ,
 BaseImponibleRentaBienes,CodigoRetencionRentaBienes,BaseRetencionIVAservicios,
 CodigoRetencionIVAservicios,BaseRetencionIVABienes,CodigoRetencionIVABienes,
-BaseIVA0,BaseICE,canton_cliente,TipoDeCuenta:STRING;
+BaseIVA0,BaseICE,canton_cliente,TipoDeCuenta,IDPAGO:STRING;
 
 FECHA:TDateTime;
 NOMBREEMBRESA,CODIGOSERVICIO,IDCONTRATO:STRING;
@@ -1337,25 +1382,22 @@ CODIGOSERVICIO:='CSC';
 IDCONTRATO:='000';
 FECHA:=Now;
 
-  sArchivo := ExtractFilePath( Application.ExeName ) + NOMBREEMBRESA+'_'+CODIGOSERVICIO+'_'+IDCONTRATO+'_'+formatdatetime('yyyymmdd',FECHA)+'_IN.txt';
-  AssignFile( F, sArchivo );
-
   {Consulto los pagos a facturar}
          modulo.QUERY_WEB.Close;
          modulo.QUERY_WEB.SQL.Clear;
          modulo.QUERY_WEB.SQL.Add('SELECT '+
-                                  ' dcob.cod_orientacion '+
+                                  're.numero AS IDPAGO '+
+                                  ',dcob.cod_orientacion '+
                                   ',dcob.contrapartida AS NROORDEN '+
                                   ',dcob.cuenta_empresa '+
                                   ',re.patente '+
-                                  ',tt.DESCRIPCION AS DESCVEHICULO '+
                                   ',dcob.valor AS IMPORTE '+
                                   ',dcob.secuencial_cobro '+
                                   ',dcob.comprobante_cobro '+
                                   ',dcob.cod_banco '+
                                   ',dcob.forma_de_pago '+
                                   ',dcob.moneda '+
-                                  ',dcob.referencia '+
+                                  //',dcob.referencia '+  //re.patente
                                   ',dcob.referencia_adicional '+
                                   ',re.codestado AS ESTADO '+
                                   ',dre.nro_repeticion AS NUMINSPEC '+
@@ -1385,10 +1427,7 @@ FECHA:=Now;
                                   'on re.numero = dre.nro_reserva '+
                                   'inner join detalles_cobros dcob '+
                                   'on dcob.contrapartida = re.numero '+
-                                  'LEFT JOIN TARIFA TT '+
-                                  'on dre.tipo_vehiculo = TT.CODTARIFA '+
                                   'WHERE re.codestado not like ''-%'' '+
-                                  ' AND re.numero not in (1206,1205,1203,1202,1201,1200) ' + //->Quitar este filtro, una vez terminadas las pruebas
                                   //' AND re.IMPORTADO = ''N'' '+
                                   ' AND re.codestado = 0 '+
                                   ' AND dcob.valor <> ''0000000000000'' '+
@@ -1401,12 +1440,12 @@ FECHA:=Now;
         RxTrayIcon1.HiNT:='Iniciando Exportacion De Pagos a TXT...';
         APPLICATION.ProcessMessages;
 
-        Rewrite(F);
         WHILE NOT modulo.QUERY_WEB.Eof DO
 
         BEGIN
 
         //Datos Facturacion Cliente
+        IDPAGO:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('IDPAGO').ASSTRING);
         CodigoOrientacion:=modulo.QUERY_WEB.FIELDBYNAME('cod_orientacion').ASSTRING; //'CO'; //char 2 OBLIGATORIO 'CO' = PAGO CAMPO FIJO
         CuentaEmpresa:=modulo.QUERY_WEB.FIELDBYNAME('cuenta_empresa').ASSTRING; //num 11 OBLIGATORIO CAMPO FIJO
         SecuencialCobro:=modulo.QUERY_WEB.FIELDBYNAME('secuencial_cobro').ASSTRING; //'00000001'; //num 7 OBLIGATORIO
@@ -1430,7 +1469,7 @@ FECHA:=Now;
         TelefonoDeudor:=' ';// char 20 OPCIONAL 
         LocalidadCobro:=' ';// char 20 opcional (en blanco todas)
         Referencia:=TRIM(modulo.QUERY_WEB.FIELDBYNAME('patente').ASSTRING); // char 200 OBLIGATORIO facturas o comporbantes de referencia para el cobro //Referencia
-        ReferenciaAdicional:=modulo.QUERY_WEB.FIELDBYNAME('DESCVEHICULO').ASSTRING; // char 100 OPCIONAL datos adicionales que quieran enviarse (Aquí podemos enviar la demás información)
+        ReferenciaAdicional:=modulo.QUERY_WEB.FIELDBYNAME('referencia_adicional').ASSTRING; // char 100 OPCIONAL datos adicionales que quieran enviarse (Aquí podemos enviar la demás información)
         BaseImponibleRentaServ:=modulo.QUERY_WEB.FIELDBYNAME('base_imp_renta_serv').ASSTRING; //'0'; // num 13 OBLIGATORIO? 0 cuando no corresponde
         CodigoRetencionRentaServ:=modulo.QUERY_WEB.FIELDBYNAME('cod_retencion_renta_serv').ASSTRING;//'NA'; // char 20 OBLIGATORIO? NA cuando no corresponde
         BaseImponibleRentaBienes:=modulo.QUERY_WEB.FIELDBYNAME('base_imp_renta_bienes').ASSTRING;//'0'; // num 13 OBLIGATORIO?
@@ -1445,9 +1484,13 @@ FECHA:=Now;
         BaseICE:=' '; // num 13 OPCIONAL
         canton_cliente:=modulo.QUERY_WEB.FIELDBYNAME('CANTON').ASSTRING;
 
+        sArchivo := ExtractFilePath( 'F:\PRODUBANCO\' ) + NOMBREEMBRESA+'_'+CODIGOSERVICIO+'_'+IDCONTRATO+'_'+formatdatetime('yyyymmdd',FECHA)+'_IN_'+Referencia+'_'+IDPAGO+'.txt';
+        //sArchivo := ExtractFilePath( 'C:\Argentin\SagVTV\Cobros\' ) + NOMBREEMBRESA+'_'+CODIGOSERVICIO+'_'+IDCONTRATO+'_'+formatdatetime('yyyymmdd',FECHA)+'_IN_'+Referencia+'_'+IDPAGO+'.txt'; //TESTING
+        AssignFile( F, sArchivo );
 
          //WriteLn Inserta registrons linea a linea
          //Write Inserta registros continuamente en 1 linea
+         Rewrite(F);
            Write(F,CodigoOrientacion+
                 ''#9+CuentaEmpresa+
                 ''#9+SecuencialCobro+
@@ -1480,17 +1523,47 @@ FECHA:=Now;
                 ''#9+BaseICE+#9
                 //''#9+canton_cliente
                 );
+                {
+                QUERY_MSSQL:='UPDATE RESERVA SET '+
+                             ' CODESTADO = 1 '+
+                             ' WHERE CODESTADO = 0 '+
+                             '   AND NUMERO = '+TRIM(IDPAGO);
+                             //'   AND PATENTE = '+TRIM(Referencia);
 
+             modulo.CONEXION.BeginTrans;
+               TRY
+                MEMO1.Lines.Add('ACTUALIZANDO RESERVA: '+TRIM(IDPAGO));
+                RxTrayIcon1.HiNT:='ACTUALIZANDO RESERVA: '+TRIM(IDPAGO);
+                APPLICATION.ProcessMessages;
+                modulo.QUERY_WEB2.Close;
+                modulo.QUERY_WEB2.SQL.Clear;
+                modulo.QUERY_WEB2.SQL.Add(QUERY_MSSQL);
+                modulo.QUERY_WEB2.ExecSQL;
+                modulo.CONEXION.CommitTrans;
+                MEMO1.Lines.Add('ESTADO RESERVA ACTUALIZADO');
+                APPLICATION.ProcessMessages;
+
+            EXCEPT
+             on E: Exception do
+                      BEGIN
+                         MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+                         modulo.CONEXION.RollbackTrans;
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| RESERVA: '+TRIM(IDPAGO)+' NO SE PUDO ACTUALIZAR POR :'+ E.message);
+                      END;
+           END;
+           }
       modulo.QUERY_WEB.NEXT;
+      CloseFile(F);
     end;
-    CloseFile(F);
+    //CloseFile(F);
     modulo.QUERY_WEB.Close;
     MEMO1.Lines.Add('Exportacion De Pagos a TXT Terminada');
     RxTrayIcon1.HiNT:='Exportacion De Pagos TXT Terminada';
     APPLICATION.ProcessMessages;
-    MEMO1.Lines.Add('Subiendo archivo al FTP...');
-    RxTrayIcon1.HiNT:='Subiendo archivo al FTP...';
-    SubirArchivo(sArchivo);
+    //MEMO1.Lines.Add('Subiendo archivo al FTP...');
+    //RxTrayIcon1.HiNT:='Subiendo archivo al FTP...';
+    //SubirArchivo(sArchivo);
 end;
 
 Procedure TForm1.SubirArchivo( sArchivo: String );
@@ -1527,6 +1600,113 @@ begin
   FTP.Free;
 end;
 
+procedure TForm1.ACTUALIZARAUSENTES;
+
+begin
+
+   with TSQLStoredProc.Create(Application) do
+    try
+        SQLConnection := MyBD;
+        StoredProcName := 'ACTUALIZAAUSENTES ';
+        Prepared := true;
+        ExecProc;
+        Close;
+    finally
+      Free;
+    end;
+
+end;
+
+procedure TForm1.ACTUALIZARCANCELADOS;
+
+var
+PATENTE,sqloracle,
+FECHATURNO,HORATURNO:string;
+ESTADO,IDPAGO,Existe:longint;
+
+begin
+        modulo.QUERY_WEB3.Close;
+        modulo.QUERY_WEB3.SQL.Clear;
+        modulo.QUERY_WEB3.SQL.Add('SELECT '+
+                                 ' re.numero AS IDPAGO '+
+                                 ',re.patente '+
+                                 ',re.centro AS PLANTA '+
+                                 ',re.fecha AS FECHATURNO '+
+                                 ',re.hora AS HORATURNO '+
+                                 ',re.codestado AS ESTADO '+
+                                 ' FROM reserva re '+
+                                 ' WHERE re.codestado = 2 '+
+                                 '   AND re.importado = ''S'' '+
+                                 '   AND re.INFORMADO = ''N'' '+
+                                 '   AND re.fecha BETWEEN GETDATE()-10 AND GETDATE()+1 '+
+                                 ' ORDER BY re.fecha');
+
+        modulo.QUERY_WEB3.ExecSQL;
+        modulo.QUERY_WEB3.Open;
+
+        WHILE NOT modulo.QUERY_WEB3.Eof DO
+
+        BEGIN
+        //Tdatosturno
+        PATENTE:=TRIM(modulo.QUERY_WEB3.FIELDBYNAME('PATENTE').ASSTRING);
+        FECHATURNO:=TRIM(modulo.QUERY_WEB3.FIELDBYNAME('FECHATURNO').ASSTRING);
+        HORATURNO:=TRIM(modulo.QUERY_WEB3.FIELDBYNAME('HORATURNO').ASSTRING);
+        ESTADO:=modulo.QUERY_WEB3.FIELDBYNAME('ESTADO').ASInteger;
+        IDPAGO:=modulo.QUERY_WEB3.FIELDBYNAME('IDPAGO').ASInteger;
+
+        
+        {Consulto si las reservas web existen en tdatosturno}
+        with tsqlQuery.Create(nil) do
+        try
+          SQLConnection:= MYBD;
+          SQL.Add('select count(*) from TDATOSTURNO where ESTADO = 1 AND IDPAGO='+inttostr(IDPAGO));
+          Open;
+          Existe:=fields[0].ASInteger;
+        finally
+         close;
+         free;
+        end;
+
+		    if (Existe<>0) then
+           begin
+                {inserto en tdatosturno}
+                sqloracle:='UPDATE TDATOSTURNO SET '+
+                            ' ESTADO = '+INTTOSTR(ESTADO)+
+                            ' WHERE IDPAGO = '+INTTOSTR(IDPAGO)+
+                            '   AND ESTADO = 1 '+
+                            '   AND ROWNUM = 1 '+
+                            ')';
+                end else begin
+                  MEMO1.Lines.Add('EL TURNO YA FUE ACTUALIZADO: '+INTTOSTR(IDPAGO));
+                  RxTrayIcon1.HiNT:='EL TURNO YA FUE ACTUALIZADO: '+INTTOSTR(IDPAGO);
+                  APPLICATION.ProcessMessages;
+                end;
+
+          if (Existe<>0) then
+           with tsqlQuery.Create(nil) do
+            try
+              SQLConnection:= MYBD;
+                MEMO1.Lines.Add('ACTUALIZANDO TURNO: '+INTTOSTR(IDPAGO));
+                RxTrayIcon1.HiNT:='ACTUALIZANDO TURNO: '+INTTOSTR(IDPAGO);
+                APPLICATION.ProcessMessages;
+                SQL.Clear;
+                SQL.Add(sqloracle);
+                ExecSQL;
+                MEMO1.Lines.Add('TRANSACCION: OK');
+                APPLICATION.ProcessMessages;
+
+           EXCEPT
+             on E: Exception do
+                      BEGIN
+                         MEMO1.Lines.Add('TRANSACCION: ERROR');
+                         APPLICATION.ProcessMessages;
+                         GUARDA_LOG(DATETOSTR(DATE)+'|'+TIMETOSTR(TIME)+'| PLANTA '+NOMPLANTA+'. NO SE ACTUALIZO EL TURNO '+INTTOSTR(IDPAGO)+'. POR :'+ E.message);
+                      END;
+           END;
+           modulo.QUERY_WEB3.NEXT;
+        END;
+end;
+
 procedure TForm1.INFORMARTURNOS;
 
 var
@@ -1540,10 +1720,10 @@ with tsqlQuery.Create(nil) do
         SQLConnection:= MYBD;
         SQL.Add('SELECT DISTINCT COUNT(*) '+
                 'FROM TDATOSTURNO '+
-                'WHERE codinspe IS NOT NULL '+
-                'AND ESTADO <> 1 '+
+                'WHERE ESTADO <> 1 '+
+                //'AND codinspe IS NOT NULL '+
                 'AND INFORMADO = ''N'' '+
-                'AND FECHATURNO BETWEEN SYSDATE -5 '+
+                'AND FECHATURNO BETWEEN SYSDATE -10 '+
                 'AND SYSDATE +1 '+
                 'ORDER BY IDPAGO');
         Open;
@@ -1560,10 +1740,10 @@ with tsqlQuery.Create(nil) do
         SQLConnection:= MYBD;
         SQL.Add('SELECT DISTINCT IDPAGO AS RESERVA, ESTADO, INFORMADO '+
                 'FROM TDATOSTURNO '+
-                'WHERE codinspe IS NOT NULL '+
-                'AND ESTADO <> 1 '+
+                'WHERE ESTADO <> 1 '+
+                //'AND codinspe IS NOT NULL '+
                 'AND INFORMADO = ''N'' '+
-                'AND FECHATURNO BETWEEN SYSDATE -5 '+
+                'AND FECHATURNO BETWEEN SYSDATE -10 '+
                 'AND SYSDATE +1 '+
                 'ORDER BY IDPAGO');
         Open;
@@ -1658,6 +1838,7 @@ with tsqlQuery.Create(nil) do
                modulo.QUERY_WEB.SQL.Clear;
            END;
 
+
 END;
 
 procedure TForm1.CONEXION; {PARA LA EXPORTACION A TXT SIN TENER QUE EJECUTAR TODO}
@@ -1666,7 +1847,6 @@ BASE,alias,userbd,password:STRING;
 link:string;
 LOG:textfile;
 FE:STRING;
-IDPAGO,planta:longint;
 
 begin
 FE:=COPY(DATETOSTR(DATE),1,2)+COPY(DATETOSTR(DATE),4,2)+COPY(DATETOSTR(DATE),7,4);
@@ -1712,6 +1892,6 @@ end;
 
 END;
 
-end;
+end; 
 
 END.

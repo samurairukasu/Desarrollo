@@ -32,6 +32,9 @@ type
     sql_aux1: TADOQuery;
     query_exportar1: TADOQuery;
     QUERY_WEB: TADOQuery;
+    query_actualiza: TADOQuery;
+    QUERY_WEB2: TADOQuery;
+    QUERY_WEB3: TADOQuery;
   private
     { Private declarations }
   public

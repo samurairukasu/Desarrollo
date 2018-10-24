@@ -1,8 +1,8 @@
 object modulo: Tmodulo
   OldCreateOrder = False
-  Left = 281
-  Top = 251
-  Height = 618
+  Left = 423
+  Top = 138
+  Height = 493
   Width = 673
   object conexion: TADOConnection
     LoginPrompt = False
@@ -166,5 +166,17 @@ object modulo: Tmodulo
     Parameters = <>
     Left = 400
     Top = 128
+  end
+  object query_actualiza: TADOQuery
+    Connection = conexion
+    Parameters = <>
+    Left = 512
+    Top = 296
+  end
+  object QUERY_WEB2: TADOQuery
+    Connection = conexion
+    Parameters = <>
+    Left = 496
+    Top = 392
   end
 end
