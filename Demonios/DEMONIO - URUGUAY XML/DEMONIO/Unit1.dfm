@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 824
-  Top = 320
+  Left = 674
+  Top = 319
   Hint = 'STOP  !!!'
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle

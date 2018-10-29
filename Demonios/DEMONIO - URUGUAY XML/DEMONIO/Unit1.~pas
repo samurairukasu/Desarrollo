@@ -384,7 +384,7 @@ with TSuperRegistry.Create do
     free;
   end;
 
-conexion_virtual('db_web_uruguay'); //SQL
+//conexion_virtual('db_web_uruguay'); //SQL
 conexion_virtual(BASE);  //SQL
 IF CITAS_CONECT=TRUE THEN BEGIN  //SQL
 
@@ -589,7 +589,6 @@ if findfirst(sPath+sMask, faAnyFile, SearchRec) = 0 then
     // Must free up resources used by these successful finds
     FindClose(SearchRec);
   end;
-  
 end;
 
 PROCEDURE TForm1.CARGAXMLS(Archivo_XML:String);

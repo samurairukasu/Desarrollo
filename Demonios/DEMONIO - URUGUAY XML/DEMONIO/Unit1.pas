@@ -384,7 +384,7 @@ with TSuperRegistry.Create do
     free;
   end;
 
-conexion_virtual('db_web_uruguay'); //SQL
+//conexion_virtual('db_web_uruguay'); //SQL
 conexion_virtual(BASE);  //SQL
 IF CITAS_CONECT=TRUE THEN BEGIN  //SQL
 
@@ -1488,6 +1488,7 @@ begin
 //BEGIN
 HINT:='EXPOTANDO...';
  timer1.Enabled:=falsE;
+ MYBD.Close;
  SELF.EJECUTAR;
  timer1.Interval:=5000; //5 segundos
  timer1.Enabled:=true;
@@ -1496,6 +1497,7 @@ MEMO1.Clear;
 MEMO1.Lines.Add('EXPORTACION ...');
 RxTrayIcon1.HiNT:='INICIADO....';
 APPLICATION.ProcessMessages;
+//MYBD.Close;
 end;
 
 procedure TForm1.BitBtn1Click(Sender: TObject);
@@ -1510,6 +1512,7 @@ APPLICATION.ProcessMessages;
 BUTTON1.Enabled:=TRUE;
 SELF.BitBtn1.Enabled:=FALSE;
 Timer1.Enabled:=TRUE;
+MYBD.Close;
 end;
 
 procedure TForm1.Ocultar1Click(Sender: TObject);
