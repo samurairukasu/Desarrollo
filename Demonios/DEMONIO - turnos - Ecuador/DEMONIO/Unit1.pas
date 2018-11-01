@@ -891,6 +891,7 @@ begin
 //BEGIN
 HINT:='EXPOTANDO...';
 timer1.Enabled:=falsE;
+MYBD.Close;
  SELF.EJECUTAR;
  timer1.Interval:=60000; //Chequea cada 1 min
  timer1.Enabled:=true;
@@ -913,6 +914,7 @@ APPLICATION.ProcessMessages;
 BUTTON1.Enabled:=TRUE;
 SELF.BitBtn1.Enabled:=FALSE;
 Timer1.Enabled:=TRUE;
+MYBD.Close;
 end;
 
 procedure TForm1.Ocultar1Click(Sender: TObject);
@@ -1659,7 +1661,7 @@ begin
         with tsqlQuery.Create(nil) do
         try
           SQLConnection:= MYBD;
-          SQL.Add('select count(*) from TDATOSTURNO where ESTADO = 1 AND IDPAGO='+inttostr(IDPAGO));
+          SQL.Add('select count(*) from TDATOSTURNO where ESTADO in (1,7) AND IDPAGO='+inttostr(IDPAGO));
           Open;
           Existe:=fields[0].ASInteger;
         finally
@@ -1673,7 +1675,7 @@ begin
                 sqloracle:='UPDATE TDATOSTURNO SET '+
                             ' ESTADO = '+INTTOSTR(ESTADO)+
                             ' WHERE IDPAGO = '+INTTOSTR(IDPAGO)+
-                            '   AND ESTADO = 1 '+
+                            '   AND ESTADO in (1,7) '+
                             '   AND ROWNUM = 1 '+
                             ')';
                 end else begin

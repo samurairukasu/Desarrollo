@@ -1754,6 +1754,7 @@ begin
 //BEGIN
 HINT:='EXPOTANDO...';
  timer1.Enabled:=falsE;
+ MYBD.Close;
  SELF.EJECUTAR;
  timer1.Interval:=60000; //10800000
  timer1.Enabled:=true;
@@ -1776,6 +1777,7 @@ APPLICATION.ProcessMessages;
 BUTTON1.Enabled:=TRUE;
 SELF.BitBtn1.Enabled:=FALSE;
 Timer1.Enabled:=TRUE;
+MYBD.Close;
 end;
 
 procedure TForm1.Ocultar1Click(Sender: TObject);

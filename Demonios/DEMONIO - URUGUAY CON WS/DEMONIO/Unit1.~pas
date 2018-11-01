@@ -523,7 +523,7 @@ BEGIN
                  sqloracle:='UPDATE TDATOSTURNO SET '+
                             ' FECHATURNO = TO_DATE('+#39+TRIM(FECHATURNO)+#39+',''DD/MM/YYYY'')'+
                             ',HORATURNO = '+#39+TRIM(HORATURNO)+#39+
-                            ',FECHANOVEDAD = TO_DATE('+#39+TRIM(FECHANOVEDAD)+#39+',''DD/MM/YYYY'')'+
+                            //',FECHANOVEDAD = TO_DATE('+#39+TRIM(FECHANOVEDAD)+#39+',''DD/MM/YYYY'')'+
                             ',ESTADOID = '+INTTOSTR(ESTADOID)+
                             ',ESTADODESC = '+#39+TRIM(ESTADODESC)+#39+
                             ' WHERE TURNOID = '+INTTOSTR(TURNOID)+

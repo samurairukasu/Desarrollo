@@ -1659,7 +1659,7 @@ begin
         with tsqlQuery.Create(nil) do
         try
           SQLConnection:= MYBD;
-          SQL.Add('select count(*) from TDATOSTURNO where ESTADO = 1 AND IDPAGO='+inttostr(IDPAGO));
+          SQL.Add('select count(*) from TDATOSTURNO where ESTADO in (1,7) AND IDPAGO='+inttostr(IDPAGO));
           Open;
           Existe:=fields[0].ASInteger;
         finally
@@ -1673,7 +1673,7 @@ begin
                 sqloracle:='UPDATE TDATOSTURNO SET '+
                             ' ESTADO = '+INTTOSTR(ESTADO)+
                             ' WHERE IDPAGO = '+INTTOSTR(IDPAGO)+
-                            '   AND ESTADO = 1 '+
+                            '   AND ESTADO in (1,7) '+
                             '   AND ROWNUM = 1 '+
                             ')';
                 end else begin
@@ -1723,7 +1723,7 @@ with tsqlQuery.Create(nil) do
                 'WHERE ESTADO <> 1 '+
                 //'AND codinspe IS NOT NULL '+
                 'AND INFORMADO = ''N'' '+
-                'AND FECHATURNO BETWEEN SYSDATE -5 '+
+                'AND FECHATURNO BETWEEN SYSDATE -10 '+
                 'AND SYSDATE +1 '+
                 'ORDER BY IDPAGO');
         Open;
@@ -1743,7 +1743,7 @@ with tsqlQuery.Create(nil) do
                 'WHERE ESTADO <> 1 '+
                 //'AND codinspe IS NOT NULL '+
                 'AND INFORMADO = ''N'' '+
-                'AND FECHATURNO BETWEEN SYSDATE -5 '+
+                'AND FECHATURNO BETWEEN SYSDATE -10 '+
                 'AND SYSDATE +1 '+
                 'ORDER BY IDPAGO');
         Open;
