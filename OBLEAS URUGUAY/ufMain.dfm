@@ -1,0 +1,116 @@
+object FMain: TFMain
+  Left = 607
+  Top = 302
+  Width = 492
+  Height = 290
+  Caption = 'STOCK OBLEAS URUGUAY'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object MainMenu1: TMainMenu
+    object Listados1: TMenuItem
+      Caption = 'Listados'
+      object RecepciondeObleasGlobal: TMenuItem
+        Caption = 'Recepci'#243'n de Obleas Global'
+        object RecepObleaGlobalPDF: TMenuItem
+          Caption = 'PDF'
+          OnClick = RecepObleaGlobalPDFClick
+        end
+        object RecepObleaGlobalExcel: TMenuItem
+          Caption = 'Excel'
+          Visible = False
+        end
+      end
+      object EntradadeObleasGlobal: TMenuItem
+        Caption = 'Entrada de Obleas Global'
+        object EntradadeObleasGlobalPDF: TMenuItem
+          Caption = 'PDF'
+          OnClick = EntradadeObleasGlobalPDFClick
+        end
+        object EntradadeObleasGlobalExcel: TMenuItem
+          Caption = 'Excel'
+          Visible = False
+        end
+      end
+      object StockdeObleasGlobal: TMenuItem
+        Caption = 'Stock de Obleas Global'
+        object StockdeObleasGlobalPDF: TMenuItem
+          Caption = 'PDF'
+          OnClick = StockdeObleasGlobalPDFClick
+        end
+        object StockdeObleasGlobalExcel: TMenuItem
+          Caption = 'Excel'
+          Visible = False
+        end
+      end
+      object StockdeObleasporPlanta: TMenuItem
+        Caption = 'Stock de Obleas por Planta'
+        object StockdeObleasporPlantaPDF: TMenuItem
+          Caption = 'PDF'
+          OnClick = StockdeObleasporPlantaPDFClick
+        end
+        object StockdeObleasporPlantaExcel: TMenuItem
+          Caption = 'Excel'
+          Visible = False
+        end
+      end
+      object ConsumodeObleasporAnio: TMenuItem
+        Caption = 'Consumo de Obleas por A'#241'o'
+        object ConsumodeObleasporAnioPDF: TMenuItem
+          Caption = 'PDF'
+          OnClick = ConsumodeObleasporAnioPDFClick
+        end
+        object ConsumodeObleasporAnioExcel: TMenuItem
+          Caption = 'Excel'
+          Visible = False
+        end
+      end
+      object RecepcindeobleasporPlanta: TMenuItem
+        Caption = 'Recepci'#243'n de obleas por Planta'
+        OnClick = RecepcindeobleasporPlantaClick
+      end
+      object ReimpresindeEntregadeObleas: TMenuItem
+        Caption = 'Reimpresi'#243'n de Entrega de Obleas'
+        OnClick = ReimpresindeEntregadeObleasClick
+      end
+      object ProveedoresdeObleas: TMenuItem
+        Caption = 'Proveedores de Obleas'
+        OnClick = ProveedoresdeObleasClick
+      end
+      object PlanillaControlArqueoObleas: TMenuItem
+        Caption = 'Planilla Control Arqueo Obleas'
+        OnClick = PlanillaControlArqueoObleasClick
+      end
+    end
+    object Movimientos1: TMenuItem
+      Caption = 'Movimientos'
+      object RecepciondeObleasITV1: TMenuItem
+        Caption = 'Recepci'#243'n de Obleas ITV'
+        OnClick = RecepciondeObleasITV1Click
+      end
+      object CambiodePlanta1: TMenuItem
+        Caption = 'Movimiento de Obleas ITV'
+        OnClick = CambiodePlanta1Click
+      end
+    end
+    object ActualizarBD1: TMenuItem
+      Caption = 'Actualizar'
+      object ActualizarObleas1: TMenuItem
+        Caption = 'Actualizar Stock de Obleas'
+        OnClick = ActualizarObleas1Click
+      end
+    end
+    object Salir1: TMenuItem
+      Caption = 'Salir'
+      OnClick = BtnSalirClick
+    end
+  end
+end
